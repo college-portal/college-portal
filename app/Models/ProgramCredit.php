@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\Models\SemesterType;
+use App\Models\Level;
 
 /**
  * App\Models\ProgramCredit
@@ -24,5 +26,11 @@ use App\Models\BaseModel;
  */
 class ProgramCredit extends BaseModel
 {
+    public function semesterType() {
+        return $this->belongsTo(SemesterType::class);
+    }
 
+    public function level() {
+        return $this->belongsTo(Level::class);
+    }
 }
