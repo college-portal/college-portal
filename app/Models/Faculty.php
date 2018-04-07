@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\Models\School;
+use App\User;
 
 /**
  * App\Models\Faculty
@@ -22,5 +24,11 @@ use App\Models\BaseModel;
  */
 class Faculty extends BaseModel
 {
+    public function school() {
+        return $this->belongsTo(School::class);
+    }
 
+    public function dean() {
+        return $this->belongsTo(User::class, 'dean_id');
+    }
 }
