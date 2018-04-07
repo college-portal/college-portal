@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\Models\Department;
 
 /**
  * App\Models\Program
@@ -21,5 +22,7 @@ use App\Models\BaseModel;
  */
 class Program extends BaseModel
 {
-
+    public function department() {
+        return $this->belongsTo(Department::class);
+    }
 }
