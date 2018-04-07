@@ -11,10 +11,12 @@ use App\Models\BaseModel;
  * @property int $student_id
  * @property int $staff_teach_course_id
  * @property int $semester_id
- * @property \Carbon\Carbon $created_date
- * @property \Carbon\Carbon $updated_date
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\StudentTakesCourse whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\StudentTakesCourse whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Role whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Role whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class StudentTakesCourse extends BaseModel
