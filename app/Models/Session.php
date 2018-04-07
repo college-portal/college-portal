@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\Models\School;
 
 /**
  * App\Models\Session
@@ -21,5 +22,7 @@ use App\Models\BaseModel;
  */
 class Session extends BaseModel
 {
-
+    public function school() {
+        return $this->belongsTo(School::class);
+    }
 }

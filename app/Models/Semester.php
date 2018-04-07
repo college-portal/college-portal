@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\Models\Session;
+use App\Models\School;
 
 /**
  * App\Models\Semester
@@ -21,5 +23,11 @@ use App\Models\BaseModel;
  */
 class Semester extends BaseModel
 {
+    public function session() {
+        return $this->belongsTo(Session::class);
+    }
 
+    public function school() {
+        return $this->session()->school();
+    }
 }

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\User;
+use App\Models\Role;
 
 /**
  * App\Models\UserHasRole
@@ -20,5 +22,11 @@ use App\Models\BaseModel;
  */
 class UserHasRole extends BaseModel
 {
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 
+    public function role() {
+        return $this->belongsTo(Role::class);
+    }
 }

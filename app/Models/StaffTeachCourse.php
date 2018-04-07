@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\Models\Staff;
+use App\Models\Course;
+use App\User;
 
 /**
  * App\Models\StaffTeachCourse
@@ -21,5 +24,15 @@ use App\Models\BaseModel;
  */
 class StaffTeachCourse extends BaseModel
 {
+    public function course() {
+        return $this->belongsTo(Course::class);
+    }
 
+    public function staff() {
+        return $this->belongsTo(Staff::class);
+    }
+
+    public function user() {
+        return $this->staff()->user();
+    }
 }
