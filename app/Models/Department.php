@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\Models\Faculty;
+use App\User;
 
 /**
  * App\Models\Department
@@ -22,5 +24,11 @@ use App\Models\BaseModel;
  */
 class Department extends BaseModel
 {
+    public function faculty() {
+        return $this->belongsTo(Faculty::class);
+    }
 
+    public function hod() {
+        return $this->belongsTo(User::class, 'hod_id');
+    }
 }
