@@ -9,6 +9,7 @@ use App\Models\BaseModel;
  *
  * @property int $id
  * @property string $name
+ * @property string $short_name
  * @property int $owner_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at

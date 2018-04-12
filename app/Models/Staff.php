@@ -12,7 +12,7 @@ use App\User;
  * @property int $id
  * @property int $user_id
  * @property int $department_id
- * @property int $title
+ * @property string $title
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Staff whereContains($value)
