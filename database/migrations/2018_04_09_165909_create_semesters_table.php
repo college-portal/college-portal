@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateSemestersTable extends Migration
 {
@@ -17,8 +18,8 @@ class CreateSemestersTable extends Migration
             $table->increments('id');
             $table->integer('semester_type_id')->unsigned();
             $table->integer('session_id')->unsigned();
-            $table->timestamp('start_date');
-            $table->timestamp('end_date');
+            $table->timestamp('start_date')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('end_date')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamps();
         });
     }
