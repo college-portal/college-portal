@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Models\StudentTakesCourse;
 
 class CreateStudentRegCoursesTable extends Migration
 {
@@ -13,7 +14,7 @@ class CreateStudentRegCoursesTable extends Migration
      */
     public function up()
     {
-        Schema::create('student_takes_courses', function (Blueprint $table) {
+        Schema::create(StudentTakesCourse::name(), function (Blueprint $table) {
             $table->increments('id');
             $table->integer('student_id')->unsigned();
             $table->integer('staff_teach_course_id')->unsigned();
@@ -29,6 +30,6 @@ class CreateStudentRegCoursesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student_takes_courses');
+        Schema::dropIfExists(StudentTakesCourse::name());
     }
 }

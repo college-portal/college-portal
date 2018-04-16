@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Models\ProgramCredit;
 
 class CreateProgramCreditsTable extends Migration
 {
@@ -13,7 +14,7 @@ class CreateProgramCreditsTable extends Migration
      */
     public function up()
     {
-        Schema::create('program_credits', function (Blueprint $table) {
+        Schema::create(ProgramCredit::name(), function (Blueprint $table) {
             $table->increments('id');
             $table->integer('program_id')->unsigned();
             $table->integer('semester_type_id')->unsigned();
@@ -30,6 +31,6 @@ class CreateProgramCreditsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('program_credits');
+        Schema::dropIfExists(ProgramCredit::name());
     }
 }

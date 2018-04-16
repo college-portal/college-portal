@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\User;
 
 class AddColumnsToUsersTable extends Migration
 {
@@ -13,7 +14,7 @@ class AddColumnsToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table(User::name(), function (Blueprint $table) {
             $table->string('first_name', 255);
             $table->string('last_name', 255);
             $table->string('other_names', 255);
@@ -28,7 +29,7 @@ class AddColumnsToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table(User::name(), function (Blueprint $table) {
             $table->dropColumn([ 'first_name', 'last_name', 'other_names', 'dob' ]);
         });
     }

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Models\Grade;
 
 class CreateGradesTable extends Migration
 {
@@ -13,7 +14,7 @@ class CreateGradesTable extends Migration
      */
     public function up()
     {
-        Schema::create('grades', function (Blueprint $table) {
+        Schema::create(Grade::name(), function (Blueprint $table) {
             $table->increments('id');
             $table->integer('student_takes_course_id')->unsigned();
             $table->integer('score');
@@ -30,6 +31,6 @@ class CreateGradesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grades');
+        Schema::dropIfExists(Grade::name());
     }
 }

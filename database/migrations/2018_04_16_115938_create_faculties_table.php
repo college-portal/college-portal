@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Models\Faculty;
 
 class CreateFacultiesTable extends Migration
 {
@@ -13,7 +14,7 @@ class CreateFacultiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('faculties', function (Blueprint $table) {
+        Schema::create(Faculty::name(), function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 500);
             $table->integer('dean_id')->unsigned();
@@ -29,6 +30,6 @@ class CreateFacultiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faculties');
+        Schema::dropIfExists(Faculty::name());
     }
 }

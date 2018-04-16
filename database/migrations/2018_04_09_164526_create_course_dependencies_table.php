@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Models\CourseDependency;
 
 class CreateCourseDependenciesTable extends Migration
 {
@@ -13,7 +14,7 @@ class CreateCourseDependenciesTable extends Migration
      */
     public function up()
     {
-        Schema::create('course_dependencies', function (Blueprint $table) {
+        Schema::create(CourseDependency::name(), function (Blueprint $table) {
             $table->increments('id');
             $table->integer('course_id')->unsigned();
             $table->integer('dependency_id')->unsigned();
@@ -28,6 +29,6 @@ class CreateCourseDependenciesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('course_dependencies');
+        Schema::dropIfExists(CourseDependency::name());
     }
 }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
+use App\Models\Semester;
 
 class CreateSemestersTable extends Migration
 {
@@ -14,7 +15,7 @@ class CreateSemestersTable extends Migration
      */
     public function up()
     {
-        Schema::create('semesters', function (Blueprint $table) {
+        Schema::create(Semester::name(), function (Blueprint $table) {
             $table->increments('id');
             $table->integer('semester_type_id')->unsigned();
             $table->integer('session_id')->unsigned();
@@ -31,6 +32,6 @@ class CreateSemestersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('semesters');
+        Schema::dropIfExists(Semester::name());
     }
 }
