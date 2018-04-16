@@ -11,5 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class BaseModel extends Model
 {
-    
+    public static function table() {
+        return with(new static)->getTable();
+    }
 }
