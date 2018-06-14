@@ -17,7 +17,7 @@ class CreateStudentsTable extends Migration
         Schema::create(Student::name(), function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('department_id')->unsigned();
+            $table->integer('program_id')->unsigned();
             $table->string('matric_no', 255);
             $table->boolean('is_active');
             $table->timestamps();
