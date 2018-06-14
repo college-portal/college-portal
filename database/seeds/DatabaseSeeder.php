@@ -17,15 +17,17 @@ class DatabaseSeeder extends Seeder
 
     public function createSchoolOwner() {
         $user = $this->createUser([
-            'first_name' => 'School',
-            'last_name' => 'Owner'
+            'first_name' => 'Owner',
+            'last_name' => 'Orlando',
+            'email' => 'owner.orlando@mailinator.com'
         ]);
         
         $school = $this->createSchool($user);
 
         $deanUser = $this->createUser([
             'first_name' => 'Dean',
-            'last_name' => 'Daniels'
+            'last_name' => 'Daniels',
+            'email' => 'dean.daniel@mailinator.com'
         ]);
 
         $staff = $this->createStaff($deanUser);
