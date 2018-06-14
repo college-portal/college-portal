@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\Models\ChargeableService;
 
 /**
  * App\Models\Chargeable
@@ -22,5 +23,7 @@ use App\Models\BaseModel;
  */
 class Chargeable extends BaseModel
 {
-
+    public function service() {
+        return $this->belongsTo(ChargeableService::class);
+    }
 }
