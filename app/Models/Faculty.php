@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\BaseModel;
 use App\Models\School;
-use App\User;
+use App\Models\Staff;
 
 /**
  * App\Models\Faculty
@@ -29,6 +29,6 @@ class Faculty extends BaseModel
     }
 
     public function dean() {
-        return $this->belongsTo(User::class, 'dean_id');
+        return $this->belongsTo(Staff::class, 'dean_id');
     }
 }

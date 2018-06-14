@@ -15,10 +15,10 @@ class AddColumnsToUsersTable extends Migration
     public function up()
     {
         Schema::table(User::name(), function (Blueprint $table) {
-            $table->string('first_name', 255);
-            $table->string('last_name', 255);
-            $table->string('other_names', 255);
-            $table->date('dob');
+            $table->string('first_name', 255)->after('password');
+            $table->string('last_name', 255)->after('first_name');
+            $table->string('other_names', 255)->after('last_name')->nullable();
+            $table->date('dob')->after('other_names');
         });
     }
 
