@@ -3,10 +3,11 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\Group;
 use App\User;
+use App\Models\Role;
+use App\Models\UserHasRole;
 
-class RelGroupUser extends Migration
+class CreateUserHasRoleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,8 +16,10 @@ class RelGroupUser extends Migration
      */
     public function up()
     {
-        Schema::table(Group::name(), function (Blueprint $table) {
-            $table->foreign('owner_id')->references('id')->on(User::name());
+        Schema::create(UserHasRole::name(), function (Blueprint $table) {
+            $table->integer('user_id')->unsigned();
+            $table->integer('role_id')->unsigned();
+            $table->timestamps();
         });
     }
 
@@ -27,8 +30,6 @@ class RelGroupUser extends Migration
      */
     public function down()
     {
-        Schema::table(Group::name(), function (Blueprint $table) {
-            $table->dropForeign([ 'owner_id' ]);
-        });
+        Schema::dropIfExists(UserHasRole::name());
     }
 }

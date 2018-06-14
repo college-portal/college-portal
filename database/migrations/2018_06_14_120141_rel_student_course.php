@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 use App\Models\StudentTakesCourse;
 use App\Models\StaffTeachCourse;
 use App\Models\Semester;
-use App\Student;
+use App\Models\Student;
 
 class RelStudentCourse extends Migration
 {

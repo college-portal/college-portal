@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Session;
-use App\Semester;
-use App\SemesterType;
+use App\Models\Session;
+use App\Models\Semester;
+use App\Models\SemesterType;
 
 class RelSemesterType extends Migration
 {
@@ -30,8 +30,8 @@ class RelSemesterType extends Migration
     public function down()
     {
         Schema::table(Semester::name(), function (Blueprint $table) {
-            $table->dropColumn([ 'session_id' ]);
-            $table->dropColumn([ 'semester_type_id' ]);
+            $table->dropForeign([ 'session_id' ]);
+            $table->dropForeign([ 'semester_type_id' ]);
         });
     }
 }

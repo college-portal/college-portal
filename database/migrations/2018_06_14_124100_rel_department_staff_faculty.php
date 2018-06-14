@@ -30,8 +30,8 @@ class RelDepartmentStaffFaculty extends Migration
     public function down()
     {
         Schema::table(Department::name(), function (Blueprint $table) {
-            $table->dropColumn([ 'hod_id' ]);
-            $table->dropColumn([ 'faculty_id' ]);
+            $table->dropForeign([ 'hod_id' ]);
+            $table->dropForeign([ 'faculty_id' ]);
         });
     }
 }

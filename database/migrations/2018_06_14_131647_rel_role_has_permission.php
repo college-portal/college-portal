@@ -30,8 +30,8 @@ class RelRoleHasPermission extends Migration
     public function down()
     {
         Schema::table(RoleHasPermission::name(), function (Blueprint $table) {
-            $table->dropColumn([ 'role_id' ]);
-            $table->dropColumn([ 'permission_id' ]);
+            $table->dropForeign([ 'role_id' ]);
+            $table->dropForeign([ 'permission_id' ]);
         });
     }
 }

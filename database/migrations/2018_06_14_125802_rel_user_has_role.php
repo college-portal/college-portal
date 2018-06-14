@@ -30,8 +30,8 @@ class RelUserHasRole extends Migration
     public function down()
     {
         Schema::table(UserHasRole::name(), function (Blueprint $table) {
-            $table->dropColumn([ 'user_id' ]);
-            $table->dropColumn([ 'role_id' ]);
+            $table->dropForeign([ 'user_id' ]);
+            $table->dropForeign([ 'role_id' ]);
         });
     }
 }

@@ -32,9 +32,9 @@ class RelProgramCreditSemesterTypeLevel extends Migration
     public function down()
     {
         Schema::table(ProgramCredit::name(), function (Blueprint $table) {
-            $table->dropColumn([ 'level_id' ]);
-            $table->dropColumn([ 'semester_id' ]);
-            $table->dropColumn([ 'program_id' ]);
+            $table->dropForeign([ 'level_id' ]);
+            $table->dropForeign([ 'semester_id' ]);
+            $table->dropForeign([ 'program_id' ]);
         });
     }
 }

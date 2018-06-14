@@ -28,7 +28,7 @@ class RelGradeTypeStudent extends Migration
     public function down()
     {
         Schema::table(Grade::name(), function (Blueprint $table) {
-            $table->dropColumn([ 'student_takes_course_id' ]);
+            $table->dropForeign([ 'student_takes_course_id' ]);
         });
     }
 }

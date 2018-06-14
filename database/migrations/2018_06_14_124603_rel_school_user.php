@@ -28,7 +28,7 @@ class RelSchoolUser extends Migration
     public function down()
     {
         Schema::table(School::name(), function (Blueprint $table) {
-            $table->dropColumn([ 'owner_id' ]);
+            $table->dropForeign([ 'owner_id' ]);
         });
     }
 }

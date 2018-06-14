@@ -28,7 +28,7 @@ class RelChargeables extends Migration
     public function down()
     {
         Schema::table(Chargeable::name(), function (Blueprint $table) {
-            $table->dropColumn([ 'chargeable_service_id' ]);
+            $table->dropForeign([ 'chargeable_service_id' ]);
         });
     }
 }

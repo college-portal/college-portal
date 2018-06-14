@@ -30,8 +30,8 @@ class RelStudentUserProgram extends Migration
     public function down()
     {
         Schema::table(Student::name(), function (Blueprint $table) {
-            $table->dropColumn([ 'user_id' ]);
-            $table->dropColumn([ 'program_id' ]);
+            $table->dropForeign([ 'user_id' ]);
+            $table->dropForeign([ 'program_id' ]);
         });
     }
 }
