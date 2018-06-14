@@ -17,7 +17,6 @@ use App\Models\GradeType;
  * @property int $student_takes_course_id
  * @property int $score
  * @property string $description
- * @property int $grade_type_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Grade whereContains($value)

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\User;
 
 /**
  * App\Models\Event
@@ -22,5 +23,7 @@ use App\Models\BaseModel;
  */
 class Event extends BaseModel
 {
-
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }
