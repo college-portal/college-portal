@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\User;
 
 /**
  * App\Models\School
@@ -22,5 +23,7 @@ use App\Models\BaseModel;
  */
 class School extends BaseModel
 {
-
+    public function owner() {
+        return $this->belongsTo(User::class, 'owner_id');
+    }
 }

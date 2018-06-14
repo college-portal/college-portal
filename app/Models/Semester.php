@@ -30,4 +30,8 @@ class Semester extends BaseModel
     public function school() {
         return $this->session()->school();
     }
+
+    public function type() {
+        return $this->belongsTo(SemesterType::class);
+    }
 }

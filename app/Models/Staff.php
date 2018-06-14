@@ -31,4 +31,12 @@ class Staff extends BaseModel
     public function department() {
         return $this->belongsTo(Department::class);
     }
+
+    public function faculty() {
+        return $this->department()->faculty();
+    }
+
+    public function school() {
+        return $this->faculty()->school();
+    }
 }

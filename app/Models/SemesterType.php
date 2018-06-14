@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\Models\Semester;
 
 /**
  * App\Models\SemesterType
@@ -15,5 +16,7 @@ use App\Models\BaseModel;
  */
 class SemesterType extends BaseModel
 {
-
+    public function semesters() {
+        return $this->hasMany(Semester::class);
+    }
 }

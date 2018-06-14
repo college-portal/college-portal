@@ -25,6 +25,10 @@ use App\Models\Level;
  */
 class ProgramCredit extends BaseModel
 {
+    public function program() {
+        return $this->belongsTo(Program::class);
+    }
+
     public function semesterType() {
         return $this->belongsTo(SemesterType::class);
     }

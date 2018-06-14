@@ -11,7 +11,7 @@ use App\User;
  *
  * @property int $id
  * @property int $user_id
- * @property int $department_id
+ * @property int $program_id
  * @property string $matric_no
  * @property bool $is_active
  * @property \Carbon\Carbon $created_at
@@ -29,7 +29,19 @@ class Student extends BaseModel
         return $this->belongsTo(User::class);
     }
 
+    public function program() {
+        return $this->belongsTo(Program::class);
+    }
+
     public function department() {
-        return $this->belongsTo(Department::class);
+        return $this->program()->department();
+    }
+
+    public function faculty() {
+        return $this->department()->faculty();
+    }
+
+    public function school() {
+        return $this->faculty()->school();
     }
 }
