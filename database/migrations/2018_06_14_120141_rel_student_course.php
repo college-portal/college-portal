@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 use App\Models\StudentTakesCourse;
 use App\Models\StaffTeachCourse;
 use App\Models\Semester;
-use App\User;
+use App\Student;
 
 class RelStudentCourse extends Migration
 {
@@ -20,7 +20,7 @@ class RelStudentCourse extends Migration
         Schema::table(StudentTakesCourse::name(), function (Blueprint $table) {
             $table->foreign('staff_teach_course_id')->references('id')->on(StaffTeachCourse::name());
             $table->foreign('semester_id')->references('id')->on(Semester::name());
-            $table->foreign('student_id')->references('id')->on(User::name());
+            $table->foreign('student_id')->references('id')->on(Student::name());
         });
     }
 
