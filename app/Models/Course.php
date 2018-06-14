@@ -3,6 +3,10 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\Models\Level;
+use App\Models\Department;
+use App\Models\SemesterType;
+use App\Models\CourseDependency;
 
 /**
  * App\Models\Course
@@ -22,5 +26,19 @@ use App\Models\BaseModel;
  */
 class Course extends BaseModel
 {
+    public function department() {
+        return $this->belongsTo(Department::class);
+    }
 
+    public function semesterType() {
+        return $this->belongsTo(SemesterType::class);
+    }
+
+    public function level() {
+        return $this->belongsTo(Level::class);
+    }
+
+    public function dependencies() {
+        return $this->belongsToMany(self::class, CourseDependency::name(), 'course_id', 'dependency_id');
+    }
 }
