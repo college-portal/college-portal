@@ -17,7 +17,7 @@ class CreateProgramCreditsTable extends Migration
         Schema::create(ProgramCredit::name(), function (Blueprint $table) {
             $table->increments('id');
             $table->integer('program_id')->unsigned();
-            $table->integer('semester_type_id')->unsigned();
+            $table->integer('semester_id')->unsigned();
             $table->integer('level_id')->unsigned();
             $table->integer('credit')->unsigned();
             $table->timestamps();
