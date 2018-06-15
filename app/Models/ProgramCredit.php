@@ -10,7 +10,6 @@ use App\Models\Level;
  * App\Models\ProgramCredit
  *
  * @property int $id
- * @property string $name
  * @property int $program_id
  * @property int $semester_type_id
  * @property int $level_id
@@ -26,6 +25,10 @@ use App\Models\Level;
  */
 class ProgramCredit extends BaseModel
 {
+    public function program() {
+        return $this->belongsTo(Program::class);
+    }
+
     public function semesterType() {
         return $this->belongsTo(SemesterType::class);
     }

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\Models\Chargeable;
 
 /**
  * App\Models\ChargeableService
@@ -21,5 +22,7 @@ use App\Models\BaseModel;
  */
 class ChargeableService extends BaseModel
 {
-
+    public function chargeables() {
+        return $this->hasMany(Chargeable::class);
+    }
 }

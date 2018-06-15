@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\User;
 
 /**
  * App\Models\Group
@@ -17,5 +18,7 @@ use App\Models\BaseModel;
  */
 class Group extends BaseModel
 {
-
+    public function owner() {
+        return $this->belongsTo(User::class);
+    }
 }

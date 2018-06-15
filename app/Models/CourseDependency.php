@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\Models\Course;
 
 /**
  * App\Models\CourseDependency
@@ -18,5 +19,11 @@ use App\Models\BaseModel;
  */
 class CourseDependency extends BaseModel
 {
+    public function course() {
+        return $this->belongsTo(Course::class);
+    }
 
+    public function dependency() {
+        return $this->belongsTo(Course::class, 'dependency_id');
+    }
 }

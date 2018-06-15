@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
-
 use App\Models\Permission;
+use App\Models\RoleHasPermission;
 
 /**
  * App\Models\Role
@@ -24,6 +24,6 @@ use App\Models\Permission;
 class Role extends BaseModel
 {
     public function permissions() {
-        return $this->hasMany(Permission::class);
+        return $this->hasMany(Permission::class, RoleHasPermission::name());
     }
 }

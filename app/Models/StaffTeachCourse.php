@@ -31,8 +31,4 @@ class StaffTeachCourse extends BaseModel
     public function staff() {
         return $this->belongsTo(Staff::class);
     }
-
-    public function user() {
-        return $this->staff()->user();
-    }
 }

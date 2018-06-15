@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\BaseModel;
 use App\Models\School;
+use App\Models\Semester;
 
 /**
  * App\Models\Session
@@ -24,5 +25,9 @@ class Session extends BaseModel
 {
     public function school() {
         return $this->belongsTo(School::class);
+    }
+
+    public function semesters() {
+        return $this->hasMany(Semester::class);
     }
 }
