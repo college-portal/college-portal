@@ -19,6 +19,7 @@ class RelUserHasRole extends Migration
         Schema::table(UserHasRole::name(), function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on(User::name());
             $table->foreign('role_id')->references('id')->on(Role::name());
+            $table->unique([ 'user_id', 'role_id' ]);
         });
     }
 
@@ -32,6 +33,7 @@ class RelUserHasRole extends Migration
         Schema::table(UserHasRole::name(), function (Blueprint $table) {
             $table->dropForeign([ 'user_id' ]);
             $table->dropForeign([ 'role_id' ]);
+            $table->dropUnique([ 'user_id', 'role_id' ]);
         });
     }
 }

@@ -22,6 +22,8 @@ use App\Models\Role;
  */
 class UserHasRole extends BaseModel
 {
+    protected $table = 'user_has_roles';
+
     public function user() {
         return $this->belongsTo(User::class);
     }

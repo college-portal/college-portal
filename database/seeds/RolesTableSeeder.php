@@ -25,7 +25,9 @@ class RolesTableSeeder extends Seeder
     public function roles() {
         return [
             'admin' => 'Administrator',
-            'school-owner' => 'School Owner'
+            'school-owner' => 'School Owner',
+            'staff' => 'Staff',
+            'student' => 'Student'
         ];
     }
 }

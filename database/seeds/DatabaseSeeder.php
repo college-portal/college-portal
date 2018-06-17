@@ -6,6 +6,7 @@ use App\Models\Faculty;
 use App\Models\Department;
 use App\Models\Program;
 use App\Models\Staff;
+use App\Models\Role;
 use App\User;
 
 class DatabaseSeeder extends Seeder
@@ -23,6 +24,8 @@ class DatabaseSeeder extends Seeder
             'last_name' => 'Orlando',
             'email' => 'owner.orlando@mailinator.com'
         ]);
+
+        $this->addRole($user, 'admin');
         
         $school = $this->createSchool($user);
 
@@ -43,6 +46,16 @@ class DatabaseSeeder extends Seeder
 
     public function createUser($opts = null) {
         return User::where($opts ?? [])->first() ?? factory(User::class, 1)->create($opts ?? [])->first();
+    }
+
+    public function addRole(User $user, $roleName) {
+        $role = Role::where([
+            'name' => $roleName
+        ])->first();
+        if (!$user->roles->contains($role->id)) {
+            $user->roles()->attach($role->id);
+        }
+        return $user->roles()->get();
     }
 
     public function createSchool(User $user) {

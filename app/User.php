@@ -6,6 +6,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Traits\ModelTableNameTrait;
 use App\Traits\ImageableTrait;
+use App\Models\Role;
+use App\Models\UserHasRole;
 
 /**
  * App\User
@@ -47,4 +49,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function roles() {
+        return $this->belongsToMany(Role::class, UserHasRole::name())->withTimestamps();;
+    }
 }
