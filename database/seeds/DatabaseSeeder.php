@@ -62,6 +62,7 @@ class DatabaseSeeder extends Seeder
         $opts = [
             'owner_id' => $user->id
         ];
+        $this->addRole($user, 'school-owner');
         return School::where($opts)->first() ?? factory(School::class, 1)->create($opts)->first();
     }
 
@@ -70,6 +71,8 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user->id,
             'department_id' => optional($department)->id
         ];
+
+        $this->addRole($user, 'staff');
 
         return Staff::where($opts)->first() ?? factory(Staff::class, 1)->create($opts)->first();
     }
