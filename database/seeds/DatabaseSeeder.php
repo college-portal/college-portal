@@ -42,33 +42,38 @@ class DatabaseSeeder extends Seeder
     }
 
     public function createUser($opts = null) {
-        return factory(User::class, 1)->create($opts ?? [])->first();
+        return User::where($opts ?? [])->first() ?? factory(User::class, 1)->create($opts ?? [])->first();
     }
 
     public function createSchool(User $user) {
-        return factory(School::class, 1)->create([
+        $opts = [
             'owner_id' => $user->id
-        ])->first();
+        ];
+        return School::where($opts)->first() ?? factory(School::class, 1)->create($opts)->first();
     }
 
     public function createStaff(User $user, Department $department = null) {
-        return factory(Staff::class, 1)->create([
+        $opts = [
             'user_id' => $user->id,
             'department_id' => optional($department)->id
-        ])->first();
+        ];
+
+        return Staff::where($opts)->first() ?? factory(Staff::class, 1)->create($opts)->first();
     }
 
     public function createFaculty(School $school, Staff $staff) {
-        return factory(Faculty::class, 1)->create([
+        $opts = [
             'dean_id' => $staff->id,
             'school_id' => $school->id
-        ])->first();
+        ];
+        return Faculty::where($opts)->first() ?? factory(Faculty::class, 1)->create($opts)->first();
     }
 
     public function createDepartment(Faculty $faculty, Staff $staff) {
-        return factory(Department::class, 1)->create([
+        $opts = [
             'hod_id' => $staff->id,
             'faculty_id' => $faculty->id
-        ])->first();
+        ];
+        return Department::where($opts)->first() ?? factory(Department::class, 1)->create($opts)->first();
     }
 }
