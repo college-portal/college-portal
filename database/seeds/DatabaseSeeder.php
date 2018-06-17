@@ -52,9 +52,7 @@ class DatabaseSeeder extends Seeder
         $role = Role::where([
             'name' => $roleName
         ])->first();
-        if (!$user->roles->contains($role->id)) {
-            $user->roles()->attach($role->id);
-        }
+        $user->roles()->syncWithoutDetaching($role->id);
         return $user->roles()->get();
     }
 
