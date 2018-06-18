@@ -8,6 +8,7 @@ use App\Traits\ModelTableNameTrait;
 use App\Traits\ImageableTrait;
 use App\Traits\FullNameTrait;
 use App\Models\Role;
+use App\Models\School;
 use App\Models\UserHasRole;
 
 /**
@@ -55,5 +56,9 @@ class User extends Authenticatable
 
     public function roles() {
         return $this->belongsToMany(Role::class, UserHasRole::name())->withTimestamps();;
+    }
+
+    public function schools() {
+        return $this->hasMany(School::class);
     }
 }
