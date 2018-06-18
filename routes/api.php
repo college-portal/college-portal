@@ -39,5 +39,7 @@ Route::group([
         Route::get('/user', AuthController::method('current'));  
         
         Route::get('/schools', SchoolController::method('schools'));
+        
+        Route::get('/schools/{id}', SchoolController::method('school'));
     });
 });
