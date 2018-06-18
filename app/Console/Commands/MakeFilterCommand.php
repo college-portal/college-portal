@@ -38,7 +38,7 @@ class MakeFilterCommand extends Command
     public function handle()
     {
         $name = $this->getFilterName();
-        file_put_contents('./app/Filters/' . $name . '.php', $this->getFileContents($name));
+        file_put_contents('./app/Filters/' . $name . 'Filters.php', $this->getFileContents($name));
     }
 
     private function getFilterName() {
@@ -48,7 +48,7 @@ class MakeFilterCommand extends Command
             throw new \Exception('Invalid Filter Name');
         }
 
-        return ucwords(preg_replace('/filter(s)?/i', '', $name)) . 'Filters';
+        return ucwords(preg_replace('/filter(s)?/i', '', $name));
     }
 
     private function getFileContents($name) {
@@ -57,10 +57,11 @@ class MakeFilterCommand extends Command
         namespace App\Filters;
 
         use App\User;
+        use App\Models\\$name;
         use Illuminate\Http\Request;
         use Carbon\Carbon;
 
-        class ${name} extends BaseFilters
+        class ${name}Filters extends BaseFilters
         {
             protected \$request;
 
