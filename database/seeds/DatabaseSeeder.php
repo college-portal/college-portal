@@ -29,6 +29,12 @@ class DatabaseSeeder extends Seeder
         
         $school = $this->createSchool($user);
 
+        $this->createDean($school);
+
+        return $user;
+    }
+
+    public function createDean(School $school) {
         $deanUser = $this->createUser([
             'first_name' => 'Dean',
             'last_name' => 'Daniels',
@@ -40,8 +46,6 @@ class DatabaseSeeder extends Seeder
         $faculty = $this->createFaculty($school, $staff);
 
         $department = $this->createDepartment($faculty, $staff);
-
-        return $user;
     }
 
     public function createUser($opts = null) {
