@@ -59,6 +59,6 @@ class User extends Authenticatable
     }
 
     public function schools() {
-        return $this->hasMany(School::class);
+        return $this->hasMany(School::class, 'owner_id');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\BaseModel;
 use App\User;
+use App\Traits\FilterableTrait;
 
 /**
  * App\Models\School
@@ -23,6 +24,8 @@ use App\User;
  */
 class School extends BaseModel
 {
+    use FilterableTrait;
+
     public function owner() {
         return $this->belongsTo(User::class, 'owner_id');
     }

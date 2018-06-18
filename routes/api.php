@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\SchoolController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,8 @@ Route::group([
     Route::group([
         'middleware' => 'accessTokenSecurity'
     ], function () {
-        Route::get('/user', AuthController::method('current'));        
+        Route::get('/user', AuthController::method('current'));  
+        
+        Route::get('/schools', SchoolController::method('schools'));
     });
 });

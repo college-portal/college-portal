@@ -17,4 +17,8 @@ class SchoolController extends ApiController
     public function service() {
         return $this->service;
     }
+
+    public function schools(Request $request, SchoolFilters $filters) {
+        return $request->user()->schools()->filter($filters)->paginate();
+    }
 }
