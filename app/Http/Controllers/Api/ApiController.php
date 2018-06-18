@@ -49,4 +49,8 @@ class ApiController extends BaseController
     public static function method ($name) {
         return '\\' . static::class . '@' . $name;
     }
+
+    public static function class () {
+        return '\\' . static::class;
+    }
 }

@@ -27,6 +27,8 @@ class School extends BaseModel
 {
     use FilterableTrait;
 
+    protected $fillable = [ 'name', 'short_name', 'is_active' ];
+
     public function owner() {
         return $this->belongsTo(User::class, 'owner_id');
     }
