@@ -13,6 +13,31 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::group([
+        'prefix' => '/'
+    ], function () {
+    /**
+     * non-auth routes
+     */
+    Route::get('/', function (Request $request) {
+        return [
+            'message' => 'zaportal'
+        ];
+    });
+
+    Route::post('auth', 'Api\AuthController@login');
+
+    /**
+     * auth routes
+     */
+
+    Route::group([
+        'middleware' => 'accessTokenSecurity'
+    ], function () {
+
+    });
+});
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
