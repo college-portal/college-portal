@@ -18,7 +18,7 @@ class BaseFilters
     public function apply(Builder $builder)
     {
         $this->builder = $builder;
-        foreach ($this->filters() as $name => $value) {
+        foreach (array_merge($this->filters(), $this->global()) as $name => $value) {
             if ( ! method_exists($this, $name)) {
                 continue;
             }
@@ -31,8 +31,12 @@ class BaseFilters
         return $this->builder;
     }
   
-    public function filters()
+    public function filters(): array
     {
         return $this->request->all();
+    }
+    
+    public function global() {
+        return [];
     }
 }

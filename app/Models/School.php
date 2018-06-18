@@ -13,6 +13,7 @@ use App\Traits\FilterableTrait;
  * @property string $name
  * @property string $short_name
  * @property int $owner_id
+ * @property boolean $is_active
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\School whereContains($value)

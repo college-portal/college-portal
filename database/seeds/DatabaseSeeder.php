@@ -62,7 +62,8 @@ class DatabaseSeeder extends Seeder
 
     public function createSchool(User $user) {
         $opts = [
-            'owner_id' => $user->id
+            'owner_id' => $user->id,
+            'is_active' => true
         ];
         $this->addRole($user, 'school-owner');
         return School::where($opts)->first() ?? factory(School::class, 1)->create($opts)->first();

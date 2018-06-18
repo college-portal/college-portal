@@ -16,4 +16,15 @@ class SchoolFilters extends BaseFilters
         $this->request = $request;
         parent::__construct($request);
     }
+
+    public function only_active() { /** unless include_inactive is specified */
+        return $this->builder->where('is_active', true);
+    }
+
+    public function global() {
+        if (!$this->request->has('include_inactive')) {
+            $this->only_active();
+        }
+        return [];
+    }
 }
