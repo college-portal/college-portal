@@ -45,4 +45,8 @@ class ApiController extends BaseController
             'message' => $message ?? 'there was a conflict'
         ], 409);
     }
+
+    public static function method ($name) {
+        return '\\' . static::class . '@' . $name;
+    }
 }

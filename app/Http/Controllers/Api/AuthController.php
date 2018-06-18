@@ -27,4 +27,8 @@ class AuthController extends ApiController
             return $this->error('could_not_create_token', $ex);
         }
     }
+
+    public function current(Request $request) {
+        return $request->user();
+    }
 }

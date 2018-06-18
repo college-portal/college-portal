@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ Route::group([
         ];
     });
 
-    Route::post('auth', 'Api\AuthController@login');
+    Route::post('auth', AuthController::method('login'));
 
     /**
      * auth routes
@@ -34,8 +35,6 @@ Route::group([
     Route::group([
         'middleware' => 'accessTokenSecurity'
     ], function () {
-        Route::get('/user', function (Request $request) {
-            return $request->user();
-        });        
+        Route::get('/user', AuthController::method('current'));        
     });
 });
