@@ -21,8 +21,8 @@ class UserRepository
         return $this->model()->findOrFail($id);
     }
 
-    public function delete(User $user, $id) {
-        return $user->users()->where('id', $id)->delete();
+    public function delete($id) {
+        return $this->model()->where('id', $id)->delete();
     }
 
     public function create($opts) {

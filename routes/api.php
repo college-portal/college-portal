@@ -43,4 +43,10 @@ Route::group([
         
         Route::resource('/users', UserController::class());
     });
+
+    /**
+     * non-auth routes
+     */
+    
+    Route::post('/users', UserController::method('store'));
 });

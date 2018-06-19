@@ -22,4 +22,12 @@ class UserPolicy
     public function view(User $user, User $other) {
         return $user->intersectsSchoolsWith($other)->exists();
     }
+
+    public function delete(User $user, User $other) {
+        return $user->hasRole('administrator') || ($user->id == $other->id);
+    }
+
+    public function update(User $user, User $other) {
+        return $user->id == $other->id;
+    }
 }

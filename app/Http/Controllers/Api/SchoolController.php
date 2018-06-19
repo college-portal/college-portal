@@ -42,8 +42,9 @@ class SchoolController extends ApiController
     }
 
     public function update(Request $request, $id) {
-        $school = $this->service()->repo()->update($request->user(), $id, $request->all());
+        $school = $this->service()->repo()->school($request->user(), $id);
         $this->authorize('update', $school);
+        $school = $this->service()->repo()->update($request->user(), $id, $request->all());
         return $this->json($school);
     }
 }
