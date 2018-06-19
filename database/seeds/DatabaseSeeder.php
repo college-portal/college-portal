@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\School;
+use App\Models\Student;
 use App\Models\Faculty;
 use App\Models\Department;
 use App\Models\Program;
@@ -46,6 +47,14 @@ class DatabaseSeeder extends Seeder
         $faculty = $this->createFaculty($school, $staff);
 
         $department = $this->createDepartment($faculty, $staff);
+
+        $program = $this->createProgram($department);
+
+        factory(User::class, 3)->create()->each(function ($user) use ($program) {
+            $this->createStudent($user, $program);
+        });
+
+        
     }
 
     public function createUser($opts = null) {
@@ -94,5 +103,20 @@ class DatabaseSeeder extends Seeder
             'faculty_id' => $faculty->id
         ];
         return Department::where($opts)->first() ?? factory(Department::class, 1)->create($opts)->first();
+    }
+
+    public function createProgram(Department $department) {
+        $opts = [
+            'department_id' => $department->id
+        ];
+        return Program::where($opts)->first() ?? factory(Program::class, 1)->create($opts)->first();
+    }
+
+    public function createStudent(User $user, Program $program) {
+        $opts = [
+            'user_id' => $user->id,
+            'program_id' => $program->id
+        ];
+        return Student::where($opts)->first() ?? factory(Student::class, 1)->create($opts);
     }
 }

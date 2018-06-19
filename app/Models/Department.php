@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\BaseModel;
 use App\Models\Faculty;
 use App\Models\Staff;
+use App\Models\Program;
 
 /**
  * App\Models\Department
@@ -30,6 +31,10 @@ class Department extends BaseModel
 
     public function hod() {
         return $this->belongsTo(Staff::class, 'hod_id');
+    }
+
+    public function programs() {
+        return $this->hasMany(Program::class);
     }
 
     public static function boot() {

@@ -9,7 +9,9 @@ use App\Traits\ImageableTrait;
 use App\Traits\FullNameTrait;
 use App\Models\Role;
 use App\Models\School;
+use App\Models\Student;
 use App\Models\UserHasRole;
+use App\Models\SchoolHasUser;
 
 /**
  * App\User
@@ -59,6 +61,14 @@ class User extends Authenticatable
     }
 
     public function schools() {
-        return $this->hasMany(School::class, 'owner_id');
+        return $this->belongsToMany(School::class, SchoolHasUser::name());
+    }
+
+    public function users() {
+        return $this->schools()->users();
+    }
+
+    public function students() {
+        return $this->hasMany(Student::class);
     }
 }

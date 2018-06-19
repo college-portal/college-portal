@@ -49,7 +49,7 @@ class Student extends BaseModel
         self::created(function ($model) {
             $school = $model->program->department->faculty->school;
             if ($school) {
-                $student->user->schools()->syncWithoutDetaching($school->id);
+                $model->user->schools()->syncWithoutDetaching($school->id);
             }
         });
     }
