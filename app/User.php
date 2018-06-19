@@ -64,11 +64,22 @@ class User extends Authenticatable
         return $this->belongsToMany(School::class, SchoolHasUser::name());
     }
 
-    public function users() {
-        return $this->schools()->users();
+    public function scopeUsers() {
+        return $this->schools()
+                    ->join('school_has_users as pivot', 'schools.id', '=', 'pivot.school_id')
+                    ->join('users as others', 'others.id', '=', 'pivot.user_id')
+                    ->where('others.id', '!=', $this->id)
+                    ->select('others.*');
     }
 
     public function students() {
         return $this->hasMany(Student::class);
+    }
+
+    public function scopeIntersectsSchoolsWith($query, $user) {
+        $ids = $user->schools()->pluck('id');
+        return $query->whereHas('schools', function ($q) use ($ids) {
+            return $q->whereIn('id', $ids);
+        });
     }
 }

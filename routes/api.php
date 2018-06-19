@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\SchoolController;
+use App\Http\Controllers\Api\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,5 +40,7 @@ Route::group([
         Route::get('/user', AuthController::method('current'));  
         
         Route::resource('/schools', SchoolController::class());
+        
+        Route::resource('/users', UserController::class());
     });
 });

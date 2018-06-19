@@ -15,8 +15,9 @@ class UserFilters extends BaseFilters
         $this->request = $request;
         parent::__construct($request);
     }
-  
-    // public function name($term) {
-    //     return $this->builder->where('users.name', 'LIKE', "%$term%");
-    // }
+
+    public function global() {
+        $this->builder->where('id', '!=', auth()->user()->id);
+        return [];
+    }
 }

@@ -6,6 +6,7 @@ use App\Models\BaseModel;
 use App\Models\Faculty;
 use App\Models\Staff;
 use App\Models\Program;
+use App\User;
 
 /**
  * App\Models\Department
@@ -35,6 +36,10 @@ class Department extends BaseModel
 
     public function programs() {
         return $this->hasMany(Program::class);
+    }
+
+    public function staff() {
+        return $this->hasMany(Staff::class);
     }
 
     public static function boot() {
