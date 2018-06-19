@@ -83,4 +83,13 @@ class User extends Authenticatable
             return $q->whereIn('schools.id', $ids);
         });
     }
+
+    public static function boot() {
+        $hashPasswordHandler = function ($model) {
+            if ($model->password) $model->password = bcrypt($model->password);
+        };
+        
+        self::creating($hashPasswordHandler);
+        self::updating($hashPasswordHandler);
+    }
 }
