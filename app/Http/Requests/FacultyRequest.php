@@ -13,7 +13,7 @@ class FacultyRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class FacultyRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'      => 'required|string',
+            'school_id' => 'required|numeric|exists:schools,id',
+            'dean_id'   => 'required|numeric|exists:staff,id' 
         ];
     }
 }

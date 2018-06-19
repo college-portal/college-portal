@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\BaseModel;
 use App\Models\School;
 use App\Models\Staff;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * App\Models\Faculty
@@ -15,6 +16,7 @@ use App\Models\Staff;
  * @property int $dean_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ * @property \Carbon\Carbon $deleted_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Faculty whereContains($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Faculty whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Faculty whereName($value)
@@ -24,6 +26,12 @@ use App\Models\Staff;
  */
 class Faculty extends BaseModel
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
+    protected $fillable = [ 'name', 'school_id', 'dean_id' ];
+
     public function school() {
         return $this->belongsTo(School::class);
     }

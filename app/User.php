@@ -73,6 +73,13 @@ class User extends Authenticatable
                     ->select('others.*');
     }
 
+    public function scopeFaculties() {
+        /** get faculties in schools that intersect with the current user's */
+        return $this->schools()
+                    ->select('faculties.*', 'faculties.name as faculty_name', 'faculties.id as faculty_id')
+                    ->join('faculties', 'schools.id', '=', 'faculties.school_id');
+    }
+
     public function students() {
         return $this->hasMany(Student::class);
     }
