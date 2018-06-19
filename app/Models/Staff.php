@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\BaseModel;
 use App\Models\Department;
+use App\Models\Role;
 use App\User;
 
 /**
@@ -38,5 +39,12 @@ class Staff extends BaseModel
 
     public function school() {
         return $this->faculty()->school();
+    }
+
+    public static function boot() {
+        self::created(function ($model) {
+            $staffRole = Role::where('name', Role::STAFF)->first();
+            $model->user->roles()->syncWithoutDetaching($staffRole->id);
+        });
     }
 }

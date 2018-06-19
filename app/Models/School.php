@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\BaseModel;
 use App\User;
 use App\Traits\FilterableTrait;
+use App\Models\Role;
 use App\Models\SchoolHasUser;
 
 /**
@@ -40,10 +41,22 @@ class School extends BaseModel
 
     public static function boot() {
         $schoolHasUsersUpdate = function ($model) {
+            /** update school_has_users table */
             $model->users()->syncWithoutDetaching($model->owner_id);
+        };
+
+        $schoolOwnerRoleCreate = function ($model) {
+            /** create school-owner user role */
+            if ($model->owner_id) {
+                $schoolOwnerRole = Role::where('name', Role::SCHOOL_OWNER)->first();
+                $model->owner->roles()->syncWithoutDetaching($schoolOwnerRole->id);
+            }
         };
 
         self::created($schoolHasUsersUpdate);
         self::updated($schoolHasUsersUpdate);
+
+        self::created($schoolOwnerRoleCreate);
+        self::updated($schoolOwnerRoleCreate);
     }
 }

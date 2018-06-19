@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\Models\Role;
 use App\Models\Department;
 use App\User;
 
@@ -52,8 +53,16 @@ class Student extends BaseModel
                 $model->user->schools()->syncWithoutDetaching($school->id);
             }
         };
+
+        $createStudentRole = function ($model) {
+            $studentRole = Role::where('name', Role::STUDENT)->first();
+            $model->user->roles()->syncWithoutDetaching($studentRole->id);
+        };
         
         self::created($updateSchoolsHandler);
         self::updated($updateSchoolsHandler);
+
+        self::created($createStudentRole);
+        self::updated($createStudentRole);
     }
 }
