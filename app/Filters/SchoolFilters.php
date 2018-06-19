@@ -17,6 +17,10 @@ class SchoolFilters extends BaseFilters
         parent::__construct($request);
     }
 
+    public function with_faculties() {
+        return $this->builder->with('faculties');
+    }
+
     public function only_active() { /** unless include_inactive is specified */
         return $this->builder->where('is_active', true);
     }

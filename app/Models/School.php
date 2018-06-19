@@ -6,6 +6,7 @@ use App\Models\BaseModel;
 use App\User;
 use App\Traits\FilterableTrait;
 use App\Models\Role;
+use App\Models\Faculty;
 use App\Models\SchoolHasUser;
 
 /**
@@ -37,6 +38,10 @@ class School extends BaseModel
 
     public function users() {
         return $this->belongsToMany(User::class, SchoolHasUser::name());
+    }
+
+    public function faculties() {
+        return $this->hasMany(Faculty::class);
     }
 
     public static function boot() {
