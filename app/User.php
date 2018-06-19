@@ -86,10 +86,17 @@ class User extends Authenticatable
 
     public static function boot() {
         $hashPasswordHandler = function ($model) {
-            if ($model->password) $model->password = bcrypt($model->password);
+            if ($model->password) {
+                $model->password = bcrypt($model->password);
+            }
         };
-        
+
+        $setRememberTokenHandler = function ($model) {
+            $model->remember_token = str_random(10);
+        };
+
         self::creating($hashPasswordHandler);
         self::updating($hashPasswordHandler);
+        self::creating($setRememberTokenHandler);
     }
 }
