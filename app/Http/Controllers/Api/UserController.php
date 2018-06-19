@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\UserService;
 use App\Filters\UserFilters;
 use App\Http\Requests\UserRequest;
+use App\Http\Resources\UserResource;
 
 class UserController extends ApiController
 {
@@ -26,7 +27,8 @@ class UserController extends ApiController
     }
 
     public function index(Request $request, UserFilters $filters) {
-        return $this->service()->repo()->users($request->user(), $filters);
+        $users = $this->service()->repo()->users($request->user(), $filters);
+        return UserResource::collection($users);
     }
 
     public function destroy(Request $request, $id) {
