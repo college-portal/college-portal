@@ -17,12 +17,12 @@ class UserRepository
         return $user->users()->paginate();
     }
 
-    public function user(User $user, $id) {
-        return $user->schools()->users()->findOrFail($id);
+    public function user($id) {
+        return $this->model()->findOrFail($id);
     }
 
     public function delete(User $user, $id) {
-        return $user->schools()->users()->where('id', $id)->delete();
+        return $user->users()->where('id', $id)->delete();
     }
 
     public function create($opts) {

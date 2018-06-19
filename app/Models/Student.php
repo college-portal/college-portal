@@ -46,11 +46,14 @@ class Student extends BaseModel
     }
 
     public static function boot() {
-        self::created(function ($model) {
+        $updateSchoolsHandler = function ($model) {
             $school = $model->program->department->faculty->school;
             if ($school) {
                 $model->user->schools()->syncWithoutDetaching($school->id);
             }
-        });
+        };
+        
+        self::created($updateSchoolsHandler);
+        self::updated($updateSchoolsHandler);
     }
 }

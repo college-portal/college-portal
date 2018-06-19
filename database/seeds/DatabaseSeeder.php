@@ -53,8 +53,6 @@ class DatabaseSeeder extends Seeder
         factory(User::class, 3)->create()->each(function ($user) use ($program) {
             $this->createStudent($user, $program);
         });
-
-        
     }
 
     public function createUser($opts = null) {

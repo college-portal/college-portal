@@ -65,6 +65,7 @@ class User extends Authenticatable
     }
 
     public function scopeUsers() {
+        /** get users in schools that intersect with the current user's */
         return $this->schools()
                     ->join('school_has_users as pivot', 'schools.id', '=', 'pivot.school_id')
                     ->join('users as others', 'others.id', '=', 'pivot.user_id')
@@ -77,9 +78,9 @@ class User extends Authenticatable
     }
 
     public function scopeIntersectsSchoolsWith($query, $user) {
-        $ids = $user->schools()->pluck('id');
+        $ids = $user->schools()->pluck('schools.id');
         return $query->whereHas('schools', function ($q) use ($ids) {
-            return $q->whereIn('id', $ids);
+            return $q->whereIn('schools.id', $ids);
         });
     }
 }
