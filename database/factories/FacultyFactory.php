@@ -13,19 +13,6 @@ use Faker\Generator as Faker;
 |
 */
 
-
-$factory->define(App\Models\Department::class, function (Faker $faker) {
-    return [
-        'name' => $faker->randomElement(array(
-            'Computer Science',
-            'Mathematics',
-            'Microbiology',
-            'Biochemistry',
-            'Physics',
-            'Chemistry'
-        ))
-    ];
-});
 $factory->define(App\Models\Faculty::class, function (Faker $faker) {
     return [
         'name' => 'Science and Technology'
