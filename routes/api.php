@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\SchoolController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\FacultyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,8 @@ Route::group([
         Route::resource('/schools', SchoolController::class());
         
         Route::resource('/users', UserController::class());
+        
+        Route::resource('/faculties', FacultyController::class());
     });
 
     /**

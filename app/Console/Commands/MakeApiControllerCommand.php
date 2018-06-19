@@ -16,7 +16,10 @@ class MakeApiControllerCommand extends Command
                                 { name : The name of the controller to be created }
                                 { --filter : Whether or not the filter should be created }
                                 { --repository : Whether or not the filter should be created }
-                                { --service : Whether or not the service should be created }';
+                                { --service : Whether or not the service should be created }
+                                { --request : Whether or not the request should be created }
+                                { --policy : Whether or not the policy should be created }
+                                { --all : Whether or not all extra classes should be created }';
 
     /**
      * The console command description.
@@ -77,23 +80,53 @@ class MakeApiControllerCommand extends Command
             public function service() {
                 return \$this->service;
             }
+
+            public function show(Request \$request, \$id) {
+                //\$this->authorize('view'); /** ensure the current user has view rights */
+                return \$this->ok();
+            }
+        
+            public function index(Request \$request, ${name}Filters \$filters) {
+                return [];
+            }
+        
+            public function destroy(Request \$request, \$id) {
+                //\$this->authorize('delete'); /** ensure the current user has delete rights */
+                return \$this->ok();
+            }
+        
+            public function store(${name}Request \$request) {
+                return \$this->ok();
+            }
+        
+            public function update(Request \$request, \$id) {
+                return \$this->ok();
+            }
         }
         ");
     }
 
     private function generateDependencies($name) {
         $arg_name = $this->argument('name');
-        if ($this->option('filter')) {
+        if ($this->option('all') || $this->option('filter')) {
             Artisan::call('make:filter', [ 'name' => $arg_name ]);
-            echo "\"${name}Filter\" created\n";
+            echo "\"${name}Filters\" created\n";
         }
-        if ($this->option('repository')) {
+        if ($this->option('all') || $this->option('repository')) {
             Artisan::call('make:repository', [ 'name' => $arg_name ]);
             echo "\"${name}Repository\" created\n";
         }
-        if ($this->option('service')) {
+        if ($this->option('all') || $this->option('service')) {
             Artisan::call('make:service', [ 'name' => $arg_name ]);
             echo "\"${name}Service\" created\n";
+        }
+        if ($this->option('all') || $this->option('request')) {
+            Artisan::call('make:request', [ 'name' => "${name}Request" ]);
+            echo "\"${name}Request\" created\n";
+        }
+        if ($this->option('all') || $this->option('policy')) {
+            Artisan::call('make:policy', [ 'name' => "${name}Policy" ]);
+            echo "\"${name}Policy\" created\n";
         }
     }
 }
