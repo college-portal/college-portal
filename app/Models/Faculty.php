@@ -31,4 +31,19 @@ class Faculty extends BaseModel
     public function dean() {
         return $this->belongsTo(Staff::class, 'dean_id');
     }
+
+    public static function boot() {
+        $schoolHasUsersUpdate = function ($model) {
+            $staff = Staff::with('user')->find($model->dean_id);
+            if ($staff->user) {
+                $school = $model->school;
+                if ($school) {
+                    $school->users()->syncWithoutDetaching($staff->user->id);
+                }
+            }
+        };
+
+        self::created($schoolHasUsersUpdate);
+        self::updated($schoolHasUsersUpdate);
+    }
 }

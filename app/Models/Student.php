@@ -44,4 +44,13 @@ class Student extends BaseModel
     public function school() {
         return $this->faculty()->school();
     }
+
+    public static function boot() {
+        self::created(function ($model) {
+            $school = $model->program->department->faculty->school;
+            if ($school) {
+                $student->user->schools()->syncWithoutDetaching($school->id);
+            }
+        });
+    }
 }

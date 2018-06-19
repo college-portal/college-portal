@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\BaseModel;
 use App\Models\Faculty;
-use App\Staff;
+use App\Models\Staff;
 
 /**
  * App\Models\Department
@@ -30,5 +30,23 @@ class Department extends BaseModel
 
     public function hod() {
         return $this->belongsTo(Staff::class, 'hod_id');
+    }
+
+    public static function boot() {
+        $schoolHasUsersUpdate = function ($model) {
+            $staff = Staff::with('user')->find($model->hod_id);
+            if ($staff->user) {
+                $faculty = $model->faculty;
+                if ($faculty) {
+                    $school = $faculty->school()->first();
+                    if ($school) {
+                        $school->users()->syncWithoutDetaching($staff->user->id);
+                    }
+                }
+            }
+        };
+
+        self::created($schoolHasUsersUpdate);
+        self::updated($schoolHasUsersUpdate);
     }
 }

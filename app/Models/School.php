@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\BaseModel;
 use App\User;
 use App\Traits\FilterableTrait;
+use App\Models\SchoolHasUser;
 
 /**
  * App\Models\School
@@ -31,5 +32,18 @@ class School extends BaseModel
 
     public function owner() {
         return $this->belongsTo(User::class, 'owner_id');
+    }
+
+    public function users() {
+        return $this->belongsToMany(User::class, SchoolHasUser::name());
+    }
+
+    public static function boot() {
+        $schoolHasUsersUpdate = function ($model) {
+            $model->users()->syncWithoutDetaching($model->owner_id);
+        };
+
+        self::created($schoolHasUsersUpdate);
+        self::updated($schoolHasUsersUpdate);
     }
 }
