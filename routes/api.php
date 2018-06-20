@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\FacultyController;
 use App\Http\Controllers\Api\DepartmentController;
 use App\Http\Controllers\Api\ProgramController;
+use App\Http\Controllers\Api\LevelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,8 @@ Route::group([
         Route::resource('/departments', DepartmentController::class());
         
         Route::resource('/programs', ProgramController::class());
+        
+        Route::resource('/schools/{school_id}/levels', LevelController::class());
     });
 
     /**
