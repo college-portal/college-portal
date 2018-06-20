@@ -13,6 +13,7 @@ use App\Models\School;
 use App\Models\Staff;
 use App\Models\Student;
 use App\Models\Faculty;
+use App\Models\Department;
 use App\Models\UserHasRole;
 use App\Models\SchoolHasUser;
 
@@ -82,12 +83,23 @@ class User extends Authenticatable
         return Faculty::whereIn('school_id', $ids);
     }
 
+    public function scopeDepartments() {
+        /** get departments in faculties in schools that intersect with the current user's */
+        $ids = $this->faculties()->pluck('faculties.id');
+        return Department::whereIn('faculty_id', $ids);
+    }
+
     public function students() {
         return $this->hasMany(Student::class);
     }
 
     public function staff() {
         return $this->hasMany(Staff::class);
+    }
+
+    public function hasRole($role_names) {
+        if (!is_array($role_names)) return $this->roles()->where('name', $role_names)->exists();
+        else return $this->roles()->whereIn('name', $role_names)->exists();
     }
 
     public function scopeIntersectsSchoolsWith($query, $user) {

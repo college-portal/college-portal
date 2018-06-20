@@ -42,7 +42,6 @@ class FacultyController extends ApiController
 
     public function store(FacultyRequest $request) {
         $school = $this->schoolService->repo()->school($request->user(), $request->school_id);
-        //$this->authorize('store', $school);
         $faculty = $this->service()->repo()->create($request->all());
         return $this->json($faculty);
     }

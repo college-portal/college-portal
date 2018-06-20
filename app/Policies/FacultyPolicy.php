@@ -31,8 +31,4 @@ class FacultyPolicy
     public function update(User $user, Faculty $faculty) {
         return ($user->id == $faculty->dean->user->id) || ($user->id == $faculty->school->owner_id);
     }
-
-    public function store(User $user, School $school) {
-        return $user->id == $school->owner_id;
-    }
 }

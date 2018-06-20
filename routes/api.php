@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\SchoolController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\FacultyController;
+use App\Http\Controllers\Api\DepartmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,8 @@ Route::group([
         Route::resource('/users', UserController::class());
         
         Route::resource('/faculties', FacultyController::class());
+        
+        Route::resource('/departments', DepartmentController::class());
     });
 
     /**

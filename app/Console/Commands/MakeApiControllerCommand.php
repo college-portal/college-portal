@@ -69,6 +69,7 @@ class MakeApiControllerCommand extends Command
         use Illuminate\Http\Request;
         use App\Services\\${name}Service;
         use App\Filters\\${name}Filters;
+        use App\Http\Requests\\${name}Request;
         
         class ${name}Controller extends ApiController
         {
