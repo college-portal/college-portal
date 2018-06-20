@@ -17,7 +17,8 @@ class DepartmentRequest extends FormRequest
         $faculty = Faculty::findOrFail($this->input('faculty_id'));
         $user = auth()->user();
         return $user->hasRole('administrator') || 
-                ($user->id == $faculty->dean_id);
+                ($user->id == $faculty->dean()->first()->user()->first()->id) || // dean of school
+                ($user->id == $faculty->school()->first()->owner_id); // school owner
     }
 
     /**

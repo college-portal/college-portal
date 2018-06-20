@@ -23,6 +23,8 @@ use App\Models\Student;
  */
 class Program extends BaseModel
 {
+    protected $fillable = [ 'name', 'department_id' ];
+
     public function department() {
         return $this->belongsTo(Department::class);
     }
