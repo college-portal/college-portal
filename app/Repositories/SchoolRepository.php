@@ -33,7 +33,7 @@ class SchoolRepository
     }
 
     public function create(User $user, $opts) {
-        return $user->schools()->create(array_merge([ 'is_active' => 1 ], $opts));
+        return $this->model()->create(array_merge([ 'is_active' => 1 ], $opts, [ 'owner_id' => $user->id ]));
     }
 
     public function update(User $user, $id, $opts = []) {
