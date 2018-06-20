@@ -8,6 +8,7 @@ use App\Models\Department;
 use App\Models\Program;
 use App\Models\Staff;
 use App\Models\Role;
+use App\Models\Level;
 use App\User;
 
 class DatabaseSeeder extends Seeder
@@ -53,6 +54,10 @@ class DatabaseSeeder extends Seeder
         factory(User::class, 3)->create()->each(function ($user) use ($program) {
             $this->createStudent($user, $program);
         });
+
+        for ($i = 100; $i <= 400; $i+=100) {
+            $this->createLevel($school, "${i}L");
+        }
     }
 
     public function createUser($opts = null) {
@@ -113,5 +118,13 @@ class DatabaseSeeder extends Seeder
             'program_id' => $program->id
         ];
         return Student::where($opts)->first() ?? factory(Student::class, 1)->create($opts);
+    }
+
+    public function createLevel(School $school, $name) {
+        $opts = [
+            'school_id' => $school->id,
+            'name' => $name
+        ];
+        return Level::where($opts)->first() ?? Level::create($opts);
     }
 }
