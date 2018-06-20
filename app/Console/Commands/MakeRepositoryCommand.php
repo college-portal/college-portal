@@ -58,6 +58,7 @@ class MakeRepositoryCommand extends Command
         
         use App\User;
         use App\Models\\$name;
+        use App\Filters\\${name}Filters;
         use Carbon\Carbon;
         
         class ${name}Repository
@@ -92,9 +93,9 @@ class MakeRepositoryCommand extends Command
                 return \$this->single(\$id);
             }
         
-            public function count()
+            public function count(${name}Filters \$filters)
             {
-                return \$this->model()->select('id', DB::raw('count(*) as total'))->count();
+                return \$this->model()->filter(\$filters)->select('id', DB::raw('count(*) as total'))->count();
             }
         }");
     }
