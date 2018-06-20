@@ -4,7 +4,6 @@ namespace App\Models;
 
 use App\Models\BaseModel;
 use App\User;
-use App\Traits\FilterableTrait;
 use App\Models\Role;
 use App\Models\Faculty;
 use App\Models\SchoolHasUser;
@@ -28,7 +27,6 @@ use App\Models\SchoolHasUser;
  */
 class School extends BaseModel
 {
-    use FilterableTrait;
 
     protected $fillable = [ 'name', 'short_name', 'is_active' ];
 

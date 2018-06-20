@@ -7,7 +7,6 @@ use App\Models\School;
 use App\Models\Staff;
 use App\Models\Department;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Traits\FilterableTrait;
 
 /**
  * App\Models\Faculty
@@ -28,7 +27,7 @@ use App\Traits\FilterableTrait;
  */
 class Faculty extends BaseModel
 {
-    use SoftDeletes, FilterableTrait;
+    use SoftDeletes;
 
     protected $dates = ['deleted_at'];
 
