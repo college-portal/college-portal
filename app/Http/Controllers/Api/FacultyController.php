@@ -30,7 +30,7 @@ class FacultyController extends ApiController
 
     public function index(Request $request, FacultyFilters $filters) {
         $faculties = $this->service()->repo()->faculties($request->user(), $filters);
-        return FacultyResource::collection($faculties);
+        return $faculties;
     }
 
     public function destroy(Request $request, $id) {
