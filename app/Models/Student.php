@@ -26,6 +26,8 @@ use App\User;
  */
 class Student extends BaseModel
 {
+    protected $fillable = [ 'user_id', 'program_id', 'matric_no', 'is_active' ];
+
     public function user() {
         return $this->belongsTo(User::class);
     }
@@ -34,21 +36,25 @@ class Student extends BaseModel
         return $this->belongsTo(Program::class);
     }
 
-    public function department() {
-        return $this->program()->department();
+    public function scopeDepartment() {
+        $ids = $this->program()->pluck('department_id');
+        return Department::where('id', $ids);
     }
 
-    public function faculty() {
-        return $this->department()->faculty();
+    public function scopeFaculty() {
+        $ids = $this->department()->pluck('faculty_id');
+        return Faculty::where('id', $ids);
     }
 
-    public function school() {
-        return $this->faculty()->school();
+    public function scopeSchool() {
+        $ids = $this->faculty()->pluck('school_id');
+        return School::where('id', $ids);
     }
+
 
     public static function boot() {
         $updateSchoolsHandler = function ($model) {
-            $school = $model->program->department->faculty->school;
+            $school = $model->program()->first()->department()->first()->faculty()->first()->school()->first();
             if ($school) {
                 $model->user->schools()->syncWithoutDetaching($school->id);
             }

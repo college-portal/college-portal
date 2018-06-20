@@ -24,7 +24,7 @@ class UserPolicy
     }
 
     public function delete(User $user, User $other) {
-        return $user->hasRole('administrator') || ($user->id == $other->id);
+        return $user->hasRole('admin') || ($user->id == $other->id);
     }
 
     public function update(User $user, User $other) {

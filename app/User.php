@@ -96,6 +96,15 @@ class User extends Authenticatable
         return Program::whereIn('department_id', $ids);
     }
 
+    public function scopeViewableStudents() {
+        $ids = $this->schools()->pluck('schools.id');
+        return Student::whereHas('user', function ($q) use ($ids) {
+            return $q->whereHas('schools', function ($q) use ($ids) {
+                return $q->whereIn('schools.id', $ids);
+            });
+        });
+    }
+
     public function students() {
         return $this->hasMany(Student::class);
     }
