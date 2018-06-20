@@ -83,7 +83,7 @@ class MakeApiControllerCommand extends Command
                 return \$this->service;
             }
 
-            public function show(Request \$request, \$id) {
+            public function show(Request \$request, ${name}Filters \$filters, \$id) {
                 //\$this->authorize('view'); /** ensure the current user has view rights */
                 return \$this->ok();
             }
