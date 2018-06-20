@@ -18,6 +18,7 @@ class MakeApiControllerCommand extends Command
                                 { --repository : Whether or not the filter should be created }
                                 { --service : Whether or not the service should be created }
                                 { --request : Whether or not the request should be created }
+                                { --resource : Whether or not the resource should be created }
                                 { --policy : Whether or not the policy should be created }
                                 { --all : Whether or not all extra classes should be created }';
 
@@ -123,6 +124,10 @@ class MakeApiControllerCommand extends Command
         if ($this->option('all') || $this->option('request')) {
             Artisan::call('make:request', [ 'name' => "${name}Request" ]);
             echo "\"${name}Request\" created\n";
+        }
+        if ($this->option('all') || $this->option('resource')) {
+            Artisan::call('make:resource', [ 'name' => "${name}Resource" ]);
+            echo "\"${name}Resource\" created\n";
         }
         if ($this->option('all') || $this->option('policy')) {
             Artisan::call('make:policy', [ 'name' => "${name}Policy" ]);
