@@ -66,7 +66,7 @@ class User extends Authenticatable
     }
 
     public function schools() {
-        return $this->belongsToMany(School::class, SchoolHasUser::name());
+        return $this->belongsToMany(School::class, SchoolHasUser::name())->withTimestamps();
     }
 
     public function scopeUsers() {

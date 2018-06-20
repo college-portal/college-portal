@@ -28,14 +28,14 @@ use App\Models\SchoolHasUser;
 class School extends BaseModel
 {
 
-    protected $fillable = [ 'name', 'short_name', 'is_active' ];
+    protected $fillable = [ 'name', 'short_name', 'is_active', 'owner_id' ];
 
     public function owner() {
         return $this->belongsTo(User::class, 'owner_id');
     }
 
     public function users() {
-        return $this->belongsToMany(User::class, SchoolHasUser::name());
+        return $this->belongsToMany(User::class, SchoolHasUser::name())->withTimestamps();
     }
 
     public function faculties() {
