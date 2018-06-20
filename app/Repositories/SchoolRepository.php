@@ -18,8 +18,12 @@ class SchoolRepository
         return $user->schools()->filter($filters)->paginate();
     }
 
-    public function school(User $user, $id) {
-        return $user->schools()->findOrFail($id);
+    public function school(User $user, $id, SchoolFilters $filters = null) {
+        $q = $user->schools();
+        if ($filters) {
+            $q = $q->filter($filters);
+        }
+        return $q->findOrFail($id);
     }
 
     public function delete(User $user, $id) {
@@ -33,7 +37,7 @@ class SchoolRepository
     }
 
     public function update(User $user, $id, $opts = []) {
-        $user->schools()->where('id', $id)->update(array_merge([ 'is_active' => 1 ], $opts));
+        $this->model()->where('id', $id)->update(array_merge([ 'is_active' => 1 ], $opts));
         return $this->school($user, $id);
     }
 

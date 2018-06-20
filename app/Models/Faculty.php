@@ -5,7 +5,9 @@ namespace App\Models;
 use App\Models\BaseModel;
 use App\Models\School;
 use App\Models\Staff;
+use App\Models\Department;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Traits\FilterableTrait;
 
 /**
  * App\Models\Faculty
@@ -26,7 +28,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Faculty extends BaseModel
 {
-    use SoftDeletes;
+    use SoftDeletes, FilterableTrait;
 
     protected $dates = ['deleted_at'];
 
@@ -38,6 +40,10 @@ class Faculty extends BaseModel
 
     public function dean() {
         return $this->belongsTo(Staff::class, 'dean_id');
+    }
+
+    public function departments() {
+        return $this->hasMany(Department::class);
     }
 
     public static function boot() {

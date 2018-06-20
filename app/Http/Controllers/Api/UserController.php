@@ -20,8 +20,8 @@ class UserController extends ApiController
         return $this->service;
     }
 
-    public function show(Request $request, $id) {
-        $user = $this->service()->repo()->user($id);
+    public function show(Request $request, UserFilters $filters, $id) {
+        $user = $this->service()->repo()->user($id, $filters);
         $this->authorize('view', $user); /** ensure the current user has view rights */
         return $user;
     }

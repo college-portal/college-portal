@@ -17,8 +17,12 @@ class UserRepository
         return $user->users()->paginate();
     }
 
-    public function user($id) {
-        return $this->model()->findOrFail($id);
+    public function user($id, UserFilters $filters = null) {
+        $q = $this->model();
+        if ($filters) {
+            $q = $q->filter($filters);
+        }
+        return $q->findOrFail($id);
     }
 
     public function delete($id) {

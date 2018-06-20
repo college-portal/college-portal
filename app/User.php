@@ -7,8 +7,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Traits\ModelTableNameTrait;
 use App\Traits\ImageableTrait;
 use App\Traits\FullNameTrait;
+use App\Traits\FilterableTrait;
 use App\Models\Role;
 use App\Models\School;
+use App\Models\Staff;
 use App\Models\Student;
 use App\Models\UserHasRole;
 use App\Models\SchoolHasUser;
@@ -36,7 +38,7 @@ use App\Models\SchoolHasUser;
  */
 class User extends Authenticatable
 {
-    use Notifiable, ModelTableNameTrait, ImageableTrait, FullNameTrait;
+    use Notifiable, ModelTableNameTrait, ImageableTrait, FullNameTrait, FilterableTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -82,6 +84,10 @@ class User extends Authenticatable
 
     public function students() {
         return $this->hasMany(Student::class);
+    }
+
+    public function staff() {
+        return $this->hasMany(Staff::class);
     }
 
     public function scopeIntersectsSchoolsWith($query, $user) {

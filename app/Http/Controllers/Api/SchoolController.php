@@ -19,8 +19,8 @@ class SchoolController extends ApiController
         return $this->service;
     }
 
-    public function show(Request $request, $id) {
-        $school = $this->service()->repo()->school($request->user(), $id);
+    public function show(Request $request, SchoolFilters $filters, $id) {
+        $school = $this->service()->repo()->school($request->user(), $id, $filters);
         $this->authorize('view', $school); /** ensure the current user has view rights */
         return $school;
     }

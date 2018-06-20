@@ -16,4 +16,8 @@ class FacultyFilters extends BaseFilters
         $this->request = $request;
         parent::__construct($request);
     }
+
+    public function with_departments() {
+        $this->builder->with('departments');
+    }
 }

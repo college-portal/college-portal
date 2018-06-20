@@ -16,8 +16,15 @@ class UserFilters extends BaseFilters
         parent::__construct($request);
     }
 
+    public function with_staff() {
+        return $this->builder->with('staff');
+    }
+
+    public function with_students() {
+        return $this->builder->with('students');
+    }
+
     public function global() {
-        $this->builder->where('id', '!=', auth()->user()->id);
         return [];
     }
 }

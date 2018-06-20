@@ -18,8 +18,12 @@ class FacultyRepository
         return $user->faculties()->filter($filters)->paginate();
     }
 
-    public function faculty($id) {
-        return $this->model()->findOrFail($id);
+    public function faculty($id, FacultyFilters $filters = null) {
+        $q = $this->model();
+        if ($filters) {
+            $q = $q->filter($filters);
+        }
+        return $q->findOrFail($id);
     }
 
     public function delete($id) {

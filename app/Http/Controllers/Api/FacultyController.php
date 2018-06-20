@@ -22,8 +22,8 @@ class FacultyController extends ApiController
         return $this->service;
     }
 
-    public function show(Request $request, $id) {
-        $faculty = $this->service()->repo()->faculty($id);
+    public function show(Request $request, FacultyFilters $filters, $id) {
+        $faculty = $this->service()->repo()->faculty($id, $filters);
         $this->authorize('view', $faculty); /** ensure the current user has view rights */
         return $faculty;
     }
