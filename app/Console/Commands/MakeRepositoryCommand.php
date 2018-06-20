@@ -69,7 +69,7 @@ class MakeRepositoryCommand extends Command
             }
 
             public function list(User \$user, ${name}Filters \$filters) {
-                return \$this->model->filter(\$filters)->paginate();
+                return \$this->model()->filter(\$filters)->paginate();
             }
         
             public function single(\$id, ${name}Filters \$filters = null) {
