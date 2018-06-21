@@ -112,6 +112,15 @@ class User extends Authenticatable
         });
     }
 
+    public function scopeViewableStaff() {
+        $ids = $this->schools()->pluck('schools.id');
+        return Staff::whereHas('user', function ($q) use ($ids) {
+            return $q->whereHas('schools', function ($q) use ($ids) {
+                return $q->whereIn('schools.id', $ids);
+            });
+        });
+    }
+
     public function students() {
         return $this->hasMany(Student::class);
     }
