@@ -129,9 +129,13 @@ class User extends Authenticatable
         return $this->hasMany(Staff::class);
     }
 
-    public function hasRole($role_names) {
-        if (!is_array($role_names)) return $this->roles()->where('name', $role_names)->exists();
-        else return $this->roles()->whereIn('name', $role_names)->exists();
+    public function hasRole($role_names, $school_id = null) {
+        $q = $this->roles();
+        if ($school_id) {
+            $q = $q->where('school_id', $school_id);
+        }
+        if (!is_array($role_names)) return $q->where('name', $role_names)->exists();
+        else return $q->whereIn('name', $role_names)->exists();
     }
 
     public function scopeIntersectsSchoolsWith($query, $user) {

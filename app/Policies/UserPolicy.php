@@ -28,6 +28,6 @@ class UserPolicy
     }
 
     public function update(User $user, User $other) {
-        return $user->id == $other->id;
+        return $this->delete($user, $other);
     }
 }

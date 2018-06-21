@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\User;
+use App\Models\Role;
 use App\Models\Department;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -25,10 +26,13 @@ class DepartmentPolicy
     }
 
     public function delete(User $user, Department $department) {
-        return ($user->id == $department->faculty->dean->user->id) || ($user->id == $department->faculty->school->owner_id);
+        return $user->hasRole(Role::ADMIN) ||
+                ($user->id == $department->hod()->first()->user()->first()->id) ||
+                ($user->id == $department->faculty()->first()->dean()->first()->user()->first()->id) || 
+                ($user->id == $department->faculty()->first()->school()->first()->owner_id);
     }
 
     public function update(User $user, Department $department) {
-        return ($user->id == $department->faculty->dean->user->id) || ($user->id == $department->faculty->school->owner_id);
+        return $this->delete($user, $department);
     }
 }

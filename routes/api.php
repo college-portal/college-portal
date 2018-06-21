@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\LevelController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\SemesterTypeController;
+use App\Http\Controllers\Api\StaffController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +64,8 @@ Route::group([
         Route::resource('/courses', CourseController::class());
         
         Route::resource('/schools/{school_id}/semester-types', SemesterTypeController::class());
+        
+        Route::resource('/staff', StaffController::class());
     });
 
     /**

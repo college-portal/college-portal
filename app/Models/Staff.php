@@ -27,6 +27,8 @@ use App\User;
  */
 class Staff extends BaseModel
 {
+    protected $fillable = [ 'title', 'department_id', 'user_id' ];
+
     public function user() {
         return $this->belongsTo(User::class);
     }
