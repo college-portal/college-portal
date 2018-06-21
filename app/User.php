@@ -15,6 +15,7 @@ use App\Models\Student;
 use App\Models\Faculty;
 use App\Models\Program;
 use App\Models\Course;
+use App\Models\Session;
 use App\Models\Department;
 use App\Models\UserHasRole;
 
@@ -119,6 +120,11 @@ class User extends Authenticatable
                 return $q->whereIn('schools.id', $ids);
             });
         });
+    }
+
+    public function scopeSessions() {
+        $ids = $this->schools()->pluck('schools.id');
+        return Session::whereIn('school_id', $ids);
     }
 
     public function students() {

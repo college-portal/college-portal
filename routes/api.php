@@ -68,7 +68,7 @@ Route::group([
         
         Route::resource('/staff', StaffController::class());
         
-        Route::resource('/schools/{school_id}/sessions', SessionController::class());
+        Route::resource('/sessions', SessionController::class());
     });
 
     /**
