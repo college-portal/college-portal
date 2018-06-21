@@ -71,8 +71,9 @@ class User extends Authenticatable
 
     public function scopeUsers() {
         /** get users in schools that intersect with the current user's */
+        $table_name = UserHasRole::name();
         return $this->schools()
-                    ->join('school_has_users as pivot', 'schools.id', '=', 'pivot.school_id')
+                    ->join("$table_name as pivot", 'schools.id', '=', 'pivot.school_id')
                     ->join('users as others', 'others.id', '=', 'pivot.user_id')
                     ->where('others.id', '!=', $this->id)
                     ->select('others.*');
