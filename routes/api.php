@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\ProgramController;
 use App\Http\Controllers\Api\LevelController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\CourseController;
+use App\Http\Controllers\Api\SemesterTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,8 @@ Route::group([
         Route::resource('/students', StudentController::class());
         
         Route::resource('/courses', CourseController::class());
+        
+        Route::resource('/schools/{school_id}/semester-types', SemesterTypeController::class());
     });
 
     /**

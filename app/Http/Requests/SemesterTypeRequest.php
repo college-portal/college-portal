@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests;
 
-use App\Models\School;
 use Illuminate\Foundation\Http\FormRequest;
+use App\Models\School;
 
-class LevelRequest extends FormRequest
+class SemesterTypeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,7 +28,8 @@ class LevelRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string'
+            'name' => 'required|string',
+            'school_id' => 'required|numeric|exists:schools,id'
         ];
     }
 }
