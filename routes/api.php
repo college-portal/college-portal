@@ -46,29 +46,32 @@ Route::group([
     Route::group([
         'middleware' => 'accessTokenSecurity'
     ], function () {
+        $excepts = [ 
+            'except' => [ 'create', 'edit' ]
+        ];
         Route::get('/user', AuthController::method('current'));  
         
-        Route::resource('/schools', SchoolController::class());
+        Route::resource('/schools', SchoolController::class(), $excepts);
         
-        Route::resource('/users', UserController::class());
+        Route::resource('/users', UserController::class(), $excepts);
         
-        Route::resource('/faculties', FacultyController::class());
+        Route::resource('/faculties', FacultyController::class(), $excepts);
         
-        Route::resource('/departments', DepartmentController::class());
+        Route::resource('/departments', DepartmentController::class(), $excepts);
         
-        Route::resource('/programs', ProgramController::class());
+        Route::resource('/programs', ProgramController::class(), $excepts);
         
-        Route::resource('/schools/{school_id}/levels', LevelController::class());
+        Route::resource('/schools/{school_id}/levels', LevelController::class(), $excepts);
         
-        Route::resource('/students', StudentController::class());
+        Route::resource('/students', StudentController::class(), $excepts);
         
-        Route::resource('/courses', CourseController::class());
+        Route::resource('/courses', CourseController::class(), $excepts);
         
-        Route::resource('/schools/{school_id}/semester-types', SemesterTypeController::class());
+        Route::resource('/schools/{school_id}/semester-types', SemesterTypeController::class(), $excepts);
         
-        Route::resource('/staff', StaffController::class());
+        Route::resource('/staff', StaffController::class(), $excepts);
         
-        Route::resource('/sessions', SessionController::class());
+        Route::resource('/sessions', SessionController::class(), $excepts);
     });
 
     /**

@@ -53,4 +53,12 @@ class ApiController extends BaseController
     public static function class () {
         return '\\' . static::class;
     }
+
+    public function create(Request $request) {
+        return $this->ok();
+    }
+
+    public function edit(Request $request, $id) {
+        return $this->ok();
+    }
 }

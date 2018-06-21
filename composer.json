@@ -9,6 +9,7 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
+        "mpociot/laravel-apidoc-generator": "^2.0",
         "tymon/jwt-auth": "0.5.*"
     },
     "require-dev": {
