@@ -53,22 +53,18 @@ class Student extends BaseModel
 
 
     public static function boot() {
-        $updateSchoolsHandler = function ($model) {
-            $school = $model->program()->first()->department()->first()->faculty()->first()->school()->first();
-            if ($school) {
-                $model->user->schools()->syncWithoutDetaching($school->id);
-            }
+        $studentRoleCreate = function ($model) {
+            $school = $model->program()->first()->department()->first()
+                                        ->faculty()->first()->school()->first();
+            $role = Role::where('name', Role::STUDENT)->first();
+            $model->user->roles()->syncWithoutDetaching([
+                $role->id => [
+                    'school_id' => $school->id
+                ]
+            ]);
         };
 
-        $createStudentRole = function ($model) {
-            $studentRole = Role::where('name', Role::STUDENT)->first();
-            $model->user->roles()->syncWithoutDetaching($studentRole->id);
-        };
-        
-        self::created($updateSchoolsHandler);
-        self::updated($updateSchoolsHandler);
-
-        self::created($createStudentRole);
-        self::updated($createStudentRole);
+        self::created($studentRoleCreate);
+        self::updated($studentRoleCreate);
     }
 }

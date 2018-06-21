@@ -17,7 +17,6 @@ use App\Models\Program;
 use App\Models\Course;
 use App\Models\Department;
 use App\Models\UserHasRole;
-use App\Models\SchoolHasUser;
 
 /**
  * App\User
@@ -67,7 +66,7 @@ class User extends Authenticatable
     }
 
     public function schools() {
-        return $this->belongsToMany(School::class, SchoolHasUser::name())->withTimestamps();
+        return $this->belongsToMany(School::class, UserHasRole::name())->withTimestamps();
     }
 
     public function scopeUsers() {

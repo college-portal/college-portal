@@ -7,7 +7,7 @@ use App\User;
 use App\Models\Role;
 use App\Models\Faculty;
 use App\Models\Department;
-use App\Models\SchoolHasUser;
+use App\Models\UserHasRole;
 use App\Models\SemesterType;
 use App\Models\Level;
 
@@ -38,7 +38,7 @@ class School extends BaseModel
     }
 
     public function users() {
-        return $this->belongsToMany(User::class, SchoolHasUser::name())->withTimestamps();
+        return $this->belongsToMany(User::class, UserHasRole::name())->withTimestamps();
     }
 
     public function faculties() {
@@ -59,21 +59,17 @@ class School extends BaseModel
     }
 
     public static function boot() {
-        $schoolHasUsersUpdate = function ($model) {
-            /** update school_has_users table */
-            $model->users()->syncWithoutDetaching($model->owner_id);
-        };
-
         $schoolOwnerRoleCreate = function ($model) {
             /** create school-owner user role */
             if ($model->owner_id) {
-                $schoolOwnerRole = Role::where('name', Role::SCHOOL_OWNER)->first();
-                $model->owner->roles()->syncWithoutDetaching($schoolOwnerRole->id);
+                $role = Role::where('name', Role::SCHOOL_OWNER)->first();
+                $model->owner->roles()->syncWithoutDetaching([
+                    $role->id => [
+                        'school_id' => $model->id
+                    ]
+                ]);
             }
         };
-
-        self::created($schoolHasUsersUpdate);
-        self::updated($schoolHasUsersUpdate);
 
         self::created($schoolOwnerRoleCreate);
         self::updated($schoolOwnerRoleCreate);

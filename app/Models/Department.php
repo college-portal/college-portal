@@ -47,15 +47,14 @@ class Department extends BaseModel
     public static function boot() {
         $schoolHasUsersUpdate = function ($model) {
             $staff = Staff::with('user')->find($model->hod_id);
-            if ($staff->user) {
-                $faculty = $model->faculty;
-                if ($faculty) {
-                    $school = $faculty->school()->first();
-                    if ($school) {
-                        $school->users()->syncWithoutDetaching($staff->user->id);
-                    }
-                }
-            }
+            $role = Role::where('name', Role::HOD)->first();
+            $faculty = $model->faculty()->first();
+            $school = $faculty->school()->first();
+            $school->users()->syncWithoutDetaching([
+                $staff->user()->first()->id => [
+                    'role_id' => $role->id
+                ]
+            ]);
         };
 
         self::created($schoolHasUsersUpdate);

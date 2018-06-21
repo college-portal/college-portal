@@ -12,6 +12,7 @@ use App\Models\Role;
  * @property int $id
  * @property int $user_id
  * @property int $role_id
+ * @property int $school_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserHasRole whereId($value)
@@ -30,5 +31,9 @@ class UserHasRole extends BaseModel
 
     public function role() {
         return $this->belongsTo(Role::class);
+    }
+
+    public function school() {
+        return $this->belongsTo(School::class);
     }
 }
