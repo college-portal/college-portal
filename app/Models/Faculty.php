@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\BaseModel;
 use App\Models\School;
 use App\Models\Staff;
+use App\Models\Role;
 use App\Models\Department;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -47,13 +48,22 @@ class Faculty extends BaseModel
 
     public static function boot() {
         $schoolHasUsersUpdate = function ($model) {
+            $role = Role::where('name', Role::DEAN)->first();
             $staff = Staff::with('user')->find($model->dean_id);
-            if ($staff->user) {
-                $school = $model->school;
-                if ($school) {
-                    $school->users()->syncWithoutDetaching($staff->user->id);
-                }
-            }
+            $user = $staff->user()->first();
+            $school = $model->school()->first();
+            $school->users()->syncWithoutDetaching([
+                $user->id => [
+                    'role_id' => $role->id
+                ]
+            ]);
+
+            $staffRole = Role::where('name', Role::STAFF)->first();
+            $school->users()->syncWithoutDetaching([
+                $user->id => [
+                    'role_id' => $staffRole->id
+                ]
+            ]);
         };
 
         self::created($schoolHasUsersUpdate);

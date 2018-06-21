@@ -17,7 +17,6 @@ use App\Models\Program;
 use App\Models\Course;
 use App\Models\Department;
 use App\Models\UserHasRole;
-use App\Models\SchoolHasUser;
 
 /**
  * App\User
@@ -67,13 +66,14 @@ class User extends Authenticatable
     }
 
     public function schools() {
-        return $this->belongsToMany(School::class, SchoolHasUser::name())->withTimestamps();
+        return $this->belongsToMany(School::class, UserHasRole::name())->withTimestamps();
     }
 
     public function scopeUsers() {
         /** get users in schools that intersect with the current user's */
+        $table_name = UserHasRole::name();
         return $this->schools()
-                    ->join('school_has_users as pivot', 'schools.id', '=', 'pivot.school_id')
+                    ->join("$table_name as pivot", 'schools.id', '=', 'pivot.school_id')
                     ->join('users as others', 'others.id', '=', 'pivot.user_id')
                     ->where('others.id', '!=', $this->id)
                     ->select('others.*');
@@ -106,6 +106,15 @@ class User extends Authenticatable
     public function scopeViewableStudents() {
         $ids = $this->schools()->pluck('schools.id');
         return Student::whereHas('user', function ($q) use ($ids) {
+            return $q->whereHas('schools', function ($q) use ($ids) {
+                return $q->whereIn('schools.id', $ids);
+            });
+        });
+    }
+
+    public function scopeViewableStaff() {
+        $ids = $this->schools()->pluck('schools.id');
+        return Staff::whereHas('user', function ($q) use ($ids) {
             return $q->whereHas('schools', function ($q) use ($ids) {
                 return $q->whereIn('schools.id', $ids);
             });

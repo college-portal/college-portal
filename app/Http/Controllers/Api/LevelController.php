@@ -22,7 +22,9 @@ class LevelController extends ApiController
 
     public function show(Request $request, LevelFilters $filters, $school_id, $id) {
         $this->authorize('view', School::findOrFail($school_id));
-        return $this->service()->repo()->level($id, $filters);
+        $level = $this->service()->repo()->level($id, $filters);
+        $this->authorize('view', $level);
+        return $level;
     }
 
     public function index(Request $request, LevelFilters $filters, $school_id) {

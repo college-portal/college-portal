@@ -18,7 +18,7 @@ class BaseFilters
     public function apply(Builder $builder)
     {
         $this->builder = $builder;
-        foreach (array_merge($this->filters(), $this->global()) as $name => $value) {
+        foreach (array_merge($this->global(), $this->filters()) as $name => $value) {
             if ( ! method_exists($this, $name)) {
                 continue;
             }

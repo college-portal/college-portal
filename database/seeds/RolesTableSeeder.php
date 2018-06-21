@@ -27,7 +27,9 @@ class RolesTableSeeder extends Seeder
             'admin' => 'Administrator',
             'school-owner' => 'School Owner',
             'staff' => 'Staff',
-            'student' => 'Student'
+            'student' => 'Student',
+            'hod' => 'Head of Department',
+            'dean' => 'Dean of Faculty'
         ];
     }
 }
