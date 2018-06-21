@@ -6,7 +6,10 @@ use App\Models\BaseModel;
 use App\User;
 use App\Models\Role;
 use App\Models\Faculty;
+use App\Models\Department;
 use App\Models\SchoolHasUser;
+use App\Models\SemesterType;
+use App\Models\Level;
 
 /**
  * App\Models\School
@@ -40,6 +43,19 @@ class School extends BaseModel
 
     public function faculties() {
         return $this->hasMany(Faculty::class);
+    }
+
+    public function scopeDepartments() {
+        $ids = $this->faculties()->pluck('id');
+        return Department::whereIn('faculty_id', $ids);
+    }
+
+    public function semesterTypes() {
+        return $this->hasMany(SemesterType::class);
+    }
+
+    public function levels() {
+        return $this->hasMany(Level::class);
     }
 
     public static function boot() {

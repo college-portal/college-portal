@@ -18,6 +18,7 @@ class CreateSemesterTypesTable extends Migration
             $table->increments('id');
             $table->string('name', 255);
             $table->integer('school_id')->unsigned();
+            $table->timestamps();
         });
     }
 

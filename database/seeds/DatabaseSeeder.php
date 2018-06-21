@@ -9,6 +9,8 @@ use App\Models\Program;
 use App\Models\Staff;
 use App\Models\Role;
 use App\Models\Level;
+use App\Models\Course;
+use App\Models\SemesterType;
 use App\User;
 
 class DatabaseSeeder extends Seeder
@@ -33,6 +35,20 @@ class DatabaseSeeder extends Seeder
 
         $this->createDean($school);
 
+        $types = [
+            '1st Semester',
+            '2nd Semester'
+        ];
+        foreach ($types as $name) {
+            $type = $this->createSemesterType($school, $name);
+
+            $school->departments()->get()->each(function ($department) use ($school, $type) {
+                $courses = $school->levels()->get()->map(function ($level) use ($department, $type) {
+                    return $this->createCourse($department, $type, $level);
+                });
+            });
+        }
+        
         return $user;
     }
 
@@ -103,6 +119,24 @@ class DatabaseSeeder extends Seeder
             'faculty_id' => $faculty->id
         ];
         return Department::where($opts)->first() ?? factory(Department::class, 1)->create($opts)->first();
+    }
+
+    public function createCourse(Department $department, SemesterType $type, Level $level, $title = null) {
+        $opts = [
+            'department_id' => $department->id,
+            'semester_type_id' => $type->id,
+            'level_id' => $level->id
+        ];
+        if ($title) {
+            $opts['title'] = $title;
+        }
+        return Course::where($opts)->first() ?? factory(Course::class, 1)->create($opts)->first();
+    }
+
+    public function createSemesterType(School $school, $name) {
+        return $school->semesterTypes()->firstOrCreate([
+            'name' => $name
+        ]);
     }
 
     public function createProgram(Department $department) {

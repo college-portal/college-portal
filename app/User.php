@@ -14,6 +14,7 @@ use App\Models\Staff;
 use App\Models\Student;
 use App\Models\Faculty;
 use App\Models\Program;
+use App\Models\Course;
 use App\Models\Department;
 use App\Models\UserHasRole;
 use App\Models\SchoolHasUser;
@@ -94,6 +95,12 @@ class User extends Authenticatable
         /** get programs in departments in faculties in schools that intersect with the current user's */
         $ids = $this->departments()->pluck('departments.id');
         return Program::whereIn('department_id', $ids);
+    }
+
+    public function scopeCourses() {
+        /** get courses in departments in faculties in schools that intersect with the current user's */
+        $ids = $this->departments()->pluck('departments.id');
+        return Course::whereIn('department_id', $ids);
     }
 
     public function scopeViewableStudents() {

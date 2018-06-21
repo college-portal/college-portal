@@ -19,7 +19,10 @@ $factory->define(App\Models\Course::class, function (Faker $faker) {
             'Basic Algebra',
             'Discrete Mathematics',
             'Algorithms and Data Structures',
-            'Kinematics'
+            'Kinematics',
+            'Physical Sciences',
+            'Oscillatory Motion',
+            'Signal Analysis'
         )),
         'code' => ($faker->currencyCode . $faker->numberBetween(100, 200)),
         'credit' => $faker->numberBetween(1, 6)
