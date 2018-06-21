@@ -7,7 +7,7 @@ use App\Models\Session;
 use App\Models\Semester;
 use App\Models\SemesterType;
 
-class RelSemesterType extends Migration
+class RelSemester extends Migration
 {
     /**
      * Run the migrations.
