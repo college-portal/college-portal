@@ -29,8 +29,10 @@ class Chargeable extends BaseModel
 
     public const ITEMS = [ self::SEMESTER, self::SESSION ];
 
+    protected $fillable = [ 'chargeable_service_id', 'chargeable_id', 'amount' ];
+
     public function service() {
-        return $this->belongsTo(ChargeableService::class);
+        return $this->belongsTo(ChargeableService::class, 'chargeable_service_id');
     }
 
     public function scopeOwner() {

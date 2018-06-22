@@ -15,6 +15,7 @@ use App\Http\Controllers\Api\StaffController;
 use App\Http\Controllers\Api\SessionController;
 use App\Http\Controllers\Api\SemesterController;
 use App\Http\Controllers\Api\ChargeableServiceController;
+use App\Http\Controllers\Api\ChargeableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +79,8 @@ Route::group([
         Route::resource('/semesters', SemesterController::class(), $excepts);
         
         Route::resource('/chargeable-services', ChargeableServiceController::class(), $excepts);
+        
+        Route::resource('/chargeables', ChargeableController::class(), $excepts);
     });
 
     /**

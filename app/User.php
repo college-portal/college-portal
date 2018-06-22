@@ -21,6 +21,7 @@ use App\Models\Semester;
 use App\Models\Department;
 use App\Models\UserHasRole;
 use App\Models\ChargeableService;
+use App\Models\Chargeable;
 
 /**
  * App\User
@@ -140,6 +141,11 @@ class User extends Authenticatable
     public function scopeChargeableServices() {
         $ids = $this->schools()->pluck('schools.id');
         return ChargeableService::whereIn('school_id', $ids);
+    }
+
+    public function scopeChargeables() {
+        $ids = $this->chargeableServices()->pluck('chargeable_services.id');
+        return Chargeable::whereIn('chargeable_service_id', $ids);
     }
 
     public function students() {

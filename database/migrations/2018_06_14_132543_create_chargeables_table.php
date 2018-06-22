@@ -15,12 +15,12 @@ class CreateChargeablesTable extends Migration
     public function up()
     {
         Schema::create(Chargeable::name(), function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('chargeable_service_id')->unsigned();
 			$table->integer('chargeable_id')->unsigned();
-			$table->string('chargeable_type');
 			$table->decimal('amount')->nullable();
 			$table->timestamps();
-			$table->unique(['chargeable_service_id','chargeable_id','chargeable_type'], 'cs_id_c_id_ct_id');
+			$table->unique(['chargeable_service_id','chargeable_id'], 'cs_id_ch_id');
         });
     }
 
