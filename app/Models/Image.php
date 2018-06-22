@@ -10,7 +10,7 @@ use App\Models\ImageType;
  *
  * @property int $id
  * @property int $owner_id
- * @property int $owner_type
+ * @property string $owner_type
  * @property int $image_type_id
  * @property string $location
  * @property \Carbon\Carbon $created_at

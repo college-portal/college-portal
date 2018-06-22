@@ -16,9 +16,11 @@ class CreateChargeableServicesTable extends Migration
     {
         Schema::create(ChargeableService::name(), function (Blueprint $table) {
             $table->increments('id');
-			$table->string('code');
+			$table->string('type');
+			$table->string('name');
 			$table->text('description', 65535)->nullable();
 			$table->decimal('amount')->nullable();
+			$table->integer('school_id')->unsigned();
 			$table->timestamps();
         });
     }

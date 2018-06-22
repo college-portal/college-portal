@@ -9,9 +9,11 @@ use App\Models\Chargeable;
  * App\Models\ChargeableService
  *
  * @property int $id
- * @property string $code
+ * @property string $type
+ * @property string $name
  * @property string $description
  * @property float $amount
+ * @property int school_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ChargeableService whereId($value)

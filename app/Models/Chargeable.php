@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\Models\Semester;
 use App\Models\ChargeableService;
 
 /**
@@ -11,7 +12,6 @@ use App\Models\ChargeableService;
  * @property int $id
  * @property int $chargeable_service_id
  * @property string $chargeable_id
- * @property string $chargeable_type
  * @property float $amount
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -23,7 +23,13 @@ use App\Models\ChargeableService;
  */
 class Chargeable extends BaseModel
 {
+    public const SEMESTER = Semester::class;
+
     public function service() {
         return $this->belongsTo(ChargeableService::class);
+    }
+
+    public function scopeOwner() {
+        return app($this->service()->first()->type)->where('id', $this->chargeable_id);
     }
 }
