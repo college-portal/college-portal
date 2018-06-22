@@ -8,6 +8,7 @@ use App\Traits\ModelTableNameTrait;
 use App\Traits\ImageableTrait;
 use App\Traits\FullNameTrait;
 use App\Traits\FilterableTrait;
+use App\Traits\AuthorizableTrait;
 use App\Models\Role;
 use App\Models\School;
 use App\Models\Staff;
@@ -16,6 +17,7 @@ use App\Models\Faculty;
 use App\Models\Program;
 use App\Models\Course;
 use App\Models\Session;
+use App\Models\Semester;
 use App\Models\Department;
 use App\Models\UserHasRole;
 
@@ -42,7 +44,7 @@ use App\Models\UserHasRole;
  */
 class User extends Authenticatable
 {
-    use Notifiable, ModelTableNameTrait, ImageableTrait, FullNameTrait, FilterableTrait;
+    use Notifiable, ModelTableNameTrait, ImageableTrait, FullNameTrait, FilterableTrait, AuthorizableTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -125,6 +127,13 @@ class User extends Authenticatable
     public function scopeSessions() {
         $ids = $this->schools()->pluck('schools.id');
         return Session::whereIn('school_id', $ids);
+    }
+
+    public function scopeSemesters() {
+        $ids = $this->schools()->pluck('schools.id');
+        return Semester::whereHas('type', function ($q) use ($ids) {
+            return $q->whereIn('school_id', $ids);
+        });
     }
 
     public function students() {

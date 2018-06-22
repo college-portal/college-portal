@@ -10,6 +10,8 @@ use App\Models\Department;
 use App\Models\UserHasRole;
 use App\Models\SemesterType;
 use App\Models\Level;
+use App\Models\Session;
+use Carbon\Carbon;
 
 /**
  * App\Models\School
@@ -48,6 +50,18 @@ class School extends BaseModel
     public function scopeDepartments() {
         $ids = $this->faculties()->pluck('id');
         return Department::whereIn('faculty_id', $ids);
+    }
+
+    public function currentSession($date = null) {
+        $date = $date ?? Carbon::now();
+        return $this->sessions()->where([
+            [ 'start_date', '<=', $date ],
+            [ 'end_date', '>=', $date ]
+        ]);
+    }
+
+    public function sessions() {
+        return $this->hasMany(Session::class);
     }
 
     public function semesterTypes() {

@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\SemesterTypeController;
 use App\Http\Controllers\Api\StaffController;
 use App\Http\Controllers\Api\SessionController;
+use App\Http\Controllers\Api\SemesterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +73,8 @@ Route::group([
         Route::resource('/staff', StaffController::class(), $excepts);
         
         Route::resource('/sessions', SessionController::class(), $excepts);
+        
+        Route::resource('/semesters', SemesterController::class(), $excepts);
     });
 
     /**

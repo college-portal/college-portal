@@ -23,15 +23,20 @@ use App\Models\School;
  */
 class Semester extends BaseModel
 {
+    protected $fillable = [ 'semester_type_id', 'session_id', 'start_date', 'end_date' ];
+
     public function session() {
         return $this->belongsTo(Session::class);
     }
 
     public function school() {
-        return $this->session()->school();
+        $ids = $this->type->pluck('id');
+        return School::whereHas('semesterTypes', function ($q) use ($ids) {
+            return $q->whereIn('id', $ids);
+        });
     }
 
     public function type() {
-        return $this->belongsTo(SemesterType::class);
+        return $this->belongsTo(SemesterType::class, 'semester_type_id');
     }
 }
