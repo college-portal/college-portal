@@ -25,6 +25,10 @@ class SemesterService
     }
 
     public function validateSemesterDates(Session $session, Carbon $start_date, Carbon $end_date) {
+        /** 
+         * check that the start_date < end_date
+         *  - and that the start_date and end_date are within (between) the session's start_date and end_date values
+         */
         if (!(($start_date < $end_date) &&
             ($start_date >= $session->start_date && $end_date <= $session->end_date))) {
             throw new Exception("Invalid Semester Interval Dates. Input dates ($start_date and $end_date) should be within ($session->start_date and $session->end_date)");
@@ -32,13 +36,16 @@ class SemesterService
     }
 
     public function create($opts) {
+        /** retrieve the necessary variables from the request input */
+
         $session_id = isset($opts['session_id']) ? $opts['session_id'] : null;
         $semester_type_id = $opts['semester_type_id'];
         $start_date = Carbon::parse($opts['start_date']);
         $end_date = Carbon::parse($opts['end_date']);
 
-        $type = $this->semesterTypeRepository->type($semester_type_id);
-        $school = $type->school()->first();
+        /** retrieve the school, so we can verify that it has a current session */
+
+        $school = $this->semesterTypeRepository->type($semester_type_id)->school()->first();
 
         /** verify that a current session exists in the school to add the semester to */
 
@@ -49,6 +56,8 @@ class SemesterService
         /** verify that the semester's date interval is within its session's */
 
         $this->validateSemesterDates($session, $start_date, $end_date);
+
+        /** create the semester */
         
         $opts = array_merge($opts, [ 'session_id' => $session->id ]);
         return $this->repo()->create($opts);
