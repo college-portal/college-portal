@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\BaseModel;
 use App\Models\Semester;
+use App\Models\Session;
 use App\Models\ChargeableService;
 
 /**
@@ -24,6 +25,7 @@ use App\Models\ChargeableService;
 class Chargeable extends BaseModel
 {
     public const SEMESTER = Semester::class;
+    public const SESSION = Session::class;
 
     public function service() {
         return $this->belongsTo(ChargeableService::class);

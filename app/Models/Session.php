@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\BaseModel;
 use App\Models\School;
 use App\Models\Semester;
+use App\Traits\ChargeableTrait;
 
 /**
  * App\Models\Session
@@ -23,6 +24,8 @@ use App\Models\Semester;
  */
 class Session extends BaseModel
 {
+    use ChargeableTrait;
+
     protected $fillable = [ 'school_id', 'name', 'start_date', 'end_date' ];
 
     public function school() {
