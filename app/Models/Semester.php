@@ -39,4 +39,8 @@ class Semester extends BaseModel
     public function type() {
         return $this->belongsTo(SemesterType::class, 'semester_type_id');
     }
+
+    public function type() {
+        return $this->belongsTo(SemesterType::class);
+    }
 }
