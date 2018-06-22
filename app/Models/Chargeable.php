@@ -27,6 +27,8 @@ class Chargeable extends BaseModel
     public const SEMESTER = Semester::class;
     public const SESSION = Session::class;
 
+    public const ITEMS = [ self::SEMESTER, self::SESSION ];
+
     public function service() {
         return $this->belongsTo(ChargeableService::class);
     }

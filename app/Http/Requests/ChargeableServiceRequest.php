@@ -4,9 +4,11 @@ namespace App\Http\Requests;
 
 use App\Models\Role;
 use App\Models\School;
+use App\Models\Chargeable;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class LevelRequest extends FormRequest
+class ChargeableServiceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +17,7 @@ class LevelRequest extends FormRequest
      */
     public function authorize()
     {
-        $school = School::findOrFail($this->route('school_id'));
+        $school = School::findOrFail($this->input('school_id'));
         $user = auth()->user();
         return $user->hasRole(Role::ADMIN) || 
                 ($user->id == $school->owner_id); // school owner
@@ -29,7 +31,15 @@ class LevelRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string'
+            'school_id'     => 'required|numeric|exists:schools,id',
+            'type'          => [
+                                'required',
+                                'string',
+                                Rule::in(Chargeable::ITEMS)
+            ],
+            'name'          => 'required|string',
+            'description'   => 'string',
+            'amount'        => 'required|numeric|min:0'
         ];
     }
 }

@@ -20,6 +20,7 @@ use App\Models\Session;
 use App\Models\Semester;
 use App\Models\Department;
 use App\Models\UserHasRole;
+use App\Models\ChargeableService;
 
 /**
  * App\User
@@ -134,6 +135,11 @@ class User extends Authenticatable
         return Semester::whereHas('type', function ($q) use ($ids) {
             return $q->whereIn('school_id', $ids);
         });
+    }
+
+    public function scopeChargeableServices() {
+        $ids = $this->schools()->pluck('schools.id');
+        return ChargeableService::whereIn('school_id', $ids);
     }
 
     public function students() {

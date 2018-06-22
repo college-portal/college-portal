@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\Models\School;
 use App\Models\Chargeable;
 
 /**
@@ -24,7 +25,13 @@ use App\Models\Chargeable;
  */
 class ChargeableService extends BaseModel
 {
+    protected $fillable = [ 'type', 'name', 'description', 'amount', 'school_id' ];
+
     public function chargeables() {
         return $this->hasMany(Chargeable::class);
+    }
+
+    public function school() {
+        return $this->belongsTo(School::class);
     }
 }
