@@ -27,12 +27,13 @@ use App\Models\CourseDependency;
  */
 class Course extends BaseModel
 {
+
     protected $fillable = [ 'department_id', 'semester_type_id', 'level_id', 'code', 'title', 'credit' ];
 
     public function department() {
         return $this->belongsTo(Department::class);
     }
-
+  
     public function semesterType() {
         return $this->belongsTo(SemesterType::class);
     }
@@ -40,7 +41,7 @@ class Course extends BaseModel
     public function level() {
         return $this->belongsTo(Level::class);
     }
-
+  
     public function scopeSchool() {
         $ids = $this->level()->pluck('school_id');
         return School::whereIn('id', $ids);
@@ -49,7 +50,7 @@ class Course extends BaseModel
     public function scopeFaculty() {
         return $this->department()->first()->faculty();
     }
-
+  
     public function dependencies() {
         return $this->belongsToMany(self::class, CourseDependency::name(), 'course_id', 'dependency_id');
     }
