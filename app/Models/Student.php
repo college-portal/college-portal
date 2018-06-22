@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\Models\Role;
 use App\Models\Department;
 use App\User;
 
@@ -25,6 +26,8 @@ use App\User;
  */
 class Student extends BaseModel
 {
+    protected $fillable = [ 'user_id', 'program_id', 'matric_no', 'is_active' ];
+
     public function user() {
         return $this->belongsTo(User::class);
     }
@@ -33,15 +36,35 @@ class Student extends BaseModel
         return $this->belongsTo(Program::class);
     }
 
-    public function department() {
-        return $this->program()->department();
+    public function scopeDepartment() {
+        $ids = $this->program()->pluck('department_id');
+        return Department::where('id', $ids);
     }
 
-    public function faculty() {
-        return $this->department()->faculty();
+    public function scopeFaculty() {
+        $ids = $this->department()->pluck('faculty_id');
+        return Faculty::where('id', $ids);
     }
 
-    public function school() {
-        return $this->faculty()->school();
+    public function scopeSchool() {
+        $ids = $this->faculty()->pluck('school_id');
+        return School::where('id', $ids);
+    }
+
+
+    public static function boot() {
+        $studentRoleCreate = function ($model) {
+            $school = $model->program()->first()->department()->first()
+                                        ->faculty()->first()->school()->first();
+            $role = Role::where('name', Role::STUDENT)->first();
+            $model->user->roles()->syncWithoutDetaching([
+                $role->id => [
+                    'school_id' => $school->id
+                ]
+            ]);
+        };
+
+        self::created($studentRoleCreate);
+        self::updated($studentRoleCreate);
     }
 }

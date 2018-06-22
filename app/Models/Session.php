@@ -23,6 +23,8 @@ use App\Models\Semester;
  */
 class Session extends BaseModel
 {
+    protected $fillable = [ 'school_id', 'name', 'start_date', 'end_date' ];
+
     public function school() {
         return $this->belongsTo(School::class);
     }

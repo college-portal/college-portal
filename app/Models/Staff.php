@@ -4,6 +4,9 @@ namespace App\Models;
 
 use App\Models\BaseModel;
 use App\Models\Department;
+use App\Models\Role;
+use App\Models\Faculty;
+use App\Models\School;
 use App\User;
 
 /**
@@ -24,6 +27,8 @@ use App\User;
  */
 class Staff extends BaseModel
 {
+    protected $fillable = [ 'title', 'department_id', 'user_id' ];
+
     public function user() {
         return $this->belongsTo(User::class);
     }
@@ -32,11 +37,28 @@ class Staff extends BaseModel
         return $this->belongsTo(Department::class);
     }
 
-    public function faculty() {
-        return $this->department()->faculty();
+    public function scopeFaculty() {
+        $ids = $this->department()->pluck('faculty_id');
+        return Faculty::whereIn('id', $ids);
     }
 
-    public function school() {
-        return $this->faculty()->school();
+    public function scopeSchool() {
+        $ids = $this->faculty()->pluck('school_id');
+        return School::whereIn('id', $ids);
+    }
+
+    public static function boot() {
+        self::created(function ($model) {
+            $school = $model->school()->first();
+            $role = Role::where('name', Role::STAFF)->first();
+
+            if (optional($school)->id) {
+                $model->user->roles()->syncWithoutDetaching([
+                    $role->id => [
+                        'school_id' => $school->id
+                    ]
+                ]);
+            }
+        });
     }
 }

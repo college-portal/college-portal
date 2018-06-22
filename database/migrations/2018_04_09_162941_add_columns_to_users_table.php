@@ -18,7 +18,8 @@ class AddColumnsToUsersTable extends Migration
             $table->string('first_name', 255)->after('password');
             $table->string('last_name', 255)->after('first_name');
             $table->string('other_names', 255)->after('last_name')->nullable();
-            $table->date('dob')->after('other_names');
+            $table->string('display_name', 1000)->after('other_names');
+            $table->date('dob')->after('display_name');
         });
     }
 

@@ -19,6 +19,7 @@ class RelStudentUserProgram extends Migration
         Schema::table(Student::name(), function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on(User::name());
             $table->foreign('program_id')->references('id')->on(Program::name());
+            $table->unique([ 'user_id', 'program_id' ]);
         });
     }
 
@@ -32,6 +33,7 @@ class RelStudentUserProgram extends Migration
         Schema::table(Student::name(), function (Blueprint $table) {
             $table->dropForeign([ 'user_id' ]);
             $table->dropForeign([ 'program_id' ]);
+            $table->dropUnique([ 'user_id', 'program_id' ]);
         });
     }
 }
