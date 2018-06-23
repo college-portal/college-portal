@@ -13,7 +13,12 @@ use Illuminate\Database\Eloquent\Model;
 class BaseModel extends Model
 {
     use FilterableTrait;
-  
+    
+    /**
+     * Returns the table name for the Model
+     *
+     * @return string
+     */
     public static function name() {
         return with(new static)->getTable();
     }
