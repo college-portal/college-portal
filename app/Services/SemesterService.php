@@ -24,17 +24,36 @@ class SemesterService
         return app(SemesterRepository::class);
     }
 
+    /** 
+     * check that the start_date < end_date and that the start_date and end_date are 
+     * within (between) the session's start_date and end_date values
+     * 
+     * @param Session $session
+     * @param Carbon $start_date
+     * @param Carbon $end_date
+     * 
+     * @throws Exception
+     */
     public function validateSemesterDates(Session $session, Carbon $start_date, Carbon $end_date) {
-        /** 
-         * check that the start_date < end_date
-         *  - and that the start_date and end_date are within (between) the session's start_date and end_date values
-         */
         if (!(($start_date < $end_date) &&
             ($start_date >= $session->start_date && $end_date <= $session->end_date))) {
             throw new Exception("Invalid Semester Interval Dates. Input dates ($start_date and $end_date) should be within ($session->start_date and $session->end_date)");
         }
     }
 
+    /**
+     * attempts to create a new Semester
+     * 
+     * @param array $opts
+     * @param integer $opts->session_id
+     * @param integer $opts->semester_type_id
+     * @param Carbon $opts->start_date
+     * @param Carbon $opts->end_date
+     * 
+     * @return \App\Models\Semester
+     *
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function create($opts) {
         /** retrieve the necessary variables from the request input */
 
@@ -63,6 +82,21 @@ class SemesterService
         return $this->repo()->create($opts);
     }
 
+    /**
+     * attempts to update an existing Semester
+     * 
+     * @param integer $id
+     * @param array $opts
+     * @param integer $opts->session_id
+     * @param integer $opts->semester_type_id
+     * @param Carbon $opts->start_date
+     * @param Carbon $opts->end_date
+     * 
+     * @return \App\Models\Semester
+     *
+     * @throws Exception
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function update($id, $opts) {
         $user = auth()->user()->first();
         $semester = $this->repo()->semester($id);

@@ -20,11 +20,27 @@ class ProgramCreditService
         $this->levelRepository = $levelRepository;
     }
 
+    /**
+     * @return \App\Repositories\ProgramCreditRepository
+     */
     public function repo()
     {
         return app(ProgramCreditRepository::class);
     }
 
+    /**
+     * attempts to update the details of a ProgramCredit
+     * 
+     * @param integer $id
+     * @param array $opts
+     * @param integer $opts->program_id
+     * @param integer $opts->semester_id
+     * @param float $opts->level_id
+     * 
+     * @return \App\Models\ProgramCredit
+     *
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function update($id, $opts = []) {
         $user = auth()->user()->first();
         $credit = $this->repo()->single($id);
