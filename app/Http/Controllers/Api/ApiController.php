@@ -46,19 +46,23 @@ class ApiController extends BaseController
         ], 409);
     }
 
+    /**
+     * returns the method identifier e.g. \App\Controllers\Controller@create
+     * 
+     * @param string $name (the name of the method)
+     * 
+     * @return string
+     */
     public static function method ($name) {
         return '\\' . static::class . '@' . $name;
     }
 
+    /**
+     * returns the class identifier prefixed with a backslash e.g. \App\Controllers\Controller
+     * 
+     * @return string
+     */
     public static function class () {
         return '\\' . static::class;
-    }
-
-    public function create(Request $request) {
-        return $this->ok();
-    }
-
-    public function edit(Request $request, $id) {
-        return $this->ok();
     }
 }
