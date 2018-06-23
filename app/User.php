@@ -22,6 +22,7 @@ use App\Models\Department;
 use App\Models\UserHasRole;
 use App\Models\ChargeableService;
 use App\Models\Chargeable;
+use App\Models\ProgramCredit;
 
 /**
  * App\User
@@ -100,6 +101,12 @@ class User extends Authenticatable
         /** get programs in departments in faculties in schools that intersect with the current user's */
         $ids = $this->departments()->pluck('departments.id');
         return Program::whereIn('department_id', $ids);
+    }
+
+    public function scopeProgramCredits() {
+        /** get programs in departments in faculties in schools that intersect with the current user's */
+        $ids = $this->programs()->pluck('programs.id');
+        return ProgramCredit::whereIn('program_id', $ids);
     }
 
     public function scopeCourses() {
