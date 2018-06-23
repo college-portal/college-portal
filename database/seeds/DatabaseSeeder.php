@@ -11,7 +11,13 @@ use App\Models\Role;
 use App\Models\Level;
 use App\Models\Course;
 use App\Models\SemesterType;
+use App\Models\Session;
+use App\Models\Semester;
+use App\Models\Chargeable;
+use App\Models\ChargeableService;
 use App\User;
+use Carbon\Carbon;
+use Illuminate\Support\Collection;
 
 class DatabaseSeeder extends Seeder
 {
@@ -35,6 +41,12 @@ class DatabaseSeeder extends Seeder
 
         $this->createDean($school);
 
+        $semesterTypes = new Collection();
+        $sessions = new Collection();
+
+        $sessions->push($this->createSession($school, Carbon::now(), Carbon::now()->addDays(365)));
+        $sessions->push($this->createSession($school, Carbon::now()->addDays(365), Carbon::now()->addDays(730)));
+
         $types = [
             '1st Semester',
             '2nd Semester'
@@ -47,7 +59,23 @@ class DatabaseSeeder extends Seeder
                     return $this->createCourse($department, $type, $level);
                 });
             });
+            $semesterTypes->push($type);
         }
+
+        $sessions->each(function ($session) use ($semesterTypes, $school) {
+            $session->start_date = Carbon::parse($session->start_date);
+            $semesterTypes->each(function ($type) use ($session, $school) {
+                $semester = null;
+                if ($type->name == '1st Semester') {
+                    $semester = $this->createSemester($session, $type, $session->start_date, $session->start_date->copy()->addDays(180));
+                }
+                else {
+                    $semester = $this->createSemester($session, $type, $session->start_date->copy()->addDays(185), $session->start_date->copy()->addDays(365));
+                }
+                $this->createChargeableService($school, $semester, "$type->name Fees", 500);
+            });
+            $this->createChargeableService($school, $session, "$session->name Fees", 1000);
+        });
         
         return $user;
     }
@@ -160,5 +188,46 @@ class DatabaseSeeder extends Seeder
             'name' => $name
         ];
         return Level::where($opts)->first() ?? Level::create($opts);
+    }
+
+    public function createSession(School $school, Carbon $start_date, Carbon $end_date) {
+        $opts = [
+            'school_id' => $school->id,
+            'start_date' => $start_date->startOfDay(),
+            'end_date' => $end_date->startOfDay(),
+            'name' => "$start_date->year/$end_date->year"
+        ];
+        return Session::where($opts)->first() ?? Session::create($opts);
+    }
+
+    public function createSemester(Session $session, SemesterType $type, Carbon $start_date, Carbon $end_date) {
+        $opts = [
+            'semester_type_id' => $type->id,
+            'session_id' => $session->id,
+            'start_date' => $start_date->startOfDay(),
+            'end_date' => $end_date->startOfDay()
+        ];
+        return Semester::where($opts)->first() ?? Semester::create($opts);
+    }
+
+    public function createChargeableService(School $school, $model, $name, $amount) {
+        $opts = [
+            'school_id' => $school->id,
+            'type'      => get_class($model),
+            'name'      => $name,
+            'amount'    => $amount
+        ];
+        $service = ChargeableService::where($opts)->first() ?? ChargeableService::create($opts);
+        $this->createChargeable($service, $model->id, $amount);
+        return $service;
+    }
+
+    public function createChargeable(ChargeableService $service, $id, $amount) {
+        $opts = [
+            'chargeable_service_id' => $service->id,
+            'chargeable_id'      => $id,
+            'amount'    => $amount
+        ];
+        return Chargeable::where($opts)->first() ?? Chargeable::create($opts);
     }
 }
