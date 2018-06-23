@@ -27,6 +27,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\Models\Semester' => 'App\Policies\SemesterPolicy',
         'App\Models\ChargeableService' => 'App\Policies\ChargeableServicePolicy',
         'App\Models\Chargeable' => 'App\Policies\ChargeablePolicy',
+        'App\Models\ProgramCredit' => 'App\Policies\ProgramCreditPolicy',
     ];
 
     /**
