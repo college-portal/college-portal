@@ -25,7 +25,6 @@ use App\Traits\ChargeableTrait;
 class Session extends BaseModel
 {
     use ChargeableTrait;
-
     protected $fillable = [ 'school_id', 'name', 'start_date', 'end_date' ];
 
     public function school() {

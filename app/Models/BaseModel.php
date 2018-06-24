@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 class BaseModel extends Model
 {
     use FilterableTrait;
-    
+  
     /**
      * Returns the table name for the Model
      *

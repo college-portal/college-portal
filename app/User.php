@@ -154,7 +154,7 @@ class User extends Authenticatable
         $ids = $this->chargeableServices()->pluck('chargeable_services.id');
         return Chargeable::whereIn('chargeable_service_id', $ids);
     }
-
+  
     public function students() {
         return $this->hasMany(Student::class);
     }
