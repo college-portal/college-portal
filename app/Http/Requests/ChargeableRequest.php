@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Models\Chargeable;
 use App\Models\ChargeableService;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ChargeableRequest extends FormRequest
@@ -30,7 +31,13 @@ class ChargeableRequest extends FormRequest
     {
         return [
             'chargeable_service_id' => 'required|numeric|exists:chargeable_services,id',
-            'owner_id'              => 'required|numeric',
+            'owner_id'              => [
+                                        'required',
+                                        'numeric',
+                                        Rule::unique('chargeables')->where(function ($q) {
+                                            return $q->where('owner_id', $this->owner_id)->where('chargeable_service_id', $this->chargeable_service_id);
+                                        })
+                                       ],
             'amount'                => 'numeric'
         ];
     }
