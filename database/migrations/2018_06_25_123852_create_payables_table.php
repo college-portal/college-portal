@@ -20,6 +20,7 @@ class CreatePayablesTable extends Migration
             $table->integer('chargeable_id')->unsigned();
             $table->datetime('paid_at')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
