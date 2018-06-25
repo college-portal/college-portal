@@ -23,6 +23,7 @@ use App\Models\UserHasRole;
 use App\Models\ChargeableService;
 use App\Models\Chargeable;
 use App\Models\ProgramCredit;
+use App\Models\Payable;
 
 /**
  * App\User
@@ -161,6 +162,10 @@ class User extends Authenticatable
 
     public function staff() {
         return $this->hasMany(Staff::class);
+    }
+
+    public function payables() {
+        return $this->hasMany(Payable::class);
     }
 
     public function hasRole($role_names, $school_id = null) {

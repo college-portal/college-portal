@@ -5,6 +5,8 @@ namespace App\Models;
 use App\Models\User;
 use App\Models\Chargeable;
 use App\Models\BaseModel;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * App\Models\Payable
@@ -18,6 +20,7 @@ use App\Models\BaseModel;
  * @property int $user_id
  * @property int $chargeable_id
  * @property boolean $is_paid
+ * @property \Carbon\Carbon $paid_at
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Level whereId($value)
@@ -28,6 +31,8 @@ use App\Models\BaseModel;
  */
 class Payable extends BaseModel
 {
+    use SoftDeletes;
+
     protected $fillable = [ 'user_id', 'chargeable_id' ];
 
     public function user() {
@@ -36,5 +41,13 @@ class Payable extends BaseModel
 
     public function chargeable() {
         return $this->belongsTo(Chargeable::class);
+    }
+
+    public function setIsPaidAttribute($value) {
+        $this->paid_at = $value ? Carbon::now() : null;
+    }
+
+    public function getIsPaidAttribute() {
+        return !!$this->paid_at;
     }
 }

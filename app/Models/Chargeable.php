@@ -6,6 +6,7 @@ use App\Models\BaseModel;
 use App\Models\Semester;
 use App\Models\Session;
 use App\Models\ChargeableService;
+use App\Models\Payable;
 
 /**
  * App\Models\Chargeable
@@ -37,5 +38,9 @@ class Chargeable extends BaseModel
 
     public function scopeOwner() {
         return app($this->service()->first()->type)->where('id', $this->owner_id);
+    }
+
+    public function payables() {
+        return $this->hasMany(Payable::class);
     }
 }
