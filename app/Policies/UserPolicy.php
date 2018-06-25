@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\User;
+use App\Models\Role;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class UserPolicy
@@ -24,7 +25,7 @@ class UserPolicy
     }
 
     public function delete(User $user, User $other) {
-        return $user->hasRole('admin') || ($user->id == $other->id);
+        return $user->hasRole(Role::ADMIN) || ($user->id == $other->id);
     }
 
     public function update(User $user, User $other) {
