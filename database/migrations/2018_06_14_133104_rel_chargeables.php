@@ -17,6 +17,7 @@ class RelChargeables extends Migration
     {
         Schema::table(Chargeable::name(), function (Blueprint $table) {
             $table->foreign('chargeable_service_id')->references('id')->on(ChargeableService::name());
+			$table->unique(['chargeable_service_id','owner_id']);
         });
     }
 
@@ -29,6 +30,7 @@ class RelChargeables extends Migration
     {
         Schema::table(Chargeable::name(), function (Blueprint $table) {
             $table->dropForeign([ 'chargeable_service_id' ]);
+            $table->dropUnique([ 'chargeable_service_id', 'owner_id' ]);
         });
     }
 }

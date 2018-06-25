@@ -225,7 +225,7 @@ class DatabaseSeeder extends Seeder
     public function createChargeable(ChargeableService $service, $id, $amount) {
         $opts = [
             'chargeable_service_id' => $service->id,
-            'chargeable_id'      => $id,
+            'owner_id'      => $id,
             'amount'    => $amount
         ];
         return Chargeable::where($opts)->first() ?? Chargeable::create($opts);

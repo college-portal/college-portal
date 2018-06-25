@@ -50,7 +50,7 @@ class ChargeableService extends BaseService
      * @param integer $id
      * @param array $opts
      * @param integer $opts->chargeable_service_id
-     * @param integer $opts->chargeable_id
+     * @param integer $opts->owner_id
      * @param float $opts->amount
      * 
      * @return \App\Models\Chargeable
@@ -59,7 +59,7 @@ class ChargeableService extends BaseService
      */
     public function update($id, $opts) {
         $user = auth()->user()->first();
-        $chargeable_id = isset($opts['chargeable_id']) ? $opts['chargeable_id'] : null;
+        $owner_id = isset($opts['owner_id']) ? $opts['owner_id'] : null;
         $chargeable_service_id = isset($opts['chargeable_service_id']) ? $opts['chargeable_service_id'] : null;
 
         if ($chargeable_service_id) {
@@ -68,8 +68,8 @@ class ChargeableService extends BaseService
             $user->authorize('update', $service);
         }
 
-        if ($chargeable_id) {
-            $owner = $service->owner($chargeable_id);
+        if ($owner_id) {
+            $owner = $service->owner($owner_id);
 
             $user->authorize('update', $owner);
         }

@@ -16,7 +16,7 @@ class ChargeableRequest extends FormRequest
     public function authorize()
     {
         $service = ChargeableService::findOrFail($this->input('chargeable_service_id'));
-        $owner = $service->owner($this->chargeable_id)->first();
+        $owner = $service->owner($this->owner_id)->first();
         $user = auth()->user();
         return $user->can('update', $service) && $user->can('update', $owner); // school owner
     }
@@ -30,7 +30,7 @@ class ChargeableRequest extends FormRequest
     {
         return [
             'chargeable_service_id' => 'required|numeric|exists:chargeable_services,id',
-            'chargeable_id'         => 'required|numeric',
+            'owner_id'              => 'required|numeric',
             'amount'                => 'numeric'
         ];
     }

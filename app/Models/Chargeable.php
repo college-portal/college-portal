@@ -12,7 +12,7 @@ use App\Models\ChargeableService;
  *
  * @property int $id
  * @property int $chargeable_service_id
- * @property string $chargeable_id
+ * @property string $owner_id
  * @property float $amount
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -29,13 +29,13 @@ class Chargeable extends BaseModel
 
     public const ITEMS = [ self::SEMESTER, self::SESSION ];
 
-    protected $fillable = [ 'chargeable_service_id', 'chargeable_id', 'amount' ];
+    protected $fillable = [ 'chargeable_service_id', 'owner_id', 'amount' ];
 
     public function service() {
         return $this->belongsTo(ChargeableService::class, 'chargeable_service_id');
     }
 
     public function scopeOwner() {
-        return app($this->service()->first()->type)->where('id', $this->chargeable_id);
+        return app($this->service()->first()->type)->where('id', $this->owner_id);
     }
 }
