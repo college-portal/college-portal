@@ -2,10 +2,8 @@
 
 namespace App\Filters;
 
-use App\User;
-use App\Models\Student;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 
 class StudentFilters extends BaseFilters
 {
@@ -17,11 +15,13 @@ class StudentFilters extends BaseFilters
         parent::__construct($request);
     }
 
-    public function program_id ($value) {
+    public function program_id(string $value):Builder
+	{
         return $this->builder->where('program_id', $value);
     }
 
-    public function matric_no ($value) {
+    public function matric_no(string $value):Builder
+	{
         return $this->builder->where('matric_no', 'LIKE', "%$value%");
     }
 }

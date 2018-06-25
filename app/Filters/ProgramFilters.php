@@ -2,10 +2,8 @@
 
 namespace App\Filters;
 
-use App\User;
-use App\Models\Program;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 
 class ProgramFilters extends BaseFilters
 {
@@ -17,7 +15,8 @@ class ProgramFilters extends BaseFilters
         parent::__construct($request);
     }
 
-    public function with_department() {
+    public function with_department():Builder
+	{
         return $this->builder->with('department');
     }
 }

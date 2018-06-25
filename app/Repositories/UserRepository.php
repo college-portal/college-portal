@@ -29,7 +29,8 @@ class UserRepository
         return $this->model()->where('id', $id)->delete();
     }
 
-    public function create($opts) {
+    public function create(array $opts):User
+	{
         return $this->model()->create($opts);
     }
 

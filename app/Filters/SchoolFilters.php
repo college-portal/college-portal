@@ -2,10 +2,9 @@
 
 namespace App\Filters;
 
-use App\User;
-use App\Models\School;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
+
 
 class SchoolFilters extends BaseFilters
 {
@@ -17,15 +16,18 @@ class SchoolFilters extends BaseFilters
         parent::__construct($request);
     }
 
-    public function with_faculties() {
+    public function with_faculties():Builder
+	{
         return $this->builder->with('faculties');
     }
 
-    public function only_active() { /** unless include_inactive is specified */
+    public function only_active():Builder
+	{ /** unless include_inactive is specified */
         return $this->builder->where('is_active', true);
     }
 
-    public function global() {
+    public function global():array
+	{
         if (!$this->request->has('include_inactive')) {
             $this->only_active();
         }

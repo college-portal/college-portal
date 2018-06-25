@@ -2,7 +2,6 @@
 
 namespace App\Traits;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Auth\Access\AuthorizationException;
 
 trait AuthorizableTrait

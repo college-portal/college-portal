@@ -22,7 +22,7 @@ class FacultyController extends ApiController
         return $this->service;
     }
 
-    public function show(Request $request, FacultyFilters $filters, $id) {
+    public function show(Request $request, FacultyFilters $filters, int $id) {
         $faculty = $this->service()->repo()->faculty($id, $filters);
         $this->authorize('view', $faculty); /** ensure the current user has view rights */
         return $faculty;
@@ -33,7 +33,7 @@ class FacultyController extends ApiController
         return $faculties;
     }
 
-    public function destroy(Request $request, $id) {
+    public function destroy(Request $request, int $id) {
         $faculty = $this->service()->repo()->faculty($id);
         $this->authorize('delete', $faculty); /** ensure the current user has delete rights */
         $this->service()->repo()->delete($id);
@@ -46,7 +46,7 @@ class FacultyController extends ApiController
         return $this->json($faculty);
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, int $id) {
         $faculty = $this->service()->repo()->faculty($id);
         $this->authorize('update', $faculty);
         $faculty = $this->service()->repo()->update($id, $request->all());

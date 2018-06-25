@@ -19,7 +19,7 @@ class SchoolController extends ApiController
         return $this->service;
     }
 
-    public function show(Request $request, SchoolFilters $filters, $id) {
+    public function show(Request $request, SchoolFilters $filters, int $id) {
         $school = $this->service()->repo()->school($request->user(), $id, $filters);
         $this->authorize('view', $school); /** ensure the current user has view rights */
         return $school;
@@ -29,7 +29,7 @@ class SchoolController extends ApiController
         return $this->service()->repo()->schools($request->user(), $filters);
     }
 
-    public function destroy(Request $request, $id) {
+    public function destroy(Request $request, int $id) {
         $school = $this->service()->repo()->school($request->user(), $id);
         $this->authorize('delete', $school); /** ensure the current user has delete rights */
         $this->service()->repo()->delete($request->user(), $id);
@@ -41,7 +41,7 @@ class SchoolController extends ApiController
         return $this->json($school);
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, int $id) {
         $school = $this->service()->repo()->school($request->user(), $id);
         $this->authorize('update', $school);
         $school = $this->service()->repo()->update($request->user(), $id, $request->all());

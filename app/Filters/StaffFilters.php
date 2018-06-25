@@ -2,10 +2,7 @@
 
 namespace App\Filters;
 
-use App\User;
-use App\Models\Staff;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 
 class StaffFilters extends BaseFilters
 {

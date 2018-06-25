@@ -19,7 +19,7 @@ class SemesterController extends ApiController
         return $this->service;
     }
 
-    public function show(Request $request, SemesterFilters $filters, $id) {
+    public function show(Request $request, SemesterFilters $filters, int $id) {
         $semester = $this->service()->repo()->semester($id, $filters);
         $this->authorize('view', $semester);
         return $semester;
@@ -30,7 +30,7 @@ class SemesterController extends ApiController
         return $semesters;
     }
 
-    public function destroy(Request $request, $id) {
+    public function destroy(Request $request, int $id) {
         $semester = $this->service()->repo()->semester($id);
         $this->authorize('delete', $semester); /** ensure the current user has delete rights */
         $this->service()->repo()->delete($id);
@@ -42,7 +42,7 @@ class SemesterController extends ApiController
         return $this->json($semester);
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, int $id) {
         $semester = $this->service()->repo()->semester($id);
         $this->authorize('update', $semester);
         $semester = $this->service()->update($id, $request->all());

@@ -15,7 +15,7 @@ class BaseFilters
         $this->request = $request;
     }
   
-    public function apply(Builder $builder)
+    public function apply(Builder $builder):Builder
     {
         $this->builder = $builder;
         foreach (array_merge($this->global(), $this->filters()) as $name => $value) {
@@ -31,12 +31,13 @@ class BaseFilters
         return $this->builder;
     }
   
-    public function filters(): array
+    public function filters():array
     {
         return $this->request->all();
     }
     
-    public function global() {
+    public function global():array
+	{
         return [];
     }
 }

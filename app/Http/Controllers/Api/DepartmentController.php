@@ -21,7 +21,7 @@ class DepartmentController extends ApiController
         return $this->service;
     }
 
-    public function show(Request $request, DepartmentFilters $filters, $id) {
+    public function show(Request $request, DepartmentFilters $filters, int $id) {
         $department = $this->service()->repo()->department($id, $filters);
         $this->authorize('view', $department); /** ensure the current user has view rights */
         return $department;
@@ -32,7 +32,7 @@ class DepartmentController extends ApiController
         return $departments;
     }
 
-    public function destroy(Request $request, $id) {
+    public function destroy(Request $request, int $id) {
         $department = $this->service()->repo()->department($id);
         $this->authorize('delete', $department); /** ensure the current user has delete rights */
         $this->service()->repo()->delete($id);
@@ -44,7 +44,7 @@ class DepartmentController extends ApiController
         return $this->json($department);
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, int $id) {
         $department = $this->service()->repo()->department($id);
         $this->authorize('update', $department);
         $department = $this->service()->repo()->update($id, $request->all());

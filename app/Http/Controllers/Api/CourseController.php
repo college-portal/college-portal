@@ -19,7 +19,7 @@ class CourseController extends ApiController
         return $this->service;
     }
 
-    public function show(Request $request, CourseFilters $filters, $id) {
+    public function show(Request $request, CourseFilters $filters, int $id) {
         $course = $this->service()->repo()->course($id, $filters);
         $this->authorize('view', $course); /** ensure the current user has view rights */
         return $course;
@@ -30,7 +30,7 @@ class CourseController extends ApiController
         return $courses;
     }
 
-    public function destroy(Request $request, $id) {
+    public function destroy(Request $request, int $id) {
         $course = $this->service()->repo()->course($id);
         $this->authorize('delete', $course); /** ensure the current user has delete rights */
         $this->service()->repo()->delete($id);
@@ -42,7 +42,7 @@ class CourseController extends ApiController
         return $this->json($course);
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, int $id) {
         $course = $this->service()->repo()->course($id);
         $this->authorize('update', $course);
         $course = $this->service()->repo()->update($id, $request->all());

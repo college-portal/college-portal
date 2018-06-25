@@ -2,9 +2,8 @@
 
 namespace App\Filters;
 
-use App\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 
 class UserFilters extends BaseFilters
 {
@@ -16,15 +15,18 @@ class UserFilters extends BaseFilters
         parent::__construct($request);
     }
 
-    public function with_staff() {
+    public function with_staff():Builder
+	{
         return $this->builder->with('staff');
     }
 
-    public function with_students() {
+    public function with_students():Builder
+	{
         return $this->builder->with('students');
     }
 
-    public function global() {
+    public function global():array
+	{
         return [];
     }
 }

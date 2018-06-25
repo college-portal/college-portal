@@ -2,10 +2,8 @@
 
 namespace App\Filters;
 
-use App\User;
-use App\Models\Session;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 
 class SessionFilters extends BaseFilters
 {
@@ -17,11 +15,13 @@ class SessionFilters extends BaseFilters
         parent::__construct($request);
     }
 
-    public function school_id($value) {
+    public function school_id(string $value):Builder
+	{
         return $this->builder->where('school_id', $value);
     }
 
-    public function global() {
+    public function global():array
+	{
         return [];
     }
 }
