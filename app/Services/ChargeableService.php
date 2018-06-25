@@ -8,7 +8,7 @@ use App\Repositories\ChargeableServiceRepository;
 /**
  * A service class for two repositories
  */
-class ChargeableService
+class ChargeableService extends BaseService
 {
     public function repo()
     {

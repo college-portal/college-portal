@@ -5,7 +5,9 @@ namespace App\Services;
 
 use App\Traits\ApiResponseTrait;
 
-class BaseService
+abstract class BaseService
 {
 	use ApiResponseTrait;
+
+	abstract public function repo();
 }

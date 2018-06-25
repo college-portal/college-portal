@@ -10,7 +10,7 @@ use App\Models\Session;
 use Carbon\Carbon;
 use Exception;
 
-class SemesterService
+class SemesterService extends BaseService
 {
     protected $semesterTypeRepository, $sessionRepository;
 

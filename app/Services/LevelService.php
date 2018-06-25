@@ -5,7 +5,7 @@ namespace App\Services;
 use App\Repositories\LevelRepository;
 use Carbon\Carbon;
 
-class LevelService
+class LevelService extends BaseService
 {
     public function repo()
     {

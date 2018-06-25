@@ -5,7 +5,7 @@ namespace App\Services;
 use App\Repositories\SessionRepository;
 use Carbon\Carbon;
 
-class SessionService
+class SessionService extends BaseService
 {
     public function repo()
     {

@@ -8,7 +8,7 @@ use App\Repositories\LevelRepository;
 use App\Repositories\ProgramCreditRepository;
 use Carbon\Carbon;
 
-class ProgramCreditService
+class ProgramCreditService extends BaseService
 {
     private $programRepository, $semesterRepository, $levelRepository;
 

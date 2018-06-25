@@ -5,7 +5,7 @@ namespace App\Services;
 use App\Repositories\StaffRepository;
 use Carbon\Carbon;
 
-class StaffService
+class StaffService extends BaseService
 {
     public function repo()
     {
