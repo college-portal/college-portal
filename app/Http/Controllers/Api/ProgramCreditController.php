@@ -19,7 +19,7 @@ class ProgramCreditController extends ApiController
         return $this->service;
     }
 
-    public function show(Request $request, ProgramCreditFilters $filters, $id) {
+    public function show(Request $request, ProgramCreditFilters $filters, int $id) {
         $credit = $this->service()->repo()->single($id, $filters);
         $this->authorize('view', $credit); /** ensure the current user has view rights */
         return $credit;
@@ -30,7 +30,7 @@ class ProgramCreditController extends ApiController
         return $credits;
     }
 
-    public function destroy(Request $request, $id) {
+    public function destroy(Request $request, int $id) {
         $credit = $this->service()->repo()->single($id);
         $this->authorize('delete', $credit); /** ensure the current user has delete rights */
         $this->service()->repo()->delete($id);
@@ -42,7 +42,7 @@ class ProgramCreditController extends ApiController
         return $this->json($credit);
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, int $id) {
         $credit = $this->service()->repo()->single($id);
         $this->authorize('update', $credit);
         $credit = $this->service()->update($id, $request->all());

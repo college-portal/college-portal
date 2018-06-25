@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends ApiController
 {
@@ -12,17 +13,17 @@ class AuthController extends ApiController
         $credentials = $request->only('email', 'password');
 
         // set the identifier for wp_users
-        \JWTAuth::setIdentifier('id');
+        JWTAuth::setIdentifier('id');
 
         try {
             // attempt authorization
-            if (! $token = \JWTAuth::attempt($credentials)) {
+            if (! $token = JWTAuth::attempt($credentials)) {
                 // authorization failed
                 return $this->json(['error' => 'invalid_credentials'], 400);
             }
             return $this->json(compact('token'));
         }
-        catch (JWTException $ex) {
+        catch (\Exception $ex) {
             // authorization error
             return $this->error('could_not_create_token', $ex);
         }

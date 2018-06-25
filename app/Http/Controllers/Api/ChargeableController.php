@@ -19,7 +19,7 @@ class ChargeableController extends ApiController
         return $this->service;
     }
 
-    public function show(Request $request, ChargeableFilters $filters, $id) {
+    public function show(Request $request, ChargeableFilters $filters, int $id) {
         $chargeable = $this->service()->repo()->single($id, $filters);
         $this->authorize('view', $chargeable); /** ensure the current user has view rights */
         return $chargeable;
@@ -30,7 +30,7 @@ class ChargeableController extends ApiController
         return $chargeables;
     }
 
-    public function destroy(Request $request, $id) {
+    public function destroy(Request $request, int $id) {
         $chargeable = $this->service()->repo()->single($id);
         $this->authorize('delete', $chargeable); /** ensure the current user has delete rights */
         $this->service()->repo()->delete($id);
@@ -42,7 +42,7 @@ class ChargeableController extends ApiController
         return $this->json($chargeable);
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, int $id) {
         $chargeable = $this->service()->repo()->single($id);
         $this->authorize('update', $chargeable);
         $chargeable = $this->service()->update($id, $request->all());

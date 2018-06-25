@@ -4,6 +4,7 @@ namespace App\Filters;
 
 use App\User;
 use App\Models\Department;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -17,11 +18,13 @@ class DepartmentFilters extends BaseFilters
         parent::__construct($request);
     }
 
-    public function with_faculty() {
+    public function with_faculty():Builder
+	{
         return $this->builder->with('faculty');
     }
 
-    public function with_hod() {
+    public function with_hod():Builder
+	{
         return $this->builder->with('hod');
     }
 }

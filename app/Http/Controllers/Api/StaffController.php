@@ -19,7 +19,7 @@ class StaffController extends ApiController
         return $this->service;
     }
 
-    public function show(Request $request, StaffFilters $filters, $id) {
+    public function show(Request $request, StaffFilters $filters, int $id) {
         $staff = $this->service()->repo()->single($id, $filters);
         $this->authorize('view', $staff); /** ensure the current user has view rights */
         return $staff;
@@ -30,7 +30,7 @@ class StaffController extends ApiController
         return $staff;
     }
 
-    public function destroy(Request $request, $id) {
+    public function destroy(Request $request, int $id) {
         $staff = $this->service()->repo()->single($id);
         $this->authorize('delete', $staff); /** ensure the current user has delete rights */
         $this->service()->repo()->delete($id);
@@ -42,7 +42,7 @@ class StaffController extends ApiController
         return $this->json($staff);
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, int $id) {
         $staff = $this->service()->repo()->single($id);
         $this->authorize('update', $staff);
         $staff = $this->service()->repo()->update($id, $request->all());

@@ -2,10 +2,8 @@
 
 namespace App\Filters;
 
-use App\User;
-use App\Models\SemesterType;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 
 class SemesterTypeFilters extends BaseFilters
 {
@@ -17,11 +15,13 @@ class SemesterTypeFilters extends BaseFilters
         parent::__construct($request);
     }
 
-    public function school_id($value) {
+    public function school_id(int $value):Builder
+	{
         return $this->builder->where('school_id', $value);
     }
 
-    public function global() {
+    public function global():array
+	{
         $this->school_id($this->request->route('school_id'));
         return [];
     }

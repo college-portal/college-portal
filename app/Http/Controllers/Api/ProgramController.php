@@ -19,7 +19,7 @@ class ProgramController extends ApiController
         return $this->service;
     }
 
-    public function show(Request $request, ProgramFilters $filters, $id) {
+    public function show(Request $request, ProgramFilters $filters, int $id) {
         $program = $this->service()->repo()->program($id, $filters);
         $this->authorize('view', $program); /** ensure the current user has view rights */
         return $program;
@@ -30,7 +30,7 @@ class ProgramController extends ApiController
         return $programs;
     }
 
-    public function destroy(Request $request, $id) {
+    public function destroy(Request $request, int $id) {
         $program = $this->service()->repo()->program($id);
         $this->authorize('delete', $program); /** ensure the current user has delete rights */
         $this->service()->repo()->delete($id);
@@ -42,7 +42,7 @@ class ProgramController extends ApiController
         return $this->json($program);
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, int $id) {
         $program = $this->service()->repo()->program($id);
         $this->authorize('update', $program);
         $program = $this->service()->repo()->update($id, $request->all());

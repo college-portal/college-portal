@@ -20,7 +20,7 @@ class UserController extends ApiController
         return $this->service;
     }
 
-    public function show(Request $request, UserFilters $filters, $id) {
+    public function show(Request $request, UserFilters $filters, int $id) {
         $user = $this->service()->repo()->user($id, $filters);
         $this->authorize('view', $user); /** ensure the current user has view rights */
         return $user;
@@ -31,7 +31,7 @@ class UserController extends ApiController
         return UserResource::collection($users);
     }
 
-    public function destroy(Request $request, $id) {
+    public function destroy(Request $request, int $id) {
         $user = $this->service()->repo()->user($id);
         $this->authorize('delete', $user); /** ensure the current user has delete rights */
         $this->service()->repo()->delete($id);
@@ -40,10 +40,10 @@ class UserController extends ApiController
 
     public function store(UserRequest $request) {
         $user = $this->service()->repo()->create($request->all());
-        return $this->json($user);
+        return $this->created($user);
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, int $id) {
         $user = $this->service()->repo()->user($id);
         $this->authorize('update', $user);
         $user = $this->service()->repo()->update($id, $request->all());
