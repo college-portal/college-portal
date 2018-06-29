@@ -155,6 +155,70 @@ class User extends Authenticatable
         $ids = $this->chargeableServices()->pluck('chargeable_services.id');
         return Chargeable::whereIn('chargeable_service_id', $ids);
     }
+
+    public function scopeManagedSchools($query, User $user = null) {
+        return School::where('owner_id', isset($user) ? $user->id : $this->id);
+    }
+
+    public function scopeManagedFaculties($query, User $user = null) {
+        $ids = Staff::where('user_id', isset($user) ? $user->id : $this->id)->pluck('staff.id');
+        return Faculty::whereIn('dean_id', $ids);
+    }
+
+    public function scopeManagedDepartments($query, User $user = null) {
+        $ids = Staff::where('user_id', isset($user) ? $user->id : $this->id)->pluck('staff.id');
+        return Department::whereIn('hod_id', $ids);
+    }
+
+    public function scopeManagedSchoolsUsers() {
+        $table_name = UserHasRole::name();
+        return $this->managedSchools()
+                    ->join("$table_name as pivot", 'schools.id', '=', 'pivot.school_id')
+                    ->join('users as others', 'others.id', '=', 'pivot.user_id')
+                    ->select('others.*');
+    }
+
+    public function scopeManagedFacultiesUsers() {
+        $table_name = UserHasRole::name();
+        return $this->managedFaculties()
+                    ->join('schools', 'faculties.school_id', '=', 'schools.id')
+                    ->join("$table_name as pivot", 'schools.id', '=', 'pivot.school_id')
+                    ->join('users as others', 'others.id', '=', 'pivot.user_id')
+                    ->select('others.*');
+    }
+
+    public function scopeManagedDepartmentsUsers() {
+        $table_name = UserHasRole::name();
+        return $this->managedDepartments()
+                    ->join('faculties', 'faculties.id', '=', 'departments.faculty_id')
+                    ->join('schools', 'faculties.school_id', '=', 'schools.id')
+                    ->join("$table_name as pivot", 'schools.id', '=', 'pivot.school_id')
+                    ->join('users as others', 'others.id', '=', 'pivot.user_id')
+                    ->select('others.*');
+    }
+
+    public function scopeViewablePayables() {
+        $q = app(Payable::class);
+        if ($this->hasRole(Role::ADMIN)) {
+            return $q;
+        }
+        else if ($this->hasRole(Role::SCHOOL_OWNER)) {
+            $ids = $this->managedSchoolsUsers()
+                        ->select('others.id')->pluck('others.id');
+            return $q->whereIn('user_id', $ids);
+        }
+        else if ($this->hasRole(Role::DEAN)) {
+            $ids = $this->managedFacultiesUsers()
+                        ->select('others.id')->pluck('others.id');
+            return $q->whereIn('user_id', $ids);
+        }
+        else if ($this->hasRole(Role::HOD)) {
+            $ids = $this->managedDepartmentsUsers()
+                        ->select('others.id')->pluck('others.id');
+            return $q->whereIn('user_id', $ids);
+        }
+        else return $this->payables();
+    }
   
     public function students() {
         return $this->hasMany(Student::class);

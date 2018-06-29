@@ -15,7 +15,7 @@ class PayableRepository
     }
 
     public function list(User $user, PayableFilters $filters) {
-        return $this->model()->filter($filters)->paginate();
+        return $user->viewablePayables()->filter($filters)->paginate();
     }
 
     public function single($id, PayableFilters $filters = null) {
