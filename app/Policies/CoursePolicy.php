@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\User;
+use App\Models\Role;
 use App\Models\Course;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -28,7 +29,7 @@ class CoursePolicy
         return ($user->id == $course->department()->first()->hod()->first()->user()->first()->id) || // hod of department
                 ($user->id == $course->faculty()->first()->dean()->first()->user()->first()->id) || // dean of faculty
                 ($user->id == $course->school()->first()->owner_id) || // school owner
-                ($user->hasRole('admin')); // administrator
+                ($user->hasRole(Role::ADMIN)); // administrator
     }
 
     public function update(User $user, Course $course) {
