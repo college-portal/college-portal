@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\BaseModel;
 use App\Models\Faculty;
 use App\Models\Staff;
+use App\Models\Student;
 use App\Models\Program;
 use App\User;
 
@@ -42,6 +43,40 @@ class Department extends BaseModel
 
     public function staff() {
         return $this->hasMany(Staff::class);
+    }
+
+    public function students() {
+        return $this->hasManyThrough(Student::class, Program::class);
+    }
+
+    public function users() {
+        return $this->students()
+                ->join(User::name(), 'students.user_id', '=', 'users.id')
+                ->select('users.id', 
+                            'users.display_name',  
+                            'users.created_at', 
+                            'users.updated_at'
+                        )
+                ->unionAll(
+                    $this->staff()
+                        ->join(User::name(), 'staff.user_id', '=', 'users.id')
+                        ->select('users.id', 
+                                    'users.display_name',  
+                                    'users.created_at', 
+                                    'users.updated_at',
+                                    'staff.department_id'
+                                )
+                )
+                ->unionAll(
+                    $this->hod()
+                        ->join(User::name(), 'staff.user_id', '=', 'users.id')
+                        ->select('users.id', 
+                                    'users.display_name',  
+                                    'users.created_at', 
+                                    'users.updated_at',
+                                    'staff.department_id'
+                                )
+                );  
     }
 
     public static function boot() {

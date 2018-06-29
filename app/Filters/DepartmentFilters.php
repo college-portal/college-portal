@@ -27,4 +27,16 @@ class DepartmentFilters extends BaseFilters
 	{
         return $this->builder->with('hod');
     }
+
+    public function with_staff():Builder {
+        return $this->builder->with('staff');
+    }
+
+    public function with_students():Builder {
+        return $this->builder->with('students');
+    }
+
+    public function with_users():Builder {
+        return $this->builder->with('users');
+    }
 }
