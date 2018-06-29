@@ -20,6 +20,26 @@ class FacultyFilters extends BaseFilters
 
     public function with_departments():Builder
 	{
-        $this->builder->with('departments');
+        return $this->builder->with('departments');
+    }
+
+    public function with_programs():Builder
+	{
+        return $this->builder->with('programs');
+    }
+
+    public function with_students():Builder
+	{
+        return $this->builder->with('students');
+    }
+
+    public function with_staff():Builder
+	{
+        return $this->builder->with('staff');
+    }
+
+    public function with_users():Builder
+	{
+        return $this->builder->with('users');
     }
 }
