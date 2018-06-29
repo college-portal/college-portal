@@ -103,17 +103,17 @@ class Faculty extends BaseModel
     public static function boot() {
         $schoolHasUsersUpdate = function ($model) {
             $role = Role::where('name', Role::DEAN)->first();
-            $staff = Staff::with('user')->find($model->dean_id);
+            $staff = $model->dean()->first();
             $user = $staff->user()->first();
             $school = $model->school()->first();
-            $school->users()->syncWithoutDetaching([
+            $school->users()->attach([
                 $user->id => [
                     'role_id' => $role->id
                 ]
             ]);
 
             $staffRole = Role::where('name', Role::STAFF)->first();
-            $school->users()->syncWithoutDetaching([
+            $school->users()->attach([
                 $user->id => [
                     'role_id' => $staffRole->id
                 ]

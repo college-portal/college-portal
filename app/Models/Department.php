@@ -89,7 +89,7 @@ class Department extends BaseModel
             $role = Role::where('name', Role::HOD)->first();
             $faculty = $model->faculty()->first();
             $school = $faculty->school()->first();
-            $school->users()->syncWithoutDetaching([
+            $school->users()->attach([
                 $staff->user()->first()->id => [
                     'role_id' => $role->id
                 ]
