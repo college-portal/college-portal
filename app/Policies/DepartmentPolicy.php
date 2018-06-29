@@ -22,7 +22,7 @@ class DepartmentPolicy
     }
 
     public function view(User $user, Department $department) {
-        return $user->schools()->where('schools.id', $department->faculty->school_id)->exists();
+        return $user->schools()->where('schools.id', $department->faculty()->first()->school_id)->exists();
     }
 
     public function delete(User $user, Department $department) {
