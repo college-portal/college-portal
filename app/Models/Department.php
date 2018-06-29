@@ -37,6 +37,10 @@ class Department extends BaseModel
         return $this->belongsTo(Staff::class, 'hod_id');
     }
 
+    public function hods() {
+        return $this->belongsToMany(Staff::class, self::name(), 'id', 'hod_id');
+    }
+
     public function programs() {
         return $this->hasMany(Program::class);
     }
@@ -51,13 +55,23 @@ class Department extends BaseModel
 
     public function users() {
         return $this->students()
-                ->join(User::name(), 'students.user_id', '=', 'users.id')
-                ->select('users.id', 
-                            'users.display_name',  
-                            'users.created_at', 
-                            'users.updated_at'
-                        )
-                ->unionAll(
+            ->join(User::name(), 'students.user_id', '=', 'users.id')
+            ->select('users.id', 
+                    'users.display_name',  
+                    'users.created_at', 
+                    'users.updated_at'
+                )
+                ->union(
+                    $this->hods()
+                        ->join(User::name(), 'staff.user_id', '=', 'users.id')
+                        ->select('users.id', 
+                                    'users.display_name',  
+                                    'users.created_at', 
+                                    'users.updated_at',
+                                    'departments.id as department_id'
+                                )
+                )
+                ->union(
                     $this->staff()
                         ->join(User::name(), 'staff.user_id', '=', 'users.id')
                         ->select('users.id', 
@@ -66,17 +80,7 @@ class Department extends BaseModel
                                     'users.updated_at',
                                     'staff.department_id'
                                 )
-                )
-                ->unionAll(
-                    $this->hod()
-                        ->join(User::name(), 'staff.user_id', '=', 'users.id')
-                        ->select('users.id', 
-                                    'users.display_name',  
-                                    'users.created_at', 
-                                    'users.updated_at',
-                                    'staff.department_id'
-                                )
-                );  
+                );
     }
 
     public static function boot() {
