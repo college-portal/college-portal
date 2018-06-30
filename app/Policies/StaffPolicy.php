@@ -22,7 +22,7 @@ class StaffPolicy
     }
 
     public function view(User $user, Staff $staff) {
-        return $user->schools()->whereIn('schools.id', $staff->user()->first()->schools()->pluck('id'))->exists();
+        return $user->schools()->where('schools.id', $staff->school()->first()->id)->exists();
     }
 
     public function delete(User $user, Staff $staff) {

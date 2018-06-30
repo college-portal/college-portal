@@ -43,9 +43,7 @@ class StaffController extends ApiController
     }
 
     public function update(Request $request, int $id) {
-        $staff = $this->service()->repo()->single($id);
-        $this->authorize('update', $staff);
-        $staff = $this->service()->repo()->update($id, $request->all());
+        $staff = $this->service()->update($id, $request->all());
         return $this->json($staff);
     }
 }

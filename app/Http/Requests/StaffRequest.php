@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Models\School;
 use App\Models\Department;
 use App\User;
 
@@ -15,9 +16,13 @@ class StaffRequest extends FormRequest
      */
     public function authorize()
     {
+        $this->validate($this->rules());
         $user = auth()->user();
-        $department = Department::findOrFail($this->input('department_id'));
-        return $user->can('update', $department) && 
+        $school = School::findOrFail($this->input('school_id'));
+        $department = Department::find($this->input('department_id'));
+
+        return ($this->has('department_id') ? $user->can('update', $department) : true) && 
+                $user->can('update', $school) &&
                 $user->can('update', User::findOrFail($this->input('user_id')));
     }
 
@@ -29,7 +34,8 @@ class StaffRequest extends FormRequest
     public function rules()
     {
         return [
-            'department_id' => 'required|numeric|exists:departments,id',
+            'school_id' => 'required|numeric|exists:schools,id',
+            'department_id' => 'numeric|nullable|exists:departments,id',
             'user_id' => 'required|numeric|exists:users,id',
             'title' => 'required|string'
         ];

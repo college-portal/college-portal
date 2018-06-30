@@ -90,7 +90,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'dean.daniel@mailinator.com'
         ]);
 
-        $staff = $this->createStaff($deanUser);
+        $staff = $this->createStaff($deanUser, $school);
 
         $faculty = $this->createFaculty($school, $staff);
 
@@ -127,9 +127,10 @@ class DatabaseSeeder extends Seeder
         return School::where($opts)->first() ?? factory(School::class, 1)->create($opts)->first();
     }
 
-    public function createStaff(User $user, Department $department = null) {
+    public function createStaff(User $user, School $school, Department $department = null) {
         $opts = [
             'user_id' => $user->id,
+            'school_id' => $school->id,
             'department_id' => optional($department)->id
         ];
 
