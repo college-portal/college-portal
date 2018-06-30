@@ -19,6 +19,7 @@ use App\Http\Controllers\Api\ChargeableController;
 use App\Http\Controllers\Api\ProgramCreditController;
 use App\Http\Controllers\Api\PayableController;
 use App\Http\Controllers\Api\CourseDependencyController;
+use App\Http\Controllers\Api\StaffTeachCourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,6 +91,8 @@ Route::group([
         Route::resource('/payables', PayableController::class(), $excepts);
         
         Route::resource('/course-dependencies', CourseDependencyController::class(), $excepts);
+        
+        Route::resource('/staff-courses', StaffTeachCourseController::class(), $excepts);
     });
 
     /**
