@@ -24,6 +24,7 @@ use App\Models\ChargeableService;
 use App\Models\Chargeable;
 use App\Models\ProgramCredit;
 use App\Models\Payable;
+use App\Models\CourseDependency;
 
 /**
  * App\User
@@ -114,6 +115,12 @@ class User extends Authenticatable
         /** get courses in departments in faculties in schools that intersect with the current user's */
         $ids = $this->departments()->pluck('departments.id');
         return Course::whereIn('department_id', $ids);
+    }
+
+    public function scopeCourseDependencies() {
+        /** get courses in departments in faculties in schools that intersect with the current user's */
+        $ids = $this->courses()->pluck('courses.id');
+        return CourseDependency::whereIn('course_id', $ids);
     }
 
     public function scopeViewableStudents() {
