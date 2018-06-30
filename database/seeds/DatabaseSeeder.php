@@ -51,12 +51,15 @@ class DatabaseSeeder extends Seeder
             '1st Semester',
             '2nd Semester'
         ];
+        $courses = new Collection();
         foreach ($types as $name) {
             $type = $this->createSemesterType($school, $name);
 
-            $school->departments()->get()->each(function ($department) use ($school, $type) {
-                $courses = $school->levels()->get()->map(function ($level) use ($department, $type) {
-                    return $this->createCourse($department, $type, $level);
+            $school->departments()->get()->each(function ($department) use ($school, $type, $courses) {
+                $school->levels()->get()->map(function ($level) use ($department, $type, $courses) {
+                    $course = $this->createCourse($department, $type, $level);
+                    $this->createCourseDependencies($course, $courses);
+                    $courses->push($course);
                 });
             });
             $semesterTypes->push($type);
@@ -229,5 +232,14 @@ class DatabaseSeeder extends Seeder
             'amount'    => $amount
         ];
         return Chargeable::where($opts)->first() ?? Chargeable::create($opts);
+    }
+
+    public function createCourseDependencies(Course $course, Collection $dependencies) {
+        if ($course->semesterType()->first()->name == '2nd Semester') {
+            $ids = $dependencies->filter(function ($dependency) {
+                return $dependency->semesterType()->first()->name == '1st Semester';
+            })->pluck('id');
+            $course->dependencies()->sync($ids);
+        }
     }
 }

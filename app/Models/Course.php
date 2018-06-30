@@ -52,6 +52,6 @@ class Course extends BaseModel
     }
   
     public function dependencies() {
-        return $this->belongsToMany(self::class, CourseDependency::name(), 'course_id', 'dependency_id');
+        return $this->belongsToMany(self::class, CourseDependency::name(), 'course_id', 'dependency_id')->withTimestamps();
     }
 }
