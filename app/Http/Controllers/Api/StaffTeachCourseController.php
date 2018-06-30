@@ -20,24 +20,32 @@ class StaffTeachCourseController extends ApiController
     }
 
     public function show(Request $request, StaffTeachCourseFilters $filters, $id) {
-        //$this->authorize('view'); /** ensure the current user has view rights */
-        return $this->ok();
+        $staffCourse = $this->service()->repo()->single($id, $filters);
+        $this->authorize('view', $staffCourse); /** ensure the current user has view rights */
+        return $staffCourse;
     }
 
     public function index(Request $request, StaffTeachCourseFilters $filters) {
-        return [];
+        $staffCourses = $this->service()->repo()->list($request->user(), $filters);
+        return $staffCourses;
     }
 
     public function destroy(Request $request, $id) {
-        //$this->authorize('delete'); /** ensure the current user has delete rights */
+        $staffCourse = $this->service()->repo()->single($id);
+        $this->authorize('delete', $staffCourse); /** ensure the current user has delete rights */
+        $this->service()->repo()->delete($id);
         return $this->ok();
     }
 
     public function store(StaffTeachCourseRequest $request) {
-        return $this->ok();
+        $staffTeachCourse = $this->service()->repo()->create($request->all());
+        return $this->json($staffTeachCourse);
     }
 
     public function update(Request $request, $id) {
-        return $this->ok();
+        $staffTeachCourse = $this->service()->repo()->single($id);
+        $this->authorize('update', $staffTeachCourse);
+        $staffTeachCourse = $this->service()->repo()->update($id, $request->all());
+        return $this->json($staffTeachCourse);
     }
 }

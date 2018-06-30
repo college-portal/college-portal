@@ -162,7 +162,7 @@ class DatabaseSeeder extends Seeder
         if ($title) {
             $opts['title'] = $title;
         }
-        return Course::where($opts)->first() ?? factory(Course::class, 1)->create($opts)->first();
+        return factory(Course::class, 1)->create($opts)->first();
     }
 
     public function createSemesterType(School $school, $name) {

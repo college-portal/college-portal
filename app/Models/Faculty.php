@@ -113,11 +113,16 @@ class Faculty extends BaseModel
             ]);
 
             $staffRole = Role::where('name', Role::STAFF)->first();
-            $school->users()->attach([
-                $user->id => [
-                    'role_id' => $staffRole->id
-                ]
-            ]);
+            if (!$school->users()
+                        ->wherePivot('user_id', $user->id)
+                        ->wherePivot('role_id', $staffRole->id)
+                        ->exists()) {
+                $school->users()->attach([
+                    $user->id => [
+                        'role_id' => $staffRole->id
+                    ]
+                ]);
+            }
         };
 
         self::created($schoolHasUsersUpdate);

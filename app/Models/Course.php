@@ -8,6 +8,8 @@ use App\Models\School;
 use App\Models\Department;
 use App\Models\SemesterType;
 use App\Models\CourseDependency;
+use App\Models\Staff;
+use App\Models\StaffTeachCourse;
 
 /**
  * App\Models\Course
@@ -53,5 +55,9 @@ class Course extends BaseModel
   
     public function dependencies() {
         return $this->belongsToMany(self::class, CourseDependency::name(), 'course_id', 'dependency_id')->withTimestamps();
+    }
+
+    public function staff() {
+        return $this->belongsToMany(Staff::class, StaffTeachCourse::name(), 'course_id', 'staff_id')->withTimestamps();
     }
 }
