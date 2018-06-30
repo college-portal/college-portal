@@ -89,7 +89,7 @@ Route::group([
         
         Route::resource('/payables', PayableController::class(), $excepts);
         
-        Route::resource('/course-dependencies', CourseDependenciesController::class(), $excepts);
+        Route::resource('/course-dependencies', CourseDependencyController::class(), $excepts);
     });
 
     /**
