@@ -16,4 +16,8 @@ class CourseFilters extends BaseFilters
         $this->request = $request;
         parent::__construct($request);
     }
+
+    public function with_dependencies() {
+        return $this->builder->with('dependencies');
+    }
 }
