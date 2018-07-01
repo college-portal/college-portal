@@ -9,6 +9,7 @@ use App\Models\Department;
 use App\Models\SemesterType;
 use App\Models\CourseDependency;
 use App\Models\Staff;
+use App\Models\Faculty;
 use App\Models\StaffTeachCourse;
 
 /**
@@ -50,7 +51,8 @@ class Course extends BaseModel
     }
 
     public function scopeFaculty() {
-        return $this->department()->first()->faculty();
+        $ids = $this->department()->pluck('faculty_id');
+        return Faculty::whereIn('id', $ids);
     }
   
     public function dependencies() {
