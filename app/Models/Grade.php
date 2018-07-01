@@ -17,7 +17,7 @@ use App\Models\StudentTakesCourse;
  *
  * @property int $id
  * @property int $student_takes_course_id
- * @property int $score
+ * @property float $score
  * @property string $description
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -64,5 +64,10 @@ class Grade extends BaseModel
     public function scopeUser() {
         $ids = $this->student()->pluck('user_id');
         return User::whereIn('id', $ids);
+    }
+
+    public function scopeTotal($query, $student_takes_course_id = null) {
+        return $this->where('student_takes_course_id', $student_takes_course_id ?? $this->student_takes_course_id)
+                    ->sum('score');
     }
 }

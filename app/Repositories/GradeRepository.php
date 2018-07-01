@@ -43,4 +43,8 @@ class GradeRepository
     {
         return $this->model()->filter($filters)->select('id', DB::raw('count(*) as total'))->count();
     }
+
+    public function total(int $student_takes_course_id) {
+        return $this->model()->total($student_takes_course_id);
+    }
 }

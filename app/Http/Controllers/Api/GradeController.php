@@ -38,7 +38,7 @@ class GradeController extends ApiController
     }
 
     public function store(GradeRequest $request) {
-        $grade = $this->service()->repo()->create(array_merge([ 'user_id' => auth()->user()->id ], $request->all()));
+        $grade = $this->service()->create($request->all());
         return $this->json($grade);
     }
 
