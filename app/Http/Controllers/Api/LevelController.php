@@ -34,7 +34,7 @@ class LevelController extends ApiController
     }
 
     public function destroy(Request $request, int $school_id, int $id) {
-        $this->authorize('view', School::findOrFail($school_id));
+        $this->authorize('update', School::findOrFail($school_id));
         $level = $this->service()->repo()->level($id);
         $this->authorize('delete', $level); /** ensure the current user has delete rights */
         $this->service()->repo()->delete($id);
@@ -42,13 +42,13 @@ class LevelController extends ApiController
     }
 
     public function store(LevelRequest $request, int $school_id) {
-        $this->authorize('view', School::findOrFail($school_id));
+        $this->authorize('update', School::findOrFail($school_id));
         $level = $this->service()->repo()->create(array_merge($request->all(), [ 'school_id' => $school_id ]));
         return $this->json($level);
     }
 
     public function update(Request $request, int $school_id, int $id) {
-        $this->authorize('view', School::findOrFail($school_id));
+        $this->authorize('update', School::findOrFail($school_id));
         $level = $this->service()->repo()->level($id);
         $this->authorize('update', $level);
         $level = $this->service()->repo()->update($id, $request->all());
