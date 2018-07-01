@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 use App\Models\Grade;
 use App\Models\StudentTakesCourse;
 
-class RelGradeTypeStudent extends Migration
+class RelGrades extends Migration
 {
     /**
      * Run the migrations.
@@ -17,6 +17,7 @@ class RelGradeTypeStudent extends Migration
     {
         Schema::table(Grade::name(), function (Blueprint $table) {
             $table->foreign('student_takes_course_id')->references('id')->on(StudentTakesCourse::name());
+            $table->unique([ 'student_takes_course_id', 'description' ], 'grades_unique');
         });
     }
 
@@ -28,7 +29,7 @@ class RelGradeTypeStudent extends Migration
     public function down()
     {
         Schema::table(Grade::name(), function (Blueprint $table) {
-            $table->dropForeign([ 'student_takes_course_id' ]);
+            
         });
     }
 }
