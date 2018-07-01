@@ -24,6 +24,8 @@ use App\Models\School;
  */
 class GradeType extends BaseModel
 {
+    protected $fillable = [ 'name', 'value', 'school_id', 'minimum', 'maximum' ];
+
     public function school() {
         return $this->belongsTo(School::class);
     }
