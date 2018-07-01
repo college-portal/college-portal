@@ -45,7 +45,7 @@ class GradeController extends ApiController
     public function update(Request $request, $id) {
         $grade = $this->service()->repo()->single($id);
         $this->authorize('update', $grade);
-        $grade = $this->service()->repo()->update($id, $request->all());
+        $grade = $this->service()->update($id, $request->all());
         return $this->json($grade);
     }
 }
