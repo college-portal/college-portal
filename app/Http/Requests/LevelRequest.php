@@ -16,7 +16,7 @@ class LevelRequest extends FormRequest
     public function authorize()
     {
         $school = School::findOrFail($this->route('school_id'));
-        $user = auth()->user();
+        $user = auth()->user()->first();
         return $user->hasRole(Role::ADMIN) || 
                 ($user->id == $school->owner_id); // school owner
     }
