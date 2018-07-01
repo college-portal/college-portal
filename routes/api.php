@@ -21,6 +21,7 @@ use App\Http\Controllers\Api\PayableController;
 use App\Http\Controllers\Api\CourseDependencyController;
 use App\Http\Controllers\Api\StaffTeachCourseController;
 use App\Http\Controllers\Api\StudentTakesCourseController;
+use App\Http\Controllers\Api\GradeTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,6 +97,8 @@ Route::group([
         Route::resource('/staff-courses', StaffTeachCourseController::class(), $excepts);
         
         Route::resource('/student-courses', StudentTakesCourseController::class(), $excepts);
+        
+        Route::resource('/schools/{school_id}/grade-types', GradeTypeController::class(), $excepts);
     });
 
     /**
