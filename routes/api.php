@@ -23,6 +23,7 @@ use App\Http\Controllers\Api\StaffTeachCourseController;
 use App\Http\Controllers\Api\StudentTakesCourseController;
 use App\Http\Controllers\Api\GradeTypeController;
 use App\Http\Controllers\Api\GradeController;
+use App\Http\Controllers\Api\ImageTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,6 +103,8 @@ Route::group([
         Route::resource('/schools/{school_id}/grade-types', GradeTypeController::class(), $excepts);
         
         Route::resource('/grades', GradeController::class(), $excepts);
+        
+        Route::resource('/schools/{school_id}/image-types', ImageTypeController::class(), $excepts);
     });
 
     /**

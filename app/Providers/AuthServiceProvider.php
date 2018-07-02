@@ -34,6 +34,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\Models\StudentTakesCourse' => 'App\Policies\StudentTakesCoursePolicy',
         'App\Models\GradeType' => 'App\Policies\GradeTypePolicy',
         'App\Models\Grade' => 'App\Policies\GradePolicy',
+        'App\Models\ImageType' => 'App\Policies\ImageTypePolicy',
     ];
 
     /**
