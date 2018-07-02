@@ -19,7 +19,7 @@ class ChargeableRequest extends FormRequest
         $service = ChargeableService::findOrFail($this->input('chargeable_service_id'));
         $owner = $service->owner($this->owner_id)->first();
         $user = auth()->user();
-        return $user->can('update', $service) && $user->can('update', $owner); // school owner
+        return $user->can('view', $service) && $user->can('update', $owner); // school owner
     }
 
     /**

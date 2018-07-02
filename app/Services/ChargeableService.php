@@ -65,7 +65,7 @@ class ChargeableService extends BaseService
         if ($chargeable_service_id) {
             $service = $this->serviceRepo()->single($chargeable_service_id);
 
-            $user->authorize('update', $service);
+            $user->authorize('view', $service);
         }
 
         if ($owner_id) {
