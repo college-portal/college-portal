@@ -7,6 +7,7 @@ use App\Models\Semester;
 use App\Models\Session;
 use App\Models\ChargeableService;
 use App\Models\Payable;
+use App\Models\School;
 
 /**
  * App\Models\Chargeable
@@ -38,6 +39,11 @@ class Chargeable extends BaseModel
 
     public function scopeOwner() {
         return app($this->service()->first()->type)->where('id', $this->owner_id);
+    }
+
+    public function scopeSchool() {
+        $ids = $this->service()->pluck('school_id');
+        return School::whereIn('id', $ids);
     }
 
     public function payables() {
