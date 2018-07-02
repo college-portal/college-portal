@@ -22,14 +22,14 @@ class ChargeablePolicy
     }
 
     public function view(User $user, Chargeable $chargeable) {
-        return $user->schools()->where('schools.id', $chargeable->service()->first()->school()->first()->id)->exists();
+        return $user->schools()->where('schools.id', $chargeable->school()->first()->id)->exists();
     }
 
     public function delete(User $user, Chargeable $chargeable) {
-        return $user->hasRole(Role::ADMIN) || ($user->id == $chargeable->service()->first()->school()->first()->id);
+        return $user->hasRole(Role::ADMIN) || ($user->id == $chargeable->school()->first()->user_id);
     }
 
     public function update(User $user, Chargeable $chargeable) {
-        return $user->hasRole(Role::ADMIN) || ($user->id == $chargeable->service()->first()->school()->first()->id);
+        return $user->hasRole(Role::ADMIN) || ($user->id == $chargeable->school()->first()->user_id);
     }
 }
