@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\User;
+use App\Models\Role;
 use App\Models\GradeType;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -25,10 +26,10 @@ class GradeTypePolicy
     }
 
     public function delete(User $user, GradeType $gradeType) {
-        return $user->id == $gradeType->school()->first()->owner_id;
+        return $user->hasRole(Role::ADMIN) || $user->id == $gradeType->school()->first()->owner_id;
     }
 
     public function update(User $user, GradeType $gradeType) {
-        return $user->id == $gradeType->school()->first()->owner_id;
+        return $this->delete($user, $imageType);
     }
 }
