@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Image;
 use App\Models\ImageType;
+use App\Rules\AbsentRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\ValidationException;
 
@@ -15,6 +17,7 @@ class ImageRequest extends FormRequest
      */
     public function authorize()
     {
+        $this->validate($this->rules());
         $user = auth()->user();
         $type = ImageType::findOrFail($this->input('image_type_id'));
         $owner = $type->owner($this->owner_id)->first();
@@ -32,8 +35,8 @@ class ImageRequest extends FormRequest
         return [
             'owner_id' => 'required|numeric',
             'image_type_id' => 'required|numeric|exists:image_types,id',
-            'location' => 'string',
-            'file' => 'image'
+            'location' => [ new AbsentRule() ],
+            'file' => 'required|image'
         ];
     }
 }
