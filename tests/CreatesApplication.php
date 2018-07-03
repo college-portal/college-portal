@@ -4,6 +4,7 @@ namespace Tests;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Contracts\Console\Kernel;
+use Illuminate\Support\Facades\Artisan;
 
 trait CreatesApplication
 {
@@ -21,5 +22,12 @@ trait CreatesApplication
         Hash::driver('bcrypt')->setRounds(4);
 
         return $app;
+    }
+
+    protected function setUp()
+    {
+        parent::setUp();
+
+        Artisan::call('db:seed');
     }
 }
