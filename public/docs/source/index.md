@@ -21,7 +21,9 @@ Welcome to the generated API reference.
 
 #general
 <!-- START_5ef90dd4846f0d2902b89354bf5c42bb -->
-## api/auth
+## Authenticate User
+
+Uses basic authentication and returns a Json Web Token
 
 > Example request:
 
@@ -54,7 +56,9 @@ $.ajax(settings).done(function (response) {
 <!-- END_5ef90dd4846f0d2902b89354bf5c42bb -->
 
 <!-- START_2ea88ff35aa222f5582e50f39a2b35fd -->
-## api/user
+## Get Current User
+
+Retrieve information about the current authenticated user
 
 > Example request:
 
@@ -89,9 +93,9 @@ $.ajax(settings).done(function (response) {
     "last_name": "Orlando",
     "other_names": null,
     "display_name": "Owner Orlando",
-    "dob": "1973-10-20",
-    "created_at": "2018-07-01 13:58:09",
-    "updated_at": "2018-07-02 12:47:46"
+    "dob": "1957-12-18",
+    "created_at": "2018-07-04 10:57:12",
+    "updated_at": "2018-07-04 11:41:09"
 }
 ```
 
@@ -137,17 +141,17 @@ $.ajax(settings).done(function (response) {
     "data": [
         {
             "id": 1,
-            "name": "University of Lagos",
-            "short_name": "UNILAG",
+            "name": "University of Ibadan",
+            "short_name": "UI",
             "owner_id": 1,
             "is_active": 1,
-            "created_at": "2018-07-01 13:58:09",
-            "updated_at": "2018-07-02 12:47:46",
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 11:41:11",
             "pivot": {
                 "user_id": 1,
                 "school_id": 1,
-                "created_at": "2018-07-01 13:58:09",
-                "updated_at": "2018-07-01 13:58:09"
+                "created_at": "2018-07-04 10:57:12",
+                "updated_at": "2018-07-04 10:57:12"
             }
         }
     ],
@@ -252,17 +256,17 @@ $.ajax(settings).done(function (response) {
 ```json
 {
     "id": 1,
-    "name": "University of Lagos",
-    "short_name": "UNILAG",
+    "name": "University of Ibadan",
+    "short_name": "UI",
     "owner_id": 1,
     "is_active": 1,
-    "created_at": "2018-07-01 13:58:09",
-    "updated_at": "2018-07-02 12:47:46",
+    "created_at": "2018-07-04 10:57:12",
+    "updated_at": "2018-07-04 11:41:11",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
-        "created_at": "2018-07-01 13:58:09",
-        "updated_at": "2018-07-01 13:58:09"
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
     }
 }
 ```
@@ -380,9 +384,9 @@ $.ajax(settings).done(function (response) {
             "last_name": "Daniels",
             "other_names": null,
             "display_name": "Dean Daniels",
-            "dob": "1962-12-12",
-            "created_at": "2018-07-01T13:58:09+00:00",
-            "updated_at": "2018-07-02T12:52:14+00:00"
+            "dob": "1948-02-02",
+            "created_at": "2018-07-04T10:57:12+00:00",
+            "updated_at": "2018-07-04T11:43:08+00:00"
         },
         {
             "id": 1,
@@ -390,9 +394,9 @@ $.ajax(settings).done(function (response) {
             "last_name": "Daniels",
             "other_names": null,
             "display_name": "Dean Daniels",
-            "dob": "1962-12-12",
-            "created_at": "2018-07-01T13:58:09+00:00",
-            "updated_at": "2018-07-02T12:52:14+00:00"
+            "dob": "1948-02-02",
+            "created_at": "2018-07-04T10:57:12+00:00",
+            "updated_at": "2018-07-04T11:43:08+00:00"
         },
         {
             "id": 1,
@@ -400,39 +404,39 @@ $.ajax(settings).done(function (response) {
             "last_name": "Daniels",
             "other_names": null,
             "display_name": "Dean Daniels",
-            "dob": "1962-12-12",
-            "created_at": "2018-07-01T13:58:09+00:00",
-            "updated_at": "2018-07-02T12:52:14+00:00"
+            "dob": "1948-02-02",
+            "created_at": "2018-07-04T10:57:12+00:00",
+            "updated_at": "2018-07-04T11:43:08+00:00"
         },
         {
             "id": 1,
-            "first_name": "Frances",
-            "last_name": "Rutherford",
+            "first_name": "Katlynn",
+            "last_name": "Wolf",
             "other_names": null,
-            "display_name": "Frances Rutherford",
-            "dob": "1952-04-14",
-            "created_at": "2018-07-01T13:58:09+00:00",
-            "updated_at": "2018-07-02T12:52:14+00:00"
+            "display_name": "Katlynn Wolf",
+            "dob": "1967-03-07",
+            "created_at": "2018-07-04T10:57:12+00:00",
+            "updated_at": "2018-07-04T11:43:08+00:00"
         },
         {
             "id": 1,
-            "first_name": "Xzavier",
-            "last_name": "Upton",
+            "first_name": "Skyla",
+            "last_name": "King",
             "other_names": null,
-            "display_name": "Xzavier Upton",
-            "dob": "1968-03-23",
-            "created_at": "2018-07-01T13:58:09+00:00",
-            "updated_at": "2018-07-02T12:52:14+00:00"
+            "display_name": "Skyla King",
+            "dob": "1957-07-05",
+            "created_at": "2018-07-04T10:57:12+00:00",
+            "updated_at": "2018-07-04T11:43:08+00:00"
         },
         {
             "id": 1,
-            "first_name": "Cedrick",
-            "last_name": "Pfannerstill",
+            "first_name": "Gordon",
+            "last_name": "Toy",
             "other_names": null,
-            "display_name": "Cedrick Pfannerstill",
-            "dob": "1945-06-14",
-            "created_at": "2018-07-01T13:58:09+00:00",
-            "updated_at": "2018-07-02T12:52:14+00:00"
+            "display_name": "Gordon Toy",
+            "dob": "1960-01-02",
+            "created_at": "2018-07-04T10:57:12+00:00",
+            "updated_at": "2018-07-04T11:43:08+00:00"
         }
     ],
     "links": {
@@ -473,7 +477,7 @@ curl -X POST "http://zaportal.dev/api/users" \
     -d "last_name"="ut" \
     -d "email"="nakia.mcclure@example.org" \
     -d "password"="ut" \
-    -d "dob"="1986-10-22" \
+    -d "dob"="1986-10-23" \
 
 ```
 
@@ -488,7 +492,7 @@ var settings = {
         "last_name": "ut",
         "email": "nakia.mcclure@example.org",
         "password": "ut",
-        "dob": "1986-10-22"
+        "dob": "1986-10-23"
 },
     "headers": {
         "accept": "application/json"
@@ -552,9 +556,9 @@ $.ajax(settings).done(function (response) {
     "last_name": "Orlando",
     "other_names": null,
     "display_name": "Owner Orlando",
-    "dob": "1973-10-20",
-    "created_at": "2018-07-01 13:58:09",
-    "updated_at": "2018-07-02 12:47:46"
+    "dob": "1957-12-18",
+    "created_at": "2018-07-04 10:57:12",
+    "updated_at": "2018-07-04 11:41:09"
 }
 ```
 
@@ -671,8 +675,8 @@ $.ajax(settings).done(function (response) {
             "name": "Science and Technology",
             "dean_id": 1,
             "school_id": 1,
-            "created_at": "2018-07-01 13:58:09",
-            "updated_at": "2018-07-02 12:47:46",
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 11:41:09",
             "deleted_at": null
         }
     ],
@@ -780,8 +784,8 @@ $.ajax(settings).done(function (response) {
     "name": "Science and Technology",
     "dean_id": 1,
     "school_id": 1,
-    "created_at": "2018-07-01 13:58:09",
-    "updated_at": "2018-07-02 12:47:46",
+    "created_at": "2018-07-04 10:57:12",
+    "updated_at": "2018-07-04 11:41:09",
     "deleted_at": null
 }
 ```
@@ -896,11 +900,11 @@ $.ajax(settings).done(function (response) {
     "data": [
         {
             "id": 1,
-            "name": "Computer Science",
+            "name": "Chemistry",
             "hod_id": 1,
             "faculty_id": 1,
-            "created_at": "2018-07-01 13:58:09",
-            "updated_at": "2018-07-02 12:47:46"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 11:41:09"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/departments?page=1",
@@ -1004,11 +1008,11 @@ $.ajax(settings).done(function (response) {
 ```json
 {
     "id": 1,
-    "name": "Computer Science",
+    "name": "Chemistry",
     "hod_id": 1,
     "faculty_id": 1,
-    "created_at": "2018-07-01 13:58:09",
-    "updated_at": "2018-07-02 12:47:46"
+    "created_at": "2018-07-04 10:57:12",
+    "updated_at": "2018-07-04 11:41:09"
 }
 ```
 
@@ -1122,10 +1126,10 @@ $.ajax(settings).done(function (response) {
     "data": [
         {
             "id": 1,
-            "name": "Library Studies",
+            "name": "Data Analysis",
             "department_id": 1,
-            "created_at": "2018-07-01 13:58:09",
-            "updated_at": "2018-07-02 12:47:46"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 11:41:10"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/programs?page=1",
@@ -1226,10 +1230,10 @@ $.ajax(settings).done(function (response) {
 ```json
 {
     "id": 1,
-    "name": "Library Studies",
+    "name": "Data Analysis",
     "department_id": 1,
-    "created_at": "2018-07-01 13:58:09",
-    "updated_at": "2018-07-02 12:47:46"
+    "created_at": "2018-07-04 10:57:12",
+    "updated_at": "2018-07-04 11:41:10"
 }
 ```
 
@@ -1345,29 +1349,29 @@ $.ajax(settings).done(function (response) {
             "id": 1,
             "name": "100L",
             "school_id": 1,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-02 12:47:46"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 2,
             "name": "200L",
             "school_id": 1,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 3,
             "name": "300L",
             "school_id": 1,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 4,
             "name": "400L",
             "school_id": 1,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/schools\/1\/levels?page=1",
@@ -1465,10 +1469,18 @@ $.ajax(settings).done(function (response) {
 ```json
 {
     "id": 1,
-    "name": "100L",
-    "school_id": 1,
-    "created_at": "2018-07-01 13:58:10",
-    "updated_at": "2018-07-02 12:47:46"
+    "name": "University of Ibadan",
+    "short_name": "UI",
+    "owner_id": 1,
+    "is_active": 1,
+    "created_at": "2018-07-04 10:57:12",
+    "updated_at": "2018-07-04 11:43:08",
+    "pivot": {
+        "user_id": 1,
+        "school_id": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    }
 }
 ```
 
@@ -1581,31 +1593,22 @@ $.ajax(settings).done(function (response) {
     "current_page": 1,
     "data": [
         {
-            "id": 1,
-            "user_id": 3,
-            "program_id": 1,
-            "matric_no": "UNI948",
-            "is_active": 1,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-02 12:47:46"
-        },
-        {
             "id": 2,
             "user_id": 4,
             "program_id": 1,
-            "matric_no": "UNI295",
+            "matric_no": "UNI683",
             "is_active": 1,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 3,
             "user_id": 5,
             "program_id": 1,
-            "matric_no": "UNI711",
+            "matric_no": "UNI757",
             "is_active": 1,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/students?page=1",
@@ -1616,8 +1619,8 @@ $.ajax(settings).done(function (response) {
     "path": "http:\/\/localhost\/api\/students",
     "per_page": 15,
     "prev_page_url": null,
-    "to": 3,
-    "total": 3
+    "to": 2,
+    "total": 2
 }
 ```
 
@@ -1708,13 +1711,459 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "user_id": 3,
-    "program_id": 1,
-    "matric_no": "UNI948",
-    "is_active": 1,
-    "created_at": "2018-07-01 13:58:10",
-    "updated_at": "2018-07-02 12:47:46"
+    "message": "No query results for model [App\\Models\\Student] 1",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
+    "line": 199,
+    "trace": [
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
+            "line": 175,
+            "function": "prepareException",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Exceptions\/Handler.php",
+            "line": 49,
+            "function": "render",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/nunomaduro\/collision\/src\/Adapters\/Laravel\/ExceptionHandler.php",
+            "line": 68,
+            "function": "render",
+            "class": "App\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 83,
+            "function": "render",
+            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 32,
+            "function": "handleException",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Http\/Middleware\/AccessTokenSecurity.php",
+            "line": 32,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "App\\Http\\Middleware\\AccessTokenSecurity",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php",
+            "line": 41,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 667,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 642,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 608,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 597,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 176,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 30,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
+            "line": 51,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 151,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 116,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 116,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/AbstractGenerator.php",
+            "line": 98,
+            "function": "callRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 58,
+            "function": "getRouteResponse",
+            "class": "Mpociot\\ApiDoc\\Generators\\AbstractGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 261,
+            "function": "processRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 83,
+            "function": "processLaravelRoutes",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 199,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
+            "line": 57,
+            "function": "call",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "App\\Console\\Commands\\GenerateDocsCommand",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 886,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 262,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 145,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
+            "line": 89,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
+            "line": 122,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "->"
+        }
+    ]
 }
 ```
 
@@ -1831,88 +2280,88 @@ $.ajax(settings).done(function (response) {
             "department_id": 1,
             "semester_type_id": 1,
             "level_id": 1,
-            "code": "SOS115",
-            "title": "Kinematics",
-            "credit": 3,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-02 12:47:46"
+            "code": "XOF147",
+            "title": "Physical Sciences",
+            "credit": 4,
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 11:41:10"
         },
         {
             "id": 2,
             "department_id": 1,
             "semester_type_id": 1,
             "level_id": 2,
-            "code": "XCD129",
-            "title": "Kinematics",
-            "credit": 4,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "code": "SBD124",
+            "title": "Basic Algebra",
+            "credit": 3,
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 3,
             "department_id": 1,
             "semester_type_id": 1,
             "level_id": 3,
-            "code": "PLN127",
-            "title": "Discrete Mathematics",
-            "credit": 3,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "code": "SHP117",
+            "title": "Kinematics",
+            "credit": 2,
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 4,
             "department_id": 1,
             "semester_type_id": 1,
             "level_id": 4,
-            "code": "THB148",
-            "title": "Discrete Mathematics",
-            "credit": 2,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "code": "TND153",
+            "title": "Signal Analysis",
+            "credit": 5,
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 5,
             "department_id": 1,
             "semester_type_id": 2,
             "level_id": 1,
-            "code": "NPR127",
-            "title": "Physical Sciences",
-            "credit": 4,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "code": "RUB188",
+            "title": "Algorithms and Data Structures",
+            "credit": 2,
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 6,
             "department_id": 1,
             "semester_type_id": 2,
             "level_id": 2,
-            "code": "ALL124",
-            "title": "Oscillatory Motion",
+            "code": "BMD152",
+            "title": "Signal Analysis",
             "credit": 5,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 7,
             "department_id": 1,
             "semester_type_id": 2,
             "level_id": 3,
-            "code": "GMD160",
-            "title": "Discrete Mathematics",
-            "credit": 2,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "code": "BGN150",
+            "title": "Signal Analysis",
+            "credit": 4,
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 8,
             "department_id": 1,
             "semester_type_id": 2,
             "level_id": 4,
-            "code": "MAD148",
+            "code": "TOP175",
             "title": "Basic Algebra",
-            "credit": 5,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "credit": 1,
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/courses?page=1",
@@ -2028,11 +2477,11 @@ $.ajax(settings).done(function (response) {
     "department_id": 1,
     "semester_type_id": 1,
     "level_id": 1,
-    "code": "SOS115",
-    "title": "Kinematics",
-    "credit": 3,
-    "created_at": "2018-07-01 13:58:10",
-    "updated_at": "2018-07-02 12:47:46"
+    "code": "XOF147",
+    "title": "Physical Sciences",
+    "credit": 4,
+    "created_at": "2018-07-04 10:57:12",
+    "updated_at": "2018-07-04 11:41:10"
 }
 ```
 
@@ -2148,15 +2597,15 @@ $.ajax(settings).done(function (response) {
             "id": 1,
             "name": "1st Semester",
             "school_id": 1,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-02 12:47:47"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 2,
             "name": "2nd Semester",
             "school_id": 1,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/schools\/1\/semester-types?page=1",
@@ -2257,10 +2706,18 @@ $.ajax(settings).done(function (response) {
 ```json
 {
     "id": 1,
-    "name": "1st Semester",
-    "school_id": 1,
-    "created_at": "2018-07-01 13:58:10",
-    "updated_at": "2018-07-02 12:47:47"
+    "name": "University of Ibadan",
+    "short_name": "UI",
+    "owner_id": 1,
+    "is_active": 1,
+    "created_at": "2018-07-04 10:57:12",
+    "updated_at": "2018-07-04 11:43:09",
+    "pivot": {
+        "user_id": 1,
+        "school_id": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    }
 }
 ```
 
@@ -2377,9 +2834,9 @@ $.ajax(settings).done(function (response) {
             "user_id": 2,
             "school_id": 1,
             "department_id": null,
-            "title": "Prof.",
-            "created_at": "2018-07-01 13:58:09",
-            "updated_at": "2018-07-02 12:47:47"
+            "title": "Mr.",
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 11:41:10"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/staff?page=1",
@@ -2489,9 +2946,9 @@ $.ajax(settings).done(function (response) {
     "user_id": 2,
     "school_id": 1,
     "department_id": null,
-    "title": "Prof.",
-    "created_at": "2018-07-01 13:58:09",
-    "updated_at": "2018-07-02 12:47:47"
+    "title": "Mr.",
+    "created_at": "2018-07-04 10:57:12",
+    "updated_at": "2018-07-04 11:41:10"
 }
 ```
 
@@ -2607,19 +3064,19 @@ $.ajax(settings).done(function (response) {
             "id": 1,
             "school_id": 1,
             "name": "2018\/2019",
-            "start_date": "2018-07-01 00:00:00",
-            "end_date": "2019-07-01 00:00:00",
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-02 12:47:47"
+            "start_date": "2018-07-04 00:00:00",
+            "end_date": "2019-07-04 00:00:00",
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 11:41:10"
         },
         {
             "id": 2,
             "school_id": 1,
             "name": "2019\/2020",
-            "start_date": "2019-07-01 00:00:00",
-            "end_date": "2020-06-30 00:00:00",
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "start_date": "2019-07-04 00:00:00",
+            "end_date": "2020-07-03 00:00:00",
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/sessions?page=1",
@@ -2653,8 +3110,8 @@ curl -X POST "http://zaportal.dev/api/sessions" \
 -H "Accept: application/json" \
     -d "school_id"="5240575" \
     -d "name"="soluta" \
-    -d "start_date"="2003-01-04" \
-    -d "end_date"="2003-01-04" \
+    -d "start_date"="2003-01-05" \
+    -d "end_date"="2003-01-05" \
 
 ```
 
@@ -2667,8 +3124,8 @@ var settings = {
     "data": {
         "school_id": 5240575,
         "name": "soluta",
-        "start_date": "2003-01-04",
-        "end_date": "2003-01-04"
+        "start_date": "2003-01-05",
+        "end_date": "2003-01-05"
 },
     "headers": {
         "accept": "application/json"
@@ -2728,10 +3185,10 @@ $.ajax(settings).done(function (response) {
     "id": 1,
     "school_id": 1,
     "name": "2018\/2019",
-    "start_date": "2018-07-01 00:00:00",
-    "end_date": "2019-07-01 00:00:00",
-    "created_at": "2018-07-01 13:58:10",
-    "updated_at": "2018-07-02 12:47:47"
+    "start_date": "2018-07-04 00:00:00",
+    "end_date": "2019-07-04 00:00:00",
+    "created_at": "2018-07-04 10:57:12",
+    "updated_at": "2018-07-04 11:41:10"
 }
 ```
 
@@ -2844,40 +3301,31 @@ $.ajax(settings).done(function (response) {
     "current_page": 1,
     "data": [
         {
-            "id": 1,
-            "semester_type_id": 1,
-            "session_id": 1,
-            "start_date": "2018-07-01 00:00:00",
-            "end_date": "2018-12-28 00:00:00",
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-02 12:47:47"
-        },
-        {
             "id": 2,
             "semester_type_id": 2,
             "session_id": 1,
-            "start_date": "2019-01-02 00:00:00",
-            "end_date": "2019-07-01 00:00:00",
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "start_date": "2019-01-05 00:00:00",
+            "end_date": "2019-07-04 00:00:00",
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 3,
             "semester_type_id": 1,
             "session_id": 2,
-            "start_date": "2019-07-01 00:00:00",
-            "end_date": "2019-12-28 00:00:00",
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "start_date": "2019-07-04 00:00:00",
+            "end_date": "2019-12-31 00:00:00",
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 4,
             "semester_type_id": 2,
             "session_id": 2,
-            "start_date": "2020-01-02 00:00:00",
-            "end_date": "2020-06-30 00:00:00",
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "start_date": "2020-01-05 00:00:00",
+            "end_date": "2020-07-03 00:00:00",
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/semesters?page=1",
@@ -2888,8 +3336,8 @@ $.ajax(settings).done(function (response) {
     "path": "http:\/\/localhost\/api\/semesters",
     "per_page": 15,
     "prev_page_url": null,
-    "to": 4,
-    "total": 4
+    "to": 3,
+    "total": 3
 }
 ```
 
@@ -2911,8 +3359,8 @@ curl -X POST "http://zaportal.dev/api/semesters" \
 -H "Accept: application/json" \
     -d "session_id"="17" \
     -d "semester_type_id"="17" \
-    -d "start_date"="1980-05-21" \
-    -d "end_date"="1980-05-21" \
+    -d "start_date"="1980-05-22" \
+    -d "end_date"="1980-05-22" \
 
 ```
 
@@ -2925,8 +3373,8 @@ var settings = {
     "data": {
         "session_id": 17,
         "semester_type_id": 17,
-        "start_date": "1980-05-21",
-        "end_date": "1980-05-21"
+        "start_date": "1980-05-22",
+        "end_date": "1980-05-22"
 },
     "headers": {
         "accept": "application/json"
@@ -2983,13 +3431,459 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "semester_type_id": 1,
-    "session_id": 1,
-    "start_date": "2018-07-01 00:00:00",
-    "end_date": "2018-12-28 00:00:00",
-    "created_at": "2018-07-01 13:58:10",
-    "updated_at": "2018-07-02 12:47:47"
+    "message": "No query results for model [App\\Models\\Semester] 1",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
+    "line": 199,
+    "trace": [
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
+            "line": 175,
+            "function": "prepareException",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Exceptions\/Handler.php",
+            "line": 49,
+            "function": "render",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/nunomaduro\/collision\/src\/Adapters\/Laravel\/ExceptionHandler.php",
+            "line": 68,
+            "function": "render",
+            "class": "App\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 83,
+            "function": "render",
+            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 32,
+            "function": "handleException",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Http\/Middleware\/AccessTokenSecurity.php",
+            "line": 32,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "App\\Http\\Middleware\\AccessTokenSecurity",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php",
+            "line": 41,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 667,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 642,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 608,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 597,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 176,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 30,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
+            "line": 51,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 151,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 116,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 116,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/AbstractGenerator.php",
+            "line": 98,
+            "function": "callRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 58,
+            "function": "getRouteResponse",
+            "class": "Mpociot\\ApiDoc\\Generators\\AbstractGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 261,
+            "function": "processRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 83,
+            "function": "processLaravelRoutes",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 199,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
+            "line": 57,
+            "function": "call",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "App\\Console\\Commands\\GenerateDocsCommand",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 886,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 262,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 145,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
+            "line": 89,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
+            "line": 122,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "->"
+        }
+    ]
 }
 ```
 
@@ -3108,8 +4002,8 @@ $.ajax(settings).done(function (response) {
             "description": null,
             "amount": "500.00",
             "school_id": 1,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-02 12:37:12"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 11:41:10"
         },
         {
             "id": 2,
@@ -3118,8 +4012,8 @@ $.ajax(settings).done(function (response) {
             "description": null,
             "amount": "500.00",
             "school_id": 1,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 3,
@@ -3128,8 +4022,8 @@ $.ajax(settings).done(function (response) {
             "description": null,
             "amount": "1000.00",
             "school_id": 1,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 4,
@@ -3138,8 +4032,8 @@ $.ajax(settings).done(function (response) {
             "description": null,
             "amount": "1000.00",
             "school_id": 1,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/chargeable-services?page=1",
@@ -3254,8 +4148,8 @@ $.ajax(settings).done(function (response) {
     "description": null,
     "amount": "500.00",
     "school_id": 1,
-    "created_at": "2018-07-01 13:58:10",
-    "updated_at": "2018-07-02 12:37:12"
+    "created_at": "2018-07-04 10:57:12",
+    "updated_at": "2018-07-04 11:41:10"
 }
 ```
 
@@ -3372,40 +4266,40 @@ $.ajax(settings).done(function (response) {
             "chargeable_service_id": 2,
             "owner_id": 2,
             "amount": "500.00",
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 3,
             "chargeable_service_id": 3,
             "owner_id": 1,
             "amount": "1000.00",
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 4,
             "chargeable_service_id": 1,
             "owner_id": 3,
             "amount": "500.00",
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 5,
             "chargeable_service_id": 2,
             "owner_id": 4,
             "amount": "500.00",
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 6,
             "chargeable_service_id": 4,
             "owner_id": 2,
             "amount": "1000.00",
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/chargeables?page=1",
@@ -3479,7 +4373,9 @@ Parameter | Type | Status | Description
 <!-- END_46130962643824b6bc2f0d290a53d9bb -->
 
 <!-- START_e34b83e52ba197fe6fcf816897aaf7be -->
-## api/chargeables/{chargeable}
+## Get Chargeable by ID
+
+Responds with a specific Chargeable by its ID
 
 > Example request:
 
@@ -3803,6 +4699,72 @@ $.ajax(settings).done(function (response) {
         {
             "function": "handle",
             "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 199,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
+            "line": 57,
+            "function": "call",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "App\\Console\\Commands\\GenerateDocsCommand",
             "type": "->"
         },
         {
@@ -4454,6 +5416,72 @@ $.ajax(settings).done(function (response) {
             "type": "->"
         },
         {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 199,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
+            "line": 57,
+            "function": "call",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "App\\Console\\Commands\\GenerateDocsCommand",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
             "line": 886,
             "function": "run",
@@ -5049,6 +6077,72 @@ $.ajax(settings).done(function (response) {
             "type": "->"
         },
         {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 199,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
+            "line": 57,
+            "function": "call",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "App\\Console\\Commands\\GenerateDocsCommand",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
             "line": 886,
             "function": "run",
@@ -5206,106 +6300,106 @@ $.ajax(settings).done(function (response) {
             "id": 2,
             "course_id": 5,
             "dependency_id": 2,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 3,
             "course_id": 5,
             "dependency_id": 3,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 4,
             "course_id": 5,
             "dependency_id": 4,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 5,
             "course_id": 6,
             "dependency_id": 1,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 6,
             "course_id": 6,
             "dependency_id": 2,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 7,
             "course_id": 6,
             "dependency_id": 3,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 8,
             "course_id": 6,
             "dependency_id": 4,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 9,
             "course_id": 7,
             "dependency_id": 1,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 10,
             "course_id": 7,
             "dependency_id": 2,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 11,
             "course_id": 7,
             "dependency_id": 3,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 12,
             "course_id": 7,
             "dependency_id": 4,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 13,
             "course_id": 8,
             "dependency_id": 1,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 14,
             "course_id": 8,
             "dependency_id": 2,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 15,
             "course_id": 8,
             "dependency_id": 3,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         },
         {
             "id": 16,
             "course_id": 8,
             "dependency_id": 4,
-            "created_at": "2018-07-01 13:58:10",
-            "updated_at": "2018-07-01 13:58:10"
+            "created_at": "2018-07-04 10:57:12",
+            "updated_at": "2018-07-04 10:57:12"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/course-dependencies?page=1",
@@ -5750,6 +6844,72 @@ $.ajax(settings).done(function (response) {
             "type": "->"
         },
         {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 199,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
+            "line": 57,
+            "function": "call",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "App\\Console\\Commands\\GenerateDocsCommand",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
             "line": 886,
             "function": "run",
@@ -5902,25 +7062,17 @@ $.ajax(settings).done(function (response) {
 ```json
 {
     "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "staff_id": 1,
-            "course_id": 1,
-            "created_at": "2018-07-01 13:58:15",
-            "updated_at": "2018-07-02 12:37:12"
-        }
-    ],
+    "data": [],
     "first_page_url": "http:\/\/localhost\/api\/staff-courses?page=1",
-    "from": 1,
+    "from": null,
     "last_page": 1,
     "last_page_url": "http:\/\/localhost\/api\/staff-courses?page=1",
     "next_page_url": null,
     "path": "http:\/\/localhost\/api\/staff-courses",
     "per_page": 15,
     "prev_page_url": null,
-    "to": 1,
-    "total": 1
+    "to": null,
+    "total": 0
 }
 ```
 
@@ -6008,468 +7160,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "staff_id": 1,
-    "course_id": 1,
-    "created_at": "2018-07-01 13:58:15",
-    "updated_at": "2018-07-02 12:37:12"
-}
-```
-
-### HTTP Request
-`GET api/staff-courses/{staff_course}`
-
-`HEAD api/staff-courses/{staff_course}`
-
-
-<!-- END_ebe949caba68633343fae8cae0f825f8 -->
-
-<!-- START_e9d9055c557a5a245971126b3658e3e6 -->
-## api/staff-courses/{staff_course}
-
-> Example request:
-
-```bash
-curl -X PUT "http://zaportal.dev/api/staff-courses/{staff_course}" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://zaportal.dev/api/staff-courses/{staff_course}",
-    "method": "PUT",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-
-### HTTP Request
-`PUT api/staff-courses/{staff_course}`
-
-`PATCH api/staff-courses/{staff_course}`
-
-
-<!-- END_e9d9055c557a5a245971126b3658e3e6 -->
-
-<!-- START_4de8beb7ab9d568bdf31e3e80a8a1e8a -->
-## api/staff-courses/{staff_course}
-
-> Example request:
-
-```bash
-curl -X DELETE "http://zaportal.dev/api/staff-courses/{staff_course}" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://zaportal.dev/api/staff-courses/{staff_course}",
-    "method": "DELETE",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-
-### HTTP Request
-`DELETE api/staff-courses/{staff_course}`
-
-
-<!-- END_4de8beb7ab9d568bdf31e3e80a8a1e8a -->
-
-<!-- START_ac87a33c02c4746d533388a04841e162 -->
-## api/student-courses
-
-> Example request:
-
-```bash
-curl -X GET "http://zaportal.dev/api/student-courses" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://zaportal.dev/api/student-courses",
-    "method": "GET",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-> Example response:
-
-```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "student_id": 1,
-            "staff_teach_course_id": 1,
-            "semester_id": 1,
-            "created_at": "2018-07-01 13:58:22",
-            "updated_at": "2018-07-02 12:37:12"
-        },
-        {
-            "id": 2,
-            "student_id": 3,
-            "staff_teach_course_id": 1,
-            "semester_id": 1,
-            "created_at": "2018-07-01 14:22:20",
-            "updated_at": "2018-07-01 14:22:20"
-        },
-        {
-            "id": 3,
-            "student_id": 2,
-            "staff_teach_course_id": 1,
-            "semester_id": 1,
-            "created_at": "2018-07-01 14:22:22",
-            "updated_at": "2018-07-01 14:22:22"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/student-courses?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/student-courses?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/student-courses",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 3,
-    "total": 3
-}
-```
-
-### HTTP Request
-`GET api/student-courses`
-
-`HEAD api/student-courses`
-
-
-<!-- END_ac87a33c02c4746d533388a04841e162 -->
-
-<!-- START_ca1a13663540fbb23d794fcb760a7734 -->
-## api/student-courses
-
-> Example request:
-
-```bash
-curl -X POST "http://zaportal.dev/api/student-courses" \
--H "Accept: application/json" \
-    -d "student_id"="11534" \
-    -d "staff_teach_course_id"="11534" \
-    -d "semester_id"="11534" \
-
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://zaportal.dev/api/student-courses",
-    "method": "POST",
-    "data": {
-        "student_id": 11534,
-        "staff_teach_course_id": 11534,
-        "semester_id": 11534
-},
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-
-### HTTP Request
-`POST api/student-courses`
-
-#### Parameters
-
-Parameter | Type | Status | Description
---------- | ------- | ------- | ------- | -----------
-    student_id | numeric |  required  | Valid student id
-    staff_teach_course_id | numeric |  required  | Valid staff_teach_course id
-    semester_id | numeric |  required  | Valid semester id
-
-<!-- END_ca1a13663540fbb23d794fcb760a7734 -->
-
-<!-- START_4adb12413ed978cfe991f6a4bd44b0fa -->
-## api/student-courses/{student_course}
-
-> Example request:
-
-```bash
-curl -X GET "http://zaportal.dev/api/student-courses/{student_course}" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://zaportal.dev/api/student-courses/{student_course}",
-    "method": "GET",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-> Example response:
-
-```json
-{
-    "id": 1,
-    "student_id": 1,
-    "staff_teach_course_id": 1,
-    "semester_id": 1,
-    "created_at": "2018-07-01 13:58:22",
-    "updated_at": "2018-07-02 12:37:12"
-}
-```
-
-### HTTP Request
-`GET api/student-courses/{student_course}`
-
-`HEAD api/student-courses/{student_course}`
-
-
-<!-- END_4adb12413ed978cfe991f6a4bd44b0fa -->
-
-<!-- START_1dc105420186107b91af85f25379d512 -->
-## api/student-courses/{student_course}
-
-> Example request:
-
-```bash
-curl -X PUT "http://zaportal.dev/api/student-courses/{student_course}" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://zaportal.dev/api/student-courses/{student_course}",
-    "method": "PUT",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-
-### HTTP Request
-`PUT api/student-courses/{student_course}`
-
-`PATCH api/student-courses/{student_course}`
-
-
-<!-- END_1dc105420186107b91af85f25379d512 -->
-
-<!-- START_d6020f0b1dfa65a706e9380ed1d6baa3 -->
-## api/student-courses/{student_course}
-
-> Example request:
-
-```bash
-curl -X DELETE "http://zaportal.dev/api/student-courses/{student_course}" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://zaportal.dev/api/student-courses/{student_course}",
-    "method": "DELETE",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-
-### HTTP Request
-`DELETE api/student-courses/{student_course}`
-
-
-<!-- END_d6020f0b1dfa65a706e9380ed1d6baa3 -->
-
-<!-- START_7dc51eaf7038fbe62db0659e67c9d876 -->
-## api/schools/{school_id}/grade-types
-
-> Example request:
-
-```bash
-curl -X GET "http://zaportal.dev/api/schools/{school_id}/grade-types" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/grade-types",
-    "method": "GET",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-> Example response:
-
-```json
-{
-    "current_page": 1,
-    "data": [],
-    "first_page_url": "http:\/\/localhost\/api\/schools\/1\/grade-types?page=1",
-    "from": null,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/schools\/1\/grade-types?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/schools\/1\/grade-types",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": null,
-    "total": 0
-}
-```
-
-### HTTP Request
-`GET api/schools/{school_id}/grade-types`
-
-`HEAD api/schools/{school_id}/grade-types`
-
-
-<!-- END_7dc51eaf7038fbe62db0659e67c9d876 -->
-
-<!-- START_698001f792aea9502012002aaa216531 -->
-## api/schools/{school_id}/grade-types
-
-> Example request:
-
-```bash
-curl -X POST "http://zaportal.dev/api/schools/{school_id}/grade-types" \
--H "Accept: application/json" \
-    -d "name"="id" \
-    -d "value"="74" \
-    -d "minimum"="74" \
-    -d "maximum"="74" \
-
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/grade-types",
-    "method": "POST",
-    "data": {
-        "name": "id",
-        "value": 74,
-        "minimum": 74,
-        "maximum": 74
-},
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-
-### HTTP Request
-`POST api/schools/{school_id}/grade-types`
-
-#### Parameters
-
-Parameter | Type | Status | Description
---------- | ------- | ------- | ------- | -----------
-    name | string |  required  | 
-    value | numeric |  required  | Minimum: `0` Maximum: `100`
-    minimum | numeric |  required  | Minimum: `0` Maximum: `100`
-    maximum | numeric |  required  | Minimum: `0` Maximum: `100`
-
-<!-- END_698001f792aea9502012002aaa216531 -->
-
-<!-- START_50d38b7ebc96ec0209d69bc4f5ca9448 -->
-## api/schools/{school_id}/grade-types/{grade_type}
-
-> Example request:
-
-```bash
-curl -X GET "http://zaportal.dev/api/schools/{school_id}/grade-types/{grade_type}" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/grade-types/{grade_type}",
-    "method": "GET",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-> Example response:
-
-```json
-{
-    "message": "No query results for model [App\\Models\\GradeType] 1",
+    "message": "No query results for model [App\\Models\\StaffTeachCourse] 1",
     "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
     "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
     "line": 199,
@@ -6814,6 +7505,72 @@ $.ajax(settings).done(function (response) {
             "type": "->"
         },
         {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 199,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
+            "line": 57,
+            "function": "call",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "App\\Console\\Commands\\GenerateDocsCommand",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
             "line": 886,
             "function": "run",
@@ -6856,6 +7613,897 @@ $.ajax(settings).done(function (response) {
             "type": "->"
         }
     ]
+}
+```
+
+### HTTP Request
+`GET api/staff-courses/{staff_course}`
+
+`HEAD api/staff-courses/{staff_course}`
+
+
+<!-- END_ebe949caba68633343fae8cae0f825f8 -->
+
+<!-- START_e9d9055c557a5a245971126b3658e3e6 -->
+## api/staff-courses/{staff_course}
+
+> Example request:
+
+```bash
+curl -X PUT "http://zaportal.dev/api/staff-courses/{staff_course}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://zaportal.dev/api/staff-courses/{staff_course}",
+    "method": "PUT",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`PUT api/staff-courses/{staff_course}`
+
+`PATCH api/staff-courses/{staff_course}`
+
+
+<!-- END_e9d9055c557a5a245971126b3658e3e6 -->
+
+<!-- START_4de8beb7ab9d568bdf31e3e80a8a1e8a -->
+## api/staff-courses/{staff_course}
+
+> Example request:
+
+```bash
+curl -X DELETE "http://zaportal.dev/api/staff-courses/{staff_course}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://zaportal.dev/api/staff-courses/{staff_course}",
+    "method": "DELETE",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`DELETE api/staff-courses/{staff_course}`
+
+
+<!-- END_4de8beb7ab9d568bdf31e3e80a8a1e8a -->
+
+<!-- START_ac87a33c02c4746d533388a04841e162 -->
+## api/student-courses
+
+> Example request:
+
+```bash
+curl -X GET "http://zaportal.dev/api/student-courses" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://zaportal.dev/api/student-courses",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "current_page": 1,
+    "data": [],
+    "first_page_url": "http:\/\/localhost\/api\/student-courses?page=1",
+    "from": null,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/student-courses?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/student-courses",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": null,
+    "total": 0
+}
+```
+
+### HTTP Request
+`GET api/student-courses`
+
+`HEAD api/student-courses`
+
+
+<!-- END_ac87a33c02c4746d533388a04841e162 -->
+
+<!-- START_ca1a13663540fbb23d794fcb760a7734 -->
+## api/student-courses
+
+> Example request:
+
+```bash
+curl -X POST "http://zaportal.dev/api/student-courses" \
+-H "Accept: application/json" \
+    -d "student_id"="11534" \
+    -d "staff_teach_course_id"="11534" \
+    -d "semester_id"="11534" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://zaportal.dev/api/student-courses",
+    "method": "POST",
+    "data": {
+        "student_id": 11534,
+        "staff_teach_course_id": 11534,
+        "semester_id": 11534
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST api/student-courses`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    student_id | numeric |  required  | Valid student id
+    staff_teach_course_id | numeric |  required  | Valid staff_teach_course id
+    semester_id | numeric |  required  | Valid semester id
+
+<!-- END_ca1a13663540fbb23d794fcb760a7734 -->
+
+<!-- START_4adb12413ed978cfe991f6a4bd44b0fa -->
+## api/student-courses/{student_course}
+
+> Example request:
+
+```bash
+curl -X GET "http://zaportal.dev/api/student-courses/{student_course}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://zaportal.dev/api/student-courses/{student_course}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "message": "No query results for model [App\\Models\\StudentTakesCourse] 1",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
+    "line": 199,
+    "trace": [
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
+            "line": 175,
+            "function": "prepareException",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Exceptions\/Handler.php",
+            "line": 49,
+            "function": "render",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/nunomaduro\/collision\/src\/Adapters\/Laravel\/ExceptionHandler.php",
+            "line": 68,
+            "function": "render",
+            "class": "App\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 83,
+            "function": "render",
+            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 32,
+            "function": "handleException",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Http\/Middleware\/AccessTokenSecurity.php",
+            "line": 32,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "App\\Http\\Middleware\\AccessTokenSecurity",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php",
+            "line": 41,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 667,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 642,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 608,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 597,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 176,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 30,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
+            "line": 51,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 151,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 116,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 116,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/AbstractGenerator.php",
+            "line": 98,
+            "function": "callRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 58,
+            "function": "getRouteResponse",
+            "class": "Mpociot\\ApiDoc\\Generators\\AbstractGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 261,
+            "function": "processRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 83,
+            "function": "processLaravelRoutes",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 199,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
+            "line": 57,
+            "function": "call",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "App\\Console\\Commands\\GenerateDocsCommand",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 886,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 262,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 145,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
+            "line": 89,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
+            "line": 122,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "->"
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/student-courses/{student_course}`
+
+`HEAD api/student-courses/{student_course}`
+
+
+<!-- END_4adb12413ed978cfe991f6a4bd44b0fa -->
+
+<!-- START_1dc105420186107b91af85f25379d512 -->
+## api/student-courses/{student_course}
+
+> Example request:
+
+```bash
+curl -X PUT "http://zaportal.dev/api/student-courses/{student_course}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://zaportal.dev/api/student-courses/{student_course}",
+    "method": "PUT",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`PUT api/student-courses/{student_course}`
+
+`PATCH api/student-courses/{student_course}`
+
+
+<!-- END_1dc105420186107b91af85f25379d512 -->
+
+<!-- START_d6020f0b1dfa65a706e9380ed1d6baa3 -->
+## api/student-courses/{student_course}
+
+> Example request:
+
+```bash
+curl -X DELETE "http://zaportal.dev/api/student-courses/{student_course}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://zaportal.dev/api/student-courses/{student_course}",
+    "method": "DELETE",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`DELETE api/student-courses/{student_course}`
+
+
+<!-- END_d6020f0b1dfa65a706e9380ed1d6baa3 -->
+
+<!-- START_7dc51eaf7038fbe62db0659e67c9d876 -->
+## api/schools/{school_id}/grade-types
+
+> Example request:
+
+```bash
+curl -X GET "http://zaportal.dev/api/schools/{school_id}/grade-types" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://zaportal.dev/api/schools/{school_id}/grade-types",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "current_page": 1,
+    "data": [],
+    "first_page_url": "http:\/\/localhost\/api\/schools\/1\/grade-types?page=1",
+    "from": null,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/schools\/1\/grade-types?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/schools\/1\/grade-types",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": null,
+    "total": 0
+}
+```
+
+### HTTP Request
+`GET api/schools/{school_id}/grade-types`
+
+`HEAD api/schools/{school_id}/grade-types`
+
+
+<!-- END_7dc51eaf7038fbe62db0659e67c9d876 -->
+
+<!-- START_698001f792aea9502012002aaa216531 -->
+## api/schools/{school_id}/grade-types
+
+> Example request:
+
+```bash
+curl -X POST "http://zaportal.dev/api/schools/{school_id}/grade-types" \
+-H "Accept: application/json" \
+    -d "name"="id" \
+    -d "value"="74" \
+    -d "minimum"="74" \
+    -d "maximum"="74" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://zaportal.dev/api/schools/{school_id}/grade-types",
+    "method": "POST",
+    "data": {
+        "name": "id",
+        "value": 74,
+        "minimum": 74,
+        "maximum": 74
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST api/schools/{school_id}/grade-types`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    name | string |  required  | 
+    value | numeric |  required  | Minimum: `0` Maximum: `100`
+    minimum | numeric |  required  | Minimum: `0` Maximum: `100`
+    maximum | numeric |  required  | Minimum: `0` Maximum: `100`
+
+<!-- END_698001f792aea9502012002aaa216531 -->
+
+<!-- START_50d38b7ebc96ec0209d69bc4f5ca9448 -->
+## api/schools/{school_id}/grade-types/{grade_type}
+
+> Example request:
+
+```bash
+curl -X GET "http://zaportal.dev/api/schools/{school_id}/grade-types/{grade_type}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://zaportal.dev/api/schools/{school_id}/grade-types/{grade_type}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "id": 1,
+    "name": "University of Ibadan",
+    "short_name": "UI",
+    "owner_id": 1,
+    "is_active": 1,
+    "created_at": "2018-07-04 10:57:12",
+    "updated_at": "2018-07-04 11:43:09",
+    "pivot": {
+        "user_id": 1,
+        "school_id": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    }
 }
 ```
 
@@ -6966,42 +8614,17 @@ $.ajax(settings).done(function (response) {
 ```json
 {
     "current_page": 1,
-    "data": [
-        {
-            "id": 3,
-            "student_takes_course_id": 2,
-            "score": 35,
-            "description": "exams",
-            "created_at": "2018-07-01 14:24:01",
-            "updated_at": "2018-07-01 14:24:01"
-        },
-        {
-            "id": 5,
-            "student_takes_course_id": 1,
-            "score": 10,
-            "description": "test",
-            "created_at": "2018-07-01 15:09:01",
-            "updated_at": "2018-07-01 15:09:01"
-        },
-        {
-            "id": 6,
-            "student_takes_course_id": 1,
-            "score": 5,
-            "description": "assignment 1",
-            "created_at": "2018-07-01 15:10:55",
-            "updated_at": "2018-07-01 15:10:55"
-        }
-    ],
+    "data": [],
     "first_page_url": "http:\/\/localhost\/api\/grades?page=1",
-    "from": 1,
+    "from": null,
     "last_page": 1,
     "last_page_url": "http:\/\/localhost\/api\/grades?page=1",
     "next_page_url": null,
     "path": "http:\/\/localhost\/api\/grades",
     "per_page": 15,
     "prev_page_url": null,
-    "to": 3,
-    "total": 3
+    "to": null,
+    "total": 0
 }
 ```
 
@@ -7437,6 +9060,72 @@ $.ajax(settings).done(function (response) {
             "type": "->"
         },
         {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 199,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
+            "line": 57,
+            "function": "call",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "App\\Console\\Commands\\GenerateDocsCommand",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
             "line": 886,
             "function": "run",
@@ -7593,10 +9282,10 @@ $.ajax(settings).done(function (response) {
         {
             "id": 1,
             "school_id": 1,
-            "type": "App\\Models\\Schools",
-            "name": "profile",
-            "created_at": "2018-07-02 12:20:22",
-            "updated_at": "2018-07-02 12:24:07"
+            "type": "App\\Models\\School",
+            "name": "logo",
+            "created_at": "2018-07-04 10:57:25",
+            "updated_at": "2018-07-04 10:57:25"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/schools\/1\/image-types?page=1",
@@ -7697,11 +9386,18 @@ $.ajax(settings).done(function (response) {
 ```json
 {
     "id": 1,
-    "school_id": 1,
-    "type": "App\\Models\\Schools",
-    "name": "profile",
-    "created_at": "2018-07-02 12:20:22",
-    "updated_at": "2018-07-02 12:24:07"
+    "name": "University of Ibadan",
+    "short_name": "UI",
+    "owner_id": 1,
+    "is_active": 1,
+    "created_at": "2018-07-04 10:57:12",
+    "updated_at": "2018-07-04 11:43:10",
+    "pivot": {
+        "user_id": 1,
+        "school_id": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    }
 }
 ```
 
@@ -7780,4 +9476,701 @@ $.ajax(settings).done(function (response) {
 
 
 <!-- END_3cca85be723315a5e37efe70a7382b25 -->
+
+<!-- START_2d5802b9c2bdbdccf4a58da17f23a7f1 -->
+## api/images
+
+> Example request:
+
+```bash
+curl -X GET "http://zaportal.dev/api/images" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://zaportal.dev/api/images",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "current_page": 1,
+    "data": [],
+    "first_page_url": "http:\/\/localhost\/api\/images?page=1",
+    "from": null,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/images?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/images",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": null,
+    "total": 0
+}
+```
+
+### HTTP Request
+`GET api/images`
+
+`HEAD api/images`
+
+
+<!-- END_2d5802b9c2bdbdccf4a58da17f23a7f1 -->
+
+<!-- START_204613676cab89a55dfdc7d81f16a281 -->
+## api/images
+
+> Example request:
+
+```bash
+curl -X POST "http://zaportal.dev/api/images" \
+-H "Accept: application/json" \
+    -d "owner_id"="6146694" \
+    -d "image_type_id"="6146694" \
+    -d "file"="placeat" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://zaportal.dev/api/images",
+    "method": "POST",
+    "data": {
+        "owner_id": 6146694,
+        "image_type_id": 6146694,
+        "file": "placeat"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST api/images`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    owner_id | numeric |  required  | 
+    image_type_id | numeric |  required  | Valid image_type id
+    file | image |  required  | Must be an image (jpeg, png, bmp, gif, or svg)
+
+<!-- END_204613676cab89a55dfdc7d81f16a281 -->
+
+<!-- START_67424e745d978355538c7df809cf57ad -->
+## api/images/{image}
+
+> Example request:
+
+```bash
+curl -X GET "http://zaportal.dev/api/images/{image}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://zaportal.dev/api/images/{image}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "message": "No query results for model [App\\Models\\Image] 1",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
+    "line": 199,
+    "trace": [
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
+            "line": 175,
+            "function": "prepareException",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Exceptions\/Handler.php",
+            "line": 49,
+            "function": "render",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/nunomaduro\/collision\/src\/Adapters\/Laravel\/ExceptionHandler.php",
+            "line": 68,
+            "function": "render",
+            "class": "App\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 83,
+            "function": "render",
+            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 32,
+            "function": "handleException",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Http\/Middleware\/AccessTokenSecurity.php",
+            "line": 32,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "App\\Http\\Middleware\\AccessTokenSecurity",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php",
+            "line": 41,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 667,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 642,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 608,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 597,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 176,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 30,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
+            "line": 51,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 151,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 116,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 116,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/AbstractGenerator.php",
+            "line": 98,
+            "function": "callRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 58,
+            "function": "getRouteResponse",
+            "class": "Mpociot\\ApiDoc\\Generators\\AbstractGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 261,
+            "function": "processRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 83,
+            "function": "processLaravelRoutes",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 199,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
+            "line": 57,
+            "function": "call",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "App\\Console\\Commands\\GenerateDocsCommand",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 886,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 262,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 145,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
+            "line": 89,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
+            "line": 122,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "->"
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/images/{image}`
+
+`HEAD api/images/{image}`
+
+
+<!-- END_67424e745d978355538c7df809cf57ad -->
+
+<!-- START_663d256882d5392cfe487383a4e8703e -->
+## api/images/{image}
+
+> Example request:
+
+```bash
+curl -X PUT "http://zaportal.dev/api/images/{image}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://zaportal.dev/api/images/{image}",
+    "method": "PUT",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`PUT api/images/{image}`
+
+`PATCH api/images/{image}`
+
+
+<!-- END_663d256882d5392cfe487383a4e8703e -->
+
+<!-- START_f39af5b4ed09dfc1cd00fcaa2c6ecce2 -->
+## api/images/{image}
+
+> Example request:
+
+```bash
+curl -X DELETE "http://zaportal.dev/api/images/{image}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://zaportal.dev/api/images/{image}",
+    "method": "DELETE",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`DELETE api/images/{image}`
+
+
+<!-- END_f39af5b4ed09dfc1cd00fcaa2c6ecce2 -->
+
+<!-- START_dac5bb3acabf927a0dc93b1193419363 -->
+## api/images/{id}
+
+> Example request:
+
+```bash
+curl -X POST "http://zaportal.dev/api/images/{id}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://zaportal.dev/api/images/{id}",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST api/images/{id}`
+
+
+<!-- END_dac5bb3acabf927a0dc93b1193419363 -->
 
