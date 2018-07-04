@@ -59,7 +59,7 @@ class ImageController extends ApiController
         $file = $request->file('file');
         if ($file) {
             $image_name = $file->getRealPath();
-            Cloudder::upload($image_name, null);
+            Cloudder::upload($image_name, $image->location);
             $image->location = Cloudder::getPublicId();
             $image->save();
         }

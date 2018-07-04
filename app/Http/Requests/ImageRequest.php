@@ -35,7 +35,6 @@ class ImageRequest extends FormRequest
         return [
             'owner_id' => 'required|numeric',
             'image_type_id' => 'required|numeric|exists:image_types,id',
-            'location' => [ new AbsentRule() ],
             'file' => 'required|image'
         ];
     }

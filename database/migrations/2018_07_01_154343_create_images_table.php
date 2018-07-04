@@ -18,7 +18,7 @@ class CreateImagesTable extends Migration
             $table->increments('id');
             $table->integer('owner_id')->unsigned();
             $table->integer('image_type_id')->unsigned();
-            $table->string('location');
+            $table->string('location')->nullable();
             $table->timestamps();
         });
     }

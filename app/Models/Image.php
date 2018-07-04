@@ -22,7 +22,7 @@ use App\Models\ImageType;
  */
 class Image extends BaseModel
 {
-    protected $fillable = [ 'owner_id', 'image_type_id', 'location' ];
+    protected $fillable = [ 'owner_id', 'image_type_id' ];
 
     public function type() {
         return $this->belongsTo(ImageType::class, 'image_type_id');

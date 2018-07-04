@@ -32,7 +32,7 @@ class AddColumnsToUsersTable extends Migration
     public function down()
     {
         Schema::table(User::name(), function (Blueprint $table) {
-            $table->dropColumn([ 'first_name', 'last_name', 'other_names', 'dispay_name', 'dob' ]);
+            $table->dropColumn([ 'first_name', 'last_name', 'other_names', 'display_name', 'dob' ]);
         });
     }
 }
