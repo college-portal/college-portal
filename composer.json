@@ -51,9 +51,6 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
-        ],
-        "generate-docs": [
-            "php artisan api:generate --routePrefix=\"api/*\""
         ]
     },
     "config": {
