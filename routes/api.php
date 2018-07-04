@@ -108,6 +108,8 @@ Route::group([
         Route::resource('/schools/{school_id}/image-types', ImageTypeController::class(), $excepts);
         
         Route::resource('/images', ImageController::class(), $excepts);
+        
+        Route::post('/images/{id}', ImageController::method('update'), $excepts);
     });
 
     /**

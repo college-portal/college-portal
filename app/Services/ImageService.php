@@ -24,7 +24,7 @@ class ImageService
         return request()->validate($opts ?? [
             'owner_id' => [ new AbsentRule() ],
             'image_type_id' => [ new AbsentRule() ],
-            'location' => 'string',
+            'location' => [ new AbsentRule() ],
             'file' => 'image'
         ]);
     }
@@ -46,7 +46,7 @@ class ImageService
 
     public function update($id, $opts = []) {
         $this->validate();
-
+        
         return $this->repo()->update($id, $opts);
     }
 }

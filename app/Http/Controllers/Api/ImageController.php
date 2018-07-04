@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Services\ImageService;
 use App\Filters\ImageFilters;
 use App\Http\Requests\ImageRequest;
+use JD\Cloudder\Facades\Cloudder;
+use App\Models\Image;
 
 class ImageController extends ApiController
 {
@@ -38,14 +40,29 @@ class ImageController extends ApiController
     }
 
     public function store(ImageRequest $request) {
-        $image = $this->service()->create($request->all());
+        $image = $this->service()->create(array_merge([ 'location' => 'temp' ], $request->all()));
+
+        $image = $this->upload($request, $image);
+
         return $this->json($image);
     }
 
     public function update(Request $request, $id) {
+        if ($request->isMethod('put')) return $this->json([ 'message' => 'not implemented' ], 501);
         $image = $this->service()->repo()->single($id);
         $this->authorize('update', $image);
-        $image = $this->service()->update($id, $request->all());
+        $image = $this->upload($request, $image);
         return $this->json($image);
+    }
+
+    private function upload(Request $request, Image $image): Image {
+        $file = $request->file('file');
+        if ($file) {
+            $image_name = $file->getRealPath();
+            Cloudder::upload($image_name, null);
+            $image->location = Cloudder::getPublicId();
+            $image->save();
+        }
+        return $image;
     }
 }
