@@ -19,17 +19,26 @@ class StudentController extends ApiController
         return $this->service;
     }
 
+    /**
+     * Get Student by ID
+     */
     public function show(Request $request, StudentFilters $filters, int $id) {
         $student = $this->service()->repo()->student($id, $filters);
         $this->authorize('view', $student); /** ensure the current user has view rights */
         return $student;
     }
 
+    /**
+     * Get Students
+     */
     public function index(Request $request, StudentFilters $filters) {
         $students = $this->service()->repo()->students($request->user(), $filters);
         return $students;
     }
 
+    /**
+     * Delete Student
+     */
     public function destroy(Request $request, int $id) {
         $student = $this->service()->repo()->student($id);
         $this->authorize('delete', $student); /** ensure the current user has delete rights */
@@ -37,11 +46,17 @@ class StudentController extends ApiController
         return $this->ok();
     }
 
+    /**
+     * Create Student
+     */
     public function store(StudentRequest $request) {
         $student = $this->service()->repo()->create($request->all());
         return $this->json($student);
     }
 
+    /**
+     * Update Student
+     */
     public function update(Request $request, int $id) {
         $student = $this->service()->repo()->student($id);
         $this->authorize('update', $student);

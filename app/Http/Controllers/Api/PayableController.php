@@ -19,17 +19,26 @@ class PayableController extends ApiController
         return $this->service;
     }
 
+    /**
+     * Get Payable by ID
+     */
     public function show(Request $request, PayableFilters $filters, $id) {
         $payable = $this->service()->repo()->single($id, $filters);
         $this->authorize('view', $payable); /** ensure the current user has view rights */
         return $payable;
     }
 
+    /**
+     * Get Payables
+     */
     public function index(Request $request, PayableFilters $filters) {
         $payables = $this->service()->repo()->list($request->user(), $filters);
         return $payables;
     }
 
+    /**
+     * Delete Payable
+     */
     public function destroy(Request $request, $id) {
         $payable = $this->service()->repo()->single($id);
         $this->authorize('delete', $payable); /** ensure the current user has delete rights */
@@ -37,11 +46,17 @@ class PayableController extends ApiController
         return $this->ok();
     }
 
+    /**
+     * Create Payable
+     */
     public function store(PayableRequest $request) {
         $payable = $this->service()->repo()->create(array_merge([ 'user_id' => auth()->user()->id ], $request->all()));
         return $this->json($payable);
     }
 
+    /**
+     * Update Payable
+     */
     public function update(Request $request, $id) {
         $payable = $this->service()->repo()->single($id);
         $this->authorize('update', $payable);

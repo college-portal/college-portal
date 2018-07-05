@@ -20,6 +20,9 @@ class LevelController extends ApiController
         return $this->service;
     }
 
+    /**
+     * Get Level by ID
+     */
     public function show(Request $request, LevelFilters $filters, int $school_id, int $id) {
         $this->authorize('view', School::findOrFail($school_id));
         $level = $this->service()->repo()->level($id, $filters);
@@ -27,12 +30,18 @@ class LevelController extends ApiController
         return $level;
     }
 
+    /**
+     * Get Levels
+     */
     public function index(Request $request, LevelFilters $filters, int $school_id) {
         $this->authorize('view', School::findOrFail($school_id));
         $levels = $this->service()->repo()->levels($request->user(), $filters);
         return $levels;
     }
 
+    /**
+     * Delete Level
+     */
     public function destroy(Request $request, int $school_id, int $id) {
         $this->authorize('update', School::findOrFail($school_id));
         $level = $this->service()->repo()->level($id);
@@ -41,12 +50,18 @@ class LevelController extends ApiController
         return $this->ok();
     }
 
+    /**
+     * Create Level
+     */
     public function store(LevelRequest $request, int $school_id) {
         $this->authorize('update', School::findOrFail($school_id));
         $level = $this->service()->repo()->create(array_merge($request->all(), [ 'school_id' => $school_id ]));
         return $this->json($level);
     }
 
+    /**
+     * Update Level
+     */
     public function update(Request $request, int $school_id, int $id) {
         $this->authorize('update', School::findOrFail($school_id));
         $level = $this->service()->repo()->level($id);

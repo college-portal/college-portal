@@ -19,17 +19,26 @@ class StudentTakesCourseController extends ApiController
         return $this->service;
     }
 
+    /**
+     * Get Student-Takes-Course by ID
+     */
     public function show(Request $request, StudentTakesCourseFilters $filters, $id) {
         $studentCourse = $this->service()->repo()->single($id, $filters);
         $this->authorize('view', $studentCourse); /** ensure the current user has view rights */
         return $studentCourse;
     }
 
+    /**
+     * Get Student-Takes-Course List
+     */
     public function index(Request $request, StudentTakesCourseFilters $filters) {
         $studentCourse = $this->service()->repo()->list($request->user(), $filters);
         return $studentCourse;
     }
 
+    /**
+     * Delete Student-Takes-Course
+     */
     public function destroy(Request $request, $id) {
         $studentCourse = $this->service()->repo()->single($id);
         $this->authorize('delete', $studentCourse); /** ensure the current user has delete rights */
@@ -37,11 +46,17 @@ class StudentTakesCourseController extends ApiController
         return $this->ok();
     }
 
+    /**
+     * Create Student-Takes-Course
+     */
     public function store(StudentTakesCourseRequest $request) {
         $studentCourse = $this->service()->create($request->all());
         return $this->json($studentCourse);
     }
 
+    /**
+     * Update Student-Takes-Course
+     */
     public function update(Request $request, $id) {
         $studentCourse = $this->service()->repo()->single($id);
         $this->authorize('update', $studentCourse);

@@ -19,17 +19,26 @@ class SemesterController extends ApiController
         return $this->service;
     }
 
+    /**
+     * Get Semester by ID
+     */
     public function show(Request $request, SemesterFilters $filters, int $id) {
         $semester = $this->service()->repo()->semester($id, $filters);
         $this->authorize('view', $semester);
         return $semester;
     }
 
+    /**
+     * Get Semesters
+     */
     public function index(Request $request, SemesterFilters $filters) {
         $semesters = $this->service()->repo()->semesters($request->user(), $filters);
         return $semesters;
     }
 
+    /**
+     * Delete Semester
+     */
     public function destroy(Request $request, int $id) {
         $semester = $this->service()->repo()->semester($id);
         $this->authorize('delete', $semester); /** ensure the current user has delete rights */
@@ -37,11 +46,17 @@ class SemesterController extends ApiController
         return $this->ok();
     }
 
+    /**
+     * Create Semester
+     */
     public function store(SemesterRequest $request) {
         $semester = $this->service()->create($request->all());
         return $this->json($semester);
     }
 
+    /**
+     * Update Semester
+     */
     public function update(Request $request, int $id) {
         $semester = $this->service()->repo()->semester($id);
         $this->authorize('update', $semester);

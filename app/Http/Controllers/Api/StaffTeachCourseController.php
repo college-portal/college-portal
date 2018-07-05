@@ -19,17 +19,26 @@ class StaffTeachCourseController extends ApiController
         return $this->service;
     }
 
+    /**
+     * Get Staff-Teach-Course Info by ID
+     */
     public function show(Request $request, StaffTeachCourseFilters $filters, $id) {
         $staffCourse = $this->service()->repo()->single($id, $filters);
         $this->authorize('view', $staffCourse); /** ensure the current user has view rights */
         return $staffCourse;
     }
 
+    /**
+     * Get Staff-Teach-Course List
+     */
     public function index(Request $request, StaffTeachCourseFilters $filters) {
         $staffCourses = $this->service()->repo()->list($request->user(), $filters);
         return $staffCourses;
     }
 
+    /**
+     * Delete Staff-Teach-Course
+     */
     public function destroy(Request $request, $id) {
         $staffCourse = $this->service()->repo()->single($id);
         $this->authorize('delete', $staffCourse); /** ensure the current user has delete rights */
@@ -37,11 +46,17 @@ class StaffTeachCourseController extends ApiController
         return $this->ok();
     }
 
+    /**
+     * Create Staff-Teach-Course
+     */
     public function store(StaffTeachCourseRequest $request) {
         $staffTeachCourse = $this->service()->repo()->create($request->all());
         return $this->json($staffTeachCourse);
     }
 
+    /**
+     * Update Staff-Teach-Course
+     */
     public function update(Request $request, $id) {
         $staffTeachCourse = $this->service()->repo()->single($id);
         $this->authorize('update', $staffTeachCourse);

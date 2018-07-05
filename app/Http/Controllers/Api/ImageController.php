@@ -21,17 +21,26 @@ class ImageController extends ApiController
         return $this->service;
     }
 
+    /**
+     * Get Image by ID
+     */
     public function show(Request $request, ImageFilters $filters, $id) {
         $image = $this->service()->repo()->single($id, $filters);
         $this->authorize('view', $image); /** ensure the current user has view rights */
         return $image;
     }
 
+    /**
+     * Get Images
+     */
     public function index(Request $request, ImageFilters $filters) {
         $images = $this->service()->repo()->list($request->user(), $filters);
         return $images;
     }
 
+    /**
+     * Delete Image
+     */
     public function destroy(Request $request, $id) {
         $image = $this->service()->repo()->single($id);
         $this->authorize('delete', $image); /** ensure the current user has delete rights */
@@ -39,6 +48,9 @@ class ImageController extends ApiController
         return $this->ok();
     }
 
+    /**
+     * Create Image
+     */
     public function store(ImageRequest $request) {
         $image = $this->service()->create(array_merge([ 'location' => 'temp' ], $request->all()));
 
@@ -47,6 +59,9 @@ class ImageController extends ApiController
         return $this->json($image);
     }
 
+    /**
+     * Update Image
+     */
     public function update(Request $request, $id) {
         if ($request->isMethod('put')) return $this->json([ 'message' => 'not implemented' ], 501);
         $image = $this->service()->repo()->single($id);

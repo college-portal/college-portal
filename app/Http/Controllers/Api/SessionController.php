@@ -20,17 +20,26 @@ class SessionController extends ApiController
         return $this->service;
     }
 
+    /**
+     * Get Session by ID
+     */
     public function show(Request $request, SessionFilters $filters, int $id) {
         $session = $this->service()->repo()->session($id, $filters);
         $this->authorize('view', $session);
         return $session;
     }
 
+    /**
+     * Get Sessions
+     */
     public function index(Request $request, SessionFilters $filters) {
         $sessions = $this->service()->repo()->sessions($request->user(), $filters);
         return $sessions;
     }
 
+    /**
+     * Delete Session
+     */
     public function destroy(Request $request, int $id) {
         $session = $this->service()->repo()->session($id);
         $this->authorize('delete', $session); /** ensure the current user has delete rights */
@@ -38,11 +47,17 @@ class SessionController extends ApiController
         return $this->ok();
     }
 
+    /**
+     * Create Session
+     */
     public function store(SessionRequest $request) {
         $session = $this->service()->repo()->create($request->all());
         return $this->json($session);
     }
 
+    /**
+     * Update Session
+     */
     public function update(Request $request, int $id) {
         $session = $this->service()->repo()->session($id);
         $this->authorize('update', $session);

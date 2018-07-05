@@ -20,6 +20,9 @@ class ImageTypeController extends ApiController
         return $this->service;
     }
 
+    /**
+     * Get Image Type by ID
+     */
     public function show(Request $request, ImageTypeFilters $filters, int $school_id, $id) {
         $this->authorize('view', School::findOrFail($school_id));
         $imageType = $this->service()->repo()->single($id, $filters);
@@ -27,12 +30,18 @@ class ImageTypeController extends ApiController
         return $imageType;
     }
 
+    /**
+     * Get Image Types
+     */
     public function index(Request $request, ImageTypeFilters $filters, int $school_id) {
         $this->authorize('view', School::findOrFail($school_id));
         $imageTypes = $this->service()->repo()->list($request->user(), $filters);
         return $imageTypes;
     }
 
+    /**
+     * Delete Image Type
+     */
     public function destroy(Request $request, int $school_id, $id) {
         $this->authorize('update', School::findOrFail($school_id));
         $imageType = $this->service()->repo()->single($id);
@@ -41,12 +50,18 @@ class ImageTypeController extends ApiController
         return $this->ok();
     }
 
+    /**
+     * Create Image Type
+     */
     public function store(ImageTypeRequest $request, int $school_id) {
         $this->authorize('update', School::findOrFail($school_id));
         $imageType = $this->service()->repo()->create(array_merge($request->all(), [ 'school_id' => $school_id ]));
         return $this->json($imageType);
     }
 
+    /**
+     * Update Image Type
+     */
     public function update(Request $request, int $school_id, $id) {
         $this->authorize('update', School::findOrFail($school_id));
         $imageType = $this->service()->repo()->single($id);
