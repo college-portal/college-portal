@@ -28,6 +28,7 @@ class ChargeableController extends ApiController
      * - Filters
      *  - ?with_service (includes the chargeable service)
      *  - ?with_owner (includes the chargeable's owner)
+     *  - ?with_school (includes the chargeable's school)
      *  - ?service={id} (filters by the chargeable service id)
      *  - ?owner={id} (filters by the owner id)
      *  - ?min_amount={amount} (filters by minimum amount)
@@ -50,6 +51,7 @@ class ChargeableController extends ApiController
      * - Filters
      *  - ?with_service (includes the chargeable service)
      *  - ?with_owner (includes the chargeable's owner)
+     *  - ?with_school (includes the chargeable's school)
      *  - ?service={id} (filters by the chargeable service id)
      *  - ?owner={id} (filters by the owner id)
      *  - ?min_amount={amount} (filters by minimum amount)
