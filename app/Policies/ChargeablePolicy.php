@@ -30,6 +30,6 @@ class ChargeablePolicy
     }
 
     public function update(User $user, Chargeable $chargeable) {
-        return $user->hasRole(Role::ADMIN) || ($user->id == $chargeable->school()->first()->user_id);
+        return $this->delete($user, $chargeable);
     }
 }

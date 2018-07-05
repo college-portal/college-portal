@@ -95,7 +95,7 @@ $.ajax(settings).done(function (response) {
     "display_name": "Owner Orlando",
     "dob": "1957-12-18",
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:43:08"
+    "updated_at": "2018-07-05 12:58:18"
 }
 ```
 
@@ -146,7 +146,7 @@ $.ajax(settings).done(function (response) {
             "owner_id": 1,
             "is_active": 1,
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 11:43:10",
+            "updated_at": "2018-07-05 12:58:20",
             "pivot": {
                 "user_id": 1,
                 "school_id": 1,
@@ -261,7 +261,7 @@ $.ajax(settings).done(function (response) {
     "owner_id": 1,
     "is_active": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:43:10",
+    "updated_at": "2018-07-05 12:58:20",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
@@ -386,7 +386,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Dean Daniels",
             "dob": "1948-02-02",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T12:40:35+00:00"
+            "updated_at": "2018-07-05T13:09:26+00:00"
         },
         {
             "id": 1,
@@ -396,7 +396,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Dean Daniels",
             "dob": "1948-02-02",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T12:40:35+00:00"
+            "updated_at": "2018-07-05T13:09:26+00:00"
         },
         {
             "id": 1,
@@ -406,7 +406,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Dean Daniels",
             "dob": "1948-02-02",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T12:40:35+00:00"
+            "updated_at": "2018-07-05T13:09:26+00:00"
         },
         {
             "id": 1,
@@ -416,7 +416,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Katlynn Wolf",
             "dob": "1967-03-07",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T12:40:35+00:00"
+            "updated_at": "2018-07-05T13:09:26+00:00"
         },
         {
             "id": 1,
@@ -426,7 +426,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Skyla King",
             "dob": "1957-07-05",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T12:40:35+00:00"
+            "updated_at": "2018-07-05T13:09:26+00:00"
         },
         {
             "id": 1,
@@ -436,7 +436,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Gordon Toy",
             "dob": "1960-01-02",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T12:40:35+00:00"
+            "updated_at": "2018-07-05T13:09:26+00:00"
         }
     ],
     "links": {
@@ -558,7 +558,7 @@ $.ajax(settings).done(function (response) {
     "display_name": "Owner Orlando",
     "dob": "1957-12-18",
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:43:08"
+    "updated_at": "2018-07-05 12:58:18"
 }
 ```
 
@@ -676,7 +676,7 @@ $.ajax(settings).done(function (response) {
             "dean_id": 1,
             "school_id": 1,
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 11:43:08",
+            "updated_at": "2018-07-05 12:58:19",
             "deleted_at": null
         }
     ],
@@ -785,7 +785,7 @@ $.ajax(settings).done(function (response) {
     "dean_id": 1,
     "school_id": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:43:08",
+    "updated_at": "2018-07-05 12:58:19",
     "deleted_at": null
 }
 ```
@@ -904,7 +904,7 @@ $.ajax(settings).done(function (response) {
             "hod_id": 1,
             "faculty_id": 1,
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 11:43:08"
+            "updated_at": "2018-07-05 12:58:19"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/departments?page=1",
@@ -1012,7 +1012,7 @@ $.ajax(settings).done(function (response) {
     "hod_id": 1,
     "faculty_id": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:43:08"
+    "updated_at": "2018-07-05 12:58:19"
 }
 ```
 
@@ -1129,7 +1129,7 @@ $.ajax(settings).done(function (response) {
             "name": "Data Analysis",
             "department_id": 1,
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 11:43:09"
+            "updated_at": "2018-07-05 12:58:19"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/programs?page=1",
@@ -1233,7 +1233,7 @@ $.ajax(settings).done(function (response) {
     "name": "Data Analysis",
     "department_id": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:43:09"
+    "updated_at": "2018-07-05 12:58:19"
 }
 ```
 
@@ -1474,7 +1474,7 @@ $.ajax(settings).done(function (response) {
     "owner_id": 1,
     "is_active": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 12:40:35",
+    "updated_at": "2018-07-05 13:09:26",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
@@ -2284,7 +2284,7 @@ $.ajax(settings).done(function (response) {
             "title": "Physical Sciences",
             "credit": 4,
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 11:43:09"
+            "updated_at": "2018-07-05 12:58:19"
         },
         {
             "id": 2,
@@ -2481,7 +2481,7 @@ $.ajax(settings).done(function (response) {
     "title": "Physical Sciences",
     "credit": 4,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:43:09"
+    "updated_at": "2018-07-05 12:58:19"
 }
 ```
 
@@ -2711,7 +2711,7 @@ $.ajax(settings).done(function (response) {
     "owner_id": 1,
     "is_active": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 12:40:36",
+    "updated_at": "2018-07-05 13:09:27",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
@@ -2836,7 +2836,7 @@ $.ajax(settings).done(function (response) {
             "department_id": null,
             "title": "Mr.",
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 11:43:09"
+            "updated_at": "2018-07-05 12:58:19"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/staff?page=1",
@@ -2948,7 +2948,7 @@ $.ajax(settings).done(function (response) {
     "department_id": null,
     "title": "Mr.",
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:43:09"
+    "updated_at": "2018-07-05 12:58:19"
 }
 ```
 
@@ -3067,7 +3067,7 @@ $.ajax(settings).done(function (response) {
             "start_date": "2018-07-04 00:00:00",
             "end_date": "2019-07-04 00:00:00",
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 11:43:09"
+            "updated_at": "2018-07-05 12:58:19"
         },
         {
             "id": 2,
@@ -3188,7 +3188,7 @@ $.ajax(settings).done(function (response) {
     "start_date": "2018-07-04 00:00:00",
     "end_date": "2019-07-04 00:00:00",
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:43:09"
+    "updated_at": "2018-07-05 12:58:19"
 }
 ```
 
@@ -4003,7 +4003,7 @@ $.ajax(settings).done(function (response) {
             "amount": "500.00",
             "school_id": 1,
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 11:43:09"
+            "updated_at": "2018-07-05 12:58:20"
         },
         {
             "id": 2,
@@ -4149,7 +4149,7 @@ $.ajax(settings).done(function (response) {
     "amount": "500.00",
     "school_id": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:43:09"
+    "updated_at": "2018-07-05 12:58:20"
 }
 ```
 
@@ -4232,7 +4232,16 @@ $.ajax(settings).done(function (response) {
 <!-- START_08297040d81b9ceb7027a8e1b9e5f028 -->
 ## Gets Chargeables List
 
-Responds with a list of Chargeables the user has access to
+Responds with a list of Chargeables
+- Rules of Access
+  - User is in same school as the Chargeable
+- Filters
+ - ?with_service (includes the chargeable service)
+ - ?with_owner (includes the chargeable's owner)
+ - ?service={id} (filters by the chargeable service id)
+ - ?owner={id} (filters by the owner id)
+ - ?min_amount={amount} (filters by minimum amount)
+ - ?max_amount={amount} (filters by maximum amount)
 
 > Example request:
 
@@ -4329,6 +4338,9 @@ $.ajax(settings).done(function (response) {
 ## Create Chargeable
 
 Supply chargeable information to create a new one
+- Rules of Access
+ - User can view Chargeable Service and
+ - User can update the owner of the Chargeable (See Chargeable Model)
 
 > Example request:
 
@@ -4380,6 +4392,15 @@ Parameter | Type | Status | Description
 ## Get Chargeable by ID
 
 Responds with a specific Chargeable by its ID
+- Rules of Access
+  - User is in same school as the Chargeable
+- Filters
+ - ?with_service (includes the chargeable service)
+ - ?with_owner (includes the chargeable's owner)
+ - ?service={id} (filters by the chargeable service id)
+ - ?owner={id} (filters by the owner id)
+ - ?min_amount={amount} (filters by minimum amount)
+ - ?max_amount={amount} (filters by maximum amount)
 
 > Example request:
 
@@ -4876,6 +4897,9 @@ $.ajax(settings).done(function (response) {
 ## Update Chargeable
 
 Modify information about an existing chargeable by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Chargeable belongs to
 
 > Example request:
 
@@ -4913,6 +4937,9 @@ $.ajax(settings).done(function (response) {
 ## Delete Chargeable
 
 Removes a Chargeable from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Chargeable belongs to
 
 > Example request:
 
@@ -8505,7 +8532,7 @@ $.ajax(settings).done(function (response) {
     "owner_id": 1,
     "is_active": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 12:40:36",
+    "updated_at": "2018-07-05 13:09:27",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
@@ -9399,7 +9426,7 @@ $.ajax(settings).done(function (response) {
     "owner_id": 1,
     "is_active": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 12:40:37",
+    "updated_at": "2018-07-05 13:09:28",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
