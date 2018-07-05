@@ -28,7 +28,20 @@ class ChargeableFilters extends BaseFilters
      * includes the chargeable's owner
      */
     public function with_owner() {
-        return $this->builder->with('owner');
+        return $this->defer(function ($chargeable) {
+            $chargeable->owner = $chargeable->owner()->first();
+            return $chargeable;
+        });
+    }
+
+    /**
+     * includes the chargeable's school
+     */
+    public function with_school() {
+        return $this->defer(function ($chargeable) {
+            $chargeable->school = $chargeable->school()->first();
+            return $chargeable;
+        });
     }
 
     /**

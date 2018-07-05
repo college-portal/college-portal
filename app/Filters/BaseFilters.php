@@ -4,15 +4,18 @@ namespace App\Filters;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class BaseFilters
 {
     protected $request;
     protected $builder;
+    protected $functions;
   
     public function __construct(Request $request)
     {
         $this->request = $request;
+        $this->functions = new Collection();
     }
   
     public function apply(Builder $builder):Builder
@@ -39,5 +42,16 @@ class BaseFilters
     public function global():array
 	{
         return [];
+    }
+
+    protected function defer($function) {
+        $this->functions->push($function);
+    }
+
+    public function transform($model) {
+        $this->functions->each(function ($function) use ($model) {
+            $model = $function($model);
+        });
+        return $model;
     }
 }

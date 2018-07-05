@@ -37,6 +37,10 @@ class Chargeable extends BaseModel
         return $this->belongsTo(ChargeableService::class, 'chargeable_service_id');
     }
 
+    private function services() {
+        return $this->belongsToMany(ChargeableService::class, self::class, 'id', 'chargeable_service_id');
+    }
+
     public function scopeOwner() {
         return app($this->service()->first()->type)->where('id', $this->owner_id);
     }
