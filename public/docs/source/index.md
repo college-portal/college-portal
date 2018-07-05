@@ -95,7 +95,7 @@ $.ajax(settings).done(function (response) {
     "display_name": "Owner Orlando",
     "dob": "1957-12-18",
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:41:09"
+    "updated_at": "2018-07-04 11:43:08"
 }
 ```
 
@@ -108,7 +108,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_2ea88ff35aa222f5582e50f39a2b35fd -->
 
 <!-- START_e51aeda29969b51e7035a2b96d978ef3 -->
-## api/schools
+## Get Schools
 
 > Example request:
 
@@ -146,7 +146,7 @@ $.ajax(settings).done(function (response) {
             "owner_id": 1,
             "is_active": 1,
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 11:41:11",
+            "updated_at": "2018-07-04 11:43:10",
             "pivot": {
                 "user_id": 1,
                 "school_id": 1,
@@ -177,7 +177,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_e51aeda29969b51e7035a2b96d978ef3 -->
 
 <!-- START_d290b49f6ab037b29f928b0181113d60 -->
-## api/schools
+## Create School
 
 > Example request:
 
@@ -226,7 +226,7 @@ Parameter | Type | Status | Description
 <!-- END_d290b49f6ab037b29f928b0181113d60 -->
 
 <!-- START_862296e54f319c85cabc63651980e5de -->
-## api/schools/{school}
+## Get School by ID
 
 > Example request:
 
@@ -261,7 +261,7 @@ $.ajax(settings).done(function (response) {
     "owner_id": 1,
     "is_active": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:41:11",
+    "updated_at": "2018-07-04 11:43:10",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
@@ -280,7 +280,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_862296e54f319c85cabc63651980e5de -->
 
 <!-- START_85e6256a1bed7221faf44b3f695d2cb0 -->
-## api/schools/{school}
+## Update School
 
 > Example request:
 
@@ -315,7 +315,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_85e6256a1bed7221faf44b3f695d2cb0 -->
 
 <!-- START_ae812fba78695c4d4e2b414d2afe7fa9 -->
-## api/schools/{school}
+## Delete School
 
 > Example request:
 
@@ -348,7 +348,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_ae812fba78695c4d4e2b414d2afe7fa9 -->
 
 <!-- START_da5727be600e4865c1b632f7745c8e91 -->
-## api/users
+## Get Users
 
 > Example request:
 
@@ -386,7 +386,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Dean Daniels",
             "dob": "1948-02-02",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-04T11:43:08+00:00"
+            "updated_at": "2018-07-05T12:40:35+00:00"
         },
         {
             "id": 1,
@@ -396,7 +396,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Dean Daniels",
             "dob": "1948-02-02",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-04T11:43:08+00:00"
+            "updated_at": "2018-07-05T12:40:35+00:00"
         },
         {
             "id": 1,
@@ -406,7 +406,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Dean Daniels",
             "dob": "1948-02-02",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-04T11:43:08+00:00"
+            "updated_at": "2018-07-05T12:40:35+00:00"
         },
         {
             "id": 1,
@@ -416,7 +416,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Katlynn Wolf",
             "dob": "1967-03-07",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-04T11:43:08+00:00"
+            "updated_at": "2018-07-05T12:40:35+00:00"
         },
         {
             "id": 1,
@@ -426,7 +426,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Skyla King",
             "dob": "1957-07-05",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-04T11:43:08+00:00"
+            "updated_at": "2018-07-05T12:40:35+00:00"
         },
         {
             "id": 1,
@@ -436,7 +436,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Gordon Toy",
             "dob": "1960-01-02",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-04T11:43:08+00:00"
+            "updated_at": "2018-07-05T12:40:35+00:00"
         }
     ],
     "links": {
@@ -466,7 +466,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_da5727be600e4865c1b632f7745c8e91 -->
 
 <!-- START_12e37982cc5398c7100e59625ebb5514 -->
-## api/users
+## Create User
 
 > Example request:
 
@@ -477,7 +477,7 @@ curl -X POST "http://zaportal.dev/api/users" \
     -d "last_name"="ut" \
     -d "email"="nakia.mcclure@example.org" \
     -d "password"="ut" \
-    -d "dob"="1986-10-23" \
+    -d "dob"="1986-10-24" \
 
 ```
 
@@ -492,7 +492,7 @@ var settings = {
         "last_name": "ut",
         "email": "nakia.mcclure@example.org",
         "password": "ut",
-        "dob": "1986-10-23"
+        "dob": "1986-10-24"
 },
     "headers": {
         "accept": "application/json"
@@ -521,7 +521,7 @@ Parameter | Type | Status | Description
 <!-- END_12e37982cc5398c7100e59625ebb5514 -->
 
 <!-- START_8f99b42746e451f8dc43742e118cb47b -->
-## api/users/{user}
+## Get User by ID
 
 > Example request:
 
@@ -558,7 +558,7 @@ $.ajax(settings).done(function (response) {
     "display_name": "Owner Orlando",
     "dob": "1957-12-18",
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:41:09"
+    "updated_at": "2018-07-04 11:43:08"
 }
 ```
 
@@ -571,7 +571,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_8f99b42746e451f8dc43742e118cb47b -->
 
 <!-- START_48a3115be98493a3c866eb0e23347262 -->
-## api/users/{user}
+## Update User
 
 > Example request:
 
@@ -606,7 +606,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_48a3115be98493a3c866eb0e23347262 -->
 
 <!-- START_d2db7a9fe3abd141d5adbc367a88e969 -->
-## api/users/{user}
+## Delete User
 
 > Example request:
 
@@ -639,7 +639,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_d2db7a9fe3abd141d5adbc367a88e969 -->
 
 <!-- START_0151899c6cc8923a22b32cbfb1d662aa -->
-## api/faculties
+## Get Faculties
 
 > Example request:
 
@@ -676,7 +676,7 @@ $.ajax(settings).done(function (response) {
             "dean_id": 1,
             "school_id": 1,
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 11:41:09",
+            "updated_at": "2018-07-04 11:43:08",
             "deleted_at": null
         }
     ],
@@ -702,7 +702,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_0151899c6cc8923a22b32cbfb1d662aa -->
 
 <!-- START_3d82dcd0fb3f2c54d0822c0296209190 -->
-## api/faculties
+## Create Faculty
 
 > Example request:
 
@@ -751,7 +751,7 @@ Parameter | Type | Status | Description
 <!-- END_3d82dcd0fb3f2c54d0822c0296209190 -->
 
 <!-- START_81ed220a7e8f733c1b8ef9150c0eea2b -->
-## api/faculties/{faculty}
+## Get Faculty by ID
 
 > Example request:
 
@@ -785,7 +785,7 @@ $.ajax(settings).done(function (response) {
     "dean_id": 1,
     "school_id": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:41:09",
+    "updated_at": "2018-07-04 11:43:08",
     "deleted_at": null
 }
 ```
@@ -799,7 +799,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_81ed220a7e8f733c1b8ef9150c0eea2b -->
 
 <!-- START_cd906852e526fae660e2dd28c177318b -->
-## api/faculties/{faculty}
+## Update Faculty
 
 > Example request:
 
@@ -834,7 +834,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_cd906852e526fae660e2dd28c177318b -->
 
 <!-- START_7d4ac3e94893c9e6c3e7c48438874f0c -->
-## api/faculties/{faculty}
+## Delete Faculty
 
 > Example request:
 
@@ -867,7 +867,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_7d4ac3e94893c9e6c3e7c48438874f0c -->
 
 <!-- START_2a2bd5f635421bebeab28f82894cfdaa -->
-## api/departments
+## Get Departments
 
 > Example request:
 
@@ -904,7 +904,7 @@ $.ajax(settings).done(function (response) {
             "hod_id": 1,
             "faculty_id": 1,
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 11:41:09"
+            "updated_at": "2018-07-04 11:43:08"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/departments?page=1",
@@ -929,7 +929,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_2a2bd5f635421bebeab28f82894cfdaa -->
 
 <!-- START_b002b7c6ad7a3a78a8d833aed62c535e -->
-## api/departments
+## Create Department
 
 > Example request:
 
@@ -978,7 +978,7 @@ Parameter | Type | Status | Description
 <!-- END_b002b7c6ad7a3a78a8d833aed62c535e -->
 
 <!-- START_987c0aa639e88c0aad48c5924fc5ad5f -->
-## api/departments/{department}
+## Get Department by ID
 
 > Example request:
 
@@ -1012,7 +1012,7 @@ $.ajax(settings).done(function (response) {
     "hod_id": 1,
     "faculty_id": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:41:09"
+    "updated_at": "2018-07-04 11:43:08"
 }
 ```
 
@@ -1025,7 +1025,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_987c0aa639e88c0aad48c5924fc5ad5f -->
 
 <!-- START_699b52fb4bcae66f8ebd1b94d43840b3 -->
-## api/departments/{department}
+## Update Department
 
 > Example request:
 
@@ -1060,7 +1060,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_699b52fb4bcae66f8ebd1b94d43840b3 -->
 
 <!-- START_0e43c6b5ed1c5abe92437f672ec3eaef -->
-## api/departments/{department}
+## Delete Department
 
 > Example request:
 
@@ -1093,7 +1093,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_0e43c6b5ed1c5abe92437f672ec3eaef -->
 
 <!-- START_e75eb1d616a7c047f8e23de26a73eae9 -->
-## api/programs
+## Get Programs
 
 > Example request:
 
@@ -1129,7 +1129,7 @@ $.ajax(settings).done(function (response) {
             "name": "Data Analysis",
             "department_id": 1,
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 11:41:10"
+            "updated_at": "2018-07-04 11:43:09"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/programs?page=1",
@@ -1154,7 +1154,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_e75eb1d616a7c047f8e23de26a73eae9 -->
 
 <!-- START_f23415d8a8c84bb895710ecc0b704704 -->
-## api/programs
+## Create Program
 
 > Example request:
 
@@ -1200,7 +1200,7 @@ Parameter | Type | Status | Description
 <!-- END_f23415d8a8c84bb895710ecc0b704704 -->
 
 <!-- START_86d53e9643d43f01a320bf290a1bf1f6 -->
-## api/programs/{program}
+## Get Program by ID
 
 > Example request:
 
@@ -1233,7 +1233,7 @@ $.ajax(settings).done(function (response) {
     "name": "Data Analysis",
     "department_id": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:41:10"
+    "updated_at": "2018-07-04 11:43:09"
 }
 ```
 
@@ -1246,7 +1246,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_86d53e9643d43f01a320bf290a1bf1f6 -->
 
 <!-- START_d005858bc6b7b52ffe5a56bb184310bd -->
-## api/programs/{program}
+## Update Program
 
 > Example request:
 
@@ -1281,7 +1281,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_d005858bc6b7b52ffe5a56bb184310bd -->
 
 <!-- START_9fe7eacc4db501466b4abf06986f2c77 -->
-## api/programs/{program}
+## Delete Program
 
 > Example request:
 
@@ -1314,7 +1314,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_9fe7eacc4db501466b4abf06986f2c77 -->
 
 <!-- START_93cdf9b2f9623052a54b92ab126b0613 -->
-## api/schools/{school_id}/levels
+## Get Levels
 
 > Example request:
 
@@ -1396,7 +1396,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_93cdf9b2f9623052a54b92ab126b0613 -->
 
 <!-- START_a25ccd3f64819ae565d1984f65208097 -->
-## api/schools/{school_id}/levels
+## Create Level
 
 > Example request:
 
@@ -1439,7 +1439,7 @@ Parameter | Type | Status | Description
 <!-- END_a25ccd3f64819ae565d1984f65208097 -->
 
 <!-- START_d02823935f7591612a419a2a09ed4cd3 -->
-## api/schools/{school_id}/levels/{level}
+## Get Level by ID
 
 > Example request:
 
@@ -1474,7 +1474,7 @@ $.ajax(settings).done(function (response) {
     "owner_id": 1,
     "is_active": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:43:08",
+    "updated_at": "2018-07-05 12:40:35",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
@@ -1493,7 +1493,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_d02823935f7591612a419a2a09ed4cd3 -->
 
 <!-- START_f4d441f9577cc5154603c1f0f6798b65 -->
-## api/schools/{school_id}/levels/{level}
+## Update Level
 
 > Example request:
 
@@ -1528,7 +1528,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_f4d441f9577cc5154603c1f0f6798b65 -->
 
 <!-- START_42b9e113ffe8d5e8779cbf3ff355c41d -->
-## api/schools/{school_id}/levels/{level}
+## Delete Level
 
 > Example request:
 
@@ -1561,7 +1561,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_42b9e113ffe8d5e8779cbf3ff355c41d -->
 
 <!-- START_e22068e5b34cd9ff059322f3a3ec5c2e -->
-## api/students
+## Get Students
 
 > Example request:
 
@@ -1633,7 +1633,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_e22068e5b34cd9ff059322f3a3ec5c2e -->
 
 <!-- START_058e6d0cac82649086bbc06fe88fd040 -->
-## api/students
+## Create Student
 
 > Example request:
 
@@ -1682,7 +1682,7 @@ Parameter | Type | Status | Description
 <!-- END_058e6d0cac82649086bbc06fe88fd040 -->
 
 <!-- START_0312bb71e4bdd9469395fd583d93f3c4 -->
-## api/students/{student}
+## Get Student by ID
 
 > Example request:
 
@@ -2176,7 +2176,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_0312bb71e4bdd9469395fd583d93f3c4 -->
 
 <!-- START_f4798a6166743436fe98df7c0a10ea60 -->
-## api/students/{student}
+## Update Student
 
 > Example request:
 
@@ -2211,7 +2211,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_f4798a6166743436fe98df7c0a10ea60 -->
 
 <!-- START_9b6130181f7a43c0b235a243cf8e7980 -->
-## api/students/{student}
+## Delete Student
 
 > Example request:
 
@@ -2244,7 +2244,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_9b6130181f7a43c0b235a243cf8e7980 -->
 
 <!-- START_38f650806a828403a7b131016b537617 -->
-## api/courses
+## Get Courses
 
 > Example request:
 
@@ -2284,7 +2284,7 @@ $.ajax(settings).done(function (response) {
             "title": "Physical Sciences",
             "credit": 4,
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 11:41:10"
+            "updated_at": "2018-07-04 11:43:09"
         },
         {
             "id": 2,
@@ -2386,7 +2386,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_38f650806a828403a7b131016b537617 -->
 
 <!-- START_7adfcfdea10d30f89cf1c74a69c31361 -->
-## api/courses
+## Create Course
 
 > Example request:
 
@@ -2444,7 +2444,7 @@ Parameter | Type | Status | Description
 <!-- END_7adfcfdea10d30f89cf1c74a69c31361 -->
 
 <!-- START_8689ce8f09e81fcaee386cfbd8e265cd -->
-## api/courses/{course}
+## Get Course by ID
 
 > Example request:
 
@@ -2481,7 +2481,7 @@ $.ajax(settings).done(function (response) {
     "title": "Physical Sciences",
     "credit": 4,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:41:10"
+    "updated_at": "2018-07-04 11:43:09"
 }
 ```
 
@@ -2494,7 +2494,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_8689ce8f09e81fcaee386cfbd8e265cd -->
 
 <!-- START_bb5a98f4f88ceacd9c6cef8cf663b402 -->
-## api/courses/{course}
+## Update Course
 
 > Example request:
 
@@ -2529,7 +2529,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_bb5a98f4f88ceacd9c6cef8cf663b402 -->
 
 <!-- START_ddc71fecb200b23443e0cfaad85d4241 -->
-## api/courses/{course}
+## Delete Course
 
 > Example request:
 
@@ -2562,7 +2562,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_ddc71fecb200b23443e0cfaad85d4241 -->
 
 <!-- START_86c98e828da326493a503b9fc2efe542 -->
-## api/schools/{school_id}/semester-types
+## Get Semester Types
 
 > Example request:
 
@@ -2630,7 +2630,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_86c98e828da326493a503b9fc2efe542 -->
 
 <!-- START_e9af71bfe9c11e7cac6f3f8729da915f -->
-## api/schools/{school_id}/semester-types
+## Create Semester Type
 
 > Example request:
 
@@ -2676,7 +2676,7 @@ Parameter | Type | Status | Description
 <!-- END_e9af71bfe9c11e7cac6f3f8729da915f -->
 
 <!-- START_5e16b99ca1a0ee860aff7066eaeb3d0b -->
-## api/schools/{school_id}/semester-types/{semester_type}
+## Get Semester Type by ID
 
 > Example request:
 
@@ -2711,7 +2711,7 @@ $.ajax(settings).done(function (response) {
     "owner_id": 1,
     "is_active": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:43:09",
+    "updated_at": "2018-07-05 12:40:36",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
@@ -2730,7 +2730,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_5e16b99ca1a0ee860aff7066eaeb3d0b -->
 
 <!-- START_ef0c2c212cd1cb064424ab9cbf98a76f -->
-## api/schools/{school_id}/semester-types/{semester_type}
+## Update Semester Type
 
 > Example request:
 
@@ -2765,7 +2765,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_ef0c2c212cd1cb064424ab9cbf98a76f -->
 
 <!-- START_40df788cb409056debb2f4a311fb068e -->
-## api/schools/{school_id}/semester-types/{semester_type}
+## Delete Semester Type
 
 > Example request:
 
@@ -2798,7 +2798,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_40df788cb409056debb2f4a311fb068e -->
 
 <!-- START_adb73d4f224601ea718940e6bb97c778 -->
-## api/staff
+## Get Staff
 
 > Example request:
 
@@ -2836,7 +2836,7 @@ $.ajax(settings).done(function (response) {
             "department_id": null,
             "title": "Mr.",
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 11:41:10"
+            "updated_at": "2018-07-04 11:43:09"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/staff?page=1",
@@ -2861,7 +2861,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_adb73d4f224601ea718940e6bb97c778 -->
 
 <!-- START_cde1a268ad4879413936f91d73a540bc -->
-## api/staff
+## Create Staff
 
 > Example request:
 
@@ -2913,7 +2913,7 @@ Parameter | Type | Status | Description
 <!-- END_cde1a268ad4879413936f91d73a540bc -->
 
 <!-- START_76c9bf4aa84f78a0a0c2eb2729e34188 -->
-## api/staff/{staff}
+## Get Staff by ID
 
 > Example request:
 
@@ -2948,7 +2948,7 @@ $.ajax(settings).done(function (response) {
     "department_id": null,
     "title": "Mr.",
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:41:10"
+    "updated_at": "2018-07-04 11:43:09"
 }
 ```
 
@@ -2961,7 +2961,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_76c9bf4aa84f78a0a0c2eb2729e34188 -->
 
 <!-- START_c5c03cc30b365cbb9de2757105311e99 -->
-## api/staff/{staff}
+## Update Staff
 
 > Example request:
 
@@ -2996,7 +2996,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_c5c03cc30b365cbb9de2757105311e99 -->
 
 <!-- START_60046dd4fa0b05e4f13b356b1407843e -->
-## api/staff/{staff}
+## Delete Staff
 
 > Example request:
 
@@ -3029,7 +3029,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_60046dd4fa0b05e4f13b356b1407843e -->
 
 <!-- START_13c5ec5040d217b9644ebd1d574ffb35 -->
-## api/sessions
+## Get Sessions
 
 > Example request:
 
@@ -3067,7 +3067,7 @@ $.ajax(settings).done(function (response) {
             "start_date": "2018-07-04 00:00:00",
             "end_date": "2019-07-04 00:00:00",
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 11:41:10"
+            "updated_at": "2018-07-04 11:43:09"
         },
         {
             "id": 2,
@@ -3101,7 +3101,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_13c5ec5040d217b9644ebd1d574ffb35 -->
 
 <!-- START_b0309e45a2af0a1e9b599219dbce6d98 -->
-## api/sessions
+## Create Session
 
 > Example request:
 
@@ -3110,8 +3110,8 @@ curl -X POST "http://zaportal.dev/api/sessions" \
 -H "Accept: application/json" \
     -d "school_id"="5240575" \
     -d "name"="soluta" \
-    -d "start_date"="2003-01-05" \
-    -d "end_date"="2003-01-05" \
+    -d "start_date"="2003-01-06" \
+    -d "end_date"="2003-01-06" \
 
 ```
 
@@ -3124,8 +3124,8 @@ var settings = {
     "data": {
         "school_id": 5240575,
         "name": "soluta",
-        "start_date": "2003-01-05",
-        "end_date": "2003-01-05"
+        "start_date": "2003-01-06",
+        "end_date": "2003-01-06"
 },
     "headers": {
         "accept": "application/json"
@@ -3153,7 +3153,7 @@ Parameter | Type | Status | Description
 <!-- END_b0309e45a2af0a1e9b599219dbce6d98 -->
 
 <!-- START_60741d30911f638fc16fef8f85b172cc -->
-## api/sessions/{session}
+## Get Session by ID
 
 > Example request:
 
@@ -3188,7 +3188,7 @@ $.ajax(settings).done(function (response) {
     "start_date": "2018-07-04 00:00:00",
     "end_date": "2019-07-04 00:00:00",
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:41:10"
+    "updated_at": "2018-07-04 11:43:09"
 }
 ```
 
@@ -3201,7 +3201,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_60741d30911f638fc16fef8f85b172cc -->
 
 <!-- START_01d1a457f56b8ac4134ff996daf9e9ab -->
-## api/sessions/{session}
+## Update Session
 
 > Example request:
 
@@ -3236,7 +3236,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_01d1a457f56b8ac4134ff996daf9e9ab -->
 
 <!-- START_4fd1093757d2141b14b2cd8666e3e281 -->
-## api/sessions/{session}
+## Delete Session
 
 > Example request:
 
@@ -3269,7 +3269,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_4fd1093757d2141b14b2cd8666e3e281 -->
 
 <!-- START_ce3236c7fa6759518a65c3054348bbc8 -->
-## api/semesters
+## Get Semesters
 
 > Example request:
 
@@ -3350,7 +3350,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_ce3236c7fa6759518a65c3054348bbc8 -->
 
 <!-- START_6f3217dd5e05b1415edd3043bb8bab34 -->
-## api/semesters
+## Create Semester
 
 > Example request:
 
@@ -3402,7 +3402,7 @@ Parameter | Type | Status | Description
 <!-- END_6f3217dd5e05b1415edd3043bb8bab34 -->
 
 <!-- START_d02ac86dc363f25589ad59aedebbb645 -->
-## api/semesters/{semester}
+## Get Semester by ID
 
 > Example request:
 
@@ -3896,7 +3896,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_d02ac86dc363f25589ad59aedebbb645 -->
 
 <!-- START_5a2c97a3c1aef2662a46127990470eb4 -->
-## api/semesters/{semester}
+## Update Semester
 
 > Example request:
 
@@ -3931,7 +3931,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_5a2c97a3c1aef2662a46127990470eb4 -->
 
 <!-- START_be7aac52984c7891ac2aa54ef98411bb -->
-## api/semesters/{semester}
+## Delete Semester
 
 > Example request:
 
@@ -3964,7 +3964,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_be7aac52984c7891ac2aa54ef98411bb -->
 
 <!-- START_aa96d971126700d18dab3dfd9aa73bfe -->
-## api/chargeable-services
+## Get Chargeable Services
 
 > Example request:
 
@@ -4003,7 +4003,7 @@ $.ajax(settings).done(function (response) {
             "amount": "500.00",
             "school_id": 1,
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 11:41:10"
+            "updated_at": "2018-07-04 11:43:09"
         },
         {
             "id": 2,
@@ -4058,7 +4058,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_aa96d971126700d18dab3dfd9aa73bfe -->
 
 <!-- START_e1b07ddf84249cd4ddc849aaef01f0cf -->
-## api/chargeable-services
+## Create Chargeable Service
 
 > Example request:
 
@@ -4113,7 +4113,7 @@ Parameter | Type | Status | Description
 <!-- END_e1b07ddf84249cd4ddc849aaef01f0cf -->
 
 <!-- START_7397402ccc42b1248bacc1cc1601a45c -->
-## api/chargeable-services/{chargeable_service}
+## Get Chargeable Service by ID
 
 > Example request:
 
@@ -4149,7 +4149,7 @@ $.ajax(settings).done(function (response) {
     "amount": "500.00",
     "school_id": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:41:10"
+    "updated_at": "2018-07-04 11:43:09"
 }
 ```
 
@@ -4162,7 +4162,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_7397402ccc42b1248bacc1cc1601a45c -->
 
 <!-- START_a0349fd655f3c3a4040c456eff5e7d23 -->
-## api/chargeable-services/{chargeable_service}
+## Update Chargeable Service
 
 > Example request:
 
@@ -4197,7 +4197,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_a0349fd655f3c3a4040c456eff5e7d23 -->
 
 <!-- START_be22584d774050d980d3ac84655898a1 -->
-## api/chargeable-services/{chargeable_service}
+## Delete Chargeable Service
 
 > Example request:
 
@@ -4230,7 +4230,9 @@ $.ajax(settings).done(function (response) {
 <!-- END_be22584d774050d980d3ac84655898a1 -->
 
 <!-- START_08297040d81b9ceb7027a8e1b9e5f028 -->
-## api/chargeables
+## Gets Chargeables List
+
+Responds with a list of Chargeables the user has access to
 
 > Example request:
 
@@ -4324,7 +4326,9 @@ $.ajax(settings).done(function (response) {
 <!-- END_08297040d81b9ceb7027a8e1b9e5f028 -->
 
 <!-- START_46130962643824b6bc2f0d290a53d9bb -->
-## api/chargeables
+## Create Chargeable
+
+Supply chargeable information to create a new one
 
 > Example request:
 
@@ -4869,7 +4873,9 @@ $.ajax(settings).done(function (response) {
 <!-- END_e34b83e52ba197fe6fcf816897aaf7be -->
 
 <!-- START_21e225bf3a11542643d736eb6f316e57 -->
-## api/chargeables/{chargeable}
+## Update Chargeable
+
+Modify information about an existing chargeable by ID
 
 > Example request:
 
@@ -4904,7 +4910,9 @@ $.ajax(settings).done(function (response) {
 <!-- END_21e225bf3a11542643d736eb6f316e57 -->
 
 <!-- START_e5467f78255bdb6ad94f992dc0a80d92 -->
-## api/chargeables/{chargeable}
+## Delete Chargeable
+
+Removes a Chargeable from the System by ID
 
 > Example request:
 
@@ -4937,7 +4945,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_e5467f78255bdb6ad94f992dc0a80d92 -->
 
 <!-- START_55420e506d54d905a525ce1c8e5c9aff -->
-## api/program-credits
+## Get Program Credits
 
 > Example request:
 
@@ -4990,7 +4998,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_55420e506d54d905a525ce1c8e5c9aff -->
 
 <!-- START_34661629a823a0e38c8f67c82d416717 -->
-## api/program-credits
+## Create Program Credit
 
 > Example request:
 
@@ -5042,7 +5050,7 @@ Parameter | Type | Status | Description
 <!-- END_34661629a823a0e38c8f67c82d416717 -->
 
 <!-- START_6fee6da26606a09d3bfb6b43dd54322e -->
-## api/program-credits/{program_credit}
+## Get Program Credit by ID
 
 > Example request:
 
@@ -5536,7 +5544,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_6fee6da26606a09d3bfb6b43dd54322e -->
 
 <!-- START_afce5fc61fd2c81371cf72ca1b235389 -->
-## api/program-credits/{program_credit}
+## Update Program Credit
 
 > Example request:
 
@@ -5571,7 +5579,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_afce5fc61fd2c81371cf72ca1b235389 -->
 
 <!-- START_ed068da7a7370917198af3dc3f81d01b -->
-## api/program-credits/{program_credit}
+## Delete Program Credit
 
 > Example request:
 
@@ -5604,7 +5612,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_ed068da7a7370917198af3dc3f81d01b -->
 
 <!-- START_edd68da971fd2ec2a99042b6bcadd933 -->
-## api/payables
+## Get Payables
 
 > Example request:
 
@@ -5657,7 +5665,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_edd68da971fd2ec2a99042b6bcadd933 -->
 
 <!-- START_763e1546d1b06004e9085b3944e2d792 -->
-## api/payables
+## Create Payable
 
 > Example request:
 
@@ -5703,7 +5711,7 @@ Parameter | Type | Status | Description
 <!-- END_763e1546d1b06004e9085b3944e2d792 -->
 
 <!-- START_d38fdbb665badd91021de0e2d3a90827 -->
-## api/payables/{payable}
+## Get Payable by ID
 
 > Example request:
 
@@ -6197,7 +6205,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_d38fdbb665badd91021de0e2d3a90827 -->
 
 <!-- START_3e697670b1fba43d301a779e861b061c -->
-## api/payables/{payable}
+## Update Payable
 
 > Example request:
 
@@ -6232,7 +6240,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_3e697670b1fba43d301a779e861b061c -->
 
 <!-- START_bab52c4f8ecbc00955178a2df2c47890 -->
-## api/payables/{payable}
+## Delete Payable
 
 > Example request:
 
@@ -6265,7 +6273,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_bab52c4f8ecbc00955178a2df2c47890 -->
 
 <!-- START_4914b6fc3b249654255764a9a371dc37 -->
-## api/course-dependencies
+## Get Course Dependencies
 
 > Example request:
 
@@ -6424,7 +6432,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_4914b6fc3b249654255764a9a371dc37 -->
 
 <!-- START_8a27f60a8595484fe955148e4ac9e68c -->
-## api/course-dependencies
+## Create Course Dependency
 
 > Example request:
 
@@ -6470,7 +6478,7 @@ Parameter | Type | Status | Description
 <!-- END_8a27f60a8595484fe955148e4ac9e68c -->
 
 <!-- START_d6b05ca96d920d98cda017f6996574ae -->
-## api/course-dependencies/{course_dependency}
+## Get Course Dependency by ID
 
 > Example request:
 
@@ -6964,7 +6972,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_d6b05ca96d920d98cda017f6996574ae -->
 
 <!-- START_d625019fc2242f0c9ddfbe0da6a8a1db -->
-## api/course-dependencies/{course_dependency}
+## Update Course Dependency
 
 > Example request:
 
@@ -6999,7 +7007,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_d625019fc2242f0c9ddfbe0da6a8a1db -->
 
 <!-- START_686bdc126cc45e49bd53a09946a40e01 -->
-## api/course-dependencies/{course_dependency}
+## Delete Course Dependency
 
 > Example request:
 
@@ -7032,7 +7040,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_686bdc126cc45e49bd53a09946a40e01 -->
 
 <!-- START_a71d314809ab17f1ba7047d7bfd8c60e -->
-## api/staff-courses
+## Get Staff-Teach-Course List
 
 > Example request:
 
@@ -7085,7 +7093,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_a71d314809ab17f1ba7047d7bfd8c60e -->
 
 <!-- START_a58eca23a72b67ca1e5efbe42c9743b2 -->
-## api/staff-courses
+## Create Staff-Teach-Course
 
 > Example request:
 
@@ -7131,7 +7139,7 @@ Parameter | Type | Status | Description
 <!-- END_a58eca23a72b67ca1e5efbe42c9743b2 -->
 
 <!-- START_ebe949caba68633343fae8cae0f825f8 -->
-## api/staff-courses/{staff_course}
+## Get Staff-Teach-Course Info by ID
 
 > Example request:
 
@@ -7625,7 +7633,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_ebe949caba68633343fae8cae0f825f8 -->
 
 <!-- START_e9d9055c557a5a245971126b3658e3e6 -->
-## api/staff-courses/{staff_course}
+## Update Staff-Teach-Course
 
 > Example request:
 
@@ -7660,7 +7668,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_e9d9055c557a5a245971126b3658e3e6 -->
 
 <!-- START_4de8beb7ab9d568bdf31e3e80a8a1e8a -->
-## api/staff-courses/{staff_course}
+## Delete Staff-Teach-Course
 
 > Example request:
 
@@ -7693,7 +7701,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_4de8beb7ab9d568bdf31e3e80a8a1e8a -->
 
 <!-- START_ac87a33c02c4746d533388a04841e162 -->
-## api/student-courses
+## Get Student-Takes-Course List
 
 > Example request:
 
@@ -7746,7 +7754,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_ac87a33c02c4746d533388a04841e162 -->
 
 <!-- START_ca1a13663540fbb23d794fcb760a7734 -->
-## api/student-courses
+## Create Student-Takes-Course
 
 > Example request:
 
@@ -7795,7 +7803,7 @@ Parameter | Type | Status | Description
 <!-- END_ca1a13663540fbb23d794fcb760a7734 -->
 
 <!-- START_4adb12413ed978cfe991f6a4bd44b0fa -->
-## api/student-courses/{student_course}
+## Get Student-Takes-Course by ID
 
 > Example request:
 
@@ -8289,7 +8297,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_4adb12413ed978cfe991f6a4bd44b0fa -->
 
 <!-- START_1dc105420186107b91af85f25379d512 -->
-## api/student-courses/{student_course}
+## Update Student-Takes-Course
 
 > Example request:
 
@@ -8324,7 +8332,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_1dc105420186107b91af85f25379d512 -->
 
 <!-- START_d6020f0b1dfa65a706e9380ed1d6baa3 -->
-## api/student-courses/{student_course}
+## Delete Student-Takes-Course
 
 > Example request:
 
@@ -8357,7 +8365,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_d6020f0b1dfa65a706e9380ed1d6baa3 -->
 
 <!-- START_7dc51eaf7038fbe62db0659e67c9d876 -->
-## api/schools/{school_id}/grade-types
+## Get Grade Types
 
 > Example request:
 
@@ -8410,7 +8418,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_7dc51eaf7038fbe62db0659e67c9d876 -->
 
 <!-- START_698001f792aea9502012002aaa216531 -->
-## api/schools/{school_id}/grade-types
+## Create Grade Type
 
 > Example request:
 
@@ -8462,7 +8470,7 @@ Parameter | Type | Status | Description
 <!-- END_698001f792aea9502012002aaa216531 -->
 
 <!-- START_50d38b7ebc96ec0209d69bc4f5ca9448 -->
-## api/schools/{school_id}/grade-types/{grade_type}
+## Get Grade Type by ID
 
 > Example request:
 
@@ -8497,7 +8505,7 @@ $.ajax(settings).done(function (response) {
     "owner_id": 1,
     "is_active": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:43:09",
+    "updated_at": "2018-07-05 12:40:36",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
@@ -8516,7 +8524,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_50d38b7ebc96ec0209d69bc4f5ca9448 -->
 
 <!-- START_6fc2d63f475b83a2a62c507c3f84f92d -->
-## api/schools/{school_id}/grade-types/{grade_type}
+## Update Grade Type
 
 > Example request:
 
@@ -8551,7 +8559,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_6fc2d63f475b83a2a62c507c3f84f92d -->
 
 <!-- START_abc2997440ba7652a37f01c2dbb28264 -->
-## api/schools/{school_id}/grade-types/{grade_type}
+## Delete Grade Type
 
 > Example request:
 
@@ -8584,7 +8592,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_abc2997440ba7652a37f01c2dbb28264 -->
 
 <!-- START_104e56ec1fad9ec0ebc1fb4f6d8669d5 -->
-## api/grades
+## Get Grades
 
 > Example request:
 
@@ -8637,7 +8645,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_104e56ec1fad9ec0ebc1fb4f6d8669d5 -->
 
 <!-- START_9f50be565ddcc025ae53490cb389fcf3 -->
-## api/grades
+## Create Grade
 
 > Example request:
 
@@ -8686,7 +8694,7 @@ Parameter | Type | Status | Description
 <!-- END_9f50be565ddcc025ae53490cb389fcf3 -->
 
 <!-- START_86d1fca55166d3372052405f07168010 -->
-## api/grades/{grade}
+## Get Grade by ID
 
 > Example request:
 
@@ -9180,7 +9188,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_86d1fca55166d3372052405f07168010 -->
 
 <!-- START_537f328ab71323d12b5527a5f4b652e7 -->
-## api/grades/{grade}
+## Udpate Grade
 
 > Example request:
 
@@ -9215,7 +9223,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_537f328ab71323d12b5527a5f4b652e7 -->
 
 <!-- START_047f19e1a3acfe078665f687d45f8a59 -->
-## api/grades/{grade}
+## Delete Grade
 
 > Example request:
 
@@ -9248,7 +9256,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_047f19e1a3acfe078665f687d45f8a59 -->
 
 <!-- START_9d84e1b061be7d13bf8c370c7c771e01 -->
-## api/schools/{school_id}/image-types
+## Get Image Types
 
 > Example request:
 
@@ -9310,7 +9318,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_9d84e1b061be7d13bf8c370c7c771e01 -->
 
 <!-- START_d102f534c84e974581acf8ec68beecfa -->
-## api/schools/{school_id}/image-types
+## Create Image Type
 
 > Example request:
 
@@ -9356,7 +9364,7 @@ Parameter | Type | Status | Description
 <!-- END_d102f534c84e974581acf8ec68beecfa -->
 
 <!-- START_7b1d3f22ce106162fbf0781f636eb512 -->
-## api/schools/{school_id}/image-types/{image_type}
+## Get Image Type by ID
 
 > Example request:
 
@@ -9391,7 +9399,7 @@ $.ajax(settings).done(function (response) {
     "owner_id": 1,
     "is_active": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-04 11:43:10",
+    "updated_at": "2018-07-05 12:40:37",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
@@ -9410,7 +9418,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_7b1d3f22ce106162fbf0781f636eb512 -->
 
 <!-- START_446612946ac234409478ab27e293a7b1 -->
-## api/schools/{school_id}/image-types/{image_type}
+## Update Image Type
 
 > Example request:
 
@@ -9445,7 +9453,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_446612946ac234409478ab27e293a7b1 -->
 
 <!-- START_3cca85be723315a5e37efe70a7382b25 -->
-## api/schools/{school_id}/image-types/{image_type}
+## Delete Image Type
 
 > Example request:
 
@@ -9478,7 +9486,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_3cca85be723315a5e37efe70a7382b25 -->
 
 <!-- START_2d5802b9c2bdbdccf4a58da17f23a7f1 -->
-## api/images
+## Get Images
 
 > Example request:
 
@@ -9531,7 +9539,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_2d5802b9c2bdbdccf4a58da17f23a7f1 -->
 
 <!-- START_204613676cab89a55dfdc7d81f16a281 -->
-## api/images
+## Create Image
 
 > Example request:
 
@@ -9580,7 +9588,7 @@ Parameter | Type | Status | Description
 <!-- END_204613676cab89a55dfdc7d81f16a281 -->
 
 <!-- START_67424e745d978355538c7df809cf57ad -->
-## api/images/{image}
+## Get Image by ID
 
 > Example request:
 
@@ -10074,7 +10082,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_67424e745d978355538c7df809cf57ad -->
 
 <!-- START_663d256882d5392cfe487383a4e8703e -->
-## api/images/{image}
+## Update Image
 
 > Example request:
 
@@ -10109,7 +10117,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_663d256882d5392cfe487383a4e8703e -->
 
 <!-- START_f39af5b4ed09dfc1cd00fcaa2c6ecce2 -->
-## api/images/{image}
+## Delete Image
 
 > Example request:
 
@@ -10142,7 +10150,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_f39af5b4ed09dfc1cd00fcaa2c6ecce2 -->
 
 <!-- START_dac5bb3acabf927a0dc93b1193419363 -->
-## api/images/{id}
+## Update Image
 
 > Example request:
 
