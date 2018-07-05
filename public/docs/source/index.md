@@ -95,7 +95,7 @@ $.ajax(settings).done(function (response) {
     "display_name": "Owner Orlando",
     "dob": "1957-12-18",
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 12:58:18"
+    "updated_at": "2018-07-05 13:09:27"
 }
 ```
 
@@ -146,7 +146,7 @@ $.ajax(settings).done(function (response) {
             "owner_id": 1,
             "is_active": 1,
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-05 12:58:20",
+            "updated_at": "2018-07-05 13:09:29",
             "pivot": {
                 "user_id": 1,
                 "school_id": 1,
@@ -261,7 +261,7 @@ $.ajax(settings).done(function (response) {
     "owner_id": 1,
     "is_active": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 12:58:20",
+    "updated_at": "2018-07-05 13:09:29",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
@@ -386,7 +386,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Dean Daniels",
             "dob": "1948-02-02",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T13:09:26+00:00"
+            "updated_at": "2018-07-05T18:14:09+00:00"
         },
         {
             "id": 1,
@@ -396,7 +396,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Dean Daniels",
             "dob": "1948-02-02",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T13:09:26+00:00"
+            "updated_at": "2018-07-05T18:14:09+00:00"
         },
         {
             "id": 1,
@@ -406,7 +406,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Dean Daniels",
             "dob": "1948-02-02",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T13:09:26+00:00"
+            "updated_at": "2018-07-05T18:14:09+00:00"
         },
         {
             "id": 1,
@@ -416,7 +416,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Katlynn Wolf",
             "dob": "1967-03-07",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T13:09:26+00:00"
+            "updated_at": "2018-07-05T18:14:09+00:00"
         },
         {
             "id": 1,
@@ -426,7 +426,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Skyla King",
             "dob": "1957-07-05",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T13:09:26+00:00"
+            "updated_at": "2018-07-05T18:14:09+00:00"
         },
         {
             "id": 1,
@@ -436,7 +436,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Gordon Toy",
             "dob": "1960-01-02",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T13:09:26+00:00"
+            "updated_at": "2018-07-05T18:14:09+00:00"
         }
     ],
     "links": {
@@ -558,7 +558,7 @@ $.ajax(settings).done(function (response) {
     "display_name": "Owner Orlando",
     "dob": "1957-12-18",
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 12:58:18"
+    "updated_at": "2018-07-05 13:09:27"
 }
 ```
 
@@ -676,7 +676,7 @@ $.ajax(settings).done(function (response) {
             "dean_id": 1,
             "school_id": 1,
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-05 12:58:19",
+            "updated_at": "2018-07-05 13:09:27",
             "deleted_at": null
         }
     ],
@@ -785,7 +785,7 @@ $.ajax(settings).done(function (response) {
     "dean_id": 1,
     "school_id": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 12:58:19",
+    "updated_at": "2018-07-05 13:09:27",
     "deleted_at": null
 }
 ```
@@ -904,7 +904,7 @@ $.ajax(settings).done(function (response) {
             "hod_id": 1,
             "faculty_id": 1,
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-05 12:58:19"
+            "updated_at": "2018-07-05 13:09:27"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/departments?page=1",
@@ -1012,7 +1012,7 @@ $.ajax(settings).done(function (response) {
     "hod_id": 1,
     "faculty_id": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 12:58:19"
+    "updated_at": "2018-07-05 13:09:27"
 }
 ```
 
@@ -1129,7 +1129,7 @@ $.ajax(settings).done(function (response) {
             "name": "Data Analysis",
             "department_id": 1,
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-05 12:58:19"
+            "updated_at": "2018-07-05 13:09:27"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/programs?page=1",
@@ -1233,7 +1233,7 @@ $.ajax(settings).done(function (response) {
     "name": "Data Analysis",
     "department_id": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 12:58:19"
+    "updated_at": "2018-07-05 13:09:27"
 }
 ```
 
@@ -1474,7 +1474,7 @@ $.ajax(settings).done(function (response) {
     "owner_id": 1,
     "is_active": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 13:09:26",
+    "updated_at": "2018-07-05 18:14:09",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
@@ -2284,7 +2284,7 @@ $.ajax(settings).done(function (response) {
             "title": "Physical Sciences",
             "credit": 4,
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-05 12:58:19"
+            "updated_at": "2018-07-05 13:09:27"
         },
         {
             "id": 2,
@@ -2481,7 +2481,7 @@ $.ajax(settings).done(function (response) {
     "title": "Physical Sciences",
     "credit": 4,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 12:58:19"
+    "updated_at": "2018-07-05 13:09:27"
 }
 ```
 
@@ -2711,7 +2711,7 @@ $.ajax(settings).done(function (response) {
     "owner_id": 1,
     "is_active": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 13:09:27",
+    "updated_at": "2018-07-05 18:14:09",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
@@ -2836,7 +2836,7 @@ $.ajax(settings).done(function (response) {
             "department_id": null,
             "title": "Mr.",
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-05 12:58:19"
+            "updated_at": "2018-07-05 13:09:27"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/staff?page=1",
@@ -2948,7 +2948,7 @@ $.ajax(settings).done(function (response) {
     "department_id": null,
     "title": "Mr.",
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 12:58:19"
+    "updated_at": "2018-07-05 13:09:27"
 }
 ```
 
@@ -3067,7 +3067,7 @@ $.ajax(settings).done(function (response) {
             "start_date": "2018-07-04 00:00:00",
             "end_date": "2019-07-04 00:00:00",
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-05 12:58:19"
+            "updated_at": "2018-07-05 13:09:27"
         },
         {
             "id": 2,
@@ -3188,7 +3188,7 @@ $.ajax(settings).done(function (response) {
     "start_date": "2018-07-04 00:00:00",
     "end_date": "2019-07-04 00:00:00",
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 12:58:19"
+    "updated_at": "2018-07-05 13:09:27"
 }
 ```
 
@@ -4003,7 +4003,7 @@ $.ajax(settings).done(function (response) {
             "amount": "500.00",
             "school_id": 1,
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-05 12:58:20"
+            "updated_at": "2018-07-05 13:09:28"
         },
         {
             "id": 2,
@@ -4149,7 +4149,7 @@ $.ajax(settings).done(function (response) {
     "amount": "500.00",
     "school_id": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 12:58:20"
+    "updated_at": "2018-07-05 13:09:28"
 }
 ```
 
@@ -4230,7 +4230,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_be22584d774050d980d3ac84655898a1 -->
 
 <!-- START_08297040d81b9ceb7027a8e1b9e5f028 -->
-## Gets Chargeables List
+## Gets Chargeables
 
 Responds with a list of Chargeables
 - Rules of Access
@@ -4238,6 +4238,7 @@ Responds with a list of Chargeables
 - Filters
  - ?with_service (includes the chargeable service)
  - ?with_owner (includes the chargeable's owner)
+ - ?with_school (includes the chargeable's school)
  - ?service={id} (filters by the chargeable service id)
  - ?owner={id} (filters by the owner id)
  - ?min_amount={amount} (filters by minimum amount)
@@ -4269,61 +4270,48 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 2,
-            "chargeable_service_id": 2,
-            "owner_id": 2,
-            "amount": "500.00",
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 3,
-            "chargeable_service_id": 3,
-            "owner_id": 1,
-            "amount": "1000.00",
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 4,
-            "chargeable_service_id": 1,
-            "owner_id": 3,
-            "amount": "500.00",
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 5,
-            "chargeable_service_id": 2,
-            "owner_id": 4,
-            "amount": "500.00",
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 6,
-            "chargeable_service_id": 4,
-            "owner_id": 2,
-            "amount": "1000.00",
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/chargeables?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/chargeables?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/chargeables",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 5,
-    "total": 5
-}
+[
+    {
+        "id": 2,
+        "chargeable_service_id": 2,
+        "owner_id": 2,
+        "amount": "500.00",
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 3,
+        "chargeable_service_id": 3,
+        "owner_id": 1,
+        "amount": "1000.00",
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 4,
+        "chargeable_service_id": 1,
+        "owner_id": 3,
+        "amount": "500.00",
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 5,
+        "chargeable_service_id": 2,
+        "owner_id": 4,
+        "amount": "500.00",
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 6,
+        "chargeable_service_id": 4,
+        "owner_id": 2,
+        "amount": "1000.00",
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    }
+]
 ```
 
 ### HTTP Request
@@ -4397,6 +4385,7 @@ Responds with a specific Chargeable by its ID
 - Filters
  - ?with_service (includes the chargeable service)
  - ?with_owner (includes the chargeable's owner)
+ - ?with_school (includes the chargeable's school)
  - ?service={id} (filters by the chargeable service id)
  - ?owner={id} (filters by the owner id)
  - ?min_amount={amount} (filters by minimum amount)
@@ -8532,7 +8521,7 @@ $.ajax(settings).done(function (response) {
     "owner_id": 1,
     "is_active": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 13:09:27",
+    "updated_at": "2018-07-05 18:14:10",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
@@ -9426,7 +9415,7 @@ $.ajax(settings).done(function (response) {
     "owner_id": 1,
     "is_active": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 13:09:28",
+    "updated_at": "2018-07-05 18:14:11",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
