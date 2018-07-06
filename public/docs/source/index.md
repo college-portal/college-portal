@@ -95,7 +95,7 @@ $.ajax(settings).done(function (response) {
     "display_name": "Owner Orlando",
     "dob": "1957-12-18",
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 13:09:27"
+    "updated_at": "2018-07-05 18:14:09"
 }
 ```
 
@@ -136,36 +136,23 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "name": "University of Ibadan",
-            "short_name": "UI",
-            "owner_id": 1,
-            "is_active": 1,
+[
+    {
+        "id": 1,
+        "name": "University of Ibadan",
+        "short_name": "UI",
+        "owner_id": 1,
+        "is_active": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-05 18:14:11",
+        "pivot": {
+            "user_id": 1,
+            "school_id": 1,
             "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-05 13:09:29",
-            "pivot": {
-                "user_id": 1,
-                "school_id": 1,
-                "created_at": "2018-07-04 10:57:12",
-                "updated_at": "2018-07-04 10:57:12"
-            }
+            "updated_at": "2018-07-04 10:57:12"
         }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/schools?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/schools?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/schools",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 1,
-    "total": 1
-}
+    }
+]
 ```
 
 ### HTTP Request
@@ -261,7 +248,7 @@ $.ajax(settings).done(function (response) {
     "owner_id": 1,
     "is_active": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 13:09:29",
+    "updated_at": "2018-07-05 18:14:11",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
@@ -386,7 +373,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Dean Daniels",
             "dob": "1948-02-02",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T18:14:09+00:00"
+            "updated_at": "2018-07-05T18:14:11+00:00"
         },
         {
             "id": 1,
@@ -396,7 +383,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Dean Daniels",
             "dob": "1948-02-02",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T18:14:09+00:00"
+            "updated_at": "2018-07-05T18:14:11+00:00"
         },
         {
             "id": 1,
@@ -406,7 +393,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Dean Daniels",
             "dob": "1948-02-02",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T18:14:09+00:00"
+            "updated_at": "2018-07-05T18:14:11+00:00"
         },
         {
             "id": 1,
@@ -416,7 +403,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Katlynn Wolf",
             "dob": "1967-03-07",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T18:14:09+00:00"
+            "updated_at": "2018-07-05T18:14:11+00:00"
         },
         {
             "id": 1,
@@ -426,7 +413,7 @@ $.ajax(settings).done(function (response) {
             "display_name": "Skyla King",
             "dob": "1957-07-05",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T18:14:09+00:00"
+            "updated_at": "2018-07-05T18:14:11+00:00"
         },
         {
             "id": 1,
@@ -436,24 +423,9 @@ $.ajax(settings).done(function (response) {
             "display_name": "Gordon Toy",
             "dob": "1960-01-02",
             "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T18:14:09+00:00"
+            "updated_at": "2018-07-05T18:14:11+00:00"
         }
-    ],
-    "links": {
-        "first": "http:\/\/localhost\/api\/users?page=1",
-        "last": "http:\/\/localhost\/api\/users?page=1",
-        "prev": null,
-        "next": null
-    },
-    "meta": {
-        "current_page": 1,
-        "from": 1,
-        "last_page": 1,
-        "path": "http:\/\/localhost\/api\/users",
-        "per_page": 15,
-        "to": 6,
-        "total": 6
-    }
+    ]
 }
 ```
 
@@ -558,7 +530,7 @@ $.ajax(settings).done(function (response) {
     "display_name": "Owner Orlando",
     "dob": "1957-12-18",
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 13:09:27"
+    "updated_at": "2018-07-05 18:14:09"
 }
 ```
 
@@ -667,30 +639,17 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "name": "Science and Technology",
-            "dean_id": 1,
-            "school_id": 1,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-05 13:09:27",
-            "deleted_at": null
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/faculties?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/faculties?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/faculties",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 1,
-    "total": 1
-}
+[
+    {
+        "id": 1,
+        "name": "Science and Technology",
+        "dean_id": 1,
+        "school_id": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-05 18:14:09",
+        "deleted_at": null
+    }
+]
 ```
 
 ### HTTP Request
@@ -785,7 +744,7 @@ $.ajax(settings).done(function (response) {
     "dean_id": 1,
     "school_id": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 13:09:27",
+    "updated_at": "2018-07-05 18:14:09",
     "deleted_at": null
 }
 ```
@@ -895,29 +854,16 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "name": "Chemistry",
-            "hod_id": 1,
-            "faculty_id": 1,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-05 13:09:27"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/departments?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/departments?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/departments",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 1,
-    "total": 1
-}
+[
+    {
+        "id": 1,
+        "name": "Chemistry",
+        "hod_id": 1,
+        "faculty_id": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-05 18:14:09"
+    }
+]
 ```
 
 ### HTTP Request
@@ -1012,7 +958,7 @@ $.ajax(settings).done(function (response) {
     "hod_id": 1,
     "faculty_id": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 13:09:27"
+    "updated_at": "2018-07-05 18:14:09"
 }
 ```
 
@@ -1121,28 +1067,15 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "name": "Data Analysis",
-            "department_id": 1,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-05 13:09:27"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/programs?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/programs?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/programs",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 1,
-    "total": 1
-}
+[
+    {
+        "id": 1,
+        "name": "Data Analysis",
+        "department_id": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-05 18:14:09"
+    }
+]
 ```
 
 ### HTTP Request
@@ -1233,7 +1166,7 @@ $.ajax(settings).done(function (response) {
     "name": "Data Analysis",
     "department_id": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 13:09:27"
+    "updated_at": "2018-07-05 18:14:09"
 }
 ```
 
@@ -1342,49 +1275,36 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "name": "100L",
-            "school_id": 1,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 2,
-            "name": "200L",
-            "school_id": 1,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 3,
-            "name": "300L",
-            "school_id": 1,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 4,
-            "name": "400L",
-            "school_id": 1,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/schools\/1\/levels?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/schools\/1\/levels?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/schools\/1\/levels",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 4,
-    "total": 4
-}
+[
+    {
+        "id": 1,
+        "name": "100L",
+        "school_id": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 2,
+        "name": "200L",
+        "school_id": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 3,
+        "name": "300L",
+        "school_id": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 4,
+        "name": "400L",
+        "school_id": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    }
+]
 ```
 
 ### HTTP Request
@@ -1474,7 +1394,7 @@ $.ajax(settings).done(function (response) {
     "owner_id": 1,
     "is_active": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 18:14:09",
+    "updated_at": "2018-07-05 18:14:11",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
@@ -1589,39 +1509,26 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 2,
-            "user_id": 4,
-            "program_id": 1,
-            "matric_no": "UNI683",
-            "is_active": 1,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 3,
-            "user_id": 5,
-            "program_id": 1,
-            "matric_no": "UNI757",
-            "is_active": 1,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/students?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/students?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/students",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 2,
-    "total": 2
-}
+[
+    {
+        "id": 2,
+        "user_id": 4,
+        "program_id": 1,
+        "matric_no": "UNI683",
+        "is_active": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 3,
+        "user_id": 5,
+        "program_id": 1,
+        "matric_no": "UNI757",
+        "is_active": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    }
+]
 ```
 
 ### HTTP Request
@@ -2246,6 +2153,18 @@ $.ajax(settings).done(function (response) {
 <!-- START_38f650806a828403a7b131016b537617 -->
 ## Get Courses
 
+Responds with a list of Courses
+- Rules of Access
+  - User is in the same school
+- Filters
+  - ?with_dependencies
+  - ?with_staff
+  - ?with_department
+  - ?with_semester_type
+  - ?with_level
+  - ?with_school
+  - ?with_faculty
+
 > Example request:
 
 ```bash
@@ -2272,109 +2191,96 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "department_id": 1,
-            "semester_type_id": 1,
-            "level_id": 1,
-            "code": "XOF147",
-            "title": "Physical Sciences",
-            "credit": 4,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-05 13:09:27"
-        },
-        {
-            "id": 2,
-            "department_id": 1,
-            "semester_type_id": 1,
-            "level_id": 2,
-            "code": "SBD124",
-            "title": "Basic Algebra",
-            "credit": 3,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 3,
-            "department_id": 1,
-            "semester_type_id": 1,
-            "level_id": 3,
-            "code": "SHP117",
-            "title": "Kinematics",
-            "credit": 2,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 4,
-            "department_id": 1,
-            "semester_type_id": 1,
-            "level_id": 4,
-            "code": "TND153",
-            "title": "Signal Analysis",
-            "credit": 5,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 5,
-            "department_id": 1,
-            "semester_type_id": 2,
-            "level_id": 1,
-            "code": "RUB188",
-            "title": "Algorithms and Data Structures",
-            "credit": 2,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 6,
-            "department_id": 1,
-            "semester_type_id": 2,
-            "level_id": 2,
-            "code": "BMD152",
-            "title": "Signal Analysis",
-            "credit": 5,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 7,
-            "department_id": 1,
-            "semester_type_id": 2,
-            "level_id": 3,
-            "code": "BGN150",
-            "title": "Signal Analysis",
-            "credit": 4,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 8,
-            "department_id": 1,
-            "semester_type_id": 2,
-            "level_id": 4,
-            "code": "TOP175",
-            "title": "Basic Algebra",
-            "credit": 1,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/courses?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/courses?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/courses",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 8,
-    "total": 8
-}
+[
+    {
+        "id": 1,
+        "department_id": 1,
+        "semester_type_id": 1,
+        "level_id": 1,
+        "code": "XOF147",
+        "title": "Physical Sciences",
+        "credit": 4,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-05 18:14:10"
+    },
+    {
+        "id": 2,
+        "department_id": 1,
+        "semester_type_id": 1,
+        "level_id": 2,
+        "code": "SBD124",
+        "title": "Basic Algebra",
+        "credit": 3,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 3,
+        "department_id": 1,
+        "semester_type_id": 1,
+        "level_id": 3,
+        "code": "SHP117",
+        "title": "Kinematics",
+        "credit": 2,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 4,
+        "department_id": 1,
+        "semester_type_id": 1,
+        "level_id": 4,
+        "code": "TND153",
+        "title": "Signal Analysis",
+        "credit": 5,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 5,
+        "department_id": 1,
+        "semester_type_id": 2,
+        "level_id": 1,
+        "code": "RUB188",
+        "title": "Algorithms and Data Structures",
+        "credit": 2,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 6,
+        "department_id": 1,
+        "semester_type_id": 2,
+        "level_id": 2,
+        "code": "BMD152",
+        "title": "Signal Analysis",
+        "credit": 5,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 7,
+        "department_id": 1,
+        "semester_type_id": 2,
+        "level_id": 3,
+        "code": "BGN150",
+        "title": "Signal Analysis",
+        "credit": 4,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 8,
+        "department_id": 1,
+        "semester_type_id": 2,
+        "level_id": 4,
+        "code": "TOP175",
+        "title": "Basic Algebra",
+        "credit": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    }
+]
 ```
 
 ### HTTP Request
@@ -2387,6 +2293,14 @@ $.ajax(settings).done(function (response) {
 
 <!-- START_7adfcfdea10d30f89cf1c74a69c31361 -->
 ## Create Course
+
+Supply Course information to create a new one
+- Rules of Access
+ - User can view course's department, level, semester_type and
+ - User is an administrator or
+ - User owns school the Course belongs to or
+ - User is Dean of Faculty the Course belongs to or
+ - User is HOD of Department the Course belongs to
 
 > Example request:
 
@@ -2446,6 +2360,18 @@ Parameter | Type | Status | Description
 <!-- START_8689ce8f09e81fcaee386cfbd8e265cd -->
 ## Get Course by ID
 
+Responds with a specific course by its ID
+- Rules of Access
+  - User is in the same school
+- Filters
+  - ?with_dependencies
+  - ?with_staff
+  - ?with_department
+  - ?with_semester_type
+  - ?with_level
+  - ?with_school
+  - ?with_faculty
+
 > Example request:
 
 ```bash
@@ -2481,7 +2407,7 @@ $.ajax(settings).done(function (response) {
     "title": "Physical Sciences",
     "credit": 4,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 13:09:27"
+    "updated_at": "2018-07-05 18:14:10"
 }
 ```
 
@@ -2495,6 +2421,11 @@ $.ajax(settings).done(function (response) {
 
 <!-- START_bb5a98f4f88ceacd9c6cef8cf663b402 -->
 ## Update Course
+
+Modify information about an existing Course by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Course belongs to
 
 > Example request:
 
@@ -2530,6 +2461,13 @@ $.ajax(settings).done(function (response) {
 
 <!-- START_ddc71fecb200b23443e0cfaad85d4241 -->
 ## Delete Course
+
+Removes a Course from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Course belongs to or
+ - User is Dean of Faculty the Course belongs to or
+ - User is HOD of Department the Course belongs to
 
 > Example request:
 
@@ -2590,35 +2528,22 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "name": "1st Semester",
-            "school_id": 1,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 2,
-            "name": "2nd Semester",
-            "school_id": 1,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/schools\/1\/semester-types?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/schools\/1\/semester-types?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/schools\/1\/semester-types",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 2,
-    "total": 2
-}
+[
+    {
+        "id": 1,
+        "name": "1st Semester",
+        "school_id": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 2,
+        "name": "2nd Semester",
+        "school_id": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    }
+]
 ```
 
 ### HTTP Request
@@ -2711,7 +2636,7 @@ $.ajax(settings).done(function (response) {
     "owner_id": 1,
     "is_active": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 18:14:09",
+    "updated_at": "2018-07-05 18:14:11",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
@@ -2826,30 +2751,17 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "user_id": 2,
-            "school_id": 1,
-            "department_id": null,
-            "title": "Mr.",
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-05 13:09:27"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/staff?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/staff?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/staff",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 1,
-    "total": 1
-}
+[
+    {
+        "id": 1,
+        "user_id": 2,
+        "school_id": 1,
+        "department_id": null,
+        "title": "Mr.",
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-05 18:14:10"
+    }
+]
 ```
 
 ### HTTP Request
@@ -2948,7 +2860,7 @@ $.ajax(settings).done(function (response) {
     "department_id": null,
     "title": "Mr.",
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 13:09:27"
+    "updated_at": "2018-07-05 18:14:10"
 }
 ```
 
@@ -3057,39 +2969,26 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "school_id": 1,
-            "name": "2018\/2019",
-            "start_date": "2018-07-04 00:00:00",
-            "end_date": "2019-07-04 00:00:00",
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-05 13:09:27"
-        },
-        {
-            "id": 2,
-            "school_id": 1,
-            "name": "2019\/2020",
-            "start_date": "2019-07-04 00:00:00",
-            "end_date": "2020-07-03 00:00:00",
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/sessions?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/sessions?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/sessions",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 2,
-    "total": 2
-}
+[
+    {
+        "id": 1,
+        "school_id": 1,
+        "name": "2018\/2019",
+        "start_date": "2018-07-04 00:00:00",
+        "end_date": "2019-07-04 00:00:00",
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-05 18:14:10"
+    },
+    {
+        "id": 2,
+        "school_id": 1,
+        "name": "2019\/2020",
+        "start_date": "2019-07-04 00:00:00",
+        "end_date": "2020-07-03 00:00:00",
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    }
+]
 ```
 
 ### HTTP Request
@@ -3188,7 +3087,7 @@ $.ajax(settings).done(function (response) {
     "start_date": "2018-07-04 00:00:00",
     "end_date": "2019-07-04 00:00:00",
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 13:09:27"
+    "updated_at": "2018-07-05 18:14:10"
 }
 ```
 
@@ -3297,48 +3196,35 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 2,
-            "semester_type_id": 2,
-            "session_id": 1,
-            "start_date": "2019-01-05 00:00:00",
-            "end_date": "2019-07-04 00:00:00",
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 3,
-            "semester_type_id": 1,
-            "session_id": 2,
-            "start_date": "2019-07-04 00:00:00",
-            "end_date": "2019-12-31 00:00:00",
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 4,
-            "semester_type_id": 2,
-            "session_id": 2,
-            "start_date": "2020-01-05 00:00:00",
-            "end_date": "2020-07-03 00:00:00",
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/semesters?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/semesters?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/semesters",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 3,
-    "total": 3
-}
+[
+    {
+        "id": 2,
+        "semester_type_id": 2,
+        "session_id": 1,
+        "start_date": "2019-01-05 00:00:00",
+        "end_date": "2019-07-04 00:00:00",
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 3,
+        "semester_type_id": 1,
+        "session_id": 2,
+        "start_date": "2019-07-04 00:00:00",
+        "end_date": "2019-12-31 00:00:00",
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 4,
+        "semester_type_id": 2,
+        "session_id": 2,
+        "start_date": "2020-01-05 00:00:00",
+        "end_date": "2020-07-03 00:00:00",
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    }
+]
 ```
 
 ### HTTP Request
@@ -3966,6 +3852,14 @@ $.ajax(settings).done(function (response) {
 <!-- START_aa96d971126700d18dab3dfd9aa73bfe -->
 ## Get Chargeable Services
 
+Responds with a list of chargeable services
+- Rules of Access
+  - User is in the same school
+- Filters
+  - ?with_schools
+  - ?with_chargeables
+  - ?school={id}
+
 > Example request:
 
 ```bash
@@ -3992,61 +3886,48 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "type": "App\\Models\\Semester",
-            "name": "1st Semester Fees",
-            "description": null,
-            "amount": "500.00",
-            "school_id": 1,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-05 13:09:28"
-        },
-        {
-            "id": 2,
-            "type": "App\\Models\\Semester",
-            "name": "2nd Semester Fees",
-            "description": null,
-            "amount": "500.00",
-            "school_id": 1,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 3,
-            "type": "App\\Models\\Session",
-            "name": "2018\/2019 Fees",
-            "description": null,
-            "amount": "1000.00",
-            "school_id": 1,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 4,
-            "type": "App\\Models\\Session",
-            "name": "2019\/2020 Fees",
-            "description": null,
-            "amount": "1000.00",
-            "school_id": 1,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/chargeable-services?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/chargeable-services?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/chargeable-services",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 4,
-    "total": 4
-}
+[
+    {
+        "id": 1,
+        "type": "App\\Models\\Semester",
+        "name": "1st Semester Fees",
+        "description": null,
+        "amount": "500.00",
+        "school_id": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-05 18:14:10"
+    },
+    {
+        "id": 2,
+        "type": "App\\Models\\Semester",
+        "name": "2nd Semester Fees",
+        "description": null,
+        "amount": "500.00",
+        "school_id": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 3,
+        "type": "App\\Models\\Session",
+        "name": "2018\/2019 Fees",
+        "description": null,
+        "amount": "1000.00",
+        "school_id": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 4,
+        "type": "App\\Models\\Session",
+        "name": "2019\/2020 Fees",
+        "description": null,
+        "amount": "1000.00",
+        "school_id": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    }
+]
 ```
 
 ### HTTP Request
@@ -4059,6 +3940,11 @@ $.ajax(settings).done(function (response) {
 
 <!-- START_e1b07ddf84249cd4ddc849aaef01f0cf -->
 ## Create Chargeable Service
+
+Supply chargeable service information to create a new one
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Chargeable Service belongs to
 
 > Example request:
 
@@ -4115,6 +4001,14 @@ Parameter | Type | Status | Description
 <!-- START_7397402ccc42b1248bacc1cc1601a45c -->
 ## Get Chargeable Service by ID
 
+Responds with a specific chargeable service by its ID
+- Rules of Access
+  - User is in the same school
+- Filters
+  - ?with_schools
+  - ?with_chargeables
+  - ?school={id}
+
 > Example request:
 
 ```bash
@@ -4149,7 +4043,7 @@ $.ajax(settings).done(function (response) {
     "amount": "500.00",
     "school_id": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 13:09:28"
+    "updated_at": "2018-07-05 18:14:10"
 }
 ```
 
@@ -4163,6 +4057,11 @@ $.ajax(settings).done(function (response) {
 
 <!-- START_a0349fd655f3c3a4040c456eff5e7d23 -->
 ## Update Chargeable Service
+
+Modify information about an existing Chargeable Service by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Chargeable Service belongs to
 
 > Example request:
 
@@ -4198,6 +4097,11 @@ $.ajax(settings).done(function (response) {
 
 <!-- START_be22584d774050d980d3ac84655898a1 -->
 ## Delete Chargeable Service
+
+Removes a Chargeable Service from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Chargeable Service belongs to
 
 > Example request:
 
@@ -4989,20 +4893,7 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [],
-    "first_page_url": "http:\/\/localhost\/api\/program-credits?page=1",
-    "from": null,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/program-credits?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/program-credits",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": null,
-    "total": 0
-}
+[]
 ```
 
 ### HTTP Request
@@ -5656,20 +5547,7 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [],
-    "first_page_url": "http:\/\/localhost\/api\/payables?page=1",
-    "from": null,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/payables?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/payables",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": null,
-    "total": 0
-}
+[]
 ```
 
 ### HTTP Request
@@ -6317,126 +6195,113 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 2,
-            "course_id": 5,
-            "dependency_id": 2,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 3,
-            "course_id": 5,
-            "dependency_id": 3,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 4,
-            "course_id": 5,
-            "dependency_id": 4,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 5,
-            "course_id": 6,
-            "dependency_id": 1,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 6,
-            "course_id": 6,
-            "dependency_id": 2,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 7,
-            "course_id": 6,
-            "dependency_id": 3,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 8,
-            "course_id": 6,
-            "dependency_id": 4,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 9,
-            "course_id": 7,
-            "dependency_id": 1,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 10,
-            "course_id": 7,
-            "dependency_id": 2,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 11,
-            "course_id": 7,
-            "dependency_id": 3,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 12,
-            "course_id": 7,
-            "dependency_id": 4,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 13,
-            "course_id": 8,
-            "dependency_id": 1,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 14,
-            "course_id": 8,
-            "dependency_id": 2,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 15,
-            "course_id": 8,
-            "dependency_id": 3,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        },
-        {
-            "id": 16,
-            "course_id": 8,
-            "dependency_id": 4,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/course-dependencies?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/course-dependencies?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/course-dependencies",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 15,
-    "total": 15
-}
+[
+    {
+        "id": 2,
+        "course_id": 5,
+        "dependency_id": 2,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 3,
+        "course_id": 5,
+        "dependency_id": 3,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 4,
+        "course_id": 5,
+        "dependency_id": 4,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 5,
+        "course_id": 6,
+        "dependency_id": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 6,
+        "course_id": 6,
+        "dependency_id": 2,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 7,
+        "course_id": 6,
+        "dependency_id": 3,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 8,
+        "course_id": 6,
+        "dependency_id": 4,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 9,
+        "course_id": 7,
+        "dependency_id": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 10,
+        "course_id": 7,
+        "dependency_id": 2,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 11,
+        "course_id": 7,
+        "dependency_id": 3,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 12,
+        "course_id": 7,
+        "dependency_id": 4,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 13,
+        "course_id": 8,
+        "dependency_id": 1,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 14,
+        "course_id": 8,
+        "dependency_id": 2,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 15,
+        "course_id": 8,
+        "dependency_id": 3,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    },
+    {
+        "id": 16,
+        "course_id": 8,
+        "dependency_id": 4,
+        "created_at": "2018-07-04 10:57:12",
+        "updated_at": "2018-07-04 10:57:12"
+    }
+]
 ```
 
 ### HTTP Request
@@ -7084,20 +6949,7 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [],
-    "first_page_url": "http:\/\/localhost\/api\/staff-courses?page=1",
-    "from": null,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/staff-courses?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/staff-courses",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": null,
-    "total": 0
-}
+[]
 ```
 
 ### HTTP Request
@@ -7745,20 +7597,7 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [],
-    "first_page_url": "http:\/\/localhost\/api\/student-courses?page=1",
-    "from": null,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/student-courses?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/student-courses",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": null,
-    "total": 0
-}
+[]
 ```
 
 ### HTTP Request
@@ -8409,20 +8248,7 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [],
-    "first_page_url": "http:\/\/localhost\/api\/schools\/1\/grade-types?page=1",
-    "from": null,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/schools\/1\/grade-types?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/schools\/1\/grade-types",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": null,
-    "total": 0
-}
+[]
 ```
 
 ### HTTP Request
@@ -8521,7 +8347,7 @@ $.ajax(settings).done(function (response) {
     "owner_id": 1,
     "is_active": 1,
     "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 18:14:10",
+    "updated_at": "2018-07-05 18:14:11",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
@@ -8636,20 +8462,7 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [],
-    "first_page_url": "http:\/\/localhost\/api\/grades?page=1",
-    "from": null,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/grades?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/grades",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": null,
-    "total": 0
-}
+[]
 ```
 
 ### HTTP Request
@@ -9300,29 +9113,16 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "school_id": 1,
-            "type": "App\\Models\\School",
-            "name": "logo",
-            "created_at": "2018-07-04 10:57:25",
-            "updated_at": "2018-07-04 10:57:25"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/schools\/1\/image-types?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/schools\/1\/image-types?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/schools\/1\/image-types",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 1,
-    "total": 1
-}
+[
+    {
+        "id": 1,
+        "school_id": 1,
+        "type": "App\\Models\\School",
+        "name": "logo",
+        "created_at": "2018-07-04 10:57:25",
+        "updated_at": "2018-07-04 10:57:25"
+    }
+]
 ```
 
 ### HTTP Request
@@ -9530,20 +9330,7 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "current_page": 1,
-    "data": [],
-    "first_page_url": "http:\/\/localhost\/api\/images?page=1",
-    "from": null,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/images?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/images",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": null,
-    "total": 0
-}
+[]
 ```
 
 ### HTTP Request
