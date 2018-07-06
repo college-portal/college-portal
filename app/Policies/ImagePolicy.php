@@ -26,10 +26,10 @@ class ImagePolicy
     }
 
     public function delete(User $user, Image $image) {
-        return $user->hasRole(Role::ADMIN) || ($user->id == $image->school()->first()->user_id);
+        return $user->hasRole(Role::ADMIN) || ($user->id == $image->school()->first()->owner_id);
     }
 
     public function update(User $user, Image $image) {
-        return $user->hasRole(Role::ADMIN) || ($user->id == $image->school()->first()->user_id);
+        return $user->hasRole(Role::ADMIN) || ($user->id == $image->school()->first()->owner_id);
     }
 }

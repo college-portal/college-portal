@@ -22,6 +22,10 @@ class ImageTypeController extends ApiController
 
     /**
      * Get Image Type by ID
+     * 
+     * Responds with a specific Image Type by its ID
+     * - Rules of Access
+     *   - User is in the same school
      */
     public function show(Request $request, ImageTypeFilters $filters, int $school_id, $id) {
         $this->authorize('view', School::findOrFail($school_id));
@@ -32,6 +36,10 @@ class ImageTypeController extends ApiController
 
     /**
      * Get Image Types
+     * 
+     * Responds with a list of Image Types
+     * - Rules of Access
+     *   - User is in the same school
      */
     public function index(Request $request, ImageTypeFilters $filters, int $school_id) {
         $this->authorize('view', School::findOrFail($school_id));
@@ -41,6 +49,11 @@ class ImageTypeController extends ApiController
 
     /**
      * Delete Image Type
+     * 
+     * Removes a Image Type from the System by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Image belongs to
      */
     public function destroy(Request $request, int $school_id, $id) {
         $this->authorize('update', School::findOrFail($school_id));
@@ -52,6 +65,11 @@ class ImageTypeController extends ApiController
 
     /**
      * Create Image Type
+     * 
+     * Supply Image Type information to create a new one
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Image belongs to
      */
     public function store(ImageTypeRequest $request, int $school_id) {
         $this->authorize('update', School::findOrFail($school_id));
@@ -61,6 +79,11 @@ class ImageTypeController extends ApiController
 
     /**
      * Update Image Type
+     * 
+     * Modify information about an existing Image Type by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Image belongs to
      */
     public function update(Request $request, int $school_id, $id) {
         $this->authorize('update', School::findOrFail($school_id));
