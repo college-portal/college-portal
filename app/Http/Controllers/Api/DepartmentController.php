@@ -23,6 +23,16 @@ class DepartmentController extends ApiController
 
     /**
      * Get Department by ID
+     * 
+     * Responds with a specific Department by its ID
+     * - Rules of Access
+     *   - User is in the same school
+     * - Filters
+     *   - ?with_faculty
+     *   - ?with_hod
+     *   - ?with_programs
+     *   - ?with_staff
+     *   - ?with_students
      */
     public function show(Request $request, DepartmentFilters $filters, int $id) {
         $department = $this->service()->repo()->department($id, $filters);
@@ -32,6 +42,16 @@ class DepartmentController extends ApiController
 
     /**
      * Get Departments
+     * 
+     * Responds with a list of Departments
+     * - Rules of Access
+     *   - User is in the same school
+     * - Filters
+     *   - ?with_faculty
+     *   - ?with_hod
+     *   - ?with_programs
+     *   - ?with_staff
+     *   - ?with_students
      */
     public function index(Request $request, DepartmentFilters $filters) {
         $departments = $this->service()->repo()->departments($request->user(), $filters);
@@ -40,6 +60,13 @@ class DepartmentController extends ApiController
 
     /**
      * Delete Department
+     * 
+     * Removes a Department from the System by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Department belongs to or
+     *  - User is Dean of Faculty the Department belongs to or
+     *  - User is HOD of the Department
      */
     public function destroy(Request $request, int $id) {
         $department = $this->service()->repo()->department($id);
@@ -50,6 +77,12 @@ class DepartmentController extends ApiController
 
     /**
      * Create Department
+     * 
+     * Supply Department information to create a new one
+     * - Rules of Access
+     *  - User is an administrator or 
+     *  - User owns school the Department belongs to or
+     *  - User is Dean of Faculty the Department belongs to
      */
     public function store(DepartmentRequest $request) {
         $department = $this->service()->repo()->create($request->all());
@@ -58,6 +91,13 @@ class DepartmentController extends ApiController
 
     /**
      * Update Department
+     * 
+     * Modify information about an existing Course by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Department belongs to or
+     *  - User is Dean of Faculty the Department belongs to or
+     *  - User is HOD of the Department
      */
     public function update(Request $request, int $id) {
         $department = $this->service()->repo()->department($id);
