@@ -15,7 +15,9 @@ class SessionRepository
     }
 
     public function sessions(User $user, SessionFilters $filters) {
-        return $user->sessions()->filter($filters)->paginate();
+        return $user->sessions()->filter($filters)->paginate()->transform(function ($item) use ($filters) {
+            return $filters->transform($item);
+        });
     }
 
     public function session($id, SessionFilters $filters = null) {
@@ -23,7 +25,7 @@ class SessionRepository
         if ($filters) {
             $q = $q->filter($filters);
         }
-        return $q->findOrFail($id);
+        return $filters->transform($q->findOrFail($id));
     }
 
     public function delete($id) {

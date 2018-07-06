@@ -15,7 +15,9 @@ class SemesterRepository
     }
 
     public function semesters(User $user, SemesterFilters $filters) {
-        return $user->semesters()->filter($filters)->paginate();
+        return $user->semesters()->filter($filters)->paginate()->transform(function ($item) use ($filters) {
+            return $filters->transform($item);
+        });
     }
 
     public function semester($id, SemesterFilters $filters = null) {
@@ -23,7 +25,7 @@ class SemesterRepository
         if ($filters) {
             $q = $q->filter($filters);
         }
-        return $q->findOrFail($id);
+        return $filters->transform($q->findOrFail($id));
     }
 
     public function delete($id) {

@@ -15,7 +15,9 @@ class FacultyRepository
     }
 
     public function faculties(User $user, FacultyFilters $filters) {
-        return $user->faculties()->filter($filters)->paginate();
+        return $user->faculties()->filter($filters)->paginate()->transform(function ($item) use ($filters) {
+            return $filters->transform($item);
+        });
     }
 
     public function faculty($id, FacultyFilters $filters = null) {
@@ -23,7 +25,7 @@ class FacultyRepository
         if ($filters) {
             $q = $q->filter($filters);
         }
-        return $q->findOrFail($id);
+        return $filters->transform($q->findOrFail($id));
     }
 
     public function delete($id) {

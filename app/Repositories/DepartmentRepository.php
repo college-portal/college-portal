@@ -15,7 +15,9 @@ class DepartmentRepository
     }
 
     public function departments(User $user, DepartmentFilters $filters) {
-        return $user->departments()->filter($filters)->paginate();
+        return $user->departments()->filter($filters)->paginate()->transform(function ($item) use ($filters) {
+            return $filters->transform($item);
+        });
     }
 
     public function department($id, DepartmentFilters $filters = null) {
@@ -23,7 +25,7 @@ class DepartmentRepository
         if ($filters) {
             $q = $q->filter($filters);
         }
-        return $q->findOrFail($id);
+        return $filters->transform($q->findOrFail($id));
     }
 
     public function delete($id) {

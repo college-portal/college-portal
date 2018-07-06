@@ -15,7 +15,9 @@ class GradeRepository
     }
 
     public function list(User $user, GradeFilters $filters) {
-        return $this->model()->filter($filters)->paginate();
+        return $this->model()->filter($filters)->paginate()->transform(function ($item) use ($filters) {
+            return $filters->transform($item);
+        });
     }
 
     public function single($id, GradeFilters $filters = null) {
@@ -23,7 +25,7 @@ class GradeRepository
         if ($filters) {
             $q = $q->filter($filters);
         }
-        return $q->findOrFail($id);
+        return $filters->transform($q->findOrFail($id));
     }
 
     public function delete($id) {

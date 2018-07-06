@@ -15,7 +15,9 @@ class StudentRepository
     }
 
     public function students(User $user, StudentFilters $filters) {
-        return $user->viewableStudents()->filter($filters)->paginate();
+        return $user->viewableStudents()->filter($filters)->paginate()->transform(function ($item) use ($filters) {
+            return $filters->transform($item);
+        });
     }
 
     public function student($id, StudentFilters $filters = null) {
@@ -23,7 +25,7 @@ class StudentRepository
         if ($filters) {
             $q = $q->filter($filters);
         }
-        return $q->findOrFail($id);
+        return $filters->transform($q->findOrFail($id));
     }
 
     public function delete($id) {
