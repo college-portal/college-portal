@@ -23,6 +23,10 @@ class ImageController extends ApiController
 
     /**
      * Get Image by ID
+     * 
+     * Responds with a specific Image by its ID
+     * - Rules of Access
+     *   - User is in the same school
      */
     public function show(Request $request, ImageFilters $filters, $id) {
         $image = $this->service()->repo()->single($id, $filters);
@@ -32,6 +36,10 @@ class ImageController extends ApiController
 
     /**
      * Get Images
+     * 
+     * Responds with a list of Images
+     * - Rules of Access
+     *   - User is in the same school
      */
     public function index(Request $request, ImageFilters $filters) {
         $images = $this->service()->repo()->list($request->user(), $filters);
@@ -40,6 +48,11 @@ class ImageController extends ApiController
 
     /**
      * Delete Image
+     * 
+     * Removes a Image from the System by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Image belongs to
      */
     public function destroy(Request $request, $id) {
         $image = $this->service()->repo()->single($id);
@@ -50,6 +63,11 @@ class ImageController extends ApiController
 
     /**
      * Create Image
+     * 
+     * Supply Image information to create a new one
+     * - Rules of Access
+     *  - User can view image type and 
+     *  - User can update image owner
      */
     public function store(ImageRequest $request) {
         $image = $this->service()->create(array_merge([ 'location' => 'temp' ], $request->all()));
@@ -61,6 +79,11 @@ class ImageController extends ApiController
 
     /**
      * Update Image
+     * 
+     * Modify information about an existing Image by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Image belongs to
      */
     public function update(Request $request, $id) {
         if ($request->isMethod('put')) return $this->json([ 'message' => 'not implemented' ], 501);
