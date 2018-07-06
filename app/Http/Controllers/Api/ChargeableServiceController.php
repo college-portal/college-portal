@@ -83,10 +83,10 @@ class ChargeableServiceController extends ApiController
     /**
      * Update Chargeable Service
      * 
-     * Modify information about an existing chargeable service by ID
+     * Modify information about an existing Chargeable Service by ID
      * - Rules of Access
      *  - User is an ADMIN or
-     *  - User owns school the Chargeable belongs to
+     *  - User owns school the Chargeable Service belongs to
      */
     public function update(Request $request, int $id) {
         $service = $this->service()->serviceRepo()->single($id);

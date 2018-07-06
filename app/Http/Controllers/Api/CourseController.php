@@ -21,6 +21,18 @@ class CourseController extends ApiController
 
     /**
      * Get Course by ID
+     * 
+     * Responds with a specific course by its ID
+     * - Rules of Access
+     *   - User is in the same school
+     * - Filters
+     *   - ?with_dependencies
+     *   - ?with_staff
+     *   - ?with_department
+     *   - ?with_semester_type
+     *   - ?with_level
+     *   - ?with_school
+     *   - ?with_faculty
      */
     public function show(Request $request, CourseFilters $filters, int $id) {
         $course = $this->service()->repo()->course($id, $filters);
@@ -30,6 +42,18 @@ class CourseController extends ApiController
 
     /**
      * Get Courses
+     * 
+     * Responds with a list of Courses
+     * - Rules of Access
+     *   - User is in the same school
+     * - Filters
+     *   - ?with_dependencies
+     *   - ?with_staff
+     *   - ?with_department
+     *   - ?with_semester_type
+     *   - ?with_level
+     *   - ?with_school
+     *   - ?with_faculty
      */
     public function index(Request $request, CourseFilters $filters) {
         $courses = $this->service()->repo()->courses($request->user(), $filters);
@@ -38,6 +62,13 @@ class CourseController extends ApiController
 
     /**
      * Delete Course
+     * 
+     * Removes a Course from the System by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Course belongs to or
+     *  - User is Dean of Faculty the Course belongs to or
+     *  - User is HOD of Department the Course belongs to
      */
     public function destroy(Request $request, int $id) {
         $course = $this->service()->repo()->course($id);
@@ -48,6 +79,14 @@ class CourseController extends ApiController
 
     /**
      * Create Course
+     * 
+     * Supply Course information to create a new one
+     * - Rules of Access
+     *  - User can view course's department, level, semester_type and
+     *  - User is an administrator or 
+     *  - User owns school the Course belongs to or
+     *  - User is Dean of Faculty the Course belongs to or
+     *  - User is HOD of Department the Course belongs to
      */
     public function store(CourseRequest $request) {
         $course = $this->service()->repo()->create($request->all());
@@ -56,6 +95,11 @@ class CourseController extends ApiController
 
     /**
      * Update Course
+     * 
+     * Modify information about an existing Course by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Course belongs to
      */
     public function update(Request $request, int $id) {
         $course = $this->service()->repo()->course($id);

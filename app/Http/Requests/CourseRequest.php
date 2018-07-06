@@ -20,12 +20,17 @@ class CourseRequest extends FormRequest
         $department = Department::findOrFail($this->input('department_id'));
         $semester_type = SemesterType::findOrFail($this->input('semester_type_id'));
         $level = Level::findOrFail($this->input('level_id'));
-        return $user->can('view', $department) || 
-                $user->can('view', $level) ||
-                $user->hasRole('administrator') || 
-                ($user->id == $department->hod->first()->user()->first()->id) || // department hod
-                ($user->staff()->where('id', $department->faculty()->first()->dean()->first()->id)->exists()) || // faculty dean
-                ($user->id == $department->faculty()->first()->school()->first()->owner_id); // school owner
+        return (
+                    $user->can('view', $department) && 
+                    $user->can('view', $level) &&
+                    $user->can('view', $semester_type)
+                ) &&
+                (
+                    $user->hasRole('administrator') || 
+                    ($user->id == $department->hod->first()->user()->first()->id) || // department hod
+                    ($user->staff()->where('id', $department->faculty()->first()->dean()->first()->id)->exists()) || // faculty dean
+                    ($user->id == $department->faculty()->first()->school()->first()->owner_id) // school owner
+                );
     }
 
     /**
