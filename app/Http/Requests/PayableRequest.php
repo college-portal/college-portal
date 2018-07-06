@@ -17,8 +17,10 @@ class PayableRequest extends FormRequest
     {
         $user = auth()->user()->first();
         $chargeable = Chargeable::findOrFail($this->input('chargeable_id'));
-        return $user->can('view', $chargeable->service()->first()->school()->first()) && 
-                ($this->user_id ? $user->can('update', User::findOrFail($this->user_id)) : true);
+        $studentUser = $this->user_id ? User::findOrFail($this->user_id) : null;
+        $school = $chargeable->school()->first();
+        return $user->can('view', $school) && 
+                ($this->user_id ? $user->can('update', $studentUser) : true);
     }
 
     /**

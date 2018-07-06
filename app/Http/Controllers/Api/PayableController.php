@@ -21,6 +21,11 @@ class PayableController extends ApiController
 
     /**
      * Get Payable by ID
+     * 
+     * Responds with a specific Payable by its ID
+     * - Rules of Access
+     *   - User owns Payable or
+     *   - User can update school
      */
     public function show(Request $request, PayableFilters $filters, $id) {
         $payable = $this->service()->repo()->single($id, $filters);
@@ -30,6 +35,11 @@ class PayableController extends ApiController
 
     /**
      * Get Payables
+     * 
+     * Responds with a list of Payables
+     * - Rules of Access
+     *   - User owns Payable or
+     *   - User can update school
      */
     public function index(Request $request, PayableFilters $filters) {
         $payables = $this->service()->repo()->list($request->user(), $filters);
@@ -38,6 +48,11 @@ class PayableController extends ApiController
 
     /**
      * Delete Payable
+     * 
+     * Removes a Payable from the System by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Payable belongs to
      */
     public function destroy(Request $request, $id) {
         $payable = $this->service()->repo()->single($id);
@@ -48,6 +63,11 @@ class PayableController extends ApiController
 
     /**
      * Create Payable
+     * 
+     * Supply Payable information to create a new one
+     * - Rules of Access
+     *  - User can view school and
+     *  - User can update the user that owns the payable
      */
     public function store(PayableRequest $request) {
         $payable = $this->service()->repo()->create(array_merge([ 'user_id' => auth()->user()->id ], $request->all()));
@@ -56,6 +76,11 @@ class PayableController extends ApiController
 
     /**
      * Update Payable
+     * 
+     * Modify information about an existing Payable by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Payable belongs to
      */
     public function update(Request $request, $id) {
         $payable = $this->service()->repo()->single($id);

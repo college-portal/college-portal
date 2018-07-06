@@ -28,11 +28,11 @@ class PayablePolicy
 
     public function delete(User $user, Payable $payable) {
         $school = $payable->chargeable()->first()->service()->first()->school()->first();
-        return ($user->id == $payable->user_id) || $user->can('update', $school);
+        return $user->can('update', $school);
     }
 
     public function update(User $user, Payable $payable) {
         $school = $payable->chargeable()->first()->service()->first()->school()->first();
-        return ($user->id == $payable->user_id) || $user->can('update', $school);
+        return $user->can('update', $school);
     }
 }
