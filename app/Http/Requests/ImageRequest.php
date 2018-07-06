@@ -18,7 +18,7 @@ class ImageRequest extends FormRequest
     public function authorize()
     {
         $this->validate($this->rules());
-        $user = auth()->user();
+        $user = auth()->user()->first();
         $type = ImageType::findOrFail($this->input('image_type_id'));
         $owner = $type->owner($this->owner_id)->first();
 

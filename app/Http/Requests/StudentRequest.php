@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Role;
 use App\Models\Program;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -18,8 +19,8 @@ class StudentRequest extends FormRequest
         $department = $program->department()->first();
         $faculty = $department->faculty()->first();
         $school = $faculty->school()->first();
-        $user = auth()->user();
-        return $user->hasRole('administrator') || 
+        $user = auth()->user()->first();
+        return $user->hasRole(Role::ADMIN) || 
                 ($user->id == $department->hod()->first()->user()->first()->id) || // hod of department
                 ($user->id == $faculty->dean()->first()->user()->first()->id) || // dean of faculty
                 ($user->id == $school->owner_id); // school owner

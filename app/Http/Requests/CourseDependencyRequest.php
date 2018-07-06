@@ -16,7 +16,7 @@ class CourseDependencyRequest extends FormRequest
     public function authorize()
     {
         $this->validate($this->rules());
-        $user = auth()->user();
+        $user = auth()->user()->first();
         $course = Course::findOrFail($this->input('course_id'));
         $dependency = Course::findOrFail($this->input('dependency_id'));
         return $user->can('update', $course) && $user->can('update', $dependency);

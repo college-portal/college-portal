@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Models\School;
+use App\Models\Role;
 
 class SemesterTypeRequest extends FormRequest
 {
@@ -15,8 +16,8 @@ class SemesterTypeRequest extends FormRequest
     public function authorize()
     {
         $school = School::findOrFail($this->route('school_id'));
-        $user = auth()->user();
-        return $user->hasRole('admin') || 
+        $user = auth()->user()->first();
+        return $user->hasRole(Role::ADMIN) || 
                 ($user->id == $school->owner_id); // school owner
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Models\Department;
+use App\Models\Role;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProgramRequest extends FormRequest
@@ -15,8 +16,8 @@ class ProgramRequest extends FormRequest
     public function authorize()
     {
         $department = Department::findOrFail($this->input('department_id'));
-        $user = auth()->user();
-        return $user->hasRole('administrator') || 
+        $user = auth()->user()->first();
+        return $user->hasRole(Role::ADMIN) || 
                 ($user->id == $department->hod->first()->user()->first()->id) || // department hod
                 ($user->staff()->where('id', $department->faculty()->first()->dean()->first()->id)->exists()) || // faculty dean
                 ($user->id == $department->faculty()->first()->school()->first()->owner_id); // school owner

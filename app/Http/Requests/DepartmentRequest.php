@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Models\Faculty;
+use App\Models\Role;
 use Illuminate\Foundation\Http\FormRequest;
 
 class DepartmentRequest extends FormRequest
@@ -15,8 +16,8 @@ class DepartmentRequest extends FormRequest
     public function authorize()
     {
         $faculty = Faculty::findOrFail($this->input('faculty_id'));
-        $user = auth()->user();
-        return $user->hasRole('administrator') || 
+        $user = auth()->user()->first();
+        return $user->hasRole(Role::ADMIN) || 
                 ($user->id == $faculty->dean()->first()->user()->first()->id) || // dean of school
                 ($user->id == $faculty->school()->first()->owner_id); // school owner
     }

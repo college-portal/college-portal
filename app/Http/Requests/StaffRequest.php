@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Models\School;
 use App\Models\Department;
+use App\Models\Role;
 use App\User;
 
 class StaffRequest extends FormRequest
@@ -17,7 +18,7 @@ class StaffRequest extends FormRequest
     public function authorize()
     {
         $this->validate($this->rules());
-        $user = auth()->user();
+        $user = auth()->user()->first();
         $school = School::findOrFail($this->input('school_id'));
         $department = Department::find($this->input('department_id'));
 

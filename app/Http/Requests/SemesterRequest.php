@@ -15,7 +15,7 @@ class SemesterRequest extends FormRequest
      */
     public function authorize()
     {
-        $user = auth()->user();
+        $user = auth()->user()->first();
         $type = SemesterType::findOrFail($this->input('semester_type_id'));
         return $user->can('update', $type);
     }

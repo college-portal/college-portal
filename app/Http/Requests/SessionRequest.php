@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Models\School;
+use App\Models\Role;
 
 class SessionRequest extends FormRequest
 {
@@ -14,7 +15,7 @@ class SessionRequest extends FormRequest
      */
     public function authorize()
     {
-        $user = auth()->user();
+        $user = auth()->user()->first();
         $school = School::findOrFail($this->input('school_id'));
         return $user->can('update', $school);
     }

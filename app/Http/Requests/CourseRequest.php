@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use App\Models\Department;
 use App\Models\SemesterType;
 use App\Models\Level;
+use App\Models\Role;
 
 class CourseRequest extends FormRequest
 {
@@ -16,7 +17,7 @@ class CourseRequest extends FormRequest
      */
     public function authorize()
     {
-        $user = auth()->user();
+        $user = auth()->user()->first();
         $department = Department::findOrFail($this->input('department_id'));
         $semester_type = SemesterType::findOrFail($this->input('semester_type_id'));
         $level = Level::findOrFail($this->input('level_id'));
@@ -26,7 +27,7 @@ class CourseRequest extends FormRequest
                     $user->can('view', $semester_type)
                 ) &&
                 (
-                    $user->hasRole('administrator') || 
+                    $user->hasRole(Role::ADMIN) || 
                     ($user->id == $department->hod->first()->user()->first()->id) || // department hod
                     ($user->staff()->where('id', $department->faculty()->first()->dean()->first()->id)->exists()) || // faculty dean
                     ($user->id == $department->faculty()->first()->school()->first()->owner_id) // school owner
