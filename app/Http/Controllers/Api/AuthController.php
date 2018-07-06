@@ -13,8 +13,6 @@ class AuthController extends ApiController
      * Authenticate User
      * 
      * Uses basic authentication and returns a Json Web Token
-     * 
-     * @accept 
      */
     public function login(Request $request) {
         $credentials = $request->only('email', 'password');
