@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\User;
+use App\Models\Role;
 use App\Models\Level;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -25,10 +26,10 @@ class LevelPolicy
     }
 
     public function delete(User $user, Level $level) {
-        return $user->id == $level->school()->first()->owner_id;
+        return $user->hasRole(Role::ADMIN) || $user->id == $level->school()->first()->owner_id;
     }
 
     public function update(User $user, Level $level) {
-        return $user->id == $level->school()->first()->owner_id;
+        return $user->hasRole(Role::ADMIN) || $user->id == $level->school()->first()->owner_id;
     }
 }

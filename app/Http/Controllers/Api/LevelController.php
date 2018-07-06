@@ -22,6 +22,10 @@ class LevelController extends ApiController
 
     /**
      * Get Level by ID
+     * 
+     * Responds with a specific Level by its ID
+     * - Rules of Access
+     *   - User is in the same school
      */
     public function show(Request $request, LevelFilters $filters, int $school_id, int $id) {
         $this->authorize('view', School::findOrFail($school_id));
@@ -32,6 +36,10 @@ class LevelController extends ApiController
 
     /**
      * Get Levels
+     * 
+     * Responds with a list of Levels
+     * - Rules of Access
+     *   - User is in the same school
      */
     public function index(Request $request, LevelFilters $filters, int $school_id) {
         $this->authorize('view', School::findOrFail($school_id));
@@ -41,6 +49,11 @@ class LevelController extends ApiController
 
     /**
      * Delete Level
+     * 
+     * Removes a Level from the System by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Level belongs to
      */
     public function destroy(Request $request, int $school_id, int $id) {
         $this->authorize('update', School::findOrFail($school_id));
@@ -52,6 +65,11 @@ class LevelController extends ApiController
 
     /**
      * Create Level
+     * 
+     * Supply Level information to create a new one
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Level belongs to
      */
     public function store(LevelRequest $request, int $school_id) {
         $this->authorize('update', School::findOrFail($school_id));
@@ -61,6 +79,11 @@ class LevelController extends ApiController
 
     /**
      * Update Level
+     * 
+     * Modify information about an existing Level by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Level belongs to
      */
     public function update(Request $request, int $school_id, int $id) {
         $this->authorize('update', School::findOrFail($school_id));
