@@ -17,7 +17,15 @@ class ChargeableServiceFilters extends BaseFilters
         parent::__construct($request);
     }
 
-    public function school_id($value) {
+    public function school($value) {
         return $this->builder->where('school_id', $value);
+    }
+
+    public function with_school() {
+        return $this->builder->with('school');
+    }
+
+    public function with_chargeables() {
+        return $this->builder->with('chargeables');
     }
 }
