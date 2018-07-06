@@ -22,6 +22,8 @@ class GradeTypeController extends ApiController
 
     /**
      * Get Grade Type by ID
+     * 
+     * Responds with a specific Grade by its ID
      */
     public function show(Request $request, GradeTypeFilters $filters, int $school_id, $id) {
         $this->authorize('view', School::findOrFail($school_id));
@@ -32,6 +34,8 @@ class GradeTypeController extends ApiController
 
     /**
      * Get Grade Types
+     * 
+     * Responds with a list of Grades in school
      */
     public function index(Request $request, GradeTypeFilters $filters, int $school_id) {
         $this->authorize('view', School::findOrFail($school_id));
@@ -41,6 +45,11 @@ class GradeTypeController extends ApiController
 
     /**
      * Delete Grade Type
+     * 
+     * Removes a Grade Type from the System by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User is the school owner
      */
     public function destroy(Request $request, int $school_id, $id) {
         $this->authorize('update', School::findOrFail($school_id));
@@ -52,6 +61,11 @@ class GradeTypeController extends ApiController
 
     /**
      * Create Grade Type
+     * 
+     * Supply Grade Type information to create a new one
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User is the school owner
      */
     public function store(GradeTypeRequest $request, int $school_id) {
         $this->authorize('update', School::findOrFail($school_id));
@@ -61,6 +75,11 @@ class GradeTypeController extends ApiController
 
     /**
      * Update Grade Type
+     * 
+     * Modify information about an existing Grade Type by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User is the school owner
      */
     public function update(Request $request, int $school_id, $id) {
         $this->authorize('update', School::findOrFail($school_id));

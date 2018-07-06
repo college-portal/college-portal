@@ -30,6 +30,6 @@ class GradeTypePolicy
     }
 
     public function update(User $user, GradeType $gradeType) {
-        return $this->delete($user, $imageType);
+        return $this->delete($user, $gradeType);
     }
 }
