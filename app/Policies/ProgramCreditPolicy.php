@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\User;
+use App\Models\Role;
 use App\Models\ProgramCredit;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -25,14 +26,14 @@ class ProgramCreditPolicy
     }
 
     public function delete(User $user, ProgramCredit $credit) {
-        return $user->hasRole('admin') || 
+        return $user->hasRole(Role::ADMIN) || 
                 ($user->id == $credit->program->department->hod->user->id) || 
                 ($user->id == $credit->program->department->faculty->dean->user->id) || 
                 ($user->id == $credit->school->owner_id);
     }
 
     public function update(User $user, ProgramCredit $credit) {
-        return $user->hasRole('admin') || 
+        return $user->hasRole(Role::ADMIN) || 
                 ($user->id == $credit->program->department->hod->user->id) || 
                 ($user->id == $credit->program->department->faculty->dean->user->id) || 
                 ($user->id == $credit->school->owner_id);
