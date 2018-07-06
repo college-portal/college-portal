@@ -92,7 +92,7 @@ class DepartmentController extends ApiController
     /**
      * Update Department
      * 
-     * Modify information about an existing Course by ID
+     * Modify information about an existing Department by ID
      * - Rules of Access
      *  - User is an ADMIN or
      *  - User owns school the Department belongs to or
