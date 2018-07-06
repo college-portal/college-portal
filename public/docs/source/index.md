@@ -613,6 +613,16 @@ $.ajax(settings).done(function (response) {
 <!-- START_0151899c6cc8923a22b32cbfb1d662aa -->
 ## Get Faculties
 
+Responds with a list of Faculties
+- Rules of Access
+  - User is in the same school
+- Filters
+  - ?with_departments
+  - ?with_programs
+  - ?with_students
+  - ?with_staff
+  - ?with_users
+
 > Example request:
 
 ```bash
@@ -663,6 +673,11 @@ $.ajax(settings).done(function (response) {
 <!-- START_3d82dcd0fb3f2c54d0822c0296209190 -->
 ## Create Faculty
 
+Supply Faculty information to create a new one
+- Rules of Access
+ - User is an administrator or
+ - User owns school the Faculty belongs to
+
 > Example request:
 
 ```bash
@@ -712,6 +727,16 @@ Parameter | Type | Status | Description
 <!-- START_81ed220a7e8f733c1b8ef9150c0eea2b -->
 ## Get Faculty by ID
 
+Responds with a specific Faculty by its ID
+- Rules of Access
+  - User is in the same school
+- Filters
+  - ?with_departments
+  - ?with_programs
+  - ?with_students
+  - ?with_staff
+  - ?with_users
+
 > Example request:
 
 ```bash
@@ -760,6 +785,12 @@ $.ajax(settings).done(function (response) {
 <!-- START_cd906852e526fae660e2dd28c177318b -->
 ## Update Faculty
 
+Modify information about an existing Faculty by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Faculty belongs to or
+ - User is Dean of the Faculty
+
 > Example request:
 
 ```bash
@@ -795,6 +826,12 @@ $.ajax(settings).done(function (response) {
 <!-- START_7d4ac3e94893c9e6c3e7c48438874f0c -->
 ## Delete Faculty
 
+Removes a Faculty from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Faculty belongs to or
+ - User is Dean of the Faculty
+
 > Example request:
 
 ```bash
@@ -827,6 +864,16 @@ $.ajax(settings).done(function (response) {
 
 <!-- START_2a2bd5f635421bebeab28f82894cfdaa -->
 ## Get Departments
+
+Responds with a list of Departments
+- Rules of Access
+  - User is in the same school
+- Filters
+  - ?with_faculty
+  - ?with_hod
+  - ?with_programs
+  - ?with_staff
+  - ?with_students
 
 > Example request:
 
@@ -877,6 +924,12 @@ $.ajax(settings).done(function (response) {
 <!-- START_b002b7c6ad7a3a78a8d833aed62c535e -->
 ## Create Department
 
+Supply Department information to create a new one
+- Rules of Access
+ - User is an administrator or
+ - User owns school the Department belongs to or
+ - User is Dean of Faculty the Department belongs to
+
 > Example request:
 
 ```bash
@@ -926,6 +979,16 @@ Parameter | Type | Status | Description
 <!-- START_987c0aa639e88c0aad48c5924fc5ad5f -->
 ## Get Department by ID
 
+Responds with a specific Department by its ID
+- Rules of Access
+  - User is in the same school
+- Filters
+  - ?with_faculty
+  - ?with_hod
+  - ?with_programs
+  - ?with_staff
+  - ?with_students
+
 > Example request:
 
 ```bash
@@ -973,6 +1036,13 @@ $.ajax(settings).done(function (response) {
 <!-- START_699b52fb4bcae66f8ebd1b94d43840b3 -->
 ## Update Department
 
+Modify information about an existing Department by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Department belongs to or
+ - User is Dean of Faculty the Department belongs to or
+ - User is HOD of the Department
+
 > Example request:
 
 ```bash
@@ -1007,6 +1077,13 @@ $.ajax(settings).done(function (response) {
 
 <!-- START_0e43c6b5ed1c5abe92437f672ec3eaef -->
 ## Delete Department
+
+Removes a Department from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Department belongs to or
+ - User is Dean of Faculty the Department belongs to or
+ - User is HOD of the Department
 
 > Example request:
 
@@ -3009,8 +3086,8 @@ curl -X POST "http://zaportal.dev/api/sessions" \
 -H "Accept: application/json" \
     -d "school_id"="5240575" \
     -d "name"="soluta" \
-    -d "start_date"="2003-01-06" \
-    -d "end_date"="2003-01-06" \
+    -d "start_date"="2003-01-07" \
+    -d "end_date"="2003-01-07" \
 
 ```
 
@@ -3023,8 +3100,8 @@ var settings = {
     "data": {
         "school_id": 5240575,
         "name": "soluta",
-        "start_date": "2003-01-06",
-        "end_date": "2003-01-06"
+        "start_date": "2003-01-07",
+        "end_date": "2003-01-07"
 },
     "headers": {
         "accept": "application/json"
@@ -6169,6 +6246,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_4914b6fc3b249654255764a9a371dc37 -->
 ## Get Course Dependencies
 
+Responds with a list of Course Dependencies
+- Rules of Access
+  - User is in the same school
+- Filters
+  - ?with_course
+  - ?with_dependency
+  - ?course={id} filter by course id
+  - ?dependency={id} filter by dependency id (also a course)
+
 > Example request:
 
 ```bash
@@ -6315,6 +6401,11 @@ $.ajax(settings).done(function (response) {
 <!-- START_8a27f60a8595484fe955148e4ac9e68c -->
 ## Create Course Dependency
 
+Supply Course information to create a new one
+- Rules of Access
+ - User can update course and
+ - User can update dependency
+
 > Example request:
 
 ```bash
@@ -6360,6 +6451,13 @@ Parameter | Type | Status | Description
 
 <!-- START_d6b05ca96d920d98cda017f6996574ae -->
 ## Get Course Dependency by ID
+
+Responds with a specific Course Dependency by its ID
+- Rules of Access
+  - User is in the same school
+- Filters
+  - ?with_course
+  - ?with_dependency
 
 > Example request:
 
@@ -6855,6 +6953,13 @@ $.ajax(settings).done(function (response) {
 <!-- START_d625019fc2242f0c9ddfbe0da6a8a1db -->
 ## Update Course Dependency
 
+Modifies information about an existing Course Dependency
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Course and Dependency belongs to or
+ - User is Dean of Faculty the Course and Dependency belongs to or
+ - User is HOD of Department the Course and Dependency belongs to
+
 > Example request:
 
 ```bash
@@ -6889,6 +6994,13 @@ $.ajax(settings).done(function (response) {
 
 <!-- START_686bdc126cc45e49bd53a09946a40e01 -->
 ## Delete Course Dependency
+
+Removes a Course Dependency from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Course and Dependency belongs to or
+ - User is Dean of Faculty the Course and Dependency belongs to or
+ - User is HOD of Department the Course and Dependency belongs to
 
 > Example request:
 
@@ -8222,6 +8334,8 @@ $.ajax(settings).done(function (response) {
 <!-- START_7dc51eaf7038fbe62db0659e67c9d876 -->
 ## Get Grade Types
 
+Responds with a list of Grades in school
+
 > Example request:
 
 ```bash
@@ -8261,6 +8375,11 @@ $.ajax(settings).done(function (response) {
 
 <!-- START_698001f792aea9502012002aaa216531 -->
 ## Create Grade Type
+
+Supply Grade Type information to create a new one
+- Rules of Access
+ - User is an ADMIN or
+ - User is the school owner
 
 > Example request:
 
@@ -8313,6 +8432,8 @@ Parameter | Type | Status | Description
 
 <!-- START_50d38b7ebc96ec0209d69bc4f5ca9448 -->
 ## Get Grade Type by ID
+
+Responds with a specific Grade by its ID
 
 > Example request:
 
@@ -8368,6 +8489,11 @@ $.ajax(settings).done(function (response) {
 <!-- START_6fc2d63f475b83a2a62c507c3f84f92d -->
 ## Update Grade Type
 
+Modify information about an existing Grade Type by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User is the school owner
+
 > Example request:
 
 ```bash
@@ -8403,6 +8529,11 @@ $.ajax(settings).done(function (response) {
 <!-- START_abc2997440ba7652a37f01c2dbb28264 -->
 ## Delete Grade Type
 
+Removes a Grade Type from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User is the school owner
+
 > Example request:
 
 ```bash
@@ -8435,6 +8566,18 @@ $.ajax(settings).done(function (response) {
 
 <!-- START_104e56ec1fad9ec0ebc1fb4f6d8669d5 -->
 ## Get Grades
+
+Responds with a list of Grades
+- Rules of Access
+  - User can update grade student or
+  - Grade belongs to current User
+- Filters
+  - ?with_student
+  - ?with_staff
+  - ?with_course
+  - ?with_school
+  - ?with_users
+  - ?with_total
 
 > Example request:
 
@@ -8475,6 +8618,14 @@ $.ajax(settings).done(function (response) {
 
 <!-- START_9f50be565ddcc025ae53490cb389fcf3 -->
 ## Create Grade
+
+Supply Grade information to create a new one
+- Rules of Access
+ - User is an ADMIN or
+ - User is the staff that taught the Course or
+ - User is the school owner or
+ - User is the Dean of the Faculty the Course belongs to
+ - User is the HOD of the Department the Course belongs to
 
 > Example request:
 
@@ -8524,6 +8675,18 @@ Parameter | Type | Status | Description
 
 <!-- START_86d1fca55166d3372052405f07168010 -->
 ## Get Grade by ID
+
+Responds with a specific Grade by its ID
+- Rules of Access
+  - User can update grade student or
+  - Grade belongs to current User
+- Filters
+  - ?with_student
+  - ?with_staff
+  - ?with_course
+  - ?with_school
+  - ?with_users
+  - ?with_total
 
 > Example request:
 
@@ -9017,7 +9180,15 @@ $.ajax(settings).done(function (response) {
 <!-- END_86d1fca55166d3372052405f07168010 -->
 
 <!-- START_537f328ab71323d12b5527a5f4b652e7 -->
-## Udpate Grade
+## Update Grade
+
+Modify information about an existing Grade by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User is the staff that taught the Course or
+ - User is the school owner or
+ - User is the Dean of the Faculty the Course belongs to
+ - User is the HOD of the Department the Course belongs to
 
 > Example request:
 
@@ -9053,6 +9224,14 @@ $.ajax(settings).done(function (response) {
 
 <!-- START_047f19e1a3acfe078665f687d45f8a59 -->
 ## Delete Grade
+
+Removes a Grade from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User is the staff that taught the Course or
+ - User is the school owner or
+ - User is the Dean of the Faculty the Course belongs to
+ - User is the HOD of the Department the Course belongs to
 
 > Example request:
 
