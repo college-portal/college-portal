@@ -36,7 +36,7 @@ class Grade extends BaseModel
         return $this->belongsTo(StudentTakesCourse::class);
     }
 
-    public function student() {
+    public function scopeStudent() {
         $ids = $this->studentTakesCourse()->pluck('student_id');
         return Student::whereIn('id', $ids);
     }

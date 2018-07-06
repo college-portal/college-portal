@@ -21,6 +21,18 @@ class GradeController extends ApiController
 
     /**
      * Get Grade by ID
+     * 
+     * Responds with a specific Grade by its ID
+     * - Rules of Access
+     *   - User can update grade student or
+     *   - Grade belongs to current User
+     * - Filters
+     *   - ?with_student
+     *   - ?with_staff
+     *   - ?with_course
+     *   - ?with_school
+     *   - ?with_users
+     *   - ?with_total
      */
     public function show(Request $request, GradeFilters $filters, $id) {
         $grade = $this->service()->repo()->single($id, $filters);
@@ -30,6 +42,18 @@ class GradeController extends ApiController
 
     /**
      * Get Grades
+     * 
+     * Responds with a list of Grades
+     * - Rules of Access
+     *   - User can update grade student or
+     *   - Grade belongs to current User
+     * - Filters
+     *   - ?with_student
+     *   - ?with_staff
+     *   - ?with_course
+     *   - ?with_school
+     *   - ?with_users
+     *   - ?with_total
      */
     public function index(Request $request, GradeFilters $filters) {
         $grades = $this->service()->repo()->list($request->user(), $filters);
@@ -38,6 +62,14 @@ class GradeController extends ApiController
 
     /**
      * Delete Grade
+     * 
+     * Removes a Grade from the System by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User is the staff that taught the Course or
+     *  - User is the school owner or
+     *  - User is the Dean of the Faculty the Course belongs to
+     *  - User is the HOD of the Department the Course belongs to
      */
     public function destroy(Request $request, $id) {
         $grade = $this->service()->repo()->single($id);
@@ -48,6 +80,14 @@ class GradeController extends ApiController
 
     /**
      * Create Grade
+     * 
+     * Supply Grade information to create a new one
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User is the staff that taught the Course or
+     *  - User is the school owner or
+     *  - User is the Dean of the Faculty the Course belongs to
+     *  - User is the HOD of the Department the Course belongs to
      */
     public function store(GradeRequest $request) {
         $grade = $this->service()->create($request->all());
@@ -55,7 +95,15 @@ class GradeController extends ApiController
     }
 
     /**
-     * Udpate Grade
+     * Update Grade
+     * 
+     * Modify information about an existing Grade by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User is the staff that taught the Course or
+     *  - User is the school owner or
+     *  - User is the Dean of the Faculty the Course belongs to
+     *  - User is the HOD of the Department the Course belongs to
      */
     public function update(Request $request, $id) {
         $grade = $this->service()->repo()->single($id);
