@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\User;
+use App\Models\Role;
 use App\Models\Program;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -25,13 +26,15 @@ class ProgramPolicy
     }
 
     public function delete(User $user, Program $program) {
-        return ($user->id == $program->department->hod->user->id) || 
+        return $user->hasRole(Role::ADMIN) || 
+                ($user->id == $program->department->hod->user->id) || 
                 ($user->id == $program->department->faculty->dean->user->id) || 
                 ($user->id == $program->department->faculty->school->owner_id);
     }
 
     public function update(User $user, Program $program) {
-        return ($user->id == $program->department->hod->user->id) || 
+        return $user->hasRole(Role::ADMIN) || 
+                ($user->id == $program->department->hod->user->id) || 
                 ($user->id == $program->department->faculty->dean->user->id) || 
                 ($user->id == $program->department->faculty->school->owner_id);
     }
