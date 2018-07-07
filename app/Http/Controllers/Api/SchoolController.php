@@ -21,6 +21,12 @@ class SchoolController extends ApiController
 
     /**
      * Get School by ID
+     * 
+     * Responds with a specific School by its ID
+     * - Rules of Access
+     *   - User is admin or in school
+     * - Filters
+     *   - ?with_schools
      */
     public function show(Request $request, SchoolFilters $filters, int $id) {
         $school = $this->service()->repo()->school($request->user(), $id, $filters);
@@ -30,6 +36,12 @@ class SchoolController extends ApiController
 
     /**
      * Get Schools
+     * 
+     * Responds with a list of Schools
+     * - Rules of Access
+     *   - User is admin or in school
+     * - Filters
+     *   - ?with_schools
      */
     public function index(Request $request, SchoolFilters $filters) {
         return $this->service()->repo()->schools($request->user(), $filters);
@@ -37,6 +49,11 @@ class SchoolController extends ApiController
 
     /**
      * Delete School
+     * 
+     * Removes a School from the System by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the School belongs to
      */
     public function destroy(Request $request, int $id) {
         $school = $this->service()->repo()->school($request->user(), $id);
@@ -47,6 +64,8 @@ class SchoolController extends ApiController
 
     /**
      * Create School
+     * 
+     * Supply School information to create a new one
      */
     public function store(SchoolRequest $request) {
         $school = $this->service()->repo()->create($request->user(), $request->all());
@@ -55,6 +74,11 @@ class SchoolController extends ApiController
 
     /**
      * Update School
+     * 
+     * Modify information about an existing School by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the School belongs to
      */
     public function update(Request $request, int $id) {
         $school = $this->service()->repo()->school($request->user(), $id);
