@@ -21,6 +21,17 @@ class StudentTakesCourseController extends ApiController
 
     /**
      * Get Student-Takes-Course by ID
+     * 
+     * Responds with a specific Student-Takes-Course by its ID
+     * - Rules of Access
+     *   - User is same school
+     * - Filters
+     *   - ?with_student
+     *   - ?with_staff_courses
+     *   - ?with_semester
+     *   - ?with_staff
+     *   - ?with_course
+     *   - ?with_school
      */
     public function show(Request $request, StudentTakesCourseFilters $filters, $id) {
         $studentCourse = $this->service()->repo()->single($id, $filters);
@@ -30,6 +41,17 @@ class StudentTakesCourseController extends ApiController
 
     /**
      * Get Student-Takes-Course List
+     * 
+     * Responds with a list of Student-Takes-Course info
+     * - Rules of Access
+     *   - User is same school
+     * - Filters
+     *   - ?with_student
+     *   - ?with_staff_courses
+     *   - ?with_semester
+     *   - ?with_staff
+     *   - ?with_course
+     *   - ?with_school
      */
     public function index(Request $request, StudentTakesCourseFilters $filters) {
         $studentCourse = $this->service()->repo()->list($request->user(), $filters);
@@ -38,6 +60,13 @@ class StudentTakesCourseController extends ApiController
 
     /**
      * Delete Student-Takes-Course
+     * 
+     * Removes a Student-Takes-Course entry from the System by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school or
+     *  - User is a Dean in faculty or
+     *  - User is an HOD in department
      */
     public function destroy(Request $request, $id) {
         $studentCourse = $this->service()->repo()->single($id);
@@ -48,6 +77,12 @@ class StudentTakesCourseController extends ApiController
 
     /**
      * Create Student-Takes-Course
+     * 
+     * Supply Student-Takes-Course information to create a new one
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User is a SCHOOL_OWNER or DEAN of HOD in school and or
+     *  - User is student
      */
     public function store(StudentTakesCourseRequest $request) {
         $studentCourse = $this->service()->create($request->all());
@@ -56,6 +91,14 @@ class StudentTakesCourseController extends ApiController
 
     /**
      * Update Student-Takes-Course
+     * 
+     * Modify information about an existing Student-Takes-Course by ID
+     * - Rules of Access
+     *  - Student, Staff, Course and Semester are in the same school and
+     *  - User is an ADMIN or
+     *  - User owns school or
+     *  - User is a Dean in faculty or
+     *  - User is an HOD in department
      */
     public function update(Request $request, $id) {
         $studentCourse = $this->service()->repo()->single($id);
