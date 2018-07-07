@@ -16,7 +16,8 @@ toc_footers:
 # Info
 
 Welcome to the generated API reference.
-[Get Postman Collection](http://zaportal.dev/docs/collection.json)
+[Get Postman Collection](http://localhost:8000/docs/collection.json)
+
 <!-- END_INFO -->
 
 #general
