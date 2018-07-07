@@ -3,19 +3,21 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
-use App\Models\StaffTeachCourse;
-use App\Models\Student;
-use App\Models\StudentTakesCourse;
 use App\User;
 use App\Models\Staff;
+use App\Models\Course;
+use App\Models\School;
+use App\Models\Student;
 use App\Models\GradeType;
+use App\Models\StaffTeachCourse;
+use App\Models\StudentTakesCourse;
 
 /**
  * App\Models\Grade
  *
  * @property int $id
  * @property int $student_takes_course_id
- * @property int $score
+ * @property float $score
  * @property string $description
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -28,23 +30,44 @@ use App\Models\GradeType;
  */
 class Grade extends BaseModel
 {
-    public function type() {
-        return $this->belongsTo(GradeType::class);
-    }
+    protected $fillable = [ 'student_takes_course_id', 'score', 'description' ];
 
     function studentTakesCourse() {
         return $this->belongsTo(StudentTakesCourse::class);
     }
 
-    public function student() {
-        return $this->studentTakesCourse()->student();
+    public function scopeStudent() {
+        $ids = $this->studentTakesCourse()->pluck('student_id');
+        return Student::whereIn('id', $ids);
     }
 
-    public function staff() {
-        return $this->studentTakesCourse()->staff();
+    public function scopeStaffTeachCourse() {
+        $ids = $this->studentTakesCourse()->pluck('staff_teach_course_id');
+        return StaffTeachCourse::whereIn('id', $ids);
     }
 
-    public function course() {
-        return $this->studentTakesCourse()->course();
+    public function scopeStaff() {
+        $ids = $this->staffTeachCourse()->pluck('staff_id');
+        return Staff::whereIn('id', $ids);
+    }
+
+    public function scopeCourse() {
+        $ids = $this->staffTeachCourse()->pluck('course_id');
+        return Course::whereIn('id', $ids);
+    }
+
+    public function scopeSchool() {
+        $ids = $this->student()->pluck('school_id');
+        return School::whereIn('id', $ids);
+    }
+
+    public function scopeUser() {
+        $ids = $this->student()->pluck('user_id');
+        return User::whereIn('id', $ids);
+    }
+
+    public function scopeTotal($query, $student_takes_course_id = null) {
+        return $this->where('student_takes_course_id', $student_takes_course_id ?? $this->student_takes_course_id)
+                    ->sum('score');
     }
 }

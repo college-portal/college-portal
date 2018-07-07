@@ -15,7 +15,15 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Models\Course::class, function (Faker $faker) {
     return [
-        'title' => $faker->name,
+        'title' => $faker->randomElement(array(
+            'Basic Algebra',
+            'Discrete Mathematics',
+            'Algorithms and Data Structures',
+            'Kinematics',
+            'Physical Sciences',
+            'Oscillatory Motion',
+            'Signal Analysis'
+        )),
         'code' => ($faker->currencyCode . $faker->numberBetween(100, 200)),
         'credit' => $faker->numberBetween(1, 6)
     ];

@@ -21,6 +21,7 @@ class RelStudentCourse extends Migration
             $table->foreign('staff_teach_course_id')->references('id')->on(StaffTeachCourse::name());
             $table->foreign('semester_id')->references('id')->on(Semester::name());
             $table->foreign('student_id')->references('id')->on(Student::name());
+            $table->unique([ 'staff_teach_course_id', 'semester_id', 'student_id' ], 'student_takes_course_unique');
         });
     }
 
@@ -35,6 +36,7 @@ class RelStudentCourse extends Migration
             $table->dropForeign([ 'staff_teach_course_id' ]);
             $table->dropForeign([ 'semester_id' ]);
             $table->dropForeign([ 'student_id' ]);
+            $table->dropUnique('student_takes_course_unique');
         });
     }
 }

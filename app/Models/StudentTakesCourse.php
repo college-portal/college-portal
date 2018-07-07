@@ -5,7 +5,10 @@ namespace App\Models;
 use App\Models\BaseModel;
 use App\Models\StaffTeachCourse;
 use App\Models\Semester;
+use App\Models\SemesterType;
+use App\Models\Staff;
 use App\Models\Student;
+use App\Models\School;
 
 /**
  * App\Models\StudentTakesCourse
@@ -24,15 +27,38 @@ use App\Models\Student;
  */
 class StudentTakesCourse extends BaseModel
 {
+    protected $fillable = [ 'student_id', 'staff_teach_course_id', 'semester_id' ];
+
+    protected $table = 'student_takes_courses';
+
     public function student() {
         return $this->belongsTo(Student::class);
     }
 
-    public function staff() {
-        return $this->belongsTo(StaffTeachCourse::class)->staff();
+    public function staffCourses() {
+        return $this->belongsToMany(StaffTeachCourse::class, self::name(), 'id', 'staff_teach_course_id');
     }
 
     public function semester() {
         return $this->belongsTo(Semester::class);
+    }
+
+    public function staff() {
+        return $this->staffCourses()
+                    ->join(Staff::name(), 'staff.id', '=', 'staff_teach_courses.staff_id')
+                    ->select('staff.*');
+    }
+
+    public function course() {
+        return $this->staffCourses()
+                    ->join(Course::name(), 'courses.id', '=', 'staff_teach_courses.course_id')
+                    ->select('courses.*');
+    }
+
+    public function scopeSchool() {
+        return $this->belongsToMany(Semester::class, self::name(), 'id', 'semester_id')
+                    ->join(SemesterType::name(), 'semester_types.id', '=', 'semesters.semester_type_id')
+                    ->join(School::name(), 'schools.id', '=', 'semester_types.school_id')
+                    ->select('schools.*');
     }
 }

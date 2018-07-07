@@ -24,11 +24,18 @@ use App\User;
  */
 class StaffTeachCourse extends BaseModel
 {
+    protected $fillable = [ 'staff_id', 'course_id' ];
+
     public function course() {
         return $this->belongsTo(Course::class);
     }
 
     public function staff() {
         return $this->belongsTo(Staff::class);
+    }
+
+    public function scopeSchool() {
+        $ids = $this->staff()->pluck('school_id');
+        return School::whereIn('id', $ids);
     }
 }

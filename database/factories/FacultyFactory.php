@@ -13,11 +13,8 @@ use Faker\Generator as Faker;
 |
 */
 
-$nameFactoryFunction = function (Faker $faker) {
+$factory->define(App\Models\Faculty::class, function (Faker $faker) {
     return [
-        'name' => $faker->name
+        'name' => 'Science and Technology'
     ];
-};
-
-$factory->define(App\Models\Department::class, $nameFactoryFunction);
-$factory->define(App\Models\Faculty::class, $nameFactoryFunction);
+});

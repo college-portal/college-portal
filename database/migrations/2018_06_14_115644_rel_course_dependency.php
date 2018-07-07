@@ -18,6 +18,7 @@ class RelCourseDependency extends Migration
         Schema::table(CourseDependency::name(), function (Blueprint $table) {
             $table->foreign('course_id')->references('id')->on(Course::name());
             $table->foreign('dependency_id')->references('id')->on(Course::name());
+            $table->unique([ 'course_id', 'dependency_id' ]);
         });
     }
 
@@ -31,6 +32,7 @@ class RelCourseDependency extends Migration
         Schema::table(CourseDependency::name(), function (Blueprint $table) {
             $table->dropForeign([ 'course_id' ]);
             $table->dropForeign([ 'dependency_id' ]);
+            $table->dropUnique([ 'course_id', 'dependency_id' ]);
         });
     }
 }

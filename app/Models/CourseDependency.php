@@ -19,6 +19,8 @@ use App\Models\Course;
  */
 class CourseDependency extends BaseModel
 {
+    protected $fillable = [ 'course_id', 'dependency_id' ];
+
     public function course() {
         return $this->belongsTo(Course::class);
     }

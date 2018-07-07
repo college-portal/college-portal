@@ -23,6 +23,13 @@ use App\Models\RoleHasPermission;
  */
 class Role extends BaseModel
 {
+    public const ADMIN = 'admin';
+    public const STAFF = 'staff';
+    public const STUDENT = 'student';
+    public const SCHOOL_OWNER = 'school-owner';
+    public const HOD = 'hod';
+    public const DEAN = 'dean';
+
     public function permissions() {
         return $this->hasMany(Permission::class, RoleHasPermission::name());
     }
