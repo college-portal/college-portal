@@ -28,7 +28,7 @@ Uses basic authentication and returns a Json Web Token
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/auth" \
+curl -X POST "http://localhost:8000/api/auth" \
 -H "Accept: application/json"
 ```
 
@@ -36,7 +36,7 @@ curl -X POST "http://zaportal.dev/api/auth" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/auth",
+    "url": "http://localhost:8000/api/auth",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -63,7 +63,7 @@ Retrieve information about the current authenticated user
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/user" \
+curl -X GET "http://localhost:8000/api/user" \
 -H "Accept: application/json"
 ```
 
@@ -71,7 +71,7 @@ curl -X GET "http://zaportal.dev/api/user" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/user",
+    "url": "http://localhost:8000/api/user",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -93,9 +93,9 @@ $.ajax(settings).done(function (response) {
     "last_name": "Orlando",
     "other_names": null,
     "display_name": "Owner Orlando",
-    "dob": "1957-12-18",
-    "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 18:14:09"
+    "dob": "1963-11-01",
+    "created_at": "2018-07-07 11:03:16",
+    "updated_at": "2018-07-07 11:03:16"
 }
 ```
 
@@ -110,10 +110,16 @@ $.ajax(settings).done(function (response) {
 <!-- START_e51aeda29969b51e7035a2b96d978ef3 -->
 ## Get Schools
 
+Responds with a list of Schools
+- Rules of Access
+  - User is admin or in school
+- Filters
+  - ?with_schools
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/schools" \
+curl -X GET "http://localhost:8000/api/schools" \
 -H "Accept: application/json"
 ```
 
@@ -121,7 +127,7 @@ curl -X GET "http://zaportal.dev/api/schools" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools",
+    "url": "http://localhost:8000/api/schools",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -143,13 +149,13 @@ $.ajax(settings).done(function (response) {
         "short_name": "UI",
         "owner_id": 1,
         "is_active": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-05 18:14:11",
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16",
         "pivot": {
             "user_id": 1,
             "school_id": 1,
-            "created_at": "2018-07-04 10:57:12",
-            "updated_at": "2018-07-04 10:57:12"
+            "created_at": "2018-07-07 11:03:16",
+            "updated_at": "2018-07-07 11:03:16"
         }
     }
 ]
@@ -166,10 +172,12 @@ $.ajax(settings).done(function (response) {
 <!-- START_d290b49f6ab037b29f928b0181113d60 -->
 ## Create School
 
+Supply School information to create a new one
+
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/schools" \
+curl -X POST "http://localhost:8000/api/schools" \
 -H "Accept: application/json" \
     -d "name"="assumenda" \
     -d "short_name"="assumenda" \
@@ -181,7 +189,7 @@ curl -X POST "http://zaportal.dev/api/schools" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools",
+    "url": "http://localhost:8000/api/schools",
     "method": "POST",
     "data": {
         "name": "assumenda",
@@ -215,10 +223,16 @@ Parameter | Type | Status | Description
 <!-- START_862296e54f319c85cabc63651980e5de -->
 ## Get School by ID
 
+Responds with a specific School by its ID
+- Rules of Access
+  - User is admin or in school
+- Filters
+  - ?with_schools
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/schools/{school}" \
+curl -X GET "http://localhost:8000/api/schools/{school}" \
 -H "Accept: application/json"
 ```
 
@@ -226,7 +240,7 @@ curl -X GET "http://zaportal.dev/api/schools/{school}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school}",
+    "url": "http://localhost:8000/api/schools/{school}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -247,13 +261,13 @@ $.ajax(settings).done(function (response) {
     "short_name": "UI",
     "owner_id": 1,
     "is_active": 1,
-    "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 18:14:11",
+    "created_at": "2018-07-07 11:03:16",
+    "updated_at": "2018-07-07 11:03:16",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     }
 }
 ```
@@ -269,10 +283,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_85e6256a1bed7221faf44b3f695d2cb0 -->
 ## Update School
 
+Modify information about an existing School by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns the School
+
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/schools/{school}" \
+curl -X PUT "http://localhost:8000/api/schools/{school}" \
 -H "Accept: application/json"
 ```
 
@@ -280,7 +299,7 @@ curl -X PUT "http://zaportal.dev/api/schools/{school}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school}",
+    "url": "http://localhost:8000/api/schools/{school}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -304,10 +323,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_ae812fba78695c4d4e2b414d2afe7fa9 -->
 ## Delete School
 
+Removes a School from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns the School
+
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/schools/{school}" \
+curl -X DELETE "http://localhost:8000/api/schools/{school}" \
 -H "Accept: application/json"
 ```
 
@@ -315,7 +339,7 @@ curl -X DELETE "http://zaportal.dev/api/schools/{school}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school}",
+    "url": "http://localhost:8000/api/schools/{school}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -337,10 +361,17 @@ $.ajax(settings).done(function (response) {
 <!-- START_da5727be600e4865c1b632f7745c8e91 -->
 ## Get Users
 
+Responds with a list of Users
+- Rules of Access
+  - User is same school
+- Filters
+  - ?with_staff
+  - ?with_students
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/users" \
+curl -X GET "http://localhost:8000/api/users" \
 -H "Accept: application/json"
 ```
 
@@ -348,7 +379,7 @@ curl -X GET "http://zaportal.dev/api/users" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/users",
+    "url": "http://localhost:8000/api/users",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -371,9 +402,9 @@ $.ajax(settings).done(function (response) {
             "last_name": "Daniels",
             "other_names": null,
             "display_name": "Dean Daniels",
-            "dob": "1948-02-02",
-            "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T18:14:11+00:00"
+            "dob": "1985-09-23",
+            "created_at": "2018-07-07T11:03:16+00:00",
+            "updated_at": "2018-07-07T11:03:16+00:00"
         },
         {
             "id": 1,
@@ -381,9 +412,9 @@ $.ajax(settings).done(function (response) {
             "last_name": "Daniels",
             "other_names": null,
             "display_name": "Dean Daniels",
-            "dob": "1948-02-02",
-            "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T18:14:11+00:00"
+            "dob": "1985-09-23",
+            "created_at": "2018-07-07T11:03:16+00:00",
+            "updated_at": "2018-07-07T11:03:16+00:00"
         },
         {
             "id": 1,
@@ -391,39 +422,39 @@ $.ajax(settings).done(function (response) {
             "last_name": "Daniels",
             "other_names": null,
             "display_name": "Dean Daniels",
-            "dob": "1948-02-02",
-            "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T18:14:11+00:00"
+            "dob": "1985-09-23",
+            "created_at": "2018-07-07T11:03:16+00:00",
+            "updated_at": "2018-07-07T11:03:16+00:00"
         },
         {
             "id": 1,
-            "first_name": "Katlynn",
-            "last_name": "Wolf",
+            "first_name": "Amari",
+            "last_name": "Stroman",
             "other_names": null,
-            "display_name": "Katlynn Wolf",
-            "dob": "1967-03-07",
-            "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T18:14:11+00:00"
+            "display_name": "Amari Stroman",
+            "dob": "1956-10-08",
+            "created_at": "2018-07-07T11:03:16+00:00",
+            "updated_at": "2018-07-07T11:03:16+00:00"
         },
         {
             "id": 1,
-            "first_name": "Skyla",
-            "last_name": "King",
+            "first_name": "Jessica",
+            "last_name": "Stroman",
             "other_names": null,
-            "display_name": "Skyla King",
-            "dob": "1957-07-05",
-            "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T18:14:11+00:00"
+            "display_name": "Jessica Stroman",
+            "dob": "1977-07-06",
+            "created_at": "2018-07-07T11:03:16+00:00",
+            "updated_at": "2018-07-07T11:03:16+00:00"
         },
         {
             "id": 1,
-            "first_name": "Gordon",
-            "last_name": "Toy",
+            "first_name": "Maynard",
+            "last_name": "Hoppe",
             "other_names": null,
-            "display_name": "Gordon Toy",
-            "dob": "1960-01-02",
-            "created_at": "2018-07-04T10:57:12+00:00",
-            "updated_at": "2018-07-05T18:14:11+00:00"
+            "display_name": "Maynard Hoppe",
+            "dob": "1982-04-01",
+            "created_at": "2018-07-07T11:03:16+00:00",
+            "updated_at": "2018-07-07T11:03:16+00:00"
         }
     ]
 }
@@ -440,10 +471,12 @@ $.ajax(settings).done(function (response) {
 <!-- START_12e37982cc5398c7100e59625ebb5514 -->
 ## Create User
 
+Supply User information to create a new one
+
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/users" \
+curl -X POST "http://localhost:8000/api/users" \
 -H "Accept: application/json" \
     -d "first_name"="ut" \
     -d "last_name"="ut" \
@@ -457,7 +490,7 @@ curl -X POST "http://zaportal.dev/api/users" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/users",
+    "url": "http://localhost:8000/api/users",
     "method": "POST",
     "data": {
         "first_name": "ut",
@@ -495,10 +528,17 @@ Parameter | Type | Status | Description
 <!-- START_8f99b42746e451f8dc43742e118cb47b -->
 ## Get User by ID
 
+Responds with a specific User by its ID
+- Rules of Access
+  - User is same school
+- Filters
+  - ?with_staff
+  - ?with_students
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/users/{user}" \
+curl -X GET "http://localhost:8000/api/users/{user}" \
 -H "Accept: application/json"
 ```
 
@@ -506,7 +546,7 @@ curl -X GET "http://zaportal.dev/api/users/{user}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/users/{user}",
+    "url": "http://localhost:8000/api/users/{user}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -528,9 +568,9 @@ $.ajax(settings).done(function (response) {
     "last_name": "Orlando",
     "other_names": null,
     "display_name": "Owner Orlando",
-    "dob": "1957-12-18",
-    "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 18:14:09"
+    "dob": "1963-11-01",
+    "created_at": "2018-07-07 11:03:16",
+    "updated_at": "2018-07-07 11:03:16"
 }
 ```
 
@@ -545,10 +585,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_48a3115be98493a3c866eb0e23347262 -->
 ## Update User
 
+Modify information about an existing User by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User is updating his/her own account
+
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/users/{user}" \
+curl -X PUT "http://localhost:8000/api/users/{user}" \
 -H "Accept: application/json"
 ```
 
@@ -556,7 +601,7 @@ curl -X PUT "http://zaportal.dev/api/users/{user}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/users/{user}",
+    "url": "http://localhost:8000/api/users/{user}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -580,10 +625,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_d2db7a9fe3abd141d5adbc367a88e969 -->
 ## Delete User
 
+Removes a User from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User is deleting his/her own account
+
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/users/{user}" \
+curl -X DELETE "http://localhost:8000/api/users/{user}" \
 -H "Accept: application/json"
 ```
 
@@ -591,7 +641,7 @@ curl -X DELETE "http://zaportal.dev/api/users/{user}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/users/{user}",
+    "url": "http://localhost:8000/api/users/{user}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -626,7 +676,7 @@ Responds with a list of Faculties
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/faculties" \
+curl -X GET "http://localhost:8000/api/faculties" \
 -H "Accept: application/json"
 ```
 
@@ -634,7 +684,7 @@ curl -X GET "http://zaportal.dev/api/faculties" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/faculties",
+    "url": "http://localhost:8000/api/faculties",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -655,8 +705,8 @@ $.ajax(settings).done(function (response) {
         "name": "Science and Technology",
         "dean_id": 1,
         "school_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-05 18:14:09",
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16",
         "deleted_at": null
     }
 ]
@@ -681,7 +731,7 @@ Supply Faculty information to create a new one
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/faculties" \
+curl -X POST "http://localhost:8000/api/faculties" \
 -H "Accept: application/json" \
     -d "name"="sed" \
     -d "school_id"="25" \
@@ -693,7 +743,7 @@ curl -X POST "http://zaportal.dev/api/faculties" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/faculties",
+    "url": "http://localhost:8000/api/faculties",
     "method": "POST",
     "data": {
         "name": "sed",
@@ -740,7 +790,7 @@ Responds with a specific Faculty by its ID
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/faculties/{faculty}" \
+curl -X GET "http://localhost:8000/api/faculties/{faculty}" \
 -H "Accept: application/json"
 ```
 
@@ -748,7 +798,7 @@ curl -X GET "http://zaportal.dev/api/faculties/{faculty}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/faculties/{faculty}",
+    "url": "http://localhost:8000/api/faculties/{faculty}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -768,8 +818,8 @@ $.ajax(settings).done(function (response) {
     "name": "Science and Technology",
     "dean_id": 1,
     "school_id": 1,
-    "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 18:14:09",
+    "created_at": "2018-07-07 11:03:16",
+    "updated_at": "2018-07-07 11:03:16",
     "deleted_at": null
 }
 ```
@@ -794,7 +844,7 @@ Modify information about an existing Faculty by ID
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/faculties/{faculty}" \
+curl -X PUT "http://localhost:8000/api/faculties/{faculty}" \
 -H "Accept: application/json"
 ```
 
@@ -802,7 +852,7 @@ curl -X PUT "http://zaportal.dev/api/faculties/{faculty}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/faculties/{faculty}",
+    "url": "http://localhost:8000/api/faculties/{faculty}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -835,7 +885,7 @@ Removes a Faculty from the System by ID
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/faculties/{faculty}" \
+curl -X DELETE "http://localhost:8000/api/faculties/{faculty}" \
 -H "Accept: application/json"
 ```
 
@@ -843,7 +893,7 @@ curl -X DELETE "http://zaportal.dev/api/faculties/{faculty}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/faculties/{faculty}",
+    "url": "http://localhost:8000/api/faculties/{faculty}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -878,7 +928,7 @@ Responds with a list of Departments
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/departments" \
+curl -X GET "http://localhost:8000/api/departments" \
 -H "Accept: application/json"
 ```
 
@@ -886,7 +936,7 @@ curl -X GET "http://zaportal.dev/api/departments" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/departments",
+    "url": "http://localhost:8000/api/departments",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -907,8 +957,8 @@ $.ajax(settings).done(function (response) {
         "name": "Chemistry",
         "hod_id": 1,
         "faculty_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-05 18:14:09"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     }
 ]
 ```
@@ -933,7 +983,7 @@ Supply Department information to create a new one
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/departments" \
+curl -X POST "http://localhost:8000/api/departments" \
 -H "Accept: application/json" \
     -d "name"="dolorum" \
     -d "hod_id"="487700" \
@@ -945,7 +995,7 @@ curl -X POST "http://zaportal.dev/api/departments" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/departments",
+    "url": "http://localhost:8000/api/departments",
     "method": "POST",
     "data": {
         "name": "dolorum",
@@ -992,7 +1042,7 @@ Responds with a specific Department by its ID
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/departments/{department}" \
+curl -X GET "http://localhost:8000/api/departments/{department}" \
 -H "Accept: application/json"
 ```
 
@@ -1000,7 +1050,7 @@ curl -X GET "http://zaportal.dev/api/departments/{department}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/departments/{department}",
+    "url": "http://localhost:8000/api/departments/{department}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -1020,8 +1070,8 @@ $.ajax(settings).done(function (response) {
     "name": "Chemistry",
     "hod_id": 1,
     "faculty_id": 1,
-    "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 18:14:09"
+    "created_at": "2018-07-07 11:03:16",
+    "updated_at": "2018-07-07 11:03:16"
 }
 ```
 
@@ -1046,7 +1096,7 @@ Modify information about an existing Department by ID
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/departments/{department}" \
+curl -X PUT "http://localhost:8000/api/departments/{department}" \
 -H "Accept: application/json"
 ```
 
@@ -1054,7 +1104,7 @@ curl -X PUT "http://zaportal.dev/api/departments/{department}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/departments/{department}",
+    "url": "http://localhost:8000/api/departments/{department}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -1088,7 +1138,7 @@ Removes a Department from the System by ID
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/departments/{department}" \
+curl -X DELETE "http://localhost:8000/api/departments/{department}" \
 -H "Accept: application/json"
 ```
 
@@ -1096,7 +1146,7 @@ curl -X DELETE "http://zaportal.dev/api/departments/{department}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/departments/{department}",
+    "url": "http://localhost:8000/api/departments/{department}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -1118,10 +1168,16 @@ $.ajax(settings).done(function (response) {
 <!-- START_e75eb1d616a7c047f8e23de26a73eae9 -->
 ## Get Programs
 
+Responds with a list of Programs
+- Rules of Access
+  - User is same school as program
+- Filters
+  - ?with_departments
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/programs" \
+curl -X GET "http://localhost:8000/api/programs" \
 -H "Accept: application/json"
 ```
 
@@ -1129,7 +1185,7 @@ curl -X GET "http://zaportal.dev/api/programs" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/programs",
+    "url": "http://localhost:8000/api/programs",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -1147,10 +1203,10 @@ $.ajax(settings).done(function (response) {
 [
     {
         "id": 1,
-        "name": "Data Analysis",
+        "name": "Library Studies",
         "department_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-05 18:14:09"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     }
 ]
 ```
@@ -1166,10 +1222,17 @@ $.ajax(settings).done(function (response) {
 <!-- START_f23415d8a8c84bb895710ecc0b704704 -->
 ## Create Program
 
+Supply Program information to create a new one
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Program belongs to
+ - User is Dean of Program's faculty
+ - User is HOD of Program's department
+
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/programs" \
+curl -X POST "http://localhost:8000/api/programs" \
 -H "Accept: application/json" \
     -d "name"="et" \
     -d "department_id"="18670618" \
@@ -1180,7 +1243,7 @@ curl -X POST "http://zaportal.dev/api/programs" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/programs",
+    "url": "http://localhost:8000/api/programs",
     "method": "POST",
     "data": {
         "name": "et",
@@ -1212,10 +1275,16 @@ Parameter | Type | Status | Description
 <!-- START_86d53e9643d43f01a320bf290a1bf1f6 -->
 ## Get Program by ID
 
+Responds with a specific Program by its ID
+- Rules of Access
+  - User is same school as program
+- Filters
+  - ?with_departments
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/programs/{program}" \
+curl -X GET "http://localhost:8000/api/programs/{program}" \
 -H "Accept: application/json"
 ```
 
@@ -1223,7 +1292,7 @@ curl -X GET "http://zaportal.dev/api/programs/{program}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/programs/{program}",
+    "url": "http://localhost:8000/api/programs/{program}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -1240,10 +1309,10 @@ $.ajax(settings).done(function (response) {
 ```json
 {
     "id": 1,
-    "name": "Data Analysis",
+    "name": "Library Studies",
     "department_id": 1,
-    "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 18:14:09"
+    "created_at": "2018-07-07 11:03:16",
+    "updated_at": "2018-07-07 11:03:16"
 }
 ```
 
@@ -1258,10 +1327,17 @@ $.ajax(settings).done(function (response) {
 <!-- START_d005858bc6b7b52ffe5a56bb184310bd -->
 ## Update Program
 
+Modify information about an existing Program by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Program belongs to
+ - User is Dean of Program's faculty
+ - User is HOD of Program's department
+
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/programs/{program}" \
+curl -X PUT "http://localhost:8000/api/programs/{program}" \
 -H "Accept: application/json"
 ```
 
@@ -1269,7 +1345,7 @@ curl -X PUT "http://zaportal.dev/api/programs/{program}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/programs/{program}",
+    "url": "http://localhost:8000/api/programs/{program}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -1293,10 +1369,17 @@ $.ajax(settings).done(function (response) {
 <!-- START_9fe7eacc4db501466b4abf06986f2c77 -->
 ## Delete Program
 
+Removes a Program from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Program belongs to
+ - User is Dean of Program's faculty
+ - User is HOD of Program's department
+
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/programs/{program}" \
+curl -X DELETE "http://localhost:8000/api/programs/{program}" \
 -H "Accept: application/json"
 ```
 
@@ -1304,7 +1387,7 @@ curl -X DELETE "http://zaportal.dev/api/programs/{program}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/programs/{program}",
+    "url": "http://localhost:8000/api/programs/{program}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -1326,10 +1409,14 @@ $.ajax(settings).done(function (response) {
 <!-- START_93cdf9b2f9623052a54b92ab126b0613 -->
 ## Get Levels
 
+Responds with a list of Levels
+- Rules of Access
+  - User is in the same school
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/schools/{school_id}/levels" \
+curl -X GET "http://localhost:8000/api/schools/{school_id}/levels" \
 -H "Accept: application/json"
 ```
 
@@ -1337,7 +1424,7 @@ curl -X GET "http://zaportal.dev/api/schools/{school_id}/levels" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/levels",
+    "url": "http://localhost:8000/api/schools/{school_id}/levels",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -1357,29 +1444,29 @@ $.ajax(settings).done(function (response) {
         "id": 1,
         "name": "100L",
         "school_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 2,
         "name": "200L",
         "school_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 3,
         "name": "300L",
         "school_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 4,
         "name": "400L",
         "school_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     }
 ]
 ```
@@ -1395,10 +1482,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_a25ccd3f64819ae565d1984f65208097 -->
 ## Create Level
 
+Supply Level information to create a new one
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Level belongs to
+
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/schools/{school_id}/levels" \
+curl -X POST "http://localhost:8000/api/schools/{school_id}/levels" \
 -H "Accept: application/json" \
     -d "name"="eos" \
 
@@ -1408,7 +1500,7 @@ curl -X POST "http://zaportal.dev/api/schools/{school_id}/levels" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/levels",
+    "url": "http://localhost:8000/api/schools/{school_id}/levels",
     "method": "POST",
     "data": {
         "name": "eos"
@@ -1438,10 +1530,14 @@ Parameter | Type | Status | Description
 <!-- START_d02823935f7591612a419a2a09ed4cd3 -->
 ## Get Level by ID
 
+Responds with a specific Level by its ID
+- Rules of Access
+  - User is in the same school
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/schools/{school_id}/levels/{level}" \
+curl -X GET "http://localhost:8000/api/schools/{school_id}/levels/{level}" \
 -H "Accept: application/json"
 ```
 
@@ -1449,7 +1545,7 @@ curl -X GET "http://zaportal.dev/api/schools/{school_id}/levels/{level}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/levels/{level}",
+    "url": "http://localhost:8000/api/schools/{school_id}/levels/{level}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -1470,13 +1566,13 @@ $.ajax(settings).done(function (response) {
     "short_name": "UI",
     "owner_id": 1,
     "is_active": 1,
-    "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 18:14:11",
+    "created_at": "2018-07-07 11:03:16",
+    "updated_at": "2018-07-07 11:03:16",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     }
 }
 ```
@@ -1492,10 +1588,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_f4d441f9577cc5154603c1f0f6798b65 -->
 ## Update Level
 
+Modify information about an existing Level by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Level belongs to
+
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/schools/{school_id}/levels/{level}" \
+curl -X PUT "http://localhost:8000/api/schools/{school_id}/levels/{level}" \
 -H "Accept: application/json"
 ```
 
@@ -1503,7 +1604,7 @@ curl -X PUT "http://zaportal.dev/api/schools/{school_id}/levels/{level}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/levels/{level}",
+    "url": "http://localhost:8000/api/schools/{school_id}/levels/{level}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -1527,10 +1628,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_42b9e113ffe8d5e8779cbf3ff355c41d -->
 ## Delete Level
 
+Removes a Level from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Level belongs to
+
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/schools/{school_id}/levels/{level}" \
+curl -X DELETE "http://localhost:8000/api/schools/{school_id}/levels/{level}" \
 -H "Accept: application/json"
 ```
 
@@ -1538,7 +1644,7 @@ curl -X DELETE "http://zaportal.dev/api/schools/{school_id}/levels/{level}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/levels/{level}",
+    "url": "http://localhost:8000/api/schools/{school_id}/levels/{level}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -1560,10 +1666,19 @@ $.ajax(settings).done(function (response) {
 <!-- START_e22068e5b34cd9ff059322f3a3ec5c2e -->
 ## Get Students
 
+Responds with a list of Students
+- Rules of Access
+  - User is same school as Student
+- Filters
+  - ?program={id}
+  - ?matric={no}
+  - ?with_user
+  - ?with_program
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/students" \
+curl -X GET "http://localhost:8000/api/students" \
 -H "Accept: application/json"
 ```
 
@@ -1571,7 +1686,7 @@ curl -X GET "http://zaportal.dev/api/students" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/students",
+    "url": "http://localhost:8000/api/students",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -1588,22 +1703,31 @@ $.ajax(settings).done(function (response) {
 ```json
 [
     {
+        "id": 1,
+        "user_id": 3,
+        "program_id": 1,
+        "matric_no": "UNI431",
+        "is_active": 1,
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
+    },
+    {
         "id": 2,
         "user_id": 4,
         "program_id": 1,
-        "matric_no": "UNI683",
+        "matric_no": "UNI317",
         "is_active": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 3,
         "user_id": 5,
         "program_id": 1,
-        "matric_no": "UNI757",
+        "matric_no": "UNI126",
         "is_active": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     }
 ]
 ```
@@ -1619,10 +1743,17 @@ $.ajax(settings).done(function (response) {
 <!-- START_058e6d0cac82649086bbc06fe88fd040 -->
 ## Create Student
 
+Supply Student information to create a new one
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Student belongs to or
+ - User is HOD in Student's department or
+ - User is Dean of Student's Faculty
+
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/students" \
+curl -X POST "http://localhost:8000/api/students" \
 -H "Accept: application/json" \
     -d "user_id"="10295" \
     -d "program_id"="10295" \
@@ -1634,7 +1765,7 @@ curl -X POST "http://zaportal.dev/api/students" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/students",
+    "url": "http://localhost:8000/api/students",
     "method": "POST",
     "data": {
         "user_id": 10295,
@@ -1668,10 +1799,19 @@ Parameter | Type | Status | Description
 <!-- START_0312bb71e4bdd9469395fd583d93f3c4 -->
 ## Get Student by ID
 
+Responds with a specific Student by its ID
+- Rules of Access
+  - User is same school as Student
+- Filters
+  - ?program={id}
+  - ?matric={no}
+  - ?with_user
+  - ?with_program
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/students/{student}" \
+curl -X GET "http://localhost:8000/api/students/{student}" \
 -H "Accept: application/json"
 ```
 
@@ -1679,7 +1819,7 @@ curl -X GET "http://zaportal.dev/api/students/{student}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/students/{student}",
+    "url": "http://localhost:8000/api/students/{student}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -1695,459 +1835,13 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\Student] 1",
-    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
-    "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-    "line": 199,
-    "trace": [
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-            "line": 175,
-            "function": "prepareException",
-            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Exceptions\/Handler.php",
-            "line": 49,
-            "function": "render",
-            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/nunomaduro\/collision\/src\/Adapters\/Laravel\/ExceptionHandler.php",
-            "line": 68,
-            "function": "render",
-            "class": "App\\Exceptions\\Handler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 83,
-            "function": "render",
-            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 32,
-            "function": "handleException",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Http\/Middleware\/AccessTokenSecurity.php",
-            "line": 32,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "App\\Http\\Middleware\\AccessTokenSecurity",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php",
-            "line": 41,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 104,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 667,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 642,
-            "function": "runRouteWithinStack",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 608,
-            "function": "runRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 597,
-            "function": "dispatchToRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 176,
-            "function": "dispatch",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 30,
-            "function": "Illuminate\\Foundation\\Http\\{closure}",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
-            "line": 57,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Fideloper\\Proxy\\TrustProxies",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
-            "line": 31,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
-            "line": 31,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
-            "line": 27,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 104,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 151,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 116,
-            "function": "sendRequestThroughRouter",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
-            "line": 116,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/AbstractGenerator.php",
-            "line": 98,
-            "function": "callRoute",
-            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
-            "line": 58,
-            "function": "getRouteResponse",
-            "class": "Mpociot\\ApiDoc\\Generators\\AbstractGenerator",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
-            "line": 261,
-            "function": "processRoute",
-            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
-            "line": 83,
-            "function": "processLaravelRoutes",
-            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
-            "type": "->"
-        },
-        {
-            "function": "handle",
-            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 29,
-            "function": "call_user_func_array"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 87,
-            "function": "Illuminate\\Container\\{closure}",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 31,
-            "function": "callBoundMethod",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
-            "line": 564,
-            "function": "call",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 184,
-            "function": "call",
-            "class": "Illuminate\\Container\\Container",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
-            "line": 251,
-            "function": "execute",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 171,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Command\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 199,
-            "function": "run",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
-            "function": "call",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "function": "handle",
-            "class": "App\\Console\\Commands\\GenerateDocsCommand",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 29,
-            "function": "call_user_func_array"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 87,
-            "function": "Illuminate\\Container\\{closure}",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 31,
-            "function": "callBoundMethod",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
-            "line": 564,
-            "function": "call",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 184,
-            "function": "call",
-            "class": "Illuminate\\Container\\Container",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
-            "line": 251,
-            "function": "execute",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 171,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Command\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
-            "line": 886,
-            "function": "run",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
-            "line": 262,
-            "function": "doRunCommand",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
-            "line": 145,
-            "function": "doRun",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
-            "line": 89,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
-            "line": 122,
-            "function": "run",
-            "class": "Illuminate\\Console\\Application",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/artisan",
-            "line": 37,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Console\\Kernel",
-            "type": "->"
-        }
-    ]
+    "id": 1,
+    "user_id": 3,
+    "program_id": 1,
+    "matric_no": "UNI431",
+    "is_active": 1,
+    "created_at": "2018-07-07 11:03:16",
+    "updated_at": "2018-07-07 11:03:16"
 }
 ```
 
@@ -2162,10 +1856,17 @@ $.ajax(settings).done(function (response) {
 <!-- START_f4798a6166743436fe98df7c0a10ea60 -->
 ## Update Student
 
+Modify information about an existing Student by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Student belongs to or
+ - User is HOD in Student's department or
+ - User is Dean of Student's Faculty
+
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/students/{student}" \
+curl -X PUT "http://localhost:8000/api/students/{student}" \
 -H "Accept: application/json"
 ```
 
@@ -2173,7 +1874,7 @@ curl -X PUT "http://zaportal.dev/api/students/{student}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/students/{student}",
+    "url": "http://localhost:8000/api/students/{student}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -2197,10 +1898,17 @@ $.ajax(settings).done(function (response) {
 <!-- START_9b6130181f7a43c0b235a243cf8e7980 -->
 ## Delete Student
 
+Removes a Student from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Student belongs to or
+ - User is HOD in Student's department or
+ - User is Dean of Student's Faculty
+
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/students/{student}" \
+curl -X DELETE "http://localhost:8000/api/students/{student}" \
 -H "Accept: application/json"
 ```
 
@@ -2208,7 +1916,7 @@ curl -X DELETE "http://zaportal.dev/api/students/{student}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/students/{student}",
+    "url": "http://localhost:8000/api/students/{student}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -2245,7 +1953,7 @@ Responds with a list of Courses
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/courses" \
+curl -X GET "http://localhost:8000/api/courses" \
 -H "Accept: application/json"
 ```
 
@@ -2253,7 +1961,7 @@ curl -X GET "http://zaportal.dev/api/courses" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/courses",
+    "url": "http://localhost:8000/api/courses",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -2274,88 +1982,88 @@ $.ajax(settings).done(function (response) {
         "department_id": 1,
         "semester_type_id": 1,
         "level_id": 1,
-        "code": "XOF147",
-        "title": "Physical Sciences",
-        "credit": 4,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-05 18:14:10"
+        "code": "FJD138",
+        "title": "Algorithms and Data Structures",
+        "credit": 1,
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 2,
         "department_id": 1,
         "semester_type_id": 1,
         "level_id": 2,
-        "code": "SBD124",
-        "title": "Basic Algebra",
-        "credit": 3,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "code": "HRK119",
+        "title": "Oscillatory Motion",
+        "credit": 1,
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 3,
         "department_id": 1,
         "semester_type_id": 1,
         "level_id": 3,
-        "code": "SHP117",
-        "title": "Kinematics",
+        "code": "CUC178",
+        "title": "Oscillatory Motion",
         "credit": 2,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 4,
         "department_id": 1,
         "semester_type_id": 1,
         "level_id": 4,
-        "code": "TND153",
-        "title": "Signal Analysis",
+        "code": "KHR101",
+        "title": "Discrete Mathematics",
         "credit": 5,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 5,
         "department_id": 1,
         "semester_type_id": 2,
         "level_id": 1,
-        "code": "RUB188",
-        "title": "Algorithms and Data Structures",
-        "credit": 2,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "code": "CUC190",
+        "title": "Physical Sciences",
+        "credit": 3,
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 6,
         "department_id": 1,
         "semester_type_id": 2,
         "level_id": 2,
-        "code": "BMD152",
-        "title": "Signal Analysis",
-        "credit": 5,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "code": "JPY109",
+        "title": "Algorithms and Data Structures",
+        "credit": 1,
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 7,
         "department_id": 1,
         "semester_type_id": 2,
         "level_id": 3,
-        "code": "BGN150",
-        "title": "Signal Analysis",
-        "credit": 4,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "code": "BZD112",
+        "title": "Oscillatory Motion",
+        "credit": 2,
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 8,
         "department_id": 1,
         "semester_type_id": 2,
         "level_id": 4,
-        "code": "TOP175",
-        "title": "Basic Algebra",
-        "credit": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "code": "CHF155",
+        "title": "Algorithms and Data Structures",
+        "credit": 5,
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     }
 ]
 ```
@@ -2382,7 +2090,7 @@ Supply Course information to create a new one
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/courses" \
+curl -X POST "http://localhost:8000/api/courses" \
 -H "Accept: application/json" \
     -d "department_id"="6090928" \
     -d "semester_type_id"="6090928" \
@@ -2397,7 +2105,7 @@ curl -X POST "http://zaportal.dev/api/courses" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/courses",
+    "url": "http://localhost:8000/api/courses",
     "method": "POST",
     "data": {
         "department_id": 6090928,
@@ -2452,7 +2160,7 @@ Responds with a specific course by its ID
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/courses/{course}" \
+curl -X GET "http://localhost:8000/api/courses/{course}" \
 -H "Accept: application/json"
 ```
 
@@ -2460,7 +2168,7 @@ curl -X GET "http://zaportal.dev/api/courses/{course}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/courses/{course}",
+    "url": "http://localhost:8000/api/courses/{course}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -2480,11 +2188,11 @@ $.ajax(settings).done(function (response) {
     "department_id": 1,
     "semester_type_id": 1,
     "level_id": 1,
-    "code": "XOF147",
-    "title": "Physical Sciences",
-    "credit": 4,
-    "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 18:14:10"
+    "code": "FJD138",
+    "title": "Algorithms and Data Structures",
+    "credit": 1,
+    "created_at": "2018-07-07 11:03:16",
+    "updated_at": "2018-07-07 11:03:16"
 }
 ```
 
@@ -2507,7 +2215,7 @@ Modify information about an existing Course by ID
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/courses/{course}" \
+curl -X PUT "http://localhost:8000/api/courses/{course}" \
 -H "Accept: application/json"
 ```
 
@@ -2515,7 +2223,7 @@ curl -X PUT "http://zaportal.dev/api/courses/{course}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/courses/{course}",
+    "url": "http://localhost:8000/api/courses/{course}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -2549,7 +2257,7 @@ Removes a Course from the System by ID
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/courses/{course}" \
+curl -X DELETE "http://localhost:8000/api/courses/{course}" \
 -H "Accept: application/json"
 ```
 
@@ -2557,7 +2265,7 @@ curl -X DELETE "http://zaportal.dev/api/courses/{course}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/courses/{course}",
+    "url": "http://localhost:8000/api/courses/{course}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -2579,10 +2287,12 @@ $.ajax(settings).done(function (response) {
 <!-- START_86c98e828da326493a503b9fc2efe542 -->
 ## Get Semester Types
 
+Responds with a list of Semester Types
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/schools/{school_id}/semester-types" \
+curl -X GET "http://localhost:8000/api/schools/{school_id}/semester-types" \
 -H "Accept: application/json"
 ```
 
@@ -2590,7 +2300,7 @@ curl -X GET "http://zaportal.dev/api/schools/{school_id}/semester-types" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/semester-types",
+    "url": "http://localhost:8000/api/schools/{school_id}/semester-types",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -2610,15 +2320,15 @@ $.ajax(settings).done(function (response) {
         "id": 1,
         "name": "1st Semester",
         "school_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 2,
         "name": "2nd Semester",
         "school_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     }
 ]
 ```
@@ -2637,7 +2347,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/schools/{school_id}/semester-types" \
+curl -X POST "http://localhost:8000/api/schools/{school_id}/semester-types" \
 -H "Accept: application/json" \
     -d "name"="non" \
     -d "school_id"="93" \
@@ -2648,7 +2358,7 @@ curl -X POST "http://zaportal.dev/api/schools/{school_id}/semester-types" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/semester-types",
+    "url": "http://localhost:8000/api/schools/{school_id}/semester-types",
     "method": "POST",
     "data": {
         "name": "non",
@@ -2680,10 +2390,12 @@ Parameter | Type | Status | Description
 <!-- START_5e16b99ca1a0ee860aff7066eaeb3d0b -->
 ## Get Semester Type by ID
 
+Responds with a specific Semester Type by its ID
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/schools/{school_id}/semester-types/{semester_type}" \
+curl -X GET "http://localhost:8000/api/schools/{school_id}/semester-types/{semester_type}" \
 -H "Accept: application/json"
 ```
 
@@ -2691,7 +2403,7 @@ curl -X GET "http://zaportal.dev/api/schools/{school_id}/semester-types/{semeste
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/semester-types/{semester_type}",
+    "url": "http://localhost:8000/api/schools/{school_id}/semester-types/{semester_type}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -2712,13 +2424,13 @@ $.ajax(settings).done(function (response) {
     "short_name": "UI",
     "owner_id": 1,
     "is_active": 1,
-    "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 18:14:11",
+    "created_at": "2018-07-07 11:03:16",
+    "updated_at": "2018-07-07 11:03:16",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     }
 }
 ```
@@ -2734,10 +2446,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_ef0c2c212cd1cb064424ab9cbf98a76f -->
 ## Update Semester Type
 
+Modify information about an existing Semester Type by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Semester Type belongs to
+
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/schools/{school_id}/semester-types/{semester_type}" \
+curl -X PUT "http://localhost:8000/api/schools/{school_id}/semester-types/{semester_type}" \
 -H "Accept: application/json"
 ```
 
@@ -2745,7 +2462,7 @@ curl -X PUT "http://zaportal.dev/api/schools/{school_id}/semester-types/{semeste
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/semester-types/{semester_type}",
+    "url": "http://localhost:8000/api/schools/{school_id}/semester-types/{semester_type}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -2769,10 +2486,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_40df788cb409056debb2f4a311fb068e -->
 ## Delete Semester Type
 
+Removes a Semester Type from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Semester Type belongs to
+
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/schools/{school_id}/semester-types/{semester_type}" \
+curl -X DELETE "http://localhost:8000/api/schools/{school_id}/semester-types/{semester_type}" \
 -H "Accept: application/json"
 ```
 
@@ -2780,7 +2502,7 @@ curl -X DELETE "http://zaportal.dev/api/schools/{school_id}/semester-types/{seme
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/semester-types/{semester_type}",
+    "url": "http://localhost:8000/api/schools/{school_id}/semester-types/{semester_type}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -2802,10 +2524,14 @@ $.ajax(settings).done(function (response) {
 <!-- START_adb73d4f224601ea718940e6bb97c778 -->
 ## Get Staff
 
+Responds with a list of Staff
+- Rules of Access
+  - User is same school as Staff
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/staff" \
+curl -X GET "http://localhost:8000/api/staff" \
 -H "Accept: application/json"
 ```
 
@@ -2813,7 +2539,7 @@ curl -X GET "http://zaportal.dev/api/staff" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/staff",
+    "url": "http://localhost:8000/api/staff",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -2834,9 +2560,9 @@ $.ajax(settings).done(function (response) {
         "user_id": 2,
         "school_id": 1,
         "department_id": null,
-        "title": "Mr.",
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-05 18:14:10"
+        "title": "Prof.",
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     }
 ]
 ```
@@ -2852,10 +2578,16 @@ $.ajax(settings).done(function (response) {
 <!-- START_cde1a268ad4879413936f91d73a540bc -->
 ## Create Staff
 
+Supply Staff information to create a new one
+- Rules of Access
+ - User can update Department staff is to be in or
+ - User can update School staff is to be in or
+ - User can update the staff user's info
+
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/staff" \
+curl -X POST "http://localhost:8000/api/staff" \
 -H "Accept: application/json" \
     -d "school_id"="6953" \
     -d "department_id"="6953" \
@@ -2868,7 +2600,7 @@ curl -X POST "http://zaportal.dev/api/staff" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/staff",
+    "url": "http://localhost:8000/api/staff",
     "method": "POST",
     "data": {
         "school_id": 6953,
@@ -2904,10 +2636,14 @@ Parameter | Type | Status | Description
 <!-- START_76c9bf4aa84f78a0a0c2eb2729e34188 -->
 ## Get Staff by ID
 
+Responds with a specific Staff by its ID
+- Rules of Access
+  - User is same school as Staff
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/staff/{staff}" \
+curl -X GET "http://localhost:8000/api/staff/{staff}" \
 -H "Accept: application/json"
 ```
 
@@ -2915,7 +2651,7 @@ curl -X GET "http://zaportal.dev/api/staff/{staff}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/staff/{staff}",
+    "url": "http://localhost:8000/api/staff/{staff}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -2935,9 +2671,9 @@ $.ajax(settings).done(function (response) {
     "user_id": 2,
     "school_id": 1,
     "department_id": null,
-    "title": "Mr.",
-    "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 18:14:10"
+    "title": "Prof.",
+    "created_at": "2018-07-07 11:03:16",
+    "updated_at": "2018-07-07 11:03:16"
 }
 ```
 
@@ -2952,10 +2688,17 @@ $.ajax(settings).done(function (response) {
 <!-- START_c5c03cc30b365cbb9de2757105311e99 -->
 ## Update Staff
 
+Modify information about an existing Staff by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Staff belongs to or
+ - User is HOD in staff's department or
+ - User is Dean of Staff's Faculty
+
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/staff/{staff}" \
+curl -X PUT "http://localhost:8000/api/staff/{staff}" \
 -H "Accept: application/json"
 ```
 
@@ -2963,7 +2706,7 @@ curl -X PUT "http://zaportal.dev/api/staff/{staff}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/staff/{staff}",
+    "url": "http://localhost:8000/api/staff/{staff}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -2987,10 +2730,17 @@ $.ajax(settings).done(function (response) {
 <!-- START_60046dd4fa0b05e4f13b356b1407843e -->
 ## Delete Staff
 
+Removes a Staff from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Staff belongs to or
+ - User is HOD in staff's department or
+ - User is Dean of Staff's Faculty
+
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/staff/{staff}" \
+curl -X DELETE "http://localhost:8000/api/staff/{staff}" \
 -H "Accept: application/json"
 ```
 
@@ -2998,7 +2748,7 @@ curl -X DELETE "http://zaportal.dev/api/staff/{staff}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/staff/{staff}",
+    "url": "http://localhost:8000/api/staff/{staff}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -3020,10 +2770,14 @@ $.ajax(settings).done(function (response) {
 <!-- START_13c5ec5040d217b9644ebd1d574ffb35 -->
 ## Get Sessions
 
+Responds with a list of Sessions
+- Rules of Access
+  - User is same school as Session
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/sessions" \
+curl -X GET "http://localhost:8000/api/sessions" \
 -H "Accept: application/json"
 ```
 
@@ -3031,7 +2785,7 @@ curl -X GET "http://zaportal.dev/api/sessions" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/sessions",
+    "url": "http://localhost:8000/api/sessions",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -3051,19 +2805,19 @@ $.ajax(settings).done(function (response) {
         "id": 1,
         "school_id": 1,
         "name": "2018\/2019",
-        "start_date": "2018-07-04 00:00:00",
-        "end_date": "2019-07-04 00:00:00",
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-05 18:14:10"
+        "start_date": "2018-07-07 00:00:00",
+        "end_date": "2019-07-07 00:00:00",
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 2,
         "school_id": 1,
         "name": "2019\/2020",
-        "start_date": "2019-07-04 00:00:00",
-        "end_date": "2020-07-03 00:00:00",
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "start_date": "2019-07-07 00:00:00",
+        "end_date": "2020-07-06 00:00:00",
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     }
 ]
 ```
@@ -3079,10 +2833,14 @@ $.ajax(settings).done(function (response) {
 <!-- START_b0309e45a2af0a1e9b599219dbce6d98 -->
 ## Create Session
 
+Supply Session information to create a new one
+- Rules of Access
+ - User can update Session's school
+
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/sessions" \
+curl -X POST "http://localhost:8000/api/sessions" \
 -H "Accept: application/json" \
     -d "school_id"="5240575" \
     -d "name"="soluta" \
@@ -3095,7 +2853,7 @@ curl -X POST "http://zaportal.dev/api/sessions" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/sessions",
+    "url": "http://localhost:8000/api/sessions",
     "method": "POST",
     "data": {
         "school_id": 5240575,
@@ -3131,10 +2889,14 @@ Parameter | Type | Status | Description
 <!-- START_60741d30911f638fc16fef8f85b172cc -->
 ## Get Session by ID
 
+Responds with a specific Session by its ID
+- Rules of Access
+  - User is same school as Session
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/sessions/{session}" \
+curl -X GET "http://localhost:8000/api/sessions/{session}" \
 -H "Accept: application/json"
 ```
 
@@ -3142,7 +2904,7 @@ curl -X GET "http://zaportal.dev/api/sessions/{session}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/sessions/{session}",
+    "url": "http://localhost:8000/api/sessions/{session}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -3161,10 +2923,10 @@ $.ajax(settings).done(function (response) {
     "id": 1,
     "school_id": 1,
     "name": "2018\/2019",
-    "start_date": "2018-07-04 00:00:00",
-    "end_date": "2019-07-04 00:00:00",
-    "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 18:14:10"
+    "start_date": "2018-07-07 00:00:00",
+    "end_date": "2019-07-07 00:00:00",
+    "created_at": "2018-07-07 11:03:16",
+    "updated_at": "2018-07-07 11:03:16"
 }
 ```
 
@@ -3179,10 +2941,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_01d1a457f56b8ac4134ff996daf9e9ab -->
 ## Update Session
 
+Modify information about an existing Session by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Session belongs to
+
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/sessions/{session}" \
+curl -X PUT "http://localhost:8000/api/sessions/{session}" \
 -H "Accept: application/json"
 ```
 
@@ -3190,7 +2957,7 @@ curl -X PUT "http://zaportal.dev/api/sessions/{session}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/sessions/{session}",
+    "url": "http://localhost:8000/api/sessions/{session}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -3214,10 +2981,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_4fd1093757d2141b14b2cd8666e3e281 -->
 ## Delete Session
 
+Removes a Session from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Session belongs to
+
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/sessions/{session}" \
+curl -X DELETE "http://localhost:8000/api/sessions/{session}" \
 -H "Accept: application/json"
 ```
 
@@ -3225,7 +2997,7 @@ curl -X DELETE "http://zaportal.dev/api/sessions/{session}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/sessions/{session}",
+    "url": "http://localhost:8000/api/sessions/{session}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -3247,10 +3019,17 @@ $.ajax(settings).done(function (response) {
 <!-- START_ce3236c7fa6759518a65c3054348bbc8 -->
 ## Get Semesters
 
+Responds with a list Semesters
+- Rules of Access
+  - User is same school as Semester
+- Filters
+  - ?with_session
+  - ?with_type
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/semesters" \
+curl -X GET "http://localhost:8000/api/semesters" \
 -H "Accept: application/json"
 ```
 
@@ -3258,7 +3037,7 @@ curl -X GET "http://zaportal.dev/api/semesters" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/semesters",
+    "url": "http://localhost:8000/api/semesters",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -3275,31 +3054,40 @@ $.ajax(settings).done(function (response) {
 ```json
 [
     {
+        "id": 1,
+        "semester_type_id": 1,
+        "session_id": 1,
+        "start_date": "2018-07-07 00:00:00",
+        "end_date": "2019-01-03 00:00:00",
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
+    },
+    {
         "id": 2,
         "semester_type_id": 2,
         "session_id": 1,
-        "start_date": "2019-01-05 00:00:00",
-        "end_date": "2019-07-04 00:00:00",
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "start_date": "2019-01-08 00:00:00",
+        "end_date": "2019-07-07 00:00:00",
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 3,
         "semester_type_id": 1,
         "session_id": 2,
-        "start_date": "2019-07-04 00:00:00",
-        "end_date": "2019-12-31 00:00:00",
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "start_date": "2019-07-07 00:00:00",
+        "end_date": "2020-01-03 00:00:00",
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 4,
         "semester_type_id": 2,
         "session_id": 2,
-        "start_date": "2020-01-05 00:00:00",
-        "end_date": "2020-07-03 00:00:00",
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "start_date": "2020-01-08 00:00:00",
+        "end_date": "2020-07-06 00:00:00",
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     }
 ]
 ```
@@ -3315,10 +3103,14 @@ $.ajax(settings).done(function (response) {
 <!-- START_6f3217dd5e05b1415edd3043bb8bab34 -->
 ## Create Semester
 
+Supply Semester information to create a new one
+- Rules of Access
+ - User can update semester type
+
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/semesters" \
+curl -X POST "http://localhost:8000/api/semesters" \
 -H "Accept: application/json" \
     -d "session_id"="17" \
     -d "semester_type_id"="17" \
@@ -3331,7 +3123,7 @@ curl -X POST "http://zaportal.dev/api/semesters" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/semesters",
+    "url": "http://localhost:8000/api/semesters",
     "method": "POST",
     "data": {
         "session_id": 17,
@@ -3367,10 +3159,17 @@ Parameter | Type | Status | Description
 <!-- START_d02ac86dc363f25589ad59aedebbb645 -->
 ## Get Semester by ID
 
+Responds with a specific Semester by its ID
+- Rules of Access
+  - User is same school as Semester
+- Filters
+  - ?with_session
+  - ?with_type
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/semesters/{semester}" \
+curl -X GET "http://localhost:8000/api/semesters/{semester}" \
 -H "Accept: application/json"
 ```
 
@@ -3378,7 +3177,7 @@ curl -X GET "http://zaportal.dev/api/semesters/{semester}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/semesters/{semester}",
+    "url": "http://localhost:8000/api/semesters/{semester}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -3394,459 +3193,13 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\Semester] 1",
-    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
-    "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-    "line": 199,
-    "trace": [
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-            "line": 175,
-            "function": "prepareException",
-            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Exceptions\/Handler.php",
-            "line": 49,
-            "function": "render",
-            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/nunomaduro\/collision\/src\/Adapters\/Laravel\/ExceptionHandler.php",
-            "line": 68,
-            "function": "render",
-            "class": "App\\Exceptions\\Handler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 83,
-            "function": "render",
-            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 32,
-            "function": "handleException",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Http\/Middleware\/AccessTokenSecurity.php",
-            "line": 32,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "App\\Http\\Middleware\\AccessTokenSecurity",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php",
-            "line": 41,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 104,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 667,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 642,
-            "function": "runRouteWithinStack",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 608,
-            "function": "runRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 597,
-            "function": "dispatchToRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 176,
-            "function": "dispatch",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 30,
-            "function": "Illuminate\\Foundation\\Http\\{closure}",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
-            "line": 57,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Fideloper\\Proxy\\TrustProxies",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
-            "line": 31,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
-            "line": 31,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
-            "line": 27,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 104,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 151,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 116,
-            "function": "sendRequestThroughRouter",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
-            "line": 116,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/AbstractGenerator.php",
-            "line": 98,
-            "function": "callRoute",
-            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
-            "line": 58,
-            "function": "getRouteResponse",
-            "class": "Mpociot\\ApiDoc\\Generators\\AbstractGenerator",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
-            "line": 261,
-            "function": "processRoute",
-            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
-            "line": 83,
-            "function": "processLaravelRoutes",
-            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
-            "type": "->"
-        },
-        {
-            "function": "handle",
-            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 29,
-            "function": "call_user_func_array"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 87,
-            "function": "Illuminate\\Container\\{closure}",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 31,
-            "function": "callBoundMethod",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
-            "line": 564,
-            "function": "call",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 184,
-            "function": "call",
-            "class": "Illuminate\\Container\\Container",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
-            "line": 251,
-            "function": "execute",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 171,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Command\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 199,
-            "function": "run",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
-            "function": "call",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "function": "handle",
-            "class": "App\\Console\\Commands\\GenerateDocsCommand",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 29,
-            "function": "call_user_func_array"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 87,
-            "function": "Illuminate\\Container\\{closure}",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 31,
-            "function": "callBoundMethod",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
-            "line": 564,
-            "function": "call",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 184,
-            "function": "call",
-            "class": "Illuminate\\Container\\Container",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
-            "line": 251,
-            "function": "execute",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 171,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Command\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
-            "line": 886,
-            "function": "run",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
-            "line": 262,
-            "function": "doRunCommand",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
-            "line": 145,
-            "function": "doRun",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
-            "line": 89,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
-            "line": 122,
-            "function": "run",
-            "class": "Illuminate\\Console\\Application",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/artisan",
-            "line": 37,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Console\\Kernel",
-            "type": "->"
-        }
-    ]
+    "id": 1,
+    "semester_type_id": 1,
+    "session_id": 1,
+    "start_date": "2018-07-07 00:00:00",
+    "end_date": "2019-01-03 00:00:00",
+    "created_at": "2018-07-07 11:03:16",
+    "updated_at": "2018-07-07 11:03:16"
 }
 ```
 
@@ -3861,10 +3214,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_5a2c97a3c1aef2662a46127990470eb4 -->
 ## Update Semester
 
+Modify information about an existing Semester by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Semester belongs to
+
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/semesters/{semester}" \
+curl -X PUT "http://localhost:8000/api/semesters/{semester}" \
 -H "Accept: application/json"
 ```
 
@@ -3872,7 +3230,7 @@ curl -X PUT "http://zaportal.dev/api/semesters/{semester}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/semesters/{semester}",
+    "url": "http://localhost:8000/api/semesters/{semester}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -3896,10 +3254,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_be7aac52984c7891ac2aa54ef98411bb -->
 ## Delete Semester
 
+Removes a Semester from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Semester belongs to
+
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/semesters/{semester}" \
+curl -X DELETE "http://localhost:8000/api/semesters/{semester}" \
 -H "Accept: application/json"
 ```
 
@@ -3907,7 +3270,7 @@ curl -X DELETE "http://zaportal.dev/api/semesters/{semester}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/semesters/{semester}",
+    "url": "http://localhost:8000/api/semesters/{semester}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -3940,7 +3303,7 @@ Responds with a list of chargeable services
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/chargeable-services" \
+curl -X GET "http://localhost:8000/api/chargeable-services" \
 -H "Accept: application/json"
 ```
 
@@ -3948,7 +3311,7 @@ curl -X GET "http://zaportal.dev/api/chargeable-services" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/chargeable-services",
+    "url": "http://localhost:8000/api/chargeable-services",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -3971,8 +3334,8 @@ $.ajax(settings).done(function (response) {
         "description": null,
         "amount": "500.00",
         "school_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-05 18:14:10"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 2,
@@ -3981,8 +3344,8 @@ $.ajax(settings).done(function (response) {
         "description": null,
         "amount": "500.00",
         "school_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 3,
@@ -3991,8 +3354,8 @@ $.ajax(settings).done(function (response) {
         "description": null,
         "amount": "1000.00",
         "school_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 4,
@@ -4001,8 +3364,8 @@ $.ajax(settings).done(function (response) {
         "description": null,
         "amount": "1000.00",
         "school_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     }
 ]
 ```
@@ -4026,7 +3389,7 @@ Supply chargeable service information to create a new one
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/chargeable-services" \
+curl -X POST "http://localhost:8000/api/chargeable-services" \
 -H "Accept: application/json" \
     -d "school_id"="5" \
     -d "type"="App\Models\Semester" \
@@ -4040,7 +3403,7 @@ curl -X POST "http://zaportal.dev/api/chargeable-services" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/chargeable-services",
+    "url": "http://localhost:8000/api/chargeable-services",
     "method": "POST",
     "data": {
         "school_id": 5,
@@ -4089,7 +3452,7 @@ Responds with a specific chargeable service by its ID
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/chargeable-services/{chargeable_service}" \
+curl -X GET "http://localhost:8000/api/chargeable-services/{chargeable_service}" \
 -H "Accept: application/json"
 ```
 
@@ -4097,7 +3460,7 @@ curl -X GET "http://zaportal.dev/api/chargeable-services/{chargeable_service}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/chargeable-services/{chargeable_service}",
+    "url": "http://localhost:8000/api/chargeable-services/{chargeable_service}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -4119,8 +3482,8 @@ $.ajax(settings).done(function (response) {
     "description": null,
     "amount": "500.00",
     "school_id": 1,
-    "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 18:14:10"
+    "created_at": "2018-07-07 11:03:16",
+    "updated_at": "2018-07-07 11:03:16"
 }
 ```
 
@@ -4143,7 +3506,7 @@ Modify information about an existing Chargeable Service by ID
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/chargeable-services/{chargeable_service}" \
+curl -X PUT "http://localhost:8000/api/chargeable-services/{chargeable_service}" \
 -H "Accept: application/json"
 ```
 
@@ -4151,7 +3514,7 @@ curl -X PUT "http://zaportal.dev/api/chargeable-services/{chargeable_service}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/chargeable-services/{chargeable_service}",
+    "url": "http://localhost:8000/api/chargeable-services/{chargeable_service}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -4183,7 +3546,7 @@ Removes a Chargeable Service from the System by ID
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/chargeable-services/{chargeable_service}" \
+curl -X DELETE "http://localhost:8000/api/chargeable-services/{chargeable_service}" \
 -H "Accept: application/json"
 ```
 
@@ -4191,7 +3554,7 @@ curl -X DELETE "http://zaportal.dev/api/chargeable-services/{chargeable_service}
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/chargeable-services/{chargeable_service}",
+    "url": "http://localhost:8000/api/chargeable-services/{chargeable_service}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -4228,7 +3591,7 @@ Responds with a list of Chargeables
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/chargeables" \
+curl -X GET "http://localhost:8000/api/chargeables" \
 -H "Accept: application/json"
 ```
 
@@ -4236,7 +3599,7 @@ curl -X GET "http://zaportal.dev/api/chargeables" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/chargeables",
+    "url": "http://localhost:8000/api/chargeables",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -4253,44 +3616,52 @@ $.ajax(settings).done(function (response) {
 ```json
 [
     {
+        "id": 1,
+        "chargeable_service_id": 1,
+        "owner_id": 1,
+        "amount": "500.00",
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
+    },
+    {
         "id": 2,
         "chargeable_service_id": 2,
         "owner_id": 2,
         "amount": "500.00",
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 3,
         "chargeable_service_id": 3,
         "owner_id": 1,
         "amount": "1000.00",
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 4,
         "chargeable_service_id": 1,
         "owner_id": 3,
         "amount": "500.00",
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 5,
         "chargeable_service_id": 2,
         "owner_id": 4,
         "amount": "500.00",
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 6,
         "chargeable_service_id": 4,
         "owner_id": 2,
         "amount": "1000.00",
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     }
 ]
 ```
@@ -4314,7 +3685,7 @@ Supply chargeable information to create a new one
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/chargeables" \
+curl -X POST "http://localhost:8000/api/chargeables" \
 -H "Accept: application/json" \
     -d "chargeable_service_id"="340" \
     -d "owner_id"="340" \
@@ -4326,7 +3697,7 @@ curl -X POST "http://zaportal.dev/api/chargeables" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/chargeables",
+    "url": "http://localhost:8000/api/chargeables",
     "method": "POST",
     "data": {
         "chargeable_service_id": 340,
@@ -4375,7 +3746,7 @@ Responds with a specific Chargeable by its ID
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/chargeables/{chargeable}" \
+curl -X GET "http://localhost:8000/api/chargeables/{chargeable}" \
 -H "Accept: application/json"
 ```
 
@@ -4383,7 +3754,7 @@ curl -X GET "http://zaportal.dev/api/chargeables/{chargeable}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/chargeables/{chargeable}",
+    "url": "http://localhost:8000/api/chargeables/{chargeable}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -4399,459 +3770,12 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\Chargeable] 1",
-    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
-    "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-    "line": 199,
-    "trace": [
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-            "line": 175,
-            "function": "prepareException",
-            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Exceptions\/Handler.php",
-            "line": 49,
-            "function": "render",
-            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/nunomaduro\/collision\/src\/Adapters\/Laravel\/ExceptionHandler.php",
-            "line": 68,
-            "function": "render",
-            "class": "App\\Exceptions\\Handler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 83,
-            "function": "render",
-            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 32,
-            "function": "handleException",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Http\/Middleware\/AccessTokenSecurity.php",
-            "line": 32,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "App\\Http\\Middleware\\AccessTokenSecurity",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php",
-            "line": 41,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 104,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 667,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 642,
-            "function": "runRouteWithinStack",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 608,
-            "function": "runRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 597,
-            "function": "dispatchToRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 176,
-            "function": "dispatch",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 30,
-            "function": "Illuminate\\Foundation\\Http\\{closure}",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
-            "line": 57,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Fideloper\\Proxy\\TrustProxies",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
-            "line": 31,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
-            "line": 31,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
-            "line": 27,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 104,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 151,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 116,
-            "function": "sendRequestThroughRouter",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
-            "line": 116,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/AbstractGenerator.php",
-            "line": 98,
-            "function": "callRoute",
-            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
-            "line": 58,
-            "function": "getRouteResponse",
-            "class": "Mpociot\\ApiDoc\\Generators\\AbstractGenerator",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
-            "line": 261,
-            "function": "processRoute",
-            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
-            "line": 83,
-            "function": "processLaravelRoutes",
-            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
-            "type": "->"
-        },
-        {
-            "function": "handle",
-            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 29,
-            "function": "call_user_func_array"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 87,
-            "function": "Illuminate\\Container\\{closure}",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 31,
-            "function": "callBoundMethod",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
-            "line": 564,
-            "function": "call",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 184,
-            "function": "call",
-            "class": "Illuminate\\Container\\Container",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
-            "line": 251,
-            "function": "execute",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 171,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Command\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 199,
-            "function": "run",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
-            "function": "call",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "function": "handle",
-            "class": "App\\Console\\Commands\\GenerateDocsCommand",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 29,
-            "function": "call_user_func_array"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 87,
-            "function": "Illuminate\\Container\\{closure}",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 31,
-            "function": "callBoundMethod",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
-            "line": 564,
-            "function": "call",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 184,
-            "function": "call",
-            "class": "Illuminate\\Container\\Container",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
-            "line": 251,
-            "function": "execute",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 171,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Command\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
-            "line": 886,
-            "function": "run",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
-            "line": 262,
-            "function": "doRunCommand",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
-            "line": 145,
-            "function": "doRun",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
-            "line": 89,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
-            "line": 122,
-            "function": "run",
-            "class": "Illuminate\\Console\\Application",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/artisan",
-            "line": 37,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Console\\Kernel",
-            "type": "->"
-        }
-    ]
+    "id": 1,
+    "chargeable_service_id": 1,
+    "owner_id": 1,
+    "amount": "500.00",
+    "created_at": "2018-07-07 11:03:16",
+    "updated_at": "2018-07-07 11:03:16"
 }
 ```
 
@@ -4874,7 +3798,7 @@ Modify information about an existing chargeable by ID
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/chargeables/{chargeable}" \
+curl -X PUT "http://localhost:8000/api/chargeables/{chargeable}" \
 -H "Accept: application/json"
 ```
 
@@ -4882,7 +3806,7 @@ curl -X PUT "http://zaportal.dev/api/chargeables/{chargeable}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/chargeables/{chargeable}",
+    "url": "http://localhost:8000/api/chargeables/{chargeable}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -4914,7 +3838,7 @@ Removes a Chargeable from the System by ID
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/chargeables/{chargeable}" \
+curl -X DELETE "http://localhost:8000/api/chargeables/{chargeable}" \
 -H "Accept: application/json"
 ```
 
@@ -4922,7 +3846,7 @@ curl -X DELETE "http://zaportal.dev/api/chargeables/{chargeable}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/chargeables/{chargeable}",
+    "url": "http://localhost:8000/api/chargeables/{chargeable}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -4944,10 +3868,14 @@ $.ajax(settings).done(function (response) {
 <!-- START_55420e506d54d905a525ce1c8e5c9aff -->
 ## Get Program Credits
 
+Responds with a list of Program Credits
+- Rules of Access
+  - User is same school
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/program-credits" \
+curl -X GET "http://localhost:8000/api/program-credits" \
 -H "Accept: application/json"
 ```
 
@@ -4955,7 +3883,7 @@ curl -X GET "http://zaportal.dev/api/program-credits" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/program-credits",
+    "url": "http://localhost:8000/api/program-credits",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -4984,10 +3912,16 @@ $.ajax(settings).done(function (response) {
 <!-- START_34661629a823a0e38c8f67c82d416717 -->
 ## Create Program Credit
 
+Supply Program Credit information to create a new one
+- Rules of Access
+ - User can update program
+ = User can update semester
+ - User can update level
+
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/program-credits" \
+curl -X POST "http://localhost:8000/api/program-credits" \
 -H "Accept: application/json" \
     -d "program_id"="308341321" \
     -d "semester_id"="308341321" \
@@ -5000,7 +3934,7 @@ curl -X POST "http://zaportal.dev/api/program-credits" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/program-credits",
+    "url": "http://localhost:8000/api/program-credits",
     "method": "POST",
     "data": {
         "program_id": 308341321,
@@ -5036,10 +3970,14 @@ Parameter | Type | Status | Description
 <!-- START_6fee6da26606a09d3bfb6b43dd54322e -->
 ## Get Program Credit by ID
 
+Responds with a specific Program Credit by its ID
+- Rules of Access
+  - User is same school
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/program-credits/{program_credit}" \
+curl -X GET "http://localhost:8000/api/program-credits/{program_credit}" \
 -H "Accept: application/json"
 ```
 
@@ -5047,7 +3985,7 @@ curl -X GET "http://zaportal.dev/api/program-credits/{program_credit}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/program-credits/{program_credit}",
+    "url": "http://localhost:8000/api/program-credits/{program_credit}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -5530,10 +4468,17 @@ $.ajax(settings).done(function (response) {
 <!-- START_afce5fc61fd2c81371cf72ca1b235389 -->
 ## Update Program Credit
 
+Modify information about an existing Program Credit by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Program Credit belongs to
+ - User is Dean of Program Credit's faculty
+ - User is HOD of Program Credit's department
+
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/program-credits/{program_credit}" \
+curl -X PUT "http://localhost:8000/api/program-credits/{program_credit}" \
 -H "Accept: application/json"
 ```
 
@@ -5541,7 +4486,7 @@ curl -X PUT "http://zaportal.dev/api/program-credits/{program_credit}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/program-credits/{program_credit}",
+    "url": "http://localhost:8000/api/program-credits/{program_credit}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -5565,10 +4510,17 @@ $.ajax(settings).done(function (response) {
 <!-- START_ed068da7a7370917198af3dc3f81d01b -->
 ## Delete Program Credit
 
+Removes a Program Credut from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Program Credit belongs to
+ - User is Dean of Program Credit's faculty
+ - User is HOD of Program Credit's department
+
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/program-credits/{program_credit}" \
+curl -X DELETE "http://localhost:8000/api/program-credits/{program_credit}" \
 -H "Accept: application/json"
 ```
 
@@ -5576,7 +4528,7 @@ curl -X DELETE "http://zaportal.dev/api/program-credits/{program_credit}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/program-credits/{program_credit}",
+    "url": "http://localhost:8000/api/program-credits/{program_credit}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -5598,10 +4550,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_edd68da971fd2ec2a99042b6bcadd933 -->
 ## Get Payables
 
+Responds with a list of Payables
+- Rules of Access
+  - User owns Payable or
+  - User can update school
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/payables" \
+curl -X GET "http://localhost:8000/api/payables" \
 -H "Accept: application/json"
 ```
 
@@ -5609,7 +4566,7 @@ curl -X GET "http://zaportal.dev/api/payables" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/payables",
+    "url": "http://localhost:8000/api/payables",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -5638,10 +4595,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_763e1546d1b06004e9085b3944e2d792 -->
 ## Create Payable
 
+Supply Payable information to create a new one
+- Rules of Access
+ - User can view school and
+ - User can update the user that owns the payable
+
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/payables" \
+curl -X POST "http://localhost:8000/api/payables" \
 -H "Accept: application/json" \
     -d "chargeable_id"="2816266" \
     -d "user_id"="2816266" \
@@ -5652,7 +4614,7 @@ curl -X POST "http://zaportal.dev/api/payables" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/payables",
+    "url": "http://localhost:8000/api/payables",
     "method": "POST",
     "data": {
         "chargeable_id": 2816266,
@@ -5684,10 +4646,15 @@ Parameter | Type | Status | Description
 <!-- START_d38fdbb665badd91021de0e2d3a90827 -->
 ## Get Payable by ID
 
+Responds with a specific Payable by its ID
+- Rules of Access
+  - User owns Payable or
+  - User can update school
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/payables/{payable}" \
+curl -X GET "http://localhost:8000/api/payables/{payable}" \
 -H "Accept: application/json"
 ```
 
@@ -5695,7 +4662,7 @@ curl -X GET "http://zaportal.dev/api/payables/{payable}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/payables/{payable}",
+    "url": "http://localhost:8000/api/payables/{payable}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -6178,10 +5145,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_3e697670b1fba43d301a779e861b061c -->
 ## Update Payable
 
+Modify information about an existing Payable by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Payable belongs to
+
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/payables/{payable}" \
+curl -X PUT "http://localhost:8000/api/payables/{payable}" \
 -H "Accept: application/json"
 ```
 
@@ -6189,7 +5161,7 @@ curl -X PUT "http://zaportal.dev/api/payables/{payable}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/payables/{payable}",
+    "url": "http://localhost:8000/api/payables/{payable}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -6213,10 +5185,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_bab52c4f8ecbc00955178a2df2c47890 -->
 ## Delete Payable
 
+Removes a Payable from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Payable belongs to
+
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/payables/{payable}" \
+curl -X DELETE "http://localhost:8000/api/payables/{payable}" \
 -H "Accept: application/json"
 ```
 
@@ -6224,7 +5201,7 @@ curl -X DELETE "http://zaportal.dev/api/payables/{payable}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/payables/{payable}",
+    "url": "http://localhost:8000/api/payables/{payable}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -6258,7 +5235,7 @@ Responds with a list of Course Dependencies
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/course-dependencies" \
+curl -X GET "http://localhost:8000/api/course-dependencies" \
 -H "Accept: application/json"
 ```
 
@@ -6266,7 +5243,7 @@ curl -X GET "http://zaportal.dev/api/course-dependencies" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/course-dependencies",
+    "url": "http://localhost:8000/api/course-dependencies",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -6283,109 +5260,109 @@ $.ajax(settings).done(function (response) {
 ```json
 [
     {
+        "id": 1,
+        "course_id": 5,
+        "dependency_id": 1,
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
+    },
+    {
         "id": 2,
         "course_id": 5,
         "dependency_id": 2,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 3,
         "course_id": 5,
         "dependency_id": 3,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 4,
         "course_id": 5,
         "dependency_id": 4,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 5,
         "course_id": 6,
         "dependency_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 6,
         "course_id": 6,
         "dependency_id": 2,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 7,
         "course_id": 6,
         "dependency_id": 3,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 8,
         "course_id": 6,
         "dependency_id": 4,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 9,
         "course_id": 7,
         "dependency_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 10,
         "course_id": 7,
         "dependency_id": 2,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 11,
         "course_id": 7,
         "dependency_id": 3,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 12,
         "course_id": 7,
         "dependency_id": 4,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 13,
         "course_id": 8,
         "dependency_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 14,
         "course_id": 8,
         "dependency_id": 2,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     },
     {
         "id": 15,
         "course_id": 8,
         "dependency_id": 3,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
-    },
-    {
-        "id": 16,
-        "course_id": 8,
-        "dependency_id": 4,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     }
 ]
 ```
@@ -6409,7 +5386,7 @@ Supply Course information to create a new one
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/course-dependencies" \
+curl -X POST "http://localhost:8000/api/course-dependencies" \
 -H "Accept: application/json" \
     -d "course_id"="46193" \
     -d "dependency_id"="46193" \
@@ -6420,7 +5397,7 @@ curl -X POST "http://zaportal.dev/api/course-dependencies" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/course-dependencies",
+    "url": "http://localhost:8000/api/course-dependencies",
     "method": "POST",
     "data": {
         "course_id": 46193,
@@ -6462,7 +5439,7 @@ Responds with a specific Course Dependency by its ID
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/course-dependencies/{course_dependency}" \
+curl -X GET "http://localhost:8000/api/course-dependencies/{course_dependency}" \
 -H "Accept: application/json"
 ```
 
@@ -6470,7 +5447,7 @@ curl -X GET "http://zaportal.dev/api/course-dependencies/{course_dependency}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/course-dependencies/{course_dependency}",
+    "url": "http://localhost:8000/api/course-dependencies/{course_dependency}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -6486,459 +5463,11 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\CourseDependency] 1",
-    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
-    "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-    "line": 199,
-    "trace": [
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-            "line": 175,
-            "function": "prepareException",
-            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Exceptions\/Handler.php",
-            "line": 49,
-            "function": "render",
-            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/nunomaduro\/collision\/src\/Adapters\/Laravel\/ExceptionHandler.php",
-            "line": 68,
-            "function": "render",
-            "class": "App\\Exceptions\\Handler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 83,
-            "function": "render",
-            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 32,
-            "function": "handleException",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Http\/Middleware\/AccessTokenSecurity.php",
-            "line": 32,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "App\\Http\\Middleware\\AccessTokenSecurity",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php",
-            "line": 41,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 104,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 667,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 642,
-            "function": "runRouteWithinStack",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 608,
-            "function": "runRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 597,
-            "function": "dispatchToRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 176,
-            "function": "dispatch",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 30,
-            "function": "Illuminate\\Foundation\\Http\\{closure}",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
-            "line": 57,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Fideloper\\Proxy\\TrustProxies",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
-            "line": 31,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
-            "line": 31,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
-            "line": 27,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 104,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 151,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 116,
-            "function": "sendRequestThroughRouter",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
-            "line": 116,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/AbstractGenerator.php",
-            "line": 98,
-            "function": "callRoute",
-            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
-            "line": 58,
-            "function": "getRouteResponse",
-            "class": "Mpociot\\ApiDoc\\Generators\\AbstractGenerator",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
-            "line": 261,
-            "function": "processRoute",
-            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
-            "line": 83,
-            "function": "processLaravelRoutes",
-            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
-            "type": "->"
-        },
-        {
-            "function": "handle",
-            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 29,
-            "function": "call_user_func_array"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 87,
-            "function": "Illuminate\\Container\\{closure}",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 31,
-            "function": "callBoundMethod",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
-            "line": 564,
-            "function": "call",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 184,
-            "function": "call",
-            "class": "Illuminate\\Container\\Container",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
-            "line": 251,
-            "function": "execute",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 171,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Command\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 199,
-            "function": "run",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
-            "function": "call",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "function": "handle",
-            "class": "App\\Console\\Commands\\GenerateDocsCommand",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 29,
-            "function": "call_user_func_array"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 87,
-            "function": "Illuminate\\Container\\{closure}",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 31,
-            "function": "callBoundMethod",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
-            "line": 564,
-            "function": "call",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 184,
-            "function": "call",
-            "class": "Illuminate\\Container\\Container",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
-            "line": 251,
-            "function": "execute",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 171,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Command\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
-            "line": 886,
-            "function": "run",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
-            "line": 262,
-            "function": "doRunCommand",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
-            "line": 145,
-            "function": "doRun",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
-            "line": 89,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
-            "line": 122,
-            "function": "run",
-            "class": "Illuminate\\Console\\Application",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/artisan",
-            "line": 37,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Console\\Kernel",
-            "type": "->"
-        }
-    ]
+    "id": 1,
+    "course_id": 5,
+    "dependency_id": 1,
+    "created_at": "2018-07-07 11:03:16",
+    "updated_at": "2018-07-07 11:03:16"
 }
 ```
 
@@ -6963,7 +5492,7 @@ Modifies information about an existing Course Dependency
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/course-dependencies/{course_dependency}" \
+curl -X PUT "http://localhost:8000/api/course-dependencies/{course_dependency}" \
 -H "Accept: application/json"
 ```
 
@@ -6971,7 +5500,7 @@ curl -X PUT "http://zaportal.dev/api/course-dependencies/{course_dependency}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/course-dependencies/{course_dependency}",
+    "url": "http://localhost:8000/api/course-dependencies/{course_dependency}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -7005,7 +5534,7 @@ Removes a Course Dependency from the System by ID
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/course-dependencies/{course_dependency}" \
+curl -X DELETE "http://localhost:8000/api/course-dependencies/{course_dependency}" \
 -H "Accept: application/json"
 ```
 
@@ -7013,7 +5542,7 @@ curl -X DELETE "http://zaportal.dev/api/course-dependencies/{course_dependency}"
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/course-dependencies/{course_dependency}",
+    "url": "http://localhost:8000/api/course-dependencies/{course_dependency}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -7035,10 +5564,14 @@ $.ajax(settings).done(function (response) {
 <!-- START_a71d314809ab17f1ba7047d7bfd8c60e -->
 ## Get Staff-Teach-Course List
 
+Responds with a list of Staff-Teach-Course info
+- Rules of Access
+  - User is same school
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/staff-courses" \
+curl -X GET "http://localhost:8000/api/staff-courses" \
 -H "Accept: application/json"
 ```
 
@@ -7046,7 +5579,7 @@ curl -X GET "http://zaportal.dev/api/staff-courses" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/staff-courses",
+    "url": "http://localhost:8000/api/staff-courses",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -7075,10 +5608,16 @@ $.ajax(settings).done(function (response) {
 <!-- START_a58eca23a72b67ca1e5efbe42c9743b2 -->
 ## Create Staff-Teach-Course
 
+Supply Staff-Teach-Course information to create a new one
+- Rules of Access
+ - User is an ADMIN or
+ - User is a SCHOOL_OWNER or DEAN of HOD in staff-teach-course's school and
+ - User can update course
+
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/staff-courses" \
+curl -X POST "http://localhost:8000/api/staff-courses" \
 -H "Accept: application/json" \
     -d "staff_id"="296676" \
     -d "course_id"="296676" \
@@ -7089,7 +5628,7 @@ curl -X POST "http://zaportal.dev/api/staff-courses" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/staff-courses",
+    "url": "http://localhost:8000/api/staff-courses",
     "method": "POST",
     "data": {
         "staff_id": 296676,
@@ -7121,10 +5660,14 @@ Parameter | Type | Status | Description
 <!-- START_ebe949caba68633343fae8cae0f825f8 -->
 ## Get Staff-Teach-Course Info by ID
 
+Responds with a specific Staff-Teach-Course by its ID
+- Rules of Access
+  - User is same school
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/staff-courses/{staff_course}" \
+curl -X GET "http://localhost:8000/api/staff-courses/{staff_course}" \
 -H "Accept: application/json"
 ```
 
@@ -7132,7 +5675,7 @@ curl -X GET "http://zaportal.dev/api/staff-courses/{staff_course}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/staff-courses/{staff_course}",
+    "url": "http://localhost:8000/api/staff-courses/{staff_course}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -7615,10 +6158,17 @@ $.ajax(settings).done(function (response) {
 <!-- START_e9d9055c557a5a245971126b3658e3e6 -->
 ## Update Staff-Teach-Course
 
+Modify information about an existing Staff-Teach-Course by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school or
+ - User is a Dean in faculty or
+ - User is an HOD in department
+
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/staff-courses/{staff_course}" \
+curl -X PUT "http://localhost:8000/api/staff-courses/{staff_course}" \
 -H "Accept: application/json"
 ```
 
@@ -7626,7 +6176,7 @@ curl -X PUT "http://zaportal.dev/api/staff-courses/{staff_course}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/staff-courses/{staff_course}",
+    "url": "http://localhost:8000/api/staff-courses/{staff_course}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -7650,10 +6200,17 @@ $.ajax(settings).done(function (response) {
 <!-- START_4de8beb7ab9d568bdf31e3e80a8a1e8a -->
 ## Delete Staff-Teach-Course
 
+Removes a Staff-Teach-Course entry from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school or
+ - User is a Dean in faculty or
+ - User is an HOD in department
+
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/staff-courses/{staff_course}" \
+curl -X DELETE "http://localhost:8000/api/staff-courses/{staff_course}" \
 -H "Accept: application/json"
 ```
 
@@ -7661,7 +6218,7 @@ curl -X DELETE "http://zaportal.dev/api/staff-courses/{staff_course}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/staff-courses/{staff_course}",
+    "url": "http://localhost:8000/api/staff-courses/{staff_course}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -7683,10 +6240,21 @@ $.ajax(settings).done(function (response) {
 <!-- START_ac87a33c02c4746d533388a04841e162 -->
 ## Get Student-Takes-Course List
 
+Responds with a list of Student-Takes-Course info
+- Rules of Access
+  - User is same school
+- Filters
+  - ?with_student
+  - ?with_staff_courses
+  - ?with_semester
+  - ?with_staff
+  - ?with_course
+  - ?with_school
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/student-courses" \
+curl -X GET "http://localhost:8000/api/student-courses" \
 -H "Accept: application/json"
 ```
 
@@ -7694,7 +6262,7 @@ curl -X GET "http://zaportal.dev/api/student-courses" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/student-courses",
+    "url": "http://localhost:8000/api/student-courses",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -7723,10 +6291,16 @@ $.ajax(settings).done(function (response) {
 <!-- START_ca1a13663540fbb23d794fcb760a7734 -->
 ## Create Student-Takes-Course
 
+Supply Student-Takes-Course information to create a new one
+- Rules of Access
+ - User is an ADMIN or
+ - User is a SCHOOL_OWNER or DEAN of HOD in school and or
+ - User is student
+
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/student-courses" \
+curl -X POST "http://localhost:8000/api/student-courses" \
 -H "Accept: application/json" \
     -d "student_id"="11534" \
     -d "staff_teach_course_id"="11534" \
@@ -7738,7 +6312,7 @@ curl -X POST "http://zaportal.dev/api/student-courses" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/student-courses",
+    "url": "http://localhost:8000/api/student-courses",
     "method": "POST",
     "data": {
         "student_id": 11534,
@@ -7772,10 +6346,21 @@ Parameter | Type | Status | Description
 <!-- START_4adb12413ed978cfe991f6a4bd44b0fa -->
 ## Get Student-Takes-Course by ID
 
+Responds with a specific Student-Takes-Course by its ID
+- Rules of Access
+  - User is same school
+- Filters
+  - ?with_student
+  - ?with_staff_courses
+  - ?with_semester
+  - ?with_staff
+  - ?with_course
+  - ?with_school
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/student-courses/{student_course}" \
+curl -X GET "http://localhost:8000/api/student-courses/{student_course}" \
 -H "Accept: application/json"
 ```
 
@@ -7783,7 +6368,7 @@ curl -X GET "http://zaportal.dev/api/student-courses/{student_course}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/student-courses/{student_course}",
+    "url": "http://localhost:8000/api/student-courses/{student_course}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -8266,10 +6851,18 @@ $.ajax(settings).done(function (response) {
 <!-- START_1dc105420186107b91af85f25379d512 -->
 ## Update Student-Takes-Course
 
+Modify information about an existing Student-Takes-Course by ID
+- Rules of Access
+ - Student, Staff, Course and Semester are in the same school and
+ - User is an ADMIN or
+ - User owns school or
+ - User is a Dean in faculty or
+ - User is an HOD in department
+
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/student-courses/{student_course}" \
+curl -X PUT "http://localhost:8000/api/student-courses/{student_course}" \
 -H "Accept: application/json"
 ```
 
@@ -8277,7 +6870,7 @@ curl -X PUT "http://zaportal.dev/api/student-courses/{student_course}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/student-courses/{student_course}",
+    "url": "http://localhost:8000/api/student-courses/{student_course}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -8301,10 +6894,17 @@ $.ajax(settings).done(function (response) {
 <!-- START_d6020f0b1dfa65a706e9380ed1d6baa3 -->
 ## Delete Student-Takes-Course
 
+Removes a Student-Takes-Course entry from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school or
+ - User is a Dean in faculty or
+ - User is an HOD in department
+
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/student-courses/{student_course}" \
+curl -X DELETE "http://localhost:8000/api/student-courses/{student_course}" \
 -H "Accept: application/json"
 ```
 
@@ -8312,7 +6912,7 @@ curl -X DELETE "http://zaportal.dev/api/student-courses/{student_course}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/student-courses/{student_course}",
+    "url": "http://localhost:8000/api/student-courses/{student_course}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -8339,7 +6939,7 @@ Responds with a list of Grades in school
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/schools/{school_id}/grade-types" \
+curl -X GET "http://localhost:8000/api/schools/{school_id}/grade-types" \
 -H "Accept: application/json"
 ```
 
@@ -8347,7 +6947,7 @@ curl -X GET "http://zaportal.dev/api/schools/{school_id}/grade-types" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/grade-types",
+    "url": "http://localhost:8000/api/schools/{school_id}/grade-types",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -8384,7 +6984,7 @@ Supply Grade Type information to create a new one
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/schools/{school_id}/grade-types" \
+curl -X POST "http://localhost:8000/api/schools/{school_id}/grade-types" \
 -H "Accept: application/json" \
     -d "name"="id" \
     -d "value"="74" \
@@ -8397,7 +6997,7 @@ curl -X POST "http://zaportal.dev/api/schools/{school_id}/grade-types" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/grade-types",
+    "url": "http://localhost:8000/api/schools/{school_id}/grade-types",
     "method": "POST",
     "data": {
         "name": "id",
@@ -8438,7 +7038,7 @@ Responds with a specific Grade by its ID
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/schools/{school_id}/grade-types/{grade_type}" \
+curl -X GET "http://localhost:8000/api/schools/{school_id}/grade-types/{grade_type}" \
 -H "Accept: application/json"
 ```
 
@@ -8446,7 +7046,7 @@ curl -X GET "http://zaportal.dev/api/schools/{school_id}/grade-types/{grade_type
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/grade-types/{grade_type}",
+    "url": "http://localhost:8000/api/schools/{school_id}/grade-types/{grade_type}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -8467,13 +7067,13 @@ $.ajax(settings).done(function (response) {
     "short_name": "UI",
     "owner_id": 1,
     "is_active": 1,
-    "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 18:14:11",
+    "created_at": "2018-07-07 11:03:16",
+    "updated_at": "2018-07-07 11:03:16",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     }
 }
 ```
@@ -8497,7 +7097,7 @@ Modify information about an existing Grade Type by ID
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/schools/{school_id}/grade-types/{grade_type}" \
+curl -X PUT "http://localhost:8000/api/schools/{school_id}/grade-types/{grade_type}" \
 -H "Accept: application/json"
 ```
 
@@ -8505,7 +7105,7 @@ curl -X PUT "http://zaportal.dev/api/schools/{school_id}/grade-types/{grade_type
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/grade-types/{grade_type}",
+    "url": "http://localhost:8000/api/schools/{school_id}/grade-types/{grade_type}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -8537,7 +7137,7 @@ Removes a Grade Type from the System by ID
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/schools/{school_id}/grade-types/{grade_type}" \
+curl -X DELETE "http://localhost:8000/api/schools/{school_id}/grade-types/{grade_type}" \
 -H "Accept: application/json"
 ```
 
@@ -8545,7 +7145,7 @@ curl -X DELETE "http://zaportal.dev/api/schools/{school_id}/grade-types/{grade_t
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/grade-types/{grade_type}",
+    "url": "http://localhost:8000/api/schools/{school_id}/grade-types/{grade_type}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -8582,7 +7182,7 @@ Responds with a list of Grades
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/grades" \
+curl -X GET "http://localhost:8000/api/grades" \
 -H "Accept: application/json"
 ```
 
@@ -8590,7 +7190,7 @@ curl -X GET "http://zaportal.dev/api/grades" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/grades",
+    "url": "http://localhost:8000/api/grades",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -8630,7 +7230,7 @@ Supply Grade information to create a new one
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/grades" \
+curl -X POST "http://localhost:8000/api/grades" \
 -H "Accept: application/json" \
     -d "student_takes_course_id"="9" \
     -d "score"="9" \
@@ -8642,7 +7242,7 @@ curl -X POST "http://zaportal.dev/api/grades" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/grades",
+    "url": "http://localhost:8000/api/grades",
     "method": "POST",
     "data": {
         "student_takes_course_id": 9,
@@ -8691,7 +7291,7 @@ Responds with a specific Grade by its ID
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/grades/{grade}" \
+curl -X GET "http://localhost:8000/api/grades/{grade}" \
 -H "Accept: application/json"
 ```
 
@@ -8699,7 +7299,7 @@ curl -X GET "http://zaportal.dev/api/grades/{grade}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/grades/{grade}",
+    "url": "http://localhost:8000/api/grades/{grade}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -9193,7 +7793,7 @@ Modify information about an existing Grade by ID
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/grades/{grade}" \
+curl -X PUT "http://localhost:8000/api/grades/{grade}" \
 -H "Accept: application/json"
 ```
 
@@ -9201,7 +7801,7 @@ curl -X PUT "http://zaportal.dev/api/grades/{grade}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/grades/{grade}",
+    "url": "http://localhost:8000/api/grades/{grade}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -9236,7 +7836,7 @@ Removes a Grade from the System by ID
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/grades/{grade}" \
+curl -X DELETE "http://localhost:8000/api/grades/{grade}" \
 -H "Accept: application/json"
 ```
 
@@ -9244,7 +7844,7 @@ curl -X DELETE "http://zaportal.dev/api/grades/{grade}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/grades/{grade}",
+    "url": "http://localhost:8000/api/grades/{grade}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -9266,10 +7866,14 @@ $.ajax(settings).done(function (response) {
 <!-- START_9d84e1b061be7d13bf8c370c7c771e01 -->
 ## Get Image Types
 
+Responds with a list of Image Types
+- Rules of Access
+  - User is in the same school
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/schools/{school_id}/image-types" \
+curl -X GET "http://localhost:8000/api/schools/{school_id}/image-types" \
 -H "Accept: application/json"
 ```
 
@@ -9277,7 +7881,7 @@ curl -X GET "http://zaportal.dev/api/schools/{school_id}/image-types" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/image-types",
+    "url": "http://localhost:8000/api/schools/{school_id}/image-types",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -9292,16 +7896,7 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-[
-    {
-        "id": 1,
-        "school_id": 1,
-        "type": "App\\Models\\School",
-        "name": "logo",
-        "created_at": "2018-07-04 10:57:25",
-        "updated_at": "2018-07-04 10:57:25"
-    }
-]
+[]
 ```
 
 ### HTTP Request
@@ -9315,10 +7910,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_d102f534c84e974581acf8ec68beecfa -->
 ## Create Image Type
 
+Supply Image Type information to create a new one
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Image belongs to
+
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/schools/{school_id}/image-types" \
+curl -X POST "http://localhost:8000/api/schools/{school_id}/image-types" \
 -H "Accept: application/json" \
     -d "type"="facere" \
     -d "name"="facere" \
@@ -9329,7 +7929,7 @@ curl -X POST "http://zaportal.dev/api/schools/{school_id}/image-types" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/image-types",
+    "url": "http://localhost:8000/api/schools/{school_id}/image-types",
     "method": "POST",
     "data": {
         "type": "facere",
@@ -9361,10 +7961,14 @@ Parameter | Type | Status | Description
 <!-- START_7b1d3f22ce106162fbf0781f636eb512 -->
 ## Get Image Type by ID
 
+Responds with a specific Image Type by its ID
+- Rules of Access
+  - User is in the same school
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/schools/{school_id}/image-types/{image_type}" \
+curl -X GET "http://localhost:8000/api/schools/{school_id}/image-types/{image_type}" \
 -H "Accept: application/json"
 ```
 
@@ -9372,7 +7976,7 @@ curl -X GET "http://zaportal.dev/api/schools/{school_id}/image-types/{image_type
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/image-types/{image_type}",
+    "url": "http://localhost:8000/api/schools/{school_id}/image-types/{image_type}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -9393,13 +7997,13 @@ $.ajax(settings).done(function (response) {
     "short_name": "UI",
     "owner_id": 1,
     "is_active": 1,
-    "created_at": "2018-07-04 10:57:12",
-    "updated_at": "2018-07-05 18:14:11",
+    "created_at": "2018-07-07 11:03:16",
+    "updated_at": "2018-07-07 11:03:16",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
-        "created_at": "2018-07-04 10:57:12",
-        "updated_at": "2018-07-04 10:57:12"
+        "created_at": "2018-07-07 11:03:16",
+        "updated_at": "2018-07-07 11:03:16"
     }
 }
 ```
@@ -9415,10 +8019,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_446612946ac234409478ab27e293a7b1 -->
 ## Update Image Type
 
+Modify information about an existing Image Type by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Image belongs to
+
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/schools/{school_id}/image-types/{image_type}" \
+curl -X PUT "http://localhost:8000/api/schools/{school_id}/image-types/{image_type}" \
 -H "Accept: application/json"
 ```
 
@@ -9426,7 +8035,7 @@ curl -X PUT "http://zaportal.dev/api/schools/{school_id}/image-types/{image_type
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/image-types/{image_type}",
+    "url": "http://localhost:8000/api/schools/{school_id}/image-types/{image_type}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -9450,10 +8059,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_3cca85be723315a5e37efe70a7382b25 -->
 ## Delete Image Type
 
+Removes a Image Type from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Image belongs to
+
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/schools/{school_id}/image-types/{image_type}" \
+curl -X DELETE "http://localhost:8000/api/schools/{school_id}/image-types/{image_type}" \
 -H "Accept: application/json"
 ```
 
@@ -9461,7 +8075,7 @@ curl -X DELETE "http://zaportal.dev/api/schools/{school_id}/image-types/{image_t
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/schools/{school_id}/image-types/{image_type}",
+    "url": "http://localhost:8000/api/schools/{school_id}/image-types/{image_type}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -9483,10 +8097,14 @@ $.ajax(settings).done(function (response) {
 <!-- START_2d5802b9c2bdbdccf4a58da17f23a7f1 -->
 ## Get Images
 
+Responds with a list of Images
+- Rules of Access
+  - User is in the same school
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/images" \
+curl -X GET "http://localhost:8000/api/images" \
 -H "Accept: application/json"
 ```
 
@@ -9494,7 +8112,7 @@ curl -X GET "http://zaportal.dev/api/images" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/images",
+    "url": "http://localhost:8000/api/images",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -9523,10 +8141,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_204613676cab89a55dfdc7d81f16a281 -->
 ## Create Image
 
+Supply Image information to create a new one
+- Rules of Access
+ - User can view image type and
+ - User can update image owner
+
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/images" \
+curl -X POST "http://localhost:8000/api/images" \
 -H "Accept: application/json" \
     -d "owner_id"="6146694" \
     -d "image_type_id"="6146694" \
@@ -9538,7 +8161,7 @@ curl -X POST "http://zaportal.dev/api/images" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/images",
+    "url": "http://localhost:8000/api/images",
     "method": "POST",
     "data": {
         "owner_id": 6146694,
@@ -9572,10 +8195,14 @@ Parameter | Type | Status | Description
 <!-- START_67424e745d978355538c7df809cf57ad -->
 ## Get Image by ID
 
+Responds with a specific Image by its ID
+- Rules of Access
+  - User is in the same school
+
 > Example request:
 
 ```bash
-curl -X GET "http://zaportal.dev/api/images/{image}" \
+curl -X GET "http://localhost:8000/api/images/{image}" \
 -H "Accept: application/json"
 ```
 
@@ -9583,7 +8210,7 @@ curl -X GET "http://zaportal.dev/api/images/{image}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/images/{image}",
+    "url": "http://localhost:8000/api/images/{image}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -10066,10 +8693,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_663d256882d5392cfe487383a4e8703e -->
 ## Update Image
 
+Modify information about an existing Image by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Image belongs to
+
 > Example request:
 
 ```bash
-curl -X PUT "http://zaportal.dev/api/images/{image}" \
+curl -X PUT "http://localhost:8000/api/images/{image}" \
 -H "Accept: application/json"
 ```
 
@@ -10077,7 +8709,7 @@ curl -X PUT "http://zaportal.dev/api/images/{image}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/images/{image}",
+    "url": "http://localhost:8000/api/images/{image}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -10101,10 +8733,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_f39af5b4ed09dfc1cd00fcaa2c6ecce2 -->
 ## Delete Image
 
+Removes a Image from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Image belongs to
+
 > Example request:
 
 ```bash
-curl -X DELETE "http://zaportal.dev/api/images/{image}" \
+curl -X DELETE "http://localhost:8000/api/images/{image}" \
 -H "Accept: application/json"
 ```
 
@@ -10112,7 +8749,7 @@ curl -X DELETE "http://zaportal.dev/api/images/{image}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/images/{image}",
+    "url": "http://localhost:8000/api/images/{image}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -10134,10 +8771,15 @@ $.ajax(settings).done(function (response) {
 <!-- START_dac5bb3acabf927a0dc93b1193419363 -->
 ## Update Image
 
+Modify information about an existing Image by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Image belongs to
+
 > Example request:
 
 ```bash
-curl -X POST "http://zaportal.dev/api/images/{id}" \
+curl -X POST "http://localhost:8000/api/images/{id}" \
 -H "Accept: application/json"
 ```
 
@@ -10145,7 +8787,7 @@ curl -X POST "http://zaportal.dev/api/images/{id}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://zaportal.dev/api/images/{id}",
+    "url": "http://localhost:8000/api/images/{id}",
     "method": "POST",
     "headers": {
         "accept": "application/json"
