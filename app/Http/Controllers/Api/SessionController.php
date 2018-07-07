@@ -22,6 +22,10 @@ class SessionController extends ApiController
 
     /**
      * Get Session by ID
+     * 
+     * Responds with a specific Session by its ID
+     * - Rules of Access
+     *   - User is same school as Session
      */
     public function show(Request $request, SessionFilters $filters, int $id) {
         $session = $this->service()->repo()->session($id, $filters);
@@ -31,6 +35,10 @@ class SessionController extends ApiController
 
     /**
      * Get Sessions
+     * 
+     * Responds with a list of Sessions
+     * - Rules of Access
+     *   - User is same school as Session
      */
     public function index(Request $request, SessionFilters $filters) {
         $sessions = $this->service()->repo()->sessions($request->user(), $filters);
@@ -39,6 +47,11 @@ class SessionController extends ApiController
 
     /**
      * Delete Session
+     * 
+     * Removes a Session from the System by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Session belongs to
      */
     public function destroy(Request $request, int $id) {
         $session = $this->service()->repo()->session($id);
@@ -49,6 +62,10 @@ class SessionController extends ApiController
 
     /**
      * Create Session
+     * 
+     * Supply Session information to create a new one
+     * - Rules of Access
+     *  - User can update Session's school
      */
     public function store(SessionRequest $request) {
         $session = $this->service()->repo()->create($request->all());
@@ -57,6 +74,11 @@ class SessionController extends ApiController
 
     /**
      * Update Session
+     * 
+     * Modify information about an existing Session by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Session belongs to
      */
     public function update(Request $request, int $id) {
         $session = $this->service()->repo()->session($id);
