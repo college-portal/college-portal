@@ -30,8 +30,7 @@ class StaffTeachCourseRequest extends FormRequest
                         Role::DEAN, 
                         Role::HOD 
                     ], $school->id)
-               ) &&
-               $user->can('update', $course);
+               );
     }
 
     /**

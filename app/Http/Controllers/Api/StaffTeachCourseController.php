@@ -21,6 +21,10 @@ class StaffTeachCourseController extends ApiController
 
     /**
      * Get Staff-Teach-Course Info by ID
+     * 
+     * Responds with a specific Staff-Teach-Course by its ID
+     * - Rules of Access
+     *   - User is same school
      */
     public function show(Request $request, StaffTeachCourseFilters $filters, $id) {
         $staffCourse = $this->service()->repo()->single($id, $filters);
@@ -30,6 +34,10 @@ class StaffTeachCourseController extends ApiController
 
     /**
      * Get Staff-Teach-Course List
+     * 
+     * Responds with a list of Staff-Teach-Course info
+     * - Rules of Access
+     *   - User is same school
      */
     public function index(Request $request, StaffTeachCourseFilters $filters) {
         $staffCourses = $this->service()->repo()->list($request->user(), $filters);
@@ -38,6 +46,13 @@ class StaffTeachCourseController extends ApiController
 
     /**
      * Delete Staff-Teach-Course
+     * 
+     * Removes a Staff-Teach-Course entry from the System by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school or
+     *  - User is a Dean in faculty or
+     *  - User is an HOD in department
      */
     public function destroy(Request $request, $id) {
         $staffCourse = $this->service()->repo()->single($id);
@@ -48,6 +63,12 @@ class StaffTeachCourseController extends ApiController
 
     /**
      * Create Staff-Teach-Course
+     * 
+     * Supply Staff-Teach-Course information to create a new one
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User is a SCHOOL_OWNER or DEAN of HOD in staff-teach-course's school and
+     *  - User can update course
      */
     public function store(StaffTeachCourseRequest $request) {
         $staffTeachCourse = $this->service()->repo()->create($request->all());
@@ -56,6 +77,13 @@ class StaffTeachCourseController extends ApiController
 
     /**
      * Update Staff-Teach-Course
+     * 
+     * Modify information about an existing Staff-Teach-Course by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school or
+     *  - User is a Dean in faculty or
+     *  - User is an HOD in department
      */
     public function update(Request $request, $id) {
         $staffTeachCourse = $this->service()->repo()->single($id);
