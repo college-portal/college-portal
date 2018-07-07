@@ -1,26 +1,42 @@
 # ZaPortal
 
-An open source API for a modern online portal for tertiary institutions including Universities, Polytechnics and Colleges of Education.
+An open source Rest API for a modern online portal for tertiary institutions including
+
+- Universities
+- Polytechnics
+- Colleges of Education
 
 ## Status
 
-- In Active Development
+- Under Active Development
 
-## A Peek (ER Diagram)
+## Setup
 
-![image](https://user-images.githubusercontent.com/11996508/41779242-1c740b3a-7629-11e8-82db-fb9ed9937b2d.png)
+- Clone this repository
+- Be sure to have Laravel Development Environment [setup on your system](https://laravel.com/docs/5.6/installation)
+- Copy the [.env.example](./.env.example) file to a .env file and update its values
+- Create an App Key with `php artisan key:generate`
+- Run `composer update` to install dependencies
+- To use the image upload feature
+  - Create a cloudinary account
+  - Fill the CLOUDINARY_* fields in .env
+- Create a MySQL, PostgreSQL or SQLite DB and connect it via the .env file
+- To seed your DB with test data, run `php artisan db:seed`
+- To serve the application, run `php artisan serve`
+
+## Rest API Documentation
+
+The documentation exists [here](./public/docs/source/index.md).
 
 ## Technologies
 
 - PHP (Laravel)
 - MySQL
 
-## Collaboration
+## Contribution Guide
 
-- For fixes,
-  - Look through the existing issues
-  - Raise a PR
-- For enhancements
-  - Raise an issue
-  - We discuss its importance
-  - Raise a PR
+See our [guide](./CONTRIBUTION.md) for contributors.
+
+## A Peek (ER Diagram)
+
+![image](https://user-images.githubusercontent.com/11996508/42410353-51531e14-81e0-11e8-8765-31dde6c18289.png)
