@@ -18,7 +18,7 @@ class CreateGradesTable extends Migration
             $table->increments('id');
             $table->integer('student_takes_course_id')->unsigned();
             $table->integer('score');
-            $table->string('description', 255);
+            $table->string('description');
             $table->timestamps();
         });
     }

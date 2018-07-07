@@ -20,7 +20,7 @@ class CreateCoursesTable extends Migration
             $table->integer('semester_type_id')->unsigned();
             $table->integer('level_id')->unsigned();
             $table->string('code', 20);
-            $table->string('title', 255);
+            $table->string('title');
             $table->integer('credit')->unsigned();
             $table->timestamps();
         });

@@ -18,7 +18,7 @@ class CreateSessionsTable extends Migration
         Schema::create(Session::name(), function (Blueprint $table) {
             $table->increments('id');
             $table->integer('school_id')->unsigned();
-            $table->string('name', 255);
+            $table->string('name');
             $table->timestamp('start_date')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('end_date')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamps();

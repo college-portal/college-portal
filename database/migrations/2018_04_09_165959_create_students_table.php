@@ -18,7 +18,7 @@ class CreateStudentsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('program_id')->unsigned();
-            $table->string('matric_no', 255)->unique();
+            $table->string('matric_no')->unique();
             $table->boolean('is_active');
             $table->timestamps();
         });

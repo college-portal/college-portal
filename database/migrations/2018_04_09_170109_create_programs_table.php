@@ -16,7 +16,7 @@ class CreateProgramsTable extends Migration
     {
         Schema::create(Program::name(), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 255);
+            $table->string('name');
             $table->integer('department_id')->unsigned();
             $table->timestamps();
         });
