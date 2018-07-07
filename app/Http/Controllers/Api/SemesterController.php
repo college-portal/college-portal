@@ -24,7 +24,7 @@ class SemesterController extends ApiController
      * 
      * Responds with a specific Semester by its ID
      * - Rules of Access
-     *   - User is same school as Senester
+     *   - User is same school as Semester
      * - Filters
      *   - ?with_session
      *   - ?with_type

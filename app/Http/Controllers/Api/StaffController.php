@@ -21,6 +21,10 @@ class StaffController extends ApiController
 
     /**
      * Get Staff by ID
+     * 
+     * Responds with a specific Staff by its ID
+     * - Rules of Access
+     *   - User is same school as Staff
      */
     public function show(Request $request, StaffFilters $filters, int $id) {
         $staff = $this->service()->repo()->single($id, $filters);
@@ -30,6 +34,10 @@ class StaffController extends ApiController
 
     /**
      * Get Staff
+     * 
+     * Responds with a list of Staff
+     * - Rules of Access
+     *   - User is same school as Staff
      */
     public function index(Request $request, StaffFilters $filters) {
         $staff = $this->service()->repo()->list($request->user(), $filters);
@@ -38,6 +46,13 @@ class StaffController extends ApiController
 
     /**
      * Delete Staff
+     * 
+     * Removes a Staff from the System by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Staff belongs to or
+     *  - User is HOD in staff's department or
+     *  - User is Dean of Staff's Faculty
      */
     public function destroy(Request $request, int $id) {
         $staff = $this->service()->repo()->single($id);
@@ -48,6 +63,12 @@ class StaffController extends ApiController
 
     /**
      * Create Staff
+     * 
+     * Supply Staff information to create a new one
+     * - Rules of Access
+     *  - User can update Department staff is to be in or
+     *  - User can update School staff is to be in or
+     *  - User can update the staff user's info
      */
     public function store(StaffRequest $request) {
         $staff = $this->service()->repo()->create($request->all());
@@ -56,6 +77,13 @@ class StaffController extends ApiController
 
     /**
      * Update Staff
+     * 
+     * Modify information about an existing Staff by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Staff belongs to or
+     *  - User is HOD in staff's department or
+     *  - User is Dean of Staff's Faculty
      */
     public function update(Request $request, int $id) {
         $staff = $this->service()->update($id, $request->all());
