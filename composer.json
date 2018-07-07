@@ -51,6 +51,21 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
+        ],
+        "gh:deploy": [
+            "git subtree split --prefix public/docs -b gh-pages",
+            "touch public/docs/.gitignore",
+            "grep -v \"public/docs\" .gitignore >> public/docs/.gitignore",
+            "git stash",
+            "branch=$(git rev-parse --abbrev-ref HEAD)",
+            "git checkout gh-pages",
+            "mv public/docs/.gitignore .gitignore",
+            "git add .",
+            "git commit -m \"chore: generate gh-pages\"",
+            "git push -f origin gh-pages:gh-pages",
+            "git checkout $branch",
+            "git stash pop",
+            "git branch -D gh-pages"
         ]
     },
     "config": {
