@@ -15,13 +15,21 @@ class StudentFilters extends BaseFilters
         parent::__construct($request);
     }
 
-    public function program_id(string $value):Builder
+    public function program(string $value):Builder
 	{
         return $this->builder->where('program_id', $value);
     }
 
-    public function matric_no(string $value):Builder
+    public function matric(string $value):Builder
 	{
         return $this->builder->where('matric_no', 'LIKE', "%$value%");
+    }
+
+    public function with_user() {
+        return $this->builder->with('user');
+    }
+
+    public function with_program() {
+        return $this->builder->with('program');
     }
 }
