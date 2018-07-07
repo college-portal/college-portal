@@ -22,6 +22,13 @@ class UserController extends ApiController
 
     /**
      * Get User by ID
+     * 
+     * Responds with a specific User by its ID
+     * - Rules of Access
+     *   - User is same school
+     * - Filters
+     *   - ?with_staff
+     *   - ?with_students
      */
     public function show(Request $request, UserFilters $filters, int $id) {
         $user = $this->service()->repo()->user($id, $filters);
@@ -31,6 +38,13 @@ class UserController extends ApiController
 
     /**
      * Get Users
+     * 
+     * Responds with a list of Users
+     * - Rules of Access
+     *   - User is same school
+     * - Filters
+     *   - ?with_staff
+     *   - ?with_students
      */
     public function index(Request $request, UserFilters $filters) {
         $users = $this->service()->repo()->users($request->user(), $filters);
@@ -39,6 +53,11 @@ class UserController extends ApiController
 
     /**
      * Delete User
+     * 
+     * Removes a User from the System by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User is deleting his/her own account
      */
     public function destroy(Request $request, int $id) {
         $user = $this->service()->repo()->user($id);
@@ -49,6 +68,8 @@ class UserController extends ApiController
 
     /**
      * Create User
+     * 
+     * Supply User information to create a new one
      */
     public function store(UserRequest $request) {
         $user = $this->service()->repo()->create($request->all());
@@ -57,6 +78,11 @@ class UserController extends ApiController
 
     /**
      * Update User
+     * 
+     * Modify information about an existing User by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User is updating his/her own account
      */
     public function update(Request $request, int $id) {
         $user = $this->service()->repo()->user($id);

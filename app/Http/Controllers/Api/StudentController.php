@@ -89,7 +89,7 @@ class StudentController extends ApiController
     /**
      * Update Student
      * 
-     * Removes a Student from the System by ID
+     * Modify information about an existing Student by ID
      * - Rules of Access
      *  - User is an ADMIN or
      *  - User owns school the Student belongs to or
