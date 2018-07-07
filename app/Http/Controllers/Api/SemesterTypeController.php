@@ -22,6 +22,8 @@ class SemesterTypeController extends ApiController
 
     /**
      * Get Semester Type by ID
+     * 
+     * Responds with a specific Semester Type by its ID
      */
     public function show(Request $request, SemesterTypeFilters $filters, int $school_id, int $id) {
         $this->authorize('view', School::findOrFail($school_id));
@@ -32,6 +34,8 @@ class SemesterTypeController extends ApiController
 
     /**
      * Get Semester Types
+     * 
+     * Responds with a list of Semester Types
      */
     public function index(Request $request, SemesterTypeFilters $filters, int $school_id) {
         $this->authorize('view', School::findOrFail($school_id));
@@ -41,6 +45,11 @@ class SemesterTypeController extends ApiController
 
     /**
      * Delete Semester Type
+     * 
+     * Removes a Semester Type from the System by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Semester Type belongs to
      */
     public function destroy(Request $request, int $school_id, int $id) {
         $this->authorize('view', School::findOrFail($school_id));
@@ -61,6 +70,11 @@ class SemesterTypeController extends ApiController
 
     /**
      * Update Semester Type
+     * 
+     * Modify information about an existing Semester Type by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Semester Type belongs to
      */
     public function update(Request $request, int $school_id, int $id) {
         $this->authorize('view', School::findOrFail($school_id));

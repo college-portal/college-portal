@@ -38,9 +38,9 @@ class SemesterController extends ApiController
     /**
      * Get Semesters
      * 
-     * Responds with a list Senesters
+     * Responds with a list Semesters
      * - Rules of Access
-     *   - User is same school as Senester
+     *   - User is same school as Semester
      * - Filters
      *   - ?with_session
      *   - ?with_type
@@ -80,10 +80,10 @@ class SemesterController extends ApiController
     /**
      * Update Semester
      * 
-     * Modify information about an existing School by ID
+     * Modify information about an existing Semester by ID
      * - Rules of Access
      *  - User is an ADMIN or
-     *  - User owns school the School belongs to
+     *  - User owns school the Semester belongs to
      */
     public function update(Request $request, int $id) {
         $semester = $this->service()->repo()->semester($id);
