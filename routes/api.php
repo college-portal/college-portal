@@ -45,7 +45,7 @@ Route::group([
      */
     Route::get('/', function (Request $request) {
         return [
-            'message' => 'zaportal'
+            'message' => 'college-portal'
         ];
     });
 

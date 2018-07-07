@@ -1,4 +1,4 @@
-# ZaPortal
+# College Portal
 
 [![Codeship Status for college-portal/college-portal](https://app.codeship.com/projects/9f257b40-6409-0136-9628-0a6e2570381d/status?branch=master)](https://app.codeship.com/projects/297074)
 
