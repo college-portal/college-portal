@@ -53,7 +53,7 @@ class SchoolController extends ApiController
      * Removes a School from the System by ID
      * - Rules of Access
      *  - User is an ADMIN or
-     *  - User owns school the School belongs to
+     *  - User owns the School
      */
     public function destroy(Request $request, int $id) {
         $school = $this->service()->repo()->school($request->user(), $id);
@@ -78,7 +78,7 @@ class SchoolController extends ApiController
      * Modify information about an existing School by ID
      * - Rules of Access
      *  - User is an ADMIN or
-     *  - User owns school the School belongs to
+     *  - User owns the School
      */
     public function update(Request $request, int $id) {
         $school = $this->service()->repo()->school($request->user(), $id);

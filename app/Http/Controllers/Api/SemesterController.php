@@ -21,6 +21,13 @@ class SemesterController extends ApiController
 
     /**
      * Get Semester by ID
+     * 
+     * Responds with a specific Semester by its ID
+     * - Rules of Access
+     *   - User is same school as Senester
+     * - Filters
+     *   - ?with_session
+     *   - ?with_type
      */
     public function show(Request $request, SemesterFilters $filters, int $id) {
         $semester = $this->service()->repo()->semester($id, $filters);
@@ -30,6 +37,13 @@ class SemesterController extends ApiController
 
     /**
      * Get Semesters
+     * 
+     * Responds with a list Senesters
+     * - Rules of Access
+     *   - User is same school as Senester
+     * - Filters
+     *   - ?with_session
+     *   - ?with_type
      */
     public function index(Request $request, SemesterFilters $filters) {
         $semesters = $this->service()->repo()->semesters($request->user(), $filters);
@@ -38,6 +52,11 @@ class SemesterController extends ApiController
 
     /**
      * Delete Semester
+     * 
+     * Removes a Semester from the System by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the Semester belongs to
      */
     public function destroy(Request $request, int $id) {
         $semester = $this->service()->repo()->semester($id);
@@ -48,6 +67,10 @@ class SemesterController extends ApiController
 
     /**
      * Create Semester
+     * 
+     * Supply Semester information to create a new one
+     * - Rules of Access
+     *  - User can update semester type
      */
     public function store(SemesterRequest $request) {
         $semester = $this->service()->create($request->all());
@@ -56,6 +79,11 @@ class SemesterController extends ApiController
 
     /**
      * Update Semester
+     * 
+     * Modify information about an existing School by ID
+     * - Rules of Access
+     *  - User is an ADMIN or
+     *  - User owns school the School belongs to
      */
     public function update(Request $request, int $id) {
         $semester = $this->service()->repo()->semester($id);
