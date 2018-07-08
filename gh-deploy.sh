@@ -4,6 +4,8 @@ git checkout edge
 rm -rf public/docs
 read -s -p "Enter Password: " ADMIN_PASSWORD
 php artisan generate:docs --password=$ADMIN_PASSWORD
+git add .
+git commit -m "chore: generate docs"
 git branch -D gh-pages
 git subtree split --prefix public/docs -b gh-pages
 touch public/docs/.gitignore
