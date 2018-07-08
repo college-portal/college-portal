@@ -51,6 +51,9 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
+        ],
+        "gh:deploy": [
+            "sh gh-deploy.sh"
         ]
     },
     "config": {

@@ -12,7 +12,7 @@ class GenerateDocsCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'generate:docs { email? : The user to access the API endpoints ... Defaults to ADMIN_EMAIL environment variable }';
+    protected $signature = 'generate:docs { email? : The user to access the API endpoints ... Defaults to ADMIN_EMAIL environment variable } { --password=false : The password for the email provided }';
 
     /**
      * The console command description.
@@ -45,7 +45,7 @@ class GenerateDocsCommand extends Command
             return;
         }
 
-        $password = $this->getPassword();
+        $password = ($this->option('password') == 'false') ? $this->getPassword() : $this->option('password');
         echo "\n";
 
         try {

@@ -16,7 +16,8 @@ toc_footers:
 # Info
 
 Welcome to the generated API reference.
-[Get Postman Collection](http://zaportal.dev/docs/collection.json)
+[Get Postman Collection](http://localhost:8000/docs/collection.json)
+
 <!-- END_INFO -->
 
 #general
@@ -93,9 +94,9 @@ $.ajax(settings).done(function (response) {
     "last_name": "Orlando",
     "other_names": null,
     "display_name": "Owner Orlando",
-    "dob": "1963-11-01",
-    "created_at": "2018-07-07 11:03:16",
-    "updated_at": "2018-07-07 11:03:16"
+    "dob": "1963-03-19",
+    "created_at": "2018-07-07 14:17:48",
+    "updated_at": "2018-07-07 14:17:48"
 }
 ```
 
@@ -145,17 +146,17 @@ $.ajax(settings).done(function (response) {
 [
     {
         "id": 1,
-        "name": "University of Ibadan",
-        "short_name": "UI",
+        "name": "Obafemi Awolowo University",
+        "short_name": "OAU",
         "owner_id": 1,
         "is_active": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16",
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48",
         "pivot": {
             "user_id": 1,
             "school_id": 1,
-            "created_at": "2018-07-07 11:03:16",
-            "updated_at": "2018-07-07 11:03:16"
+            "created_at": "2018-07-07 14:17:48",
+            "updated_at": "2018-07-07 14:17:48"
         }
     }
 ]
@@ -257,17 +258,17 @@ $.ajax(settings).done(function (response) {
 ```json
 {
     "id": 1,
-    "name": "University of Ibadan",
-    "short_name": "UI",
+    "name": "Obafemi Awolowo University",
+    "short_name": "OAU",
     "owner_id": 1,
     "is_active": 1,
-    "created_at": "2018-07-07 11:03:16",
-    "updated_at": "2018-07-07 11:03:16",
+    "created_at": "2018-07-07 14:17:48",
+    "updated_at": "2018-07-07 14:17:48",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     }
 }
 ```
@@ -402,9 +403,9 @@ $.ajax(settings).done(function (response) {
             "last_name": "Daniels",
             "other_names": null,
             "display_name": "Dean Daniels",
-            "dob": "1985-09-23",
-            "created_at": "2018-07-07T11:03:16+00:00",
-            "updated_at": "2018-07-07T11:03:16+00:00"
+            "dob": "1971-03-13",
+            "created_at": "2018-07-07T14:17:48+00:00",
+            "updated_at": "2018-07-07T14:17:48+00:00"
         },
         {
             "id": 1,
@@ -412,9 +413,9 @@ $.ajax(settings).done(function (response) {
             "last_name": "Daniels",
             "other_names": null,
             "display_name": "Dean Daniels",
-            "dob": "1985-09-23",
-            "created_at": "2018-07-07T11:03:16+00:00",
-            "updated_at": "2018-07-07T11:03:16+00:00"
+            "dob": "1971-03-13",
+            "created_at": "2018-07-07T14:17:48+00:00",
+            "updated_at": "2018-07-07T14:17:48+00:00"
         },
         {
             "id": 1,
@@ -422,39 +423,39 @@ $.ajax(settings).done(function (response) {
             "last_name": "Daniels",
             "other_names": null,
             "display_name": "Dean Daniels",
-            "dob": "1985-09-23",
-            "created_at": "2018-07-07T11:03:16+00:00",
-            "updated_at": "2018-07-07T11:03:16+00:00"
+            "dob": "1971-03-13",
+            "created_at": "2018-07-07T14:17:48+00:00",
+            "updated_at": "2018-07-07T14:17:48+00:00"
         },
         {
             "id": 1,
-            "first_name": "Amari",
-            "last_name": "Stroman",
+            "first_name": "Kailey",
+            "last_name": "Kertzmann",
             "other_names": null,
-            "display_name": "Amari Stroman",
-            "dob": "1956-10-08",
-            "created_at": "2018-07-07T11:03:16+00:00",
-            "updated_at": "2018-07-07T11:03:16+00:00"
+            "display_name": "Kailey Kertzmann",
+            "dob": "1957-10-30",
+            "created_at": "2018-07-07T14:17:48+00:00",
+            "updated_at": "2018-07-07T14:17:48+00:00"
         },
         {
             "id": 1,
-            "first_name": "Jessica",
-            "last_name": "Stroman",
+            "first_name": "Enos",
+            "last_name": "Stiedemann",
             "other_names": null,
-            "display_name": "Jessica Stroman",
-            "dob": "1977-07-06",
-            "created_at": "2018-07-07T11:03:16+00:00",
-            "updated_at": "2018-07-07T11:03:16+00:00"
+            "display_name": "Enos Stiedemann",
+            "dob": "1987-05-22",
+            "created_at": "2018-07-07T14:17:48+00:00",
+            "updated_at": "2018-07-07T14:17:48+00:00"
         },
         {
             "id": 1,
-            "first_name": "Maynard",
-            "last_name": "Hoppe",
+            "first_name": "Jade",
+            "last_name": "Pfannerstill",
             "other_names": null,
-            "display_name": "Maynard Hoppe",
-            "dob": "1982-04-01",
-            "created_at": "2018-07-07T11:03:16+00:00",
-            "updated_at": "2018-07-07T11:03:16+00:00"
+            "display_name": "Jade Pfannerstill",
+            "dob": "1965-05-06",
+            "created_at": "2018-07-07T14:17:48+00:00",
+            "updated_at": "2018-07-07T14:17:48+00:00"
         }
     ]
 }
@@ -482,7 +483,7 @@ curl -X POST "http://localhost:8000/api/users" \
     -d "last_name"="ut" \
     -d "email"="nakia.mcclure@example.org" \
     -d "password"="ut" \
-    -d "dob"="1986-10-24" \
+    -d "dob"="1986-10-25" \
 
 ```
 
@@ -497,7 +498,7 @@ var settings = {
         "last_name": "ut",
         "email": "nakia.mcclure@example.org",
         "password": "ut",
-        "dob": "1986-10-24"
+        "dob": "1986-10-25"
 },
     "headers": {
         "accept": "application/json"
@@ -568,9 +569,9 @@ $.ajax(settings).done(function (response) {
     "last_name": "Orlando",
     "other_names": null,
     "display_name": "Owner Orlando",
-    "dob": "1963-11-01",
-    "created_at": "2018-07-07 11:03:16",
-    "updated_at": "2018-07-07 11:03:16"
+    "dob": "1963-03-19",
+    "created_at": "2018-07-07 14:17:48",
+    "updated_at": "2018-07-07 14:17:48"
 }
 ```
 
@@ -705,8 +706,8 @@ $.ajax(settings).done(function (response) {
         "name": "Science and Technology",
         "dean_id": 1,
         "school_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16",
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48",
         "deleted_at": null
     }
 ]
@@ -818,8 +819,8 @@ $.ajax(settings).done(function (response) {
     "name": "Science and Technology",
     "dean_id": 1,
     "school_id": 1,
-    "created_at": "2018-07-07 11:03:16",
-    "updated_at": "2018-07-07 11:03:16",
+    "created_at": "2018-07-07 14:17:48",
+    "updated_at": "2018-07-07 14:17:48",
     "deleted_at": null
 }
 ```
@@ -954,11 +955,11 @@ $.ajax(settings).done(function (response) {
 [
     {
         "id": 1,
-        "name": "Chemistry",
+        "name": "Computer Science",
         "hod_id": 1,
         "faculty_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     }
 ]
 ```
@@ -1067,11 +1068,11 @@ $.ajax(settings).done(function (response) {
 ```json
 {
     "id": 1,
-    "name": "Chemistry",
+    "name": "Computer Science",
     "hod_id": 1,
     "faculty_id": 1,
-    "created_at": "2018-07-07 11:03:16",
-    "updated_at": "2018-07-07 11:03:16"
+    "created_at": "2018-07-07 14:17:48",
+    "updated_at": "2018-07-07 14:17:48"
 }
 ```
 
@@ -1205,8 +1206,8 @@ $.ajax(settings).done(function (response) {
         "id": 1,
         "name": "Library Studies",
         "department_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     }
 ]
 ```
@@ -1311,8 +1312,8 @@ $.ajax(settings).done(function (response) {
     "id": 1,
     "name": "Library Studies",
     "department_id": 1,
-    "created_at": "2018-07-07 11:03:16",
-    "updated_at": "2018-07-07 11:03:16"
+    "created_at": "2018-07-07 14:17:48",
+    "updated_at": "2018-07-07 14:17:48"
 }
 ```
 
@@ -1444,29 +1445,29 @@ $.ajax(settings).done(function (response) {
         "id": 1,
         "name": "100L",
         "school_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 2,
         "name": "200L",
         "school_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 3,
         "name": "300L",
         "school_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 4,
         "name": "400L",
         "school_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     }
 ]
 ```
@@ -1562,17 +1563,17 @@ $.ajax(settings).done(function (response) {
 ```json
 {
     "id": 1,
-    "name": "University of Ibadan",
-    "short_name": "UI",
+    "name": "Obafemi Awolowo University",
+    "short_name": "OAU",
     "owner_id": 1,
     "is_active": 1,
-    "created_at": "2018-07-07 11:03:16",
-    "updated_at": "2018-07-07 11:03:16",
+    "created_at": "2018-07-07 14:17:48",
+    "updated_at": "2018-07-07 14:17:48",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     }
 }
 ```
@@ -1706,28 +1707,28 @@ $.ajax(settings).done(function (response) {
         "id": 1,
         "user_id": 3,
         "program_id": 1,
-        "matric_no": "UNI431",
+        "matric_no": "UNI991",
         "is_active": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 2,
         "user_id": 4,
         "program_id": 1,
-        "matric_no": "UNI317",
+        "matric_no": "UNI758",
         "is_active": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 3,
         "user_id": 5,
         "program_id": 1,
-        "matric_no": "UNI126",
+        "matric_no": "UNI576",
         "is_active": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     }
 ]
 ```
@@ -1838,10 +1839,10 @@ $.ajax(settings).done(function (response) {
     "id": 1,
     "user_id": 3,
     "program_id": 1,
-    "matric_no": "UNI431",
+    "matric_no": "UNI991",
     "is_active": 1,
-    "created_at": "2018-07-07 11:03:16",
-    "updated_at": "2018-07-07 11:03:16"
+    "created_at": "2018-07-07 14:17:48",
+    "updated_at": "2018-07-07 14:17:48"
 }
 ```
 
@@ -1982,88 +1983,88 @@ $.ajax(settings).done(function (response) {
         "department_id": 1,
         "semester_type_id": 1,
         "level_id": 1,
-        "code": "FJD138",
-        "title": "Algorithms and Data Structures",
-        "credit": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "code": "AZN119",
+        "title": "Kinematics",
+        "credit": 4,
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 2,
         "department_id": 1,
         "semester_type_id": 1,
         "level_id": 2,
-        "code": "HRK119",
-        "title": "Oscillatory Motion",
+        "code": "KWD148",
+        "title": "Algorithms and Data Structures",
         "credit": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 3,
         "department_id": 1,
         "semester_type_id": 1,
         "level_id": 3,
-        "code": "CUC178",
-        "title": "Oscillatory Motion",
+        "code": "CNY108",
+        "title": "Physical Sciences",
         "credit": 2,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 4,
         "department_id": 1,
         "semester_type_id": 1,
         "level_id": 4,
-        "code": "KHR101",
-        "title": "Discrete Mathematics",
-        "credit": 5,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "code": "SEK114",
+        "title": "Oscillatory Motion",
+        "credit": 1,
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 5,
         "department_id": 1,
         "semester_type_id": 2,
         "level_id": 1,
-        "code": "CUC190",
-        "title": "Physical Sciences",
-        "credit": 3,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "code": "XPF183",
+        "title": "Discrete Mathematics",
+        "credit": 2,
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 6,
         "department_id": 1,
         "semester_type_id": 2,
         "level_id": 2,
-        "code": "JPY109",
-        "title": "Algorithms and Data Structures",
-        "credit": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "code": "ARS185",
+        "title": "Signal Analysis",
+        "credit": 3,
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 7,
         "department_id": 1,
         "semester_type_id": 2,
         "level_id": 3,
-        "code": "BZD112",
+        "code": "AOA141",
         "title": "Oscillatory Motion",
         "credit": 2,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 8,
         "department_id": 1,
         "semester_type_id": 2,
         "level_id": 4,
-        "code": "CHF155",
-        "title": "Algorithms and Data Structures",
-        "credit": 5,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "code": "BTN156",
+        "title": "Basic Algebra",
+        "credit": 4,
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     }
 ]
 ```
@@ -2188,11 +2189,11 @@ $.ajax(settings).done(function (response) {
     "department_id": 1,
     "semester_type_id": 1,
     "level_id": 1,
-    "code": "FJD138",
-    "title": "Algorithms and Data Structures",
-    "credit": 1,
-    "created_at": "2018-07-07 11:03:16",
-    "updated_at": "2018-07-07 11:03:16"
+    "code": "AZN119",
+    "title": "Kinematics",
+    "credit": 4,
+    "created_at": "2018-07-07 14:17:48",
+    "updated_at": "2018-07-07 14:17:48"
 }
 ```
 
@@ -2320,15 +2321,15 @@ $.ajax(settings).done(function (response) {
         "id": 1,
         "name": "1st Semester",
         "school_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 2,
         "name": "2nd Semester",
         "school_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     }
 ]
 ```
@@ -2420,17 +2421,17 @@ $.ajax(settings).done(function (response) {
 ```json
 {
     "id": 1,
-    "name": "University of Ibadan",
-    "short_name": "UI",
+    "name": "Obafemi Awolowo University",
+    "short_name": "OAU",
     "owner_id": 1,
     "is_active": 1,
-    "created_at": "2018-07-07 11:03:16",
-    "updated_at": "2018-07-07 11:03:16",
+    "created_at": "2018-07-07 14:17:48",
+    "updated_at": "2018-07-07 14:17:48",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     }
 }
 ```
@@ -2560,9 +2561,9 @@ $.ajax(settings).done(function (response) {
         "user_id": 2,
         "school_id": 1,
         "department_id": null,
-        "title": "Prof.",
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "title": "Mr.",
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     }
 ]
 ```
@@ -2671,9 +2672,9 @@ $.ajax(settings).done(function (response) {
     "user_id": 2,
     "school_id": 1,
     "department_id": null,
-    "title": "Prof.",
-    "created_at": "2018-07-07 11:03:16",
-    "updated_at": "2018-07-07 11:03:16"
+    "title": "Mr.",
+    "created_at": "2018-07-07 14:17:48",
+    "updated_at": "2018-07-07 14:17:48"
 }
 ```
 
@@ -2807,8 +2808,8 @@ $.ajax(settings).done(function (response) {
         "name": "2018\/2019",
         "start_date": "2018-07-07 00:00:00",
         "end_date": "2019-07-07 00:00:00",
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 2,
@@ -2816,8 +2817,8 @@ $.ajax(settings).done(function (response) {
         "name": "2019\/2020",
         "start_date": "2019-07-07 00:00:00",
         "end_date": "2020-07-06 00:00:00",
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     }
 ]
 ```
@@ -2844,8 +2845,8 @@ curl -X POST "http://localhost:8000/api/sessions" \
 -H "Accept: application/json" \
     -d "school_id"="5240575" \
     -d "name"="soluta" \
-    -d "start_date"="2003-01-07" \
-    -d "end_date"="2003-01-07" \
+    -d "start_date"="2003-01-08" \
+    -d "end_date"="2003-01-08" \
 
 ```
 
@@ -2858,8 +2859,8 @@ var settings = {
     "data": {
         "school_id": 5240575,
         "name": "soluta",
-        "start_date": "2003-01-07",
-        "end_date": "2003-01-07"
+        "start_date": "2003-01-08",
+        "end_date": "2003-01-08"
 },
     "headers": {
         "accept": "application/json"
@@ -2925,8 +2926,8 @@ $.ajax(settings).done(function (response) {
     "name": "2018\/2019",
     "start_date": "2018-07-07 00:00:00",
     "end_date": "2019-07-07 00:00:00",
-    "created_at": "2018-07-07 11:03:16",
-    "updated_at": "2018-07-07 11:03:16"
+    "created_at": "2018-07-07 14:17:48",
+    "updated_at": "2018-07-07 14:17:48"
 }
 ```
 
@@ -3059,8 +3060,8 @@ $.ajax(settings).done(function (response) {
         "session_id": 1,
         "start_date": "2018-07-07 00:00:00",
         "end_date": "2019-01-03 00:00:00",
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 2,
@@ -3068,8 +3069,8 @@ $.ajax(settings).done(function (response) {
         "session_id": 1,
         "start_date": "2019-01-08 00:00:00",
         "end_date": "2019-07-07 00:00:00",
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 3,
@@ -3077,8 +3078,8 @@ $.ajax(settings).done(function (response) {
         "session_id": 2,
         "start_date": "2019-07-07 00:00:00",
         "end_date": "2020-01-03 00:00:00",
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 4,
@@ -3086,8 +3087,8 @@ $.ajax(settings).done(function (response) {
         "session_id": 2,
         "start_date": "2020-01-08 00:00:00",
         "end_date": "2020-07-06 00:00:00",
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     }
 ]
 ```
@@ -3114,8 +3115,8 @@ curl -X POST "http://localhost:8000/api/semesters" \
 -H "Accept: application/json" \
     -d "session_id"="17" \
     -d "semester_type_id"="17" \
-    -d "start_date"="1980-05-22" \
-    -d "end_date"="1980-05-22" \
+    -d "start_date"="1980-05-23" \
+    -d "end_date"="1980-05-23" \
 
 ```
 
@@ -3128,8 +3129,8 @@ var settings = {
     "data": {
         "session_id": 17,
         "semester_type_id": 17,
-        "start_date": "1980-05-22",
-        "end_date": "1980-05-22"
+        "start_date": "1980-05-23",
+        "end_date": "1980-05-23"
 },
     "headers": {
         "accept": "application/json"
@@ -3198,8 +3199,8 @@ $.ajax(settings).done(function (response) {
     "session_id": 1,
     "start_date": "2018-07-07 00:00:00",
     "end_date": "2019-01-03 00:00:00",
-    "created_at": "2018-07-07 11:03:16",
-    "updated_at": "2018-07-07 11:03:16"
+    "created_at": "2018-07-07 14:17:48",
+    "updated_at": "2018-07-07 14:17:48"
 }
 ```
 
@@ -3334,8 +3335,8 @@ $.ajax(settings).done(function (response) {
         "description": null,
         "amount": "500.00",
         "school_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 2,
@@ -3344,8 +3345,8 @@ $.ajax(settings).done(function (response) {
         "description": null,
         "amount": "500.00",
         "school_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 3,
@@ -3354,8 +3355,8 @@ $.ajax(settings).done(function (response) {
         "description": null,
         "amount": "1000.00",
         "school_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 4,
@@ -3364,8 +3365,8 @@ $.ajax(settings).done(function (response) {
         "description": null,
         "amount": "1000.00",
         "school_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     }
 ]
 ```
@@ -3482,8 +3483,8 @@ $.ajax(settings).done(function (response) {
     "description": null,
     "amount": "500.00",
     "school_id": 1,
-    "created_at": "2018-07-07 11:03:16",
-    "updated_at": "2018-07-07 11:03:16"
+    "created_at": "2018-07-07 14:17:48",
+    "updated_at": "2018-07-07 14:17:48"
 }
 ```
 
@@ -3620,48 +3621,48 @@ $.ajax(settings).done(function (response) {
         "chargeable_service_id": 1,
         "owner_id": 1,
         "amount": "500.00",
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 2,
         "chargeable_service_id": 2,
         "owner_id": 2,
         "amount": "500.00",
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 3,
         "chargeable_service_id": 3,
         "owner_id": 1,
         "amount": "1000.00",
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 4,
         "chargeable_service_id": 1,
         "owner_id": 3,
         "amount": "500.00",
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 5,
         "chargeable_service_id": 2,
         "owner_id": 4,
         "amount": "500.00",
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 6,
         "chargeable_service_id": 4,
         "owner_id": 2,
         "amount": "1000.00",
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     }
 ]
 ```
@@ -3774,8 +3775,8 @@ $.ajax(settings).done(function (response) {
     "chargeable_service_id": 1,
     "owner_id": 1,
     "amount": "500.00",
-    "created_at": "2018-07-07 11:03:16",
-    "updated_at": "2018-07-07 11:03:16"
+    "created_at": "2018-07-07 14:17:48",
+    "updated_at": "2018-07-07 14:17:48"
 }
 ```
 
@@ -3898,7 +3899,44 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-[]
+[
+    {
+        "id": 1,
+        "program_id": 1,
+        "semester_id": 1,
+        "level_id": 1,
+        "credit": 21,
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
+    },
+    {
+        "id": 2,
+        "program_id": 1,
+        "semester_id": 1,
+        "level_id": 2,
+        "credit": 21,
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
+    },
+    {
+        "id": 3,
+        "program_id": 1,
+        "semester_id": 1,
+        "level_id": 3,
+        "credit": 19,
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
+    },
+    {
+        "id": 4,
+        "program_id": 1,
+        "semester_id": 1,
+        "level_id": 4,
+        "credit": 22,
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
+    }
+]
 ```
 
 ### HTTP Request
@@ -4001,459 +4039,13 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\ProgramCredit] 1",
-    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
-    "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-    "line": 199,
-    "trace": [
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-            "line": 175,
-            "function": "prepareException",
-            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Exceptions\/Handler.php",
-            "line": 49,
-            "function": "render",
-            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/nunomaduro\/collision\/src\/Adapters\/Laravel\/ExceptionHandler.php",
-            "line": 68,
-            "function": "render",
-            "class": "App\\Exceptions\\Handler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 83,
-            "function": "render",
-            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 32,
-            "function": "handleException",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Http\/Middleware\/AccessTokenSecurity.php",
-            "line": 32,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "App\\Http\\Middleware\\AccessTokenSecurity",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php",
-            "line": 41,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 104,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 667,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 642,
-            "function": "runRouteWithinStack",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 608,
-            "function": "runRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 597,
-            "function": "dispatchToRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 176,
-            "function": "dispatch",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 30,
-            "function": "Illuminate\\Foundation\\Http\\{closure}",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
-            "line": 57,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Fideloper\\Proxy\\TrustProxies",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
-            "line": 31,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
-            "line": 31,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
-            "line": 27,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 104,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 151,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 116,
-            "function": "sendRequestThroughRouter",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
-            "line": 116,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/AbstractGenerator.php",
-            "line": 98,
-            "function": "callRoute",
-            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
-            "line": 58,
-            "function": "getRouteResponse",
-            "class": "Mpociot\\ApiDoc\\Generators\\AbstractGenerator",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
-            "line": 261,
-            "function": "processRoute",
-            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
-            "line": 83,
-            "function": "processLaravelRoutes",
-            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
-            "type": "->"
-        },
-        {
-            "function": "handle",
-            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 29,
-            "function": "call_user_func_array"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 87,
-            "function": "Illuminate\\Container\\{closure}",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 31,
-            "function": "callBoundMethod",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
-            "line": 564,
-            "function": "call",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 184,
-            "function": "call",
-            "class": "Illuminate\\Container\\Container",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
-            "line": 251,
-            "function": "execute",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 171,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Command\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 199,
-            "function": "run",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
-            "function": "call",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "function": "handle",
-            "class": "App\\Console\\Commands\\GenerateDocsCommand",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 29,
-            "function": "call_user_func_array"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 87,
-            "function": "Illuminate\\Container\\{closure}",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 31,
-            "function": "callBoundMethod",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
-            "line": 564,
-            "function": "call",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 184,
-            "function": "call",
-            "class": "Illuminate\\Container\\Container",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
-            "line": 251,
-            "function": "execute",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 171,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Command\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
-            "line": 886,
-            "function": "run",
-            "class": "Illuminate\\Console\\Command",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
-            "line": 262,
-            "function": "doRunCommand",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
-            "line": 145,
-            "function": "doRun",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
-            "line": 89,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
-            "line": 122,
-            "function": "run",
-            "class": "Illuminate\\Console\\Application",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/artisan",
-            "line": 37,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Console\\Kernel",
-            "type": "->"
-        }
-    ]
+    "id": 1,
+    "program_id": 1,
+    "semester_id": 1,
+    "level_id": 1,
+    "credit": 21,
+    "created_at": "2018-07-07 14:17:48",
+    "updated_at": "2018-07-07 14:17:48"
 }
 ```
 
@@ -5263,106 +4855,106 @@ $.ajax(settings).done(function (response) {
         "id": 1,
         "course_id": 5,
         "dependency_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 2,
         "course_id": 5,
         "dependency_id": 2,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 3,
         "course_id": 5,
         "dependency_id": 3,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 4,
         "course_id": 5,
         "dependency_id": 4,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 5,
         "course_id": 6,
         "dependency_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 6,
         "course_id": 6,
         "dependency_id": 2,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 7,
         "course_id": 6,
         "dependency_id": 3,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 8,
         "course_id": 6,
         "dependency_id": 4,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 9,
         "course_id": 7,
         "dependency_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 10,
         "course_id": 7,
         "dependency_id": 2,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 11,
         "course_id": 7,
         "dependency_id": 3,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 12,
         "course_id": 7,
         "dependency_id": 4,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 13,
         "course_id": 8,
         "dependency_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 14,
         "course_id": 8,
         "dependency_id": 2,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     },
     {
         "id": 15,
         "course_id": 8,
         "dependency_id": 3,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     }
 ]
 ```
@@ -5466,8 +5058,8 @@ $.ajax(settings).done(function (response) {
     "id": 1,
     "course_id": 5,
     "dependency_id": 1,
-    "created_at": "2018-07-07 11:03:16",
-    "updated_at": "2018-07-07 11:03:16"
+    "created_at": "2018-07-07 14:17:48",
+    "updated_at": "2018-07-07 14:17:48"
 }
 ```
 
@@ -7063,17 +6655,17 @@ $.ajax(settings).done(function (response) {
 ```json
 {
     "id": 1,
-    "name": "University of Ibadan",
-    "short_name": "UI",
+    "name": "Obafemi Awolowo University",
+    "short_name": "OAU",
     "owner_id": 1,
     "is_active": 1,
-    "created_at": "2018-07-07 11:03:16",
-    "updated_at": "2018-07-07 11:03:16",
+    "created_at": "2018-07-07 14:17:48",
+    "updated_at": "2018-07-07 14:17:48",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     }
 }
 ```
@@ -7993,17 +7585,17 @@ $.ajax(settings).done(function (response) {
 ```json
 {
     "id": 1,
-    "name": "University of Ibadan",
-    "short_name": "UI",
+    "name": "Obafemi Awolowo University",
+    "short_name": "OAU",
     "owner_id": 1,
     "is_active": 1,
-    "created_at": "2018-07-07 11:03:16",
-    "updated_at": "2018-07-07 11:03:16",
+    "created_at": "2018-07-07 14:17:48",
+    "updated_at": "2018-07-07 14:17:48",
     "pivot": {
         "user_id": 1,
         "school_id": 1,
-        "created_at": "2018-07-07 11:03:16",
-        "updated_at": "2018-07-07 11:03:16"
+        "created_at": "2018-07-07 14:17:48",
+        "updated_at": "2018-07-07 14:17:48"
     }
 }
 ```

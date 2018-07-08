@@ -15,6 +15,7 @@ use App\Models\Session;
 use App\Models\Semester;
 use App\Models\Chargeable;
 use App\Models\ChargeableService;
+use App\Models\ProgramCredit;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -39,56 +40,7 @@ class DatabaseSeeder extends Seeder
         
         $school = $this->createSchool($user);
 
-        $this->createDean($school);
-
-        $semesterTypes = new Collection();
-        $sessions = new Collection();
-
-        $sessions->push($this->createSession($school, Carbon::now(), Carbon::now()->addDays(365)));
-        $sessions->push($this->createSession($school, Carbon::now()->addDays(365), Carbon::now()->addDays(730)));
-
-        $types = [
-            '1st Semester',
-            '2nd Semester'
-        ];
-        $courses = new Collection();
-        foreach ($types as $name) {
-            $type = $this->createSemesterType($school, $name);
-
-            $school->departments()->get()->each(function ($department) use ($school, $type, $courses) {
-                $school->levels()->get()->map(function ($level) use ($department, $type, $courses) {
-                    $course = $this->createCourse($department, $type, $level);
-                    $this->createCourseDependencies($course, $courses);
-                    $courses->push($course);
-                });
-            });
-            $semesterTypes->push($type);
-        }
-
-        $sessions->each(function ($session) use ($semesterTypes, $school) {
-            $session->start_date = Carbon::parse($session->start_date);
-            $semesterTypes->each(function ($type) use ($session, $school) {
-                $semester = null;
-                if ($type->name == '1st Semester') {
-                    $semester = $this->createSemester($session, $type, $session->start_date, $session->start_date->copy()->addDays(180));
-                }
-                else {
-                    $semester = $this->createSemester($session, $type, $session->start_date->copy()->addDays(185), $session->start_date->copy()->addDays(365));
-                }
-                $this->createChargeableService($school, $semester, "$type->name Fees", 500);
-            });
-            $this->createChargeableService($school, $session, "$session->name Fees", 1000);
-        });
-        
-        return $user;
-    }
-
-    public function createDean(School $school) {
-        $deanUser = $this->createUser([
-            'first_name' => 'Dean',
-            'last_name' => 'Daniels',
-            'email' => 'dean.daniel@mailinator.com'
-        ]);
+        $deanUser = $this->createDean($school);
 
         $staff = $this->createStaff($deanUser, $school);
 
@@ -102,9 +54,69 @@ class DatabaseSeeder extends Seeder
             $this->createStudent($user, $program);
         });
 
+        $semesterTypes = new Collection();
+        $sessions = new Collection();
+        $levels = new Collection();
+        $courses = new Collection();
+        $programCredits = new Collection();
+        $semesters = new Collection();
+
         for ($i = 100; $i <= 400; $i+=100) {
-            $this->createLevel($school, "${i}L");
+            $level = $this->createLevel($school, "${i}L");
+            $levels->push($level);
         }
+
+        $sessions->push($this->createSession($school, Carbon::now(), Carbon::now()->addDays(365)));
+        $sessions->push($this->createSession($school, Carbon::now()->addDays(365), Carbon::now()->addDays(730)));
+
+        $types = [
+            '1st Semester',
+            '2nd Semester'
+        ];
+        foreach ($types as $name) {
+            $type = $this->createSemesterType($school, $name);
+
+            $school->departments()->get()->each(function ($department) use ($school, $type, $courses) {
+                $school->levels()->get()->map(function ($level) use ($department, $type, $courses) {
+                    $course = $this->createCourse($department, $type, $level);
+                    $this->createCourseDependencies($course, $courses);
+                    $courses->push($course);
+                });
+            });
+            $semesterTypes->push($type);
+        }
+
+        $sessions->each(function ($session) use ($semesterTypes, $semesters, $school, $program) {
+            $session->start_date = Carbon::parse($session->start_date);
+            $semesterTypes->each(function ($type) use ($session, $semesters, $school, $program) {
+                $semester = null;
+                if ($type->name == '1st Semester') {
+                    $semester = $this->createSemester($session, $type, $session->start_date, $session->start_date->copy()->addDays(180));
+                }
+                else {
+                    $semester = $this->createSemester($session, $type, $session->start_date->copy()->addDays(185), $session->start_date->copy()->addDays(365));
+                }
+                $this->createChargeableService($school, $semester, "$type->name Fees", 500);
+                $semesters->push($semester);
+            });
+            $this->createChargeableService($school, $session, "$session->name Fees", 1000);
+        });
+
+        $levels->each(function ($level) use ($program, $semesters) {
+            $credit = $this->createProgramCredit($program, $semesters->first(), $level);
+        });
+        
+        return $user;
+    }
+
+    public function createDean(School $school) {
+        $deanUser = $this->createUser([
+            'first_name' => 'Dean',
+            'last_name' => 'Daniels',
+            'email' => 'dean.daniel@mailinator.com'
+        ]);
+
+        return $deanUser;
     }
 
     public function createUser($opts = null) {
@@ -242,5 +254,14 @@ class DatabaseSeeder extends Seeder
             })->pluck('id');
             $course->dependencies()->sync($ids);
         }
+    }
+
+    public function createProgramCredit(Program $program, Semester $semester, Level $level) {
+        $opts = [
+            'program_id' => $program->id,
+            'semester_id' => $semester->id,
+            'level_id' => $level->id
+        ];
+        return ProgramCredit::where($opts)->first() ?? factory(ProgramCredit::class, 1)->create($opts);
     }
 }
