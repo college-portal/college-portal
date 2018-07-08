@@ -28,7 +28,13 @@ class AccessTokenSecurity
     public function handle(Request $request, Closure $next) {
         if ($request->header('Authorization')) {
             try {
-                \JWTAuth::parseToken()->authenticate();
+                if ($this->auth->user()) { // when request is made via test
+                    $token = explode(' ', $request->header('Authorization'))[1];
+                    \JWTAuth::setToken($token)->authenticate($token);
+                }
+                else {
+                    \JWTAuth::parseToken()->authenticate();
+                }
                 return $next($request);
             } catch (TokenExpiredException $e) {
                 return response()->json([ 'message' => 'token expired' ], $e->getStatusCode());

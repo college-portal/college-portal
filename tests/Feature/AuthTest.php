@@ -2,6 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\User;
+use App\Models\Role;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -52,6 +54,29 @@ class AuthTest extends TestCase
 
         $response->assertJsonStructure([
             'token'
+        ]);
+    }
+
+    /**
+     * /api/user GET
+     * 
+     * should 
+     * - return 200
+     * - return current user
+     *
+     * @return void
+     */
+    public function testAuthCurrentUser()
+    {
+        $response = $this->loginAsRole(Role::ADMIN)
+                        ->json('GET', $this->url('user'));
+
+        $response->assertStatus(200);
+
+        $user = $this->findRoleUser(Role::ADMIN);
+
+        $response->assertJson([
+            'email' => $user->email
         ]);
     }
 }
