@@ -483,7 +483,7 @@ curl -X POST "http://localhost:8000/api/users" \
     -d "last_name"="ut" \
     -d "email"="nakia.mcclure@example.org" \
     -d "password"="ut" \
-    -d "dob"="1986-10-24" \
+    -d "dob"="1986-10-25" \
 
 ```
 
@@ -498,7 +498,7 @@ var settings = {
         "last_name": "ut",
         "email": "nakia.mcclure@example.org",
         "password": "ut",
-        "dob": "1986-10-24"
+        "dob": "1986-10-25"
 },
     "headers": {
         "accept": "application/json"
@@ -2845,8 +2845,8 @@ curl -X POST "http://localhost:8000/api/sessions" \
 -H "Accept: application/json" \
     -d "school_id"="5240575" \
     -d "name"="soluta" \
-    -d "start_date"="2003-01-07" \
-    -d "end_date"="2003-01-07" \
+    -d "start_date"="2003-01-08" \
+    -d "end_date"="2003-01-08" \
 
 ```
 
@@ -2859,8 +2859,8 @@ var settings = {
     "data": {
         "school_id": 5240575,
         "name": "soluta",
-        "start_date": "2003-01-07",
-        "end_date": "2003-01-07"
+        "start_date": "2003-01-08",
+        "end_date": "2003-01-08"
 },
     "headers": {
         "accept": "application/json"
@@ -3115,8 +3115,8 @@ curl -X POST "http://localhost:8000/api/semesters" \
 -H "Accept: application/json" \
     -d "session_id"="17" \
     -d "semester_type_id"="17" \
-    -d "start_date"="1980-05-22" \
-    -d "end_date"="1980-05-22" \
+    -d "start_date"="1980-05-23" \
+    -d "end_date"="1980-05-23" \
 
 ```
 
@@ -3129,8 +3129,8 @@ var settings = {
     "data": {
         "session_id": 17,
         "semester_type_id": 17,
-        "start_date": "1980-05-22",
-        "end_date": "1980-05-22"
+        "start_date": "1980-05-23",
+        "end_date": "1980-05-23"
 },
     "headers": {
         "accept": "application/json"
