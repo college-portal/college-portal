@@ -74,7 +74,7 @@ class ImageTypeController extends ApiController
     public function store(ImageTypeRequest $request, int $school_id) {
         $this->authorize('update', School::findOrFail($school_id));
         $imageType = $this->service()->repo()->create(array_merge($request->all(), [ 'school_id' => $school_id ]));
-        return $this->json($imageType);
+        return $this->created($imageType);
     }
 
     /**

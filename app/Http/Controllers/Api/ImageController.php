@@ -74,7 +74,7 @@ class ImageController extends ApiController
 
         $image = $this->upload($request, $image);
 
-        return $this->json($image);
+        return $this->created($image);
     }
 
     /**

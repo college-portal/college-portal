@@ -74,7 +74,7 @@ class LevelController extends ApiController
     public function store(LevelRequest $request, int $school_id) {
         $this->authorize('update', School::findOrFail($school_id));
         $level = $this->service()->repo()->create(array_merge($request->all(), [ 'school_id' => $school_id ]));
-        return $this->json($level);
+        return $this->created($level);
     }
 
     /**

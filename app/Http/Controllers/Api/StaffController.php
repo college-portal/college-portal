@@ -72,7 +72,7 @@ class StaffController extends ApiController
      */
     public function store(StaffRequest $request) {
         $staff = $this->service()->repo()->create($request->all());
-        return $this->json($staff);
+        return $this->created($staff);
     }
 
     /**

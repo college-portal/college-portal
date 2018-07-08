@@ -86,7 +86,7 @@ class DepartmentController extends ApiController
      */
     public function store(DepartmentRequest $request) {
         $department = $this->service()->repo()->create($request->all());
-        return $this->json($department);
+        return $this->created($department);
     }
 
     /**

@@ -86,7 +86,7 @@ class StudentTakesCourseController extends ApiController
      */
     public function store(StudentTakesCourseRequest $request) {
         $studentCourse = $this->service()->create($request->all());
-        return $this->json($studentCourse);
+        return $this->created($studentCourse);
     }
 
     /**

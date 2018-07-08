@@ -72,7 +72,7 @@ class StaffTeachCourseController extends ApiController
      */
     public function store(StaffTeachCourseRequest $request) {
         $staffTeachCourse = $this->service()->repo()->create($request->all());
-        return $this->json($staffTeachCourse);
+        return $this->created($staffTeachCourse);
     }
 
     /**

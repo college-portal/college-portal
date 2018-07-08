@@ -11,7 +11,8 @@ trait TestJsonWebTokenTrait
     {
         $token = \JWTAuth::fromUser($user);
         return $this->withHeaders([
-            'Authorization' => 'Bearer ' . $token
+            'Authorization' => 'Bearer ' . $token,
+            'Accept' => 'application/json'
         ])->actingAs($user);
     }
 

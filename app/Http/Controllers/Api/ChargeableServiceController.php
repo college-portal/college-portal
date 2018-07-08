@@ -77,7 +77,7 @@ class ChargeableServiceController extends ApiController
      */
     public function store(ChargeableServiceRequest $request) {
         $service = $this->service()->serviceRepo()->create($request->all());
-        return $this->json($service);
+        return $this->created($service);
     }
 
     /**

@@ -74,7 +74,7 @@ class SemesterController extends ApiController
      */
     public function store(SemesterRequest $request) {
         $semester = $this->service()->create($request->all());
-        return $this->json($semester);
+        return $this->created($semester);
     }
 
     /**

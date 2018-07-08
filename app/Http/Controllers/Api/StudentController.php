@@ -83,7 +83,7 @@ class StudentController extends ApiController
      */
     public function store(StudentRequest $request) {
         $student = $this->service()->repo()->create($request->all());
-        return $this->json($student);
+        return $this->created($student);
     }
 
     /**
