@@ -24,7 +24,7 @@ class UserRepository
         if ($filters) {
             $q = $q->filter($filters);
         }
-        return $filters->transform($q->findOrFail($id));
+        return $filters ? $filters->transform($q->findOrFail($id)) : $q->findOrFail($id);
     }
 
     public function delete($id) {
