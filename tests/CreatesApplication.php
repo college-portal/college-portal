@@ -24,6 +24,10 @@ trait CreatesApplication
         return $app;
     }
 
+    protected function url($path = '') {
+        return "/api/$path";
+    }
+
     protected function setUp()
     {
         parent::setUp();
