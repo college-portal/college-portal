@@ -61,7 +61,8 @@
             "mv public/docs/.gitignore .gitignore",
             "git add .",
             "git commit -m \"chore: generate gh-pages\"",
-            "git subtree push -f --prefix public/docs origin gh-pages:gh-pages",
+            "git push -d origin gh-pages",
+            "git subtree push --prefix public/docs origin gh-pages",
             "git checkout edge",
             "git branch -D gh-pages"
         ]
