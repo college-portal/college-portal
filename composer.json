@@ -54,6 +54,10 @@
         ],
         "gh:deploy": [
             "git checkout edge",
+            "rm -rf public/docs",
+            "@php artisan generate:docs",
+            "git add .",
+            "git commit -m \"chore: generate docs\"",
             "git subtree split --prefix public/docs -b gh-pages",
             "touch public/docs/.gitignore",
             "grep -v \"public/docs\" .gitignore >> public/docs/.gitignore",
