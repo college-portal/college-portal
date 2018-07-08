@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# This code is used to push the public/docs folder in the edge branch, to the gh-pages branch on GitHub
+
 git checkout edge
 rm -rf public/docs
 read -s -p "Enter Password: " ADMIN_PASSWORD

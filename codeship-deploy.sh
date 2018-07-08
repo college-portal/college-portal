@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# This code is used by CodeShip, our CI server, to run and test the project after every push to GitHub.
+
 # We support all major PHP versions. Please see our documentation for a full list.
 # https://documentation.codeship.com/basic/languages-frameworks/php/
 
