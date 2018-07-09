@@ -86,7 +86,7 @@ class DatabaseSeeder extends Seeder
             $semesterTypes->push($type);
         }
 
-        $sessions->each(function ($session) use ($semesterTypes, $semesters, $school, $program) {
+        $sessions->slice(0, 1)->each(function ($session) use ($semesterTypes, $semesters, $school, $program) {
             $session->start_date = Carbon::parse($session->start_date);
             $semesterTypes->each(function ($type) use ($session, $semesters, $school, $program) {
                 $semester = null;
