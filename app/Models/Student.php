@@ -57,11 +57,17 @@ class Student extends BaseModel
             $school = $model->program()->first()->department()->first()
                                         ->faculty()->first()->school()->first();
             $role = Role::where('name', Role::STUDENT)->first();
-            $model->user->roles()->syncWithoutDetaching([
-                $role->id => [
-                    'school_id' => $school->id
-                ]
-            ]);
+            $user = $model->user()->first();
+            if (!$user->roles()
+                        ->wherePivot('school_id', $school->id)
+                        ->wherePivot('role_id', $role->id)
+                        ->exists()) {
+                $user->roles()->attach([
+                    $role->id => [
+                        'school_id' => $school->id
+                    ]
+                ]);
+            }
         };
 
         self::created($studentRoleCreate);
