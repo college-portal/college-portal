@@ -69,7 +69,7 @@ class StudentTest extends TestCase
         $response = $this->loginAsRole(Role::ADMIN)
                         ->post($this->url('students'), [
                             'user_id' => 1,
-                            'matric_no' => 'UNI212',
+                            'matric_no' => 'UNI213',
                             'program_id' => 1
                         ]);
 
@@ -82,7 +82,7 @@ class StudentTest extends TestCase
         ]);
 
         $response->assertJson([
-            'matric_no' => 'UNI212'
+            'matric_no' => 'UNI213'
         ]);
     }
     
@@ -97,7 +97,7 @@ class StudentTest extends TestCase
     {
         $response = $this->loginAsRole(Role::ADMIN)
                         ->put($this->url('students/1'), [
-                            'matric_no' => 'UNI212'
+                            'matric_no' => 'UNI214'
                         ]);
 
         $response->assertStatus(200);
@@ -109,7 +109,7 @@ class StudentTest extends TestCase
         ]);
 
         $response->assertJson([
-            'matric_no' => 'UNI212'
+            'matric_no' => 'UNI214'
         ]);
     }
     
