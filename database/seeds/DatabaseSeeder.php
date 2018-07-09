@@ -16,6 +16,7 @@ use App\Models\Semester;
 use App\Models\Chargeable;
 use App\Models\ChargeableService;
 use App\Models\ProgramCredit;
+use App\Models\Payable;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -60,6 +61,9 @@ class DatabaseSeeder extends Seeder
         $courses = new Collection();
         $programCredits = new Collection();
         $semesters = new Collection();
+        $chargeableServices = new Collection();
+        $chargeables = new Collection();
+        $payables = new Collection();
 
         for ($i = 100; $i <= 400; $i+=100) {
             $level = $this->createLevel($school, "${i}L");
@@ -86,9 +90,9 @@ class DatabaseSeeder extends Seeder
             $semesterTypes->push($type);
         }
 
-        $sessions->slice(0, 1)->each(function ($session) use ($semesterTypes, $semesters, $school, $program) {
+        $sessions->slice(0, 1)->each(function ($session) use ($semesterTypes, $semesters, $school, $program, $chargeableServices, $chargeables) {
             $session->start_date = Carbon::parse($session->start_date);
-            $semesterTypes->each(function ($type) use ($session, $semesters, $school, $program) {
+            $semesterTypes->each(function ($type) use ($session, $semesters, $school, $program, $chargeableServices, $chargeables) {
                 $semester = null;
                 if ($type->name == '1st Semester') {
                     $semester = $this->createSemester($session, $type, $session->start_date, $session->start_date->copy()->addDays(180));
@@ -96,14 +100,27 @@ class DatabaseSeeder extends Seeder
                 else {
                     $semester = $this->createSemester($session, $type, $session->start_date->copy()->addDays(185), $session->start_date->copy()->addDays(365));
                 }
-                $this->createChargeableService($school, $semester, "$type->name Fees", 500);
+                $service = $this->createChargeableService($school, $semester, "$type->name Fees", 500);
+                $chargeable = $this->createChargeable($service, $semester->id, 500);
+
+                $chargeableServices->push($service);
+                $chargeables->push($chargeable);
                 $semesters->push($semester);
             });
-            $this->createChargeableService($school, $session, "$session->name Fees", 1000);
+            $service = $this->createChargeableService($school, $session, "$session->name Fees", 1000);
+            $chargeable = $this->createChargeable($service, $session->id, 1000);
+
+            $chargeableServices->push($service);
+            $chargeables->push($chargeable);
         });
 
         $levels->slice(0, 3)->each(function ($level) use ($program, $semesters) {
             $credit = $this->createProgramCredit($program, $semesters->first(), $level);
+        });
+
+        $chargeables->slice(0, 3)->each(function ($chargeable) use ($user, $payables) {
+            $payable = $this->createPayable($chargeable, $user);
+            $payables->push($payable);
         });
         
         return $user;
@@ -234,7 +251,6 @@ class DatabaseSeeder extends Seeder
             'amount'    => $amount
         ];
         $service = ChargeableService::where($opts)->first() ?? ChargeableService::create($opts);
-        $this->createChargeable($service, $model->id, $amount);
         return $service;
     }
 
@@ -263,5 +279,13 @@ class DatabaseSeeder extends Seeder
             'level_id' => $level->id
         ];
         return ProgramCredit::where($opts)->first() ?? factory(ProgramCredit::class, 1)->create($opts);
+    }
+
+    public function createPayable(Chargeable $chargeable, User $user) {
+        $opts = [
+            'chargeable_id' => $chargeable->id,
+            'user_id' => $user->id
+        ];
+        return Payable::where($opts)->first() ?? Payable::create($opts);
     }
 }
