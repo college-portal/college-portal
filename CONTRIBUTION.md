@@ -32,4 +32,4 @@ This command will request for the password for the admin email you have provided
 
 ## Testing
 
-We make use of PHPUnit and PHPUnit-Watcher, so you can watch your tests with `composer watch` as you work.
+We make use of PHPUnit and PHPUnit-Watcher, so you can watch your PHP tests with `npm run watch-php` as you work.
