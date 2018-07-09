@@ -89,11 +89,16 @@ class Department extends BaseModel
             $role = Role::where('name', Role::HOD)->first();
             $faculty = $model->faculty()->first();
             $school = $faculty->school()->first();
-            $school->users()->attach([
-                $staff->user()->first()->id => [
-                    'role_id' => $role->id
-                ]
-            ]);
+            if (!$school->users()
+                        ->wherePivot('user_id', $staff->user_id)
+                        ->wherePivot('role_id', $role->id)
+                        ->exists()) {
+                $school->users()->attach([
+                    $staff->user_id => [
+                        'role_id' => $role->id
+                    ]
+                ]);
+            }
         };
 
         self::created($schoolHasUsersUpdate);
