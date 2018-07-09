@@ -15,9 +15,11 @@ class DepartmentRepository
     }
 
     public function departments(User $user, DepartmentFilters $filters) {
-        return $user->departments()->filter($filters)->paginate()->transform(function ($item) use ($filters) {
+        $items = $user->departments()->filter($filters)->paginate();
+        $items->transform(function ($item) use ($filters) {
             return $filters->transform($item);
         });
+        return $items;
     }
 
     public function department($id, DepartmentFilters $filters = null) {

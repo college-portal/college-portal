@@ -15,9 +15,11 @@ class SemesterRepository
     }
 
     public function semesters(User $user, SemesterFilters $filters) {
-        return $user->semesters()->filter($filters)->paginate()->transform(function ($item) use ($filters) {
+        $items = $user->semesters()->filter($filters)->paginate();
+        $items->transform(function ($item) use ($filters) {
             return $filters->transform($item);
         });
+        return $items;
     }
 
     public function semester($id, SemesterFilters $filters = null) {

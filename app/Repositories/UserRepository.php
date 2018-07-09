@@ -14,9 +14,11 @@ class UserRepository
     }
 
     public function users(User $user, UserFilters $filters) {
-        return $user->users()->paginate()->transform(function ($item) use ($filters) {
+        $items = $user->users()->filter($filters)->paginate();
+        $items->transform(function ($item) use ($filters) {
             return $filters->transform($item);
         });
+        return $items;
     }
 
     public function user($id, UserFilters $filters = null) {

@@ -15,9 +15,11 @@ class ChargeableRepository
     }
 
     public function list(User $user, ChargeableFilters $filters) {
-        return $user->chargeables()->filter($filters)->paginate()->transform(function ($chargeable) use ($filters) {
+        $items = $user->chargeables()->filter($filters)->paginate();
+        $items->transform(function ($chargeable) use ($filters) {
             return $filters->transform($chargeable);
         });
+        return $items;
     }
 
     public function single($id, ChargeableFilters $filters = null) {

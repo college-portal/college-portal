@@ -26,10 +26,13 @@ class FacultyTest extends TestCase
         $response->assertStatus(200);
 
         $response->assertJsonStructure([
-            [
-                'name',
-                'dean_id'
-            ]
+            'data' => [
+                [
+                    'name',
+                    'dean_id'
+                ]
+            ],
+            'total'
         ]);
     }
 

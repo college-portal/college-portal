@@ -15,9 +15,11 @@ class SemesterTypeRepository
     }
 
     public function types(User $user, SemesterTypeFilters $filters) {
-        return $this->model()->filter($filters)->paginate()->transform(function ($item) use ($filters) {
+        $items = $this->model()->filter($filters)->paginate();
+        $items->transform(function ($item) use ($filters) {
             return $filters->transform($item);
         });
+        return $items;
     }
 
     public function type($id, SemesterTypeFilters $filters = null) {

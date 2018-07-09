@@ -15,9 +15,11 @@ class StaffRepository
     }
 
     public function list(User $user, StaffFilters $filters) {
-        return $user->viewableStaff()->filter($filters)->paginate()->transform(function ($item) use ($filters) {
+        $items = $user->viewableStaff()->filter($filters)->paginate();
+        $items->transform(function ($item) use ($filters) {
             return $filters->transform($item);
         });
+        return $items;
     }
 
     public function single($id, StaffFilters $filters = null) {

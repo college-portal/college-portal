@@ -15,9 +15,11 @@ class SessionRepository
     }
 
     public function sessions(User $user, SessionFilters $filters) {
-        return $user->sessions()->filter($filters)->paginate()->transform(function ($item) use ($filters) {
+        $items = $user->sessions()->filter($filters)->paginate();
+        $items->transform(function ($item) use ($filters) {
             return $filters->transform($item);
         });
+        return $items;
     }
 
     public function session($id, SessionFilters $filters = null) {

@@ -15,9 +15,11 @@ class LevelRepository
     }
 
     public function levels(User $user, LevelFilters $filters) {
-        return $this->model()->filter($filters)->paginate()->transform(function ($item) use ($filters) {
+        $items = $this->model()->filter($filters)->paginate();
+        $items->transform(function ($item) use ($filters) {
             return $filters->transform($item);
         });
+        return $items;
     }
 
     public function level($id, LevelFilters $filters = null) {

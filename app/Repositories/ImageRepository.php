@@ -15,9 +15,11 @@ class ImageRepository
     }
 
     public function list(User $user, ImageFilters $filters) {
-        return $this->model()->filter($filters)->paginate()->transform(function ($item) use ($filters) {
+        $items = $this->model()->filter($filters)->paginate();
+        $items->transform(function ($item) use ($filters) {
             return $filters->transform($item);
         });
+        return $items;
     }
 
     public function single($id, ImageFilters $filters = null) {
