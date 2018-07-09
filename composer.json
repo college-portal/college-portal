@@ -58,6 +58,9 @@
         ],
         "watch": [
             "phpunit-watcher watch"
+        ],
+        "test": [
+            "phpunit"
         ]
     },
     "config": {
