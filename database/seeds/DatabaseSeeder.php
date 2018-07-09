@@ -102,7 +102,7 @@ class DatabaseSeeder extends Seeder
             $this->createChargeableService($school, $session, "$session->name Fees", 1000);
         });
 
-        $levels->each(function ($level) use ($program, $semesters) {
+        $levels->slice(0, 3)->each(function ($level) use ($program, $semesters) {
             $credit = $this->createProgramCredit($program, $semesters->first(), $level);
         });
         
