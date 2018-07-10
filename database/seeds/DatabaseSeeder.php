@@ -19,6 +19,7 @@ use App\Models\ProgramCredit;
 use App\Models\Payable;
 use App\Models\StaffTeachCourse;
 use App\Models\StudentTakesCourse;
+use App\Models\GradeType;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -64,6 +65,13 @@ class DatabaseSeeder extends Seeder
         $payables = new Collection();
         $staffCourses = new Collection();
         $students = new Collection();
+        $gradeTypes = new Collection();
+
+        $this->createGradeType($school, 'A', 5, 70, 100);
+        $this->createGradeType($school, 'B', 4, 60, 70);
+        $this->createGradeType($school, 'C', 3, 50, 60);
+        $this->createGradeType($school, 'D', 2, 45, 50);
+        $this->createGradeType($school, 'E', 1, 40, 45);
 
         $studentUsers = factory(User::class, 3)->create()->map(function ($user) use ($program, $students) {
             $student = $this->createStudent($user, $program);
@@ -319,5 +327,16 @@ class DatabaseSeeder extends Seeder
             'semester_id' => $semester->id
         ];
         return StudentTakesCourse::where($opts)->first() ?? StudentTakesCourse::create($opts);
+    }
+
+    public function createGradeType(School $school, string $name, int $value, float $minimum, float $maximum) {
+        $opts = [
+            'school_id' => $school->id,
+            'name' => $name,
+            'value' => $value,
+            'minimum' => $minimum,
+            'maximum' => $maximum
+        ];
+        return GradeType::where($opts)->first() ?? GradeType::create($opts);
     }
 }
