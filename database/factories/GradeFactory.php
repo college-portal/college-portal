@@ -15,8 +15,8 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Models\Grade::class, function (Faker $faker) {
     return [
-        'score' => $faker->numberBetween(20, 90),
-        'description' => $faker->randomElement([
+        'score' => $faker->numberBetween(20, 40),
+        'description' => $faker->unique()->randomElement([
             'Test 1',
             'Test 2',
             'Test 3',

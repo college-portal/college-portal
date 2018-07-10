@@ -74,7 +74,7 @@ class GradeTest extends TestCase
                             'score' => 32,
                             'description' => 'CA Test'
                         ]);
-
+                        
         $response->assertStatus(201);
 
         $response->assertJsonStructure([
