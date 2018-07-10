@@ -21,6 +21,7 @@ use App\Models\StaffTeachCourse;
 use App\Models\StudentTakesCourse;
 use App\Models\GradeType;
 use App\Models\Grade;
+use App\Models\ImageType;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -75,6 +76,8 @@ class DatabaseSeeder extends Seeder
         $this->createGradeType($school, 'C', 3, 50, 60);
         $this->createGradeType($school, 'D', 2, 45, 50);
         $this->createGradeType($school, 'E', 1, 40, 45);
+
+        $this->createImageType($school);
 
         $studentUsers = factory(User::class, 3)->create()->map(function ($user) use ($program, $students) {
             $student = $this->createStudent($user, $program);
@@ -354,5 +357,12 @@ class DatabaseSeeder extends Seeder
             'student_takes_course_id' => $studentCourse->id
         ];
         return Grade::where($opts)->first() ?? factory(Grade::class, 1)->create($opts)->first();
+    }
+
+    public function createImageType(School $school) {
+        $opts = [
+            'school_id' => $school->id
+        ];
+        return ImageType::where($opts)->first() ?? factory(ImageType::class)->create($opts)->first();
     }
 }
