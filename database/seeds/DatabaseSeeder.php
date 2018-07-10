@@ -18,6 +18,7 @@ use App\Models\ChargeableService;
 use App\Models\ProgramCredit;
 use App\Models\Payable;
 use App\Models\StaffTeachCourse;
+use App\Models\StudentTakesCourse;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -52,10 +53,6 @@ class DatabaseSeeder extends Seeder
 
         $program = $this->createProgram($department);
 
-        factory(User::class, 3)->create()->each(function ($user) use ($program) {
-            $this->createStudent($user, $program);
-        });
-
         $semesterTypes = new Collection();
         $sessions = new Collection();
         $levels = new Collection();
@@ -66,6 +63,13 @@ class DatabaseSeeder extends Seeder
         $chargeables = new Collection();
         $payables = new Collection();
         $staffCourses = new Collection();
+        $students = new Collection();
+
+        $studentUsers = factory(User::class, 3)->create()->map(function ($user) use ($program, $students) {
+            $student = $this->createStudent($user, $program);
+            $students->push($student);
+            return $user;
+        });
 
         for ($i = 100; $i <= 400; $i+=100) {
             $level = $this->createLevel($school, "${i}L");
@@ -128,6 +132,10 @@ class DatabaseSeeder extends Seeder
         $courses->slice(0, 1)->each(function ($course) use ($staff, $staffCourses) {
             $staffCourse = $this->createStaffTeachCourse($staff, $course);
             $staffCourses->push($staffCourse);
+        });
+
+        $students->slice(0, 1)->each(function ($student) use ($staffCourses, $semesters) {
+            $this->createStudentTakesCourse($student, $staffCourses->first(), $semesters->first());
         });
         
         return $user;
@@ -219,7 +227,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user->id,
             'program_id' => $program->id
         ];
-        return Student::where($opts)->first() ?? factory(Student::class, 1)->create($opts);
+        return Student::where($opts)->first() ?? factory(Student::class, 1)->create($opts)->first();
     }
 
     public function createLevel(School $school, $name) {
@@ -302,5 +310,14 @@ class DatabaseSeeder extends Seeder
             'course_id' => $course->id
         ];
         return StaffTeachCourse::where($opts)->first() ?? StaffTeachCourse::create($opts);
+    }
+
+    public function createStudentTakesCourse(Student $student, StaffTeachCourse $staffCourse, Semester $semester) {
+        $opts = [
+            'student_id' => $student->id,
+            'staff_teach_course_id' => $staffCourse->id,
+            'semester_id' => $semester->id
+        ];
+        return StudentTakesCourse::where($opts)->first() ?? StudentTakesCourse::create($opts);
     }
 }
