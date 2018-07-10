@@ -86,7 +86,7 @@ class ImageController extends ApiController
      *  - User owns school the Image belongs to
      */
     public function update(Request $request, $id) {
-        if ($request->isMethod('put')) return $this->json([ 'message' => 'not implemented' ], 501);
+        if ($request->isMethod('put')) return $this->json([ 'message' => 'Make a POST requested instead' ], 501);
         $image = $this->service()->repo()->single($id);
         $this->authorize('update', $image);
         $image = $this->upload($request, $image);

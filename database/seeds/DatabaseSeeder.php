@@ -22,6 +22,7 @@ use App\Models\StudentTakesCourse;
 use App\Models\GradeType;
 use App\Models\Grade;
 use App\Models\ImageType;
+use App\Models\Image;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -70,6 +71,7 @@ class DatabaseSeeder extends Seeder
         $gradeTypes = new Collection();
         $studentCourses = new Collection();
         $grades = new Collection();
+        $images = new Collection();
 
         $this->createGradeType($school, 'A', 5, 70, 100);
         $this->createGradeType($school, 'B', 4, 60, 70);
@@ -77,12 +79,17 @@ class DatabaseSeeder extends Seeder
         $this->createGradeType($school, 'D', 2, 45, 50);
         $this->createGradeType($school, 'E', 1, 40, 45);
 
-        $this->createImageType($school);
+        $imageType = $this->createImageType($school);
 
         $studentUsers = factory(User::class, 3)->create()->map(function ($user) use ($program, $students) {
             $student = $this->createStudent($user, $program);
             $students->push($student);
             return $user;
+        });
+
+        $studentUsers->slice(0, 1)->each(function ($user) use ($imageType, $images) {
+            $image = $this->createImage($imageType, $user);
+            $images->push($image);
         });
 
         for ($i = 100; $i <= 400; $i+=100) {
@@ -364,5 +371,13 @@ class DatabaseSeeder extends Seeder
             'school_id' => $school->id
         ];
         return ImageType::where($opts)->first() ?? factory(ImageType::class)->create($opts)->first();
+    }
+
+    public function createImage(ImageType $imageType, User $user) {
+        $opts = [
+            'owner_id' => $user->id,
+            'image_type_id' => $imageType->id
+        ];
+        return Image::where($opts)->first() ?? Image::create($opts);
     }
 }
