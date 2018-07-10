@@ -16,9 +16,8 @@ use Faker\Generator as Faker;
 $factory->define(App\Models\ImageType::class, function (Faker $faker) {
     return [
         'type' => $faker->randomElement([
-            'App\\Models\\Schools',
             'App\\Models\\Staff',
-            'App\\Models\\User',
+            'App\\User',
             'App\\Models\\Department'
         ]),
         'name' => $faker->unique()->randomElement([
