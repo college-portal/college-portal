@@ -20,6 +20,7 @@ use App\Models\Payable;
 use App\Models\StaffTeachCourse;
 use App\Models\StudentTakesCourse;
 use App\Models\GradeType;
+use App\Models\Grade;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -66,6 +67,8 @@ class DatabaseSeeder extends Seeder
         $staffCourses = new Collection();
         $students = new Collection();
         $gradeTypes = new Collection();
+        $studentCourses = new Collection();
+        $grades = new Collection();
 
         $this->createGradeType($school, 'A', 5, 70, 100);
         $this->createGradeType($school, 'B', 4, 60, 70);
@@ -142,8 +145,14 @@ class DatabaseSeeder extends Seeder
             $staffCourses->push($staffCourse);
         });
 
-        $students->slice(0, 1)->each(function ($student) use ($staffCourses, $semesters) {
-            $this->createStudentTakesCourse($student, $staffCourses->first(), $semesters->first());
+        $students->slice(0, 1)->each(function ($student) use ($staffCourses, $semesters, $studentCourses) {
+            $studentCourse = $this->createStudentTakesCourse($student, $staffCourses->first(), $semesters->first());
+            $studentCourses->push($studentCourse);
+        });
+
+        $studentCourses->slice(0, 1)->each(function ($studentCourse) use ($grades) {
+            $grade = $this->createGrade($studentCourse);
+            $grades->push($grade);
         });
         
         return $user;
@@ -338,5 +347,12 @@ class DatabaseSeeder extends Seeder
             'maximum' => $maximum
         ];
         return GradeType::where($opts)->first() ?? GradeType::create($opts);
+    }
+
+    public function createGrade(StudentTakesCourse $studentCourse) {
+        $opts = [
+            'student_takes_course_id' => $studentCourse->id
+        ];
+        return Grade::where($opts)->first() ?? factory(Grade::class, 1)->create($opts)->first();
     }
 }
