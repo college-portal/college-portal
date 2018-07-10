@@ -17,6 +17,7 @@ use App\Models\Chargeable;
 use App\Models\ChargeableService;
 use App\Models\ProgramCredit;
 use App\Models\Payable;
+use App\Models\StaffTeachCourse;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -64,6 +65,7 @@ class DatabaseSeeder extends Seeder
         $chargeableServices = new Collection();
         $chargeables = new Collection();
         $payables = new Collection();
+        $staffCourses = new Collection();
 
         for ($i = 100; $i <= 400; $i+=100) {
             $level = $this->createLevel($school, "${i}L");
@@ -121,6 +123,11 @@ class DatabaseSeeder extends Seeder
         $chargeables->slice(0, 3)->each(function ($chargeable) use ($user, $payables) {
             $payable = $this->createPayable($chargeable, $user);
             $payables->push($payable);
+        });
+
+        $courses->slice(0, 1)->each(function ($course) use ($staff, $staffCourses) {
+            $staffCourse = $this->createStaffTeachCourse($staff, $course);
+            $staffCourses->push($staffCourse);
         });
         
         return $user;
@@ -287,5 +294,13 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user->id
         ];
         return Payable::where($opts)->first() ?? Payable::create($opts);
+    }
+
+    public function createStaffTeachCourse(Staff $staff, Course $course) {
+        $opts = [
+            'staff_id' => $staff->id,
+            'course_id' => $course->id
+        ];
+        return StaffTeachCourse::where($opts)->first() ?? StaffTeachCourse::create($opts);
     }
 }
