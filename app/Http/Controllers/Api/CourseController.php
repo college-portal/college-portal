@@ -90,7 +90,7 @@ class CourseController extends ApiController
      */
     public function store(CourseRequest $request) {
         $course = $this->service()->repo()->create($request->all());
-        return $this->json($course);
+        return $this->created($course);
     }
 
     /**

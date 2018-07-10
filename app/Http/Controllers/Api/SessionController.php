@@ -69,7 +69,7 @@ class SessionController extends ApiController
      */
     public function store(SessionRequest $request) {
         $session = $this->service()->repo()->create($request->all());
-        return $this->json($session);
+        return $this->created($session);
     }
 
     /**

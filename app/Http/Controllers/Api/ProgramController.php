@@ -77,7 +77,7 @@ class ProgramController extends ApiController
      */
     public function store(ProgramRequest $request) {
         $program = $this->service()->repo()->create($request->all());
-        return $this->json($program);
+        return $this->created($program);
     }
 
     /**

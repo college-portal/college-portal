@@ -15,9 +15,11 @@ class PayableRepository
     }
 
     public function list(User $user, PayableFilters $filters) {
-        return $user->viewablePayables()->filter($filters)->paginate()->transform(function ($item) use ($filters) {
+        $items = $user->viewablePayables()->filter($filters)->paginate();
+        $items->transform(function ($item) use ($filters) {
             return $filters->transform($item);
         });
+        return $items;
     }
 
     public function single($id, PayableFilters $filters = null) {
@@ -25,7 +27,7 @@ class PayableRepository
         if ($filters) {
             $q = $q->filter($filters);
         }
-        return $filters->transform($q->findOrFail($id));
+        return $filters ? $filters->transform($q->findOrFail($id)) : $q->findOrFail($id);
     }
 
     public function delete($id) {

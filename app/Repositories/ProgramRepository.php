@@ -15,9 +15,11 @@ class ProgramRepository
     }
 
     public function programs(User $user, ProgramFilters $filters) {
-        return $user->programs()->filter($filters)->paginate()->transform(function ($item) use ($filters) {
+        $items = $user->programs()->filter($filters)->paginate();
+        $items->transform(function ($item) use ($filters) {
             return $filters->transform($item);
         });
+        return $items;
     }
 
     public function program($id, ProgramFilters $filters = null) {
@@ -25,7 +27,7 @@ class ProgramRepository
         if ($filters) {
             $q = $q->filter($filters);
         }
-        return $filters->transform($q->findOrFail($id));
+        return $filters ? $filters->transform($q->findOrFail($id)) : $q->findOrFail($id);
     }
 
     public function delete($id) {

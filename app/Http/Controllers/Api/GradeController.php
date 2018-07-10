@@ -91,7 +91,7 @@ class GradeController extends ApiController
      */
     public function store(GradeRequest $request) {
         $grade = $this->service()->create($request->all());
-        return $this->json($grade);
+        return $this->created($grade);
     }
 
     /**

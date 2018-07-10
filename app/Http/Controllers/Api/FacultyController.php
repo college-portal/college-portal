@@ -84,9 +84,8 @@ class FacultyController extends ApiController
      *  - User owns school the Faculty belongs to
      */
     public function store(FacultyRequest $request) {
-        $school = $this->schoolService->repo()->school($request->user(), $request->school_id);
         $faculty = $this->service()->repo()->create($request->all());
-        return $this->json($faculty);
+        return $this->created($faculty);
     }
 
     /**

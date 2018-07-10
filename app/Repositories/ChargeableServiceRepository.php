@@ -15,9 +15,11 @@ class ChargeableServiceRepository
     }
 
     public function list(User $user, ChargeableServiceFilters $filters) {
-        return $user->chargeableServices()->filter($filters)->paginate()->transform(function ($service) use ($filters) {
+        $items = $user->chargeableServices()->filter($filters)->paginate();
+        $items->transform(function ($service) use ($filters) {
             return $filters->transform($service);
         });
+        return $items;
     }
 
     public function single($id, ChargeableServiceFilters $filters = null) {
@@ -25,7 +27,7 @@ class ChargeableServiceRepository
         if ($filters) {
             $q = $q->filter($filters);
         }
-        return $filters->transform($q->findOrFail($id));
+        return $filters ? $filters->transform($q->findOrFail($id)) : $q->findOrFail($id);
     }
 
     public function delete($id) {

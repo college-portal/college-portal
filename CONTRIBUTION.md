@@ -29,3 +29,7 @@ php artisan generate:docs <email>
 ```
 
 This command will request for the password for the admin email you have provided, and if authenticated, will generate the documentation.
+
+## Testing
+
+We make use of PHPUnit and PHPUnit-Watcher, so you can watch your PHP tests with `npm run watch-php` as you work.

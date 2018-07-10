@@ -15,9 +15,11 @@ class SchoolRepository
     }
 
     public function schools(User $user, SchoolFilters $filters) {
-        return $user->schools()->filter($filters)->paginate()->transform(function ($item) use ($filters) {
+        $items = $user->schools()->filter($filters)->paginate();
+        $items->transform(function ($item) use ($filters) {
             return $filters->transform($item);
         });
+        return $items;
     }
 
     public function school(User $user, $id, SchoolFilters $filters = null) {
@@ -25,7 +27,7 @@ class SchoolRepository
         if ($filters) {
             $q = $q->filter($filters);
         }
-        return $filters->transform($q->findOrFail($id));
+        return $filters ? $filters->transform($q->findOrFail($id)) : $q->findOrFail($id);
     }
 
     public function delete(User $user, $id) {

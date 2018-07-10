@@ -71,7 +71,7 @@ class PayableController extends ApiController
      */
     public function store(PayableRequest $request) {
         $payable = $this->service()->repo()->create(array_merge([ 'user_id' => auth()->user()->id ], $request->all()));
-        return $this->json($payable);
+        return $this->created($payable);
     }
 
     /**

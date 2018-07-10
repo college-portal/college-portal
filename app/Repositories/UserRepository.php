@@ -14,9 +14,11 @@ class UserRepository
     }
 
     public function users(User $user, UserFilters $filters) {
-        return $user->users()->paginate()->transform(function ($item) use ($filters) {
+        $items = $user->users()->filter($filters)->paginate();
+        $items->transform(function ($item) use ($filters) {
             return $filters->transform($item);
         });
+        return $items;
     }
 
     public function user($id, UserFilters $filters = null) {
@@ -24,7 +26,7 @@ class UserRepository
         if ($filters) {
             $q = $q->filter($filters);
         }
-        return $filters->transform($q->findOrFail($id));
+        return $filters ? $filters->transform($q->findOrFail($id)) : $q->findOrFail($id);
     }
 
     public function delete($id) {

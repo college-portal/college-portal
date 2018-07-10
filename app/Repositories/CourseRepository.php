@@ -15,9 +15,11 @@ class CourseRepository
     }
 
     public function courses(User $user, CourseFilters $filters) {
-        return $user->courses()->filter($filters)->paginate()->transform(function ($item) use ($filters) {
+        $items = $user->courses()->filter($filters)->paginate();
+        $items->transform(function ($item) use ($filters) {
             return $filters->transform($item);
         });
+        return $items;
     }
 
     public function course($id, CourseFilters $filters = null) {
@@ -25,7 +27,7 @@ class CourseRepository
         if ($filters) {
             $q = $q->filter($filters);
         }
-        return $filters->transform($q->findOrFail($id));
+        return $filters ? $filters->transform($q->findOrFail($id)) : $q->findOrFail($id);
     }
 
     public function delete($id) {

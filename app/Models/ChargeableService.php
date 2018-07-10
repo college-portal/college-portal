@@ -34,4 +34,8 @@ class ChargeableService extends BaseModel
     public function school() {
         return $this->belongsTo(School::class);
     }
+    
+    public function scopeOwner($query, $owner_id) {
+        return app($this->type)->where('id', $owner_id);
+    }
 }

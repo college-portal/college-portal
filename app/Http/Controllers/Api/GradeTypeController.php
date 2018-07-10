@@ -70,7 +70,7 @@ class GradeTypeController extends ApiController
     public function store(GradeTypeRequest $request, int $school_id) {
         $this->authorize('update', School::findOrFail($school_id));
         $gradeType = $this->service()->repo()->create(array_merge($request->all(), [ 'school_id' => $school_id ]));
-        return $this->json($gradeType);
+        return $this->created($gradeType);
     }
 
     /**

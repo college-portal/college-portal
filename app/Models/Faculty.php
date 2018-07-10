@@ -106,11 +106,16 @@ class Faculty extends BaseModel
             $staff = $model->dean()->first();
             $user = $staff->user()->first();
             $school = $model->school()->first();
-            $school->users()->attach([
-                $user->id => [
-                    'role_id' => $role->id
-                ]
-            ]);
+            if (!$school->users()
+                        ->wherePivot('user_id', $user->id)
+                        ->wherePivot('role_id', $role->id)
+                        ->exists()) {
+                $school->users()->attach([
+                    $user->id => [
+                        'role_id' => $role->id
+                    ]
+                ]);
+            }
 
             $staffRole = Role::where('name', Role::STAFF)->first();
             if (!$school->users()

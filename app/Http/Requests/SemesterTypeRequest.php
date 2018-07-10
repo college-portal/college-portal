@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Models\School;
 use App\Models\Role;
+use App\Rules\AbsentRule;
 
 class SemesterTypeRequest extends FormRequest
 {
@@ -30,7 +31,7 @@ class SemesterTypeRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'school_id' => 'required|numeric|exists:schools,id'
+            'school_id' => [ new AbsentRule() ]
         ];
     }
 }

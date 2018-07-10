@@ -63,9 +63,8 @@ class SemesterTypeController extends ApiController
      * Create Semester Type
      */
     public function store(SemesterTypeRequest $request, int $school_id) {
-        $this->authorize('view', School::findOrFail($school_id));
         $type = $this->service()->repo()->create(array_merge($request->all(), [ 'school_id' => $school_id ]));
-        return $this->json($type);
+        return $this->created($type);
     }
 
     /**

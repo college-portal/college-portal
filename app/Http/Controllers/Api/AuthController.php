@@ -24,7 +24,7 @@ class AuthController extends ApiController
             // attempt authorization
             if (! $token = JWTAuth::attempt($credentials)) {
                 // authorization failed
-                return $this->json(['error' => 'invalid_credentials'], 400);
+                return $this->json(['message' => 'invalid credentials'], 400);
             }
             return $this->json(compact('token'));
         }

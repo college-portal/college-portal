@@ -16,6 +16,13 @@ use App\Models\Semester;
 use App\Models\Chargeable;
 use App\Models\ChargeableService;
 use App\Models\ProgramCredit;
+use App\Models\Payable;
+use App\Models\StaffTeachCourse;
+use App\Models\StudentTakesCourse;
+use App\Models\GradeType;
+use App\Models\Grade;
+use App\Models\ImageType;
+use App\Models\Image;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -50,16 +57,40 @@ class DatabaseSeeder extends Seeder
 
         $program = $this->createProgram($department);
 
-        factory(User::class, 3)->create()->each(function ($user) use ($program) {
-            $this->createStudent($user, $program);
-        });
-
         $semesterTypes = new Collection();
         $sessions = new Collection();
         $levels = new Collection();
         $courses = new Collection();
         $programCredits = new Collection();
         $semesters = new Collection();
+        $chargeableServices = new Collection();
+        $chargeables = new Collection();
+        $payables = new Collection();
+        $staffCourses = new Collection();
+        $students = new Collection();
+        $gradeTypes = new Collection();
+        $studentCourses = new Collection();
+        $grades = new Collection();
+        $images = new Collection();
+
+        $this->createGradeType($school, 'A', 5, 70, 100);
+        $this->createGradeType($school, 'B', 4, 60, 70);
+        $this->createGradeType($school, 'C', 3, 50, 60);
+        $this->createGradeType($school, 'D', 2, 45, 50);
+        $this->createGradeType($school, 'E', 1, 40, 45);
+
+        $imageType = $this->createImageType($school);
+
+        $studentUsers = factory(User::class, 3)->create()->map(function ($user) use ($program, $students) {
+            $student = $this->createStudent($user, $program);
+            $students->push($student);
+            return $user;
+        });
+
+        $studentUsers->slice(0, 1)->each(function ($user) use ($imageType, $images) {
+            $image = $this->createImage($imageType, $user);
+            $images->push($image);
+        });
 
         for ($i = 100; $i <= 400; $i+=100) {
             $level = $this->createLevel($school, "${i}L");
@@ -86,9 +117,9 @@ class DatabaseSeeder extends Seeder
             $semesterTypes->push($type);
         }
 
-        $sessions->each(function ($session) use ($semesterTypes, $semesters, $school, $program) {
+        $sessions->slice(0, 1)->each(function ($session) use ($semesterTypes, $semesters, $school, $program, $chargeableServices, $chargeables) {
             $session->start_date = Carbon::parse($session->start_date);
-            $semesterTypes->each(function ($type) use ($session, $semesters, $school, $program) {
+            $semesterTypes->each(function ($type) use ($session, $semesters, $school, $program, $chargeableServices, $chargeables) {
                 $semester = null;
                 if ($type->name == '1st Semester') {
                     $semester = $this->createSemester($session, $type, $session->start_date, $session->start_date->copy()->addDays(180));
@@ -96,14 +127,42 @@ class DatabaseSeeder extends Seeder
                 else {
                     $semester = $this->createSemester($session, $type, $session->start_date->copy()->addDays(185), $session->start_date->copy()->addDays(365));
                 }
-                $this->createChargeableService($school, $semester, "$type->name Fees", 500);
+                $service = $this->createChargeableService($school, $semester, "$type->name Fees", 500);
+                $chargeable = $this->createChargeable($service, $semester->id, 500);
+
+                $chargeableServices->push($service);
+                $chargeables->push($chargeable);
                 $semesters->push($semester);
             });
-            $this->createChargeableService($school, $session, "$session->name Fees", 1000);
+            $service = $this->createChargeableService($school, $session, "$session->name Fees", 1000);
+            $chargeable = $this->createChargeable($service, $session->id, 1000);
+
+            $chargeableServices->push($service);
+            $chargeables->push($chargeable);
         });
 
-        $levels->each(function ($level) use ($program, $semesters) {
+        $levels->slice(0, 3)->each(function ($level) use ($program, $semesters) {
             $credit = $this->createProgramCredit($program, $semesters->first(), $level);
+        });
+
+        $chargeables->slice(0, 3)->each(function ($chargeable) use ($user, $payables) {
+            $payable = $this->createPayable($chargeable, $user);
+            $payables->push($payable);
+        });
+
+        $courses->slice(0, 1)->each(function ($course) use ($staff, $staffCourses) {
+            $staffCourse = $this->createStaffTeachCourse($staff, $course);
+            $staffCourses->push($staffCourse);
+        });
+
+        $students->slice(0, 1)->each(function ($student) use ($staffCourses, $semesters, $studentCourses) {
+            $studentCourse = $this->createStudentTakesCourse($student, $staffCourses->first(), $semesters->first());
+            $studentCourses->push($studentCourse);
+        });
+
+        $studentCourses->slice(0, 1)->each(function ($studentCourse) use ($grades) {
+            $grade = $this->createGrade($studentCourse);
+            $grades->push($grade);
         });
         
         return $user;
@@ -195,7 +254,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user->id,
             'program_id' => $program->id
         ];
-        return Student::where($opts)->first() ?? factory(Student::class, 1)->create($opts);
+        return Student::where($opts)->first() ?? factory(Student::class, 1)->create($opts)->first();
     }
 
     public function createLevel(School $school, $name) {
@@ -234,7 +293,6 @@ class DatabaseSeeder extends Seeder
             'amount'    => $amount
         ];
         $service = ChargeableService::where($opts)->first() ?? ChargeableService::create($opts);
-        $this->createChargeable($service, $model->id, $amount);
         return $service;
     }
 
@@ -263,5 +321,63 @@ class DatabaseSeeder extends Seeder
             'level_id' => $level->id
         ];
         return ProgramCredit::where($opts)->first() ?? factory(ProgramCredit::class, 1)->create($opts);
+    }
+
+    public function createPayable(Chargeable $chargeable, User $user) {
+        $opts = [
+            'chargeable_id' => $chargeable->id,
+            'user_id' => $user->id
+        ];
+        return Payable::where($opts)->first() ?? Payable::create($opts);
+    }
+
+    public function createStaffTeachCourse(Staff $staff, Course $course) {
+        $opts = [
+            'staff_id' => $staff->id,
+            'course_id' => $course->id
+        ];
+        return StaffTeachCourse::where($opts)->first() ?? StaffTeachCourse::create($opts);
+    }
+
+    public function createStudentTakesCourse(Student $student, StaffTeachCourse $staffCourse, Semester $semester) {
+        $opts = [
+            'student_id' => $student->id,
+            'staff_teach_course_id' => $staffCourse->id,
+            'semester_id' => $semester->id
+        ];
+        return StudentTakesCourse::where($opts)->first() ?? StudentTakesCourse::create($opts);
+    }
+
+    public function createGradeType(School $school, string $name, int $value, float $minimum, float $maximum) {
+        $opts = [
+            'school_id' => $school->id,
+            'name' => $name,
+            'value' => $value,
+            'minimum' => $minimum,
+            'maximum' => $maximum
+        ];
+        return GradeType::where($opts)->first() ?? GradeType::create($opts);
+    }
+
+    public function createGrade(StudentTakesCourse $studentCourse) {
+        $opts = [
+            'student_takes_course_id' => $studentCourse->id
+        ];
+        return Grade::where($opts)->first() ?? factory(Grade::class, 1)->create($opts)->first();
+    }
+
+    public function createImageType(School $school) {
+        $opts = [
+            'school_id' => $school->id
+        ];
+        return ImageType::where($opts)->first() ?? factory(ImageType::class)->create($opts)->first();
+    }
+
+    public function createImage(ImageType $imageType, User $user) {
+        $opts = [
+            'owner_id' => $user->id,
+            'image_type_id' => $imageType->id
+        ];
+        return Image::where($opts)->first() ?? Image::create($opts);
     }
 }

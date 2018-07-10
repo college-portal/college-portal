@@ -72,7 +72,7 @@ class ProgramCreditController extends ApiController
      */
     public function store(ProgramCreditRequest $request) {
         $credit = $this->service()->repo()->create($request->all());
-        return $this->json($credit);
+        return $this->created($credit);
     }
 
     /**
