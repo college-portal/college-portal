@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use App\Models\Role;
 use App\Models\Image;
+use JD\Cloudder\Facades\Cloudder;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Testing\RefreshImage;
@@ -13,6 +14,10 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class ImageTest extends TestCase
 {
     use DatabaseTransactions;
+
+    protected function setUp() {
+        parent::setUp();
+    }
 
     /**
      * /api/images GET
@@ -71,12 +76,21 @@ class ImageTest extends TestCase
      */
     public function testCreateImage()
     {
+        $file = UploadedFile::fake()->image('avatar.jpg');
+
+        Cloudder::shouldReceive('upload')
+                ->once()
+                ->with($file->getRealPath(), null);
+
+        Cloudder::shouldReceive('getPublicId')
+                ->once()
+                ->andReturn(factory(Image::class)->make()->location);
 
         $response = $this->loginAsRole(Role::ADMIN)
                         ->post($this->url('images'), [
                             'owner_id' => 1,
                             'image_type_id' => 1,
-                            'file' => UploadedFile::fake()->image('avatar.jpg')
+                            'file' => $file
                         ]);
 
         $response->assertStatus(201);
@@ -104,10 +118,19 @@ class ImageTest extends TestCase
     public function testUpdateImage()
     {
         $image = Image::findOrFail(1);
+        $file = UploadedFile::fake()->image('avatar.jpg');
+
+        Cloudder::shouldReceive('upload')
+                ->with($file->getRealPath(), $image->location)
+                ->andReturn(null);
+
+        Cloudder::shouldReceive('getPublicId')
+                ->once()
+                ->andReturn(factory(Image::class)->make()->location);
 
         $response = $this->loginAsRole(Role::ADMIN)
                         ->post($this->url('images/1'), [
-                            'file' => UploadedFile::fake()->image('avatar.jpg')
+                            'file' => $file
                         ]);
                         
         $response->assertStatus(200);
