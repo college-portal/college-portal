@@ -6,6 +6,7 @@
 /bootstrap/cache
 /*/*/source/_tmp
 /vendor
+/report
 /.idea
 /.vscode
 /.vagrant
