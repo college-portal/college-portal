@@ -20,7 +20,7 @@ use App\Models\IntentType;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Intent whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class UserHasIntent extends BaseModel
+class Intent extends BaseModel
 {
     protected $fillable = [ 'user_id', 'intent_type_id', 'extras' ];
 
