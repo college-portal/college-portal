@@ -23,6 +23,8 @@ use App\Models\GradeType;
 use App\Models\Grade;
 use App\Models\ImageType;
 use App\Models\Image;
+use App\Models\Intent;
+use App\Models\UserHasIntent;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -72,6 +74,7 @@ class DatabaseSeeder extends Seeder
         $studentCourses = new Collection();
         $grades = new Collection();
         $images = new Collection();
+        $intents = new Collection();
 
         $this->createGradeType($school, 'A', 5, 70, 100);
         $this->createGradeType($school, 'B', 4, 60, 70);
@@ -80,6 +83,8 @@ class DatabaseSeeder extends Seeder
         $this->createGradeType($school, 'E', 1, 40, 45);
 
         $imageType = $this->createImageType($school);
+
+        $intents->push($this->createIntent(Intent::CHANGE_PASSWORD));
 
         $studentUsers = factory(User::class, 3)->create()->map(function ($user) use ($program, $students) {
             $student = $this->createStudent($user, $program);
@@ -379,5 +384,12 @@ class DatabaseSeeder extends Seeder
             'image_type_id' => $imageType->id
         ];
         return Image::where($opts)->first() ?? Image::create($opts);
+    }
+
+    public function createIntent(string $name) {
+        $opts = [
+            'name' => $name
+        ];
+        return Intent::where($opts)->first() ?? Intent::create($opts);
     }
 }
