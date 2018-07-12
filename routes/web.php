@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthGoogleController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,6 +12,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+Route::get('auth/google/redirect', AuthGoogleController::method('redirect'));
+
+Route::get('auth/google/callback', AuthGoogleController::method('callback'));
 
 Route::get('/', function () {
     return view('welcome');

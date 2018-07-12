@@ -10,6 +10,7 @@
         "fideloper/proxy": "^4.0",
         "jrm2k6/cloudder": "^0.6.0",
         "laravel/framework": "5.6.*",
+        "laravel/socialite": "^3.0",
         "laravel/tinker": "^1.0",
         "mpociot/laravel-apidoc-generator": "^2.0",
         "tymon/jwt-auth": "0.5.*"
