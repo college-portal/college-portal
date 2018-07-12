@@ -30,6 +30,7 @@ use App\Models\CourseDependency;
  * App\User
  *
  * @property int $id
+ * @property string $google_id
  * @property string $first_name
  * @property string $last_name
  * @property string $other_names
@@ -66,7 +67,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'google_id', 'password', 'remember_token',
     ];
 
     public function roles() {
