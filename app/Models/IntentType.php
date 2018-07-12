@@ -20,7 +20,6 @@ use App\Models\Intent;
  */
 class IntentType extends BaseModel
 {
-    public const CHANGE_PASSWORD = 'change-password';
 
     protected $fillable = [ 'name' ];
 

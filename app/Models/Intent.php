@@ -22,6 +22,8 @@ use App\Models\IntentType;
  */
 class Intent extends BaseModel
 {
+    public const CHANGE_PASSWORD = 'change-password';
+
     protected $fillable = [ 'user_id', 'intent_type_id', 'extras' ];
 
     public function user() {
@@ -30,5 +32,14 @@ class Intent extends BaseModel
 
     public function type() {
         return $this->belongsTo(IntentType::class, 'intent_type_id');
+    }
+
+    public function setExtrasAttribute($value) {
+        if (!is_string($value)) {
+            $this->attributes['extras'] = json_encode($value);
+        }
+        else {
+            $this->attributes['extras'] = $value;
+        }
     }
 }

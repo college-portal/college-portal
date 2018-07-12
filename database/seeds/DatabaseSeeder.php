@@ -84,7 +84,7 @@ class DatabaseSeeder extends Seeder
 
         $imageType = $this->createImageType($school);
 
-        $intentTypes->push($this->createIntentType(IntentType::CHANGE_PASSWORD));
+        $intentTypes->push($this->createIntentType(Intent::CHANGE_PASSWORD));
 
         $studentUsers = factory(User::class, 3)->create()->map(function ($user) use ($program, $students) {
             $student = $this->createStudent($user, $program);

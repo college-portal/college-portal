@@ -3,11 +3,18 @@
 namespace App\Services;
 
 use App\User;
+use App\Models\Intent;
 use App\Repositories\UserRepository;
 use Carbon\Carbon;
 
 class UserService extends BaseService
 {
+    protected $intentService;
+
+    public function __construct(IntentService $intentService) {
+        $this->intentService = $intentService;
+    }
+
     public function repo()
     {
         return app(UserRepository::class);
@@ -26,6 +33,8 @@ class UserService extends BaseService
         $user->password = md5(rand(1,10000));
 
         $user->save();
+
+        $this->intentService->register($user, Intent::CHANGE_PASSWORD);
 
         return $user;
     }

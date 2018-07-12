@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\User;
 use App\Repositories\IntentRepository;
 use App\Repositories\IntentTypeRepository;
 use Carbon\Carbon;
@@ -37,5 +38,13 @@ class IntentService
         }
 
         return $this->repo()->create(array_merge($opts, [ 'intent_type_id' => $intent_type_id ]));
+    }
+
+    public function register(User $user, string $name, $opts = []) {
+        return $this->create([
+            'user_id' => $user->id,
+            'intent_type' => $name,
+            'extras' => $opts
+        ]);
     }
 }
