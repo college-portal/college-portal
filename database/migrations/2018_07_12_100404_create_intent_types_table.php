@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\UserHasIntent;
+use App\Models\IntentType;
 
-class CreateUserHasIntentsTable extends Migration
+class CreateIntentTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,9 @@ class CreateUserHasIntentsTable extends Migration
      */
     public function up()
     {
-        Schema::create(UserHasIntent::name(), function (Blueprint $table) {
+        Schema::create(IntentType::name(), function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('intent_id')->unsigned();
-            $table->string('extras')->nullable();
-            $table->timestamp('resolved_at')->nullable();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateUserHasIntentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(UserHasIntent::name());
+        Schema::dropIfExists(IntentType::name());
     }
 }

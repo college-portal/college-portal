@@ -25,8 +25,8 @@ use App\Models\Chargeable;
 use App\Models\ProgramCredit;
 use App\Models\Payable;
 use App\Models\CourseDependency;
+use App\Models\IntentType;
 use App\Models\Intent;
-use App\Models\UserHasIntent;
 
 /**
  * App\User
@@ -80,7 +80,7 @@ class User extends Authenticatable
     }
 
     public function intents() {
-        return $this->belongsToMany(Intent::class, UserHasIntent::name())->withTimestamps();
+        return $this->belongsToMany(IntentType::class, Intent::name())->withTimestamps();
     }
 
     public function scopeUsers() {
