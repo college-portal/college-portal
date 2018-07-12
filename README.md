@@ -41,4 +41,4 @@ See our [guide](./CONTRIBUTION.md) for contributors.
 
 ## A Peek (ER Diagram)
 
-![image](https://user-images.githubusercontent.com/11996508/42410353-51531e14-81e0-11e8-8765-31dde6c18289.png)
+![image](https://user-images.githubusercontent.com/11996508/42640287-e33dfc6a-85e9-11e8-91f6-38eb670f8278.png)
