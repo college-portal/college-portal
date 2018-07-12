@@ -25,6 +25,7 @@ use App\Http\Controllers\Api\GradeTypeController;
 use App\Http\Controllers\Api\GradeController;
 use App\Http\Controllers\Api\ImageTypeController;
 use App\Http\Controllers\Api\ImageController;
+use App\Http\Controllers\Api\IntentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -110,6 +111,8 @@ Route::group([
         Route::resource('/images', ImageController::class(), $excepts);
         
         Route::post('/images/{id}', ImageController::method('update'), $excepts);
+        
+        Route::resource('/intents', IntentController::class(), $excepts);
     });
 
     /**
