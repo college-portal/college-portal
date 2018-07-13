@@ -85,6 +85,7 @@ class DatabaseSeeder extends Seeder
         $imageType = $this->createImageType($school);
 
         $intentTypes->push($this->createIntentType(Intent::CHANGE_PASSWORD));
+        $this->createIntent($user, $intentTypes->first());
 
         $studentUsers = factory(User::class, 3)->create()->map(function ($user) use ($program, $students) {
             $student = $this->createStudent($user, $program);
@@ -391,5 +392,14 @@ class DatabaseSeeder extends Seeder
             'name' => $name
         ];
         return IntentType::where($opts)->first() ?? IntentType::create($opts);
+    }
+
+    public function createIntent(User $user, IntentType $intentType, $extras = []) {
+        $opts = [
+            'user_id' => $user->id,
+            'intent_type_id' => $intentType->id,
+            'extras' => $extras
+        ];
+        return Intent::where($opts)->first() ?? Intent::create($opts);
     }
 }
