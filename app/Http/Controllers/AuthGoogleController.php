@@ -27,13 +27,13 @@ class AuthGoogleController extends Controller
         return Socialite::driver('google')->redirect();
     }
 
-
     public function callback()
     {
         $googleUser = Socialite::driver('google')->user();
         $existingUser = $this->service()->repo()->userByEmail($googleUser->email);
 
         if($existingUser) {
+            $user = $this->service()->updateGoogleId($existingUser, $googleUser->google_id);
             Auth::loginUsingId($existingUser->id);
         }
         else {

@@ -20,6 +20,12 @@ class UserService extends BaseService
         return app(UserRepository::class);
     }
 
+    public function updateGoogleId(User $user, string $googleId) {
+        $user->google_id = $googleId;
+        $user->save();
+        return $user;
+    }
+
     public function createFromGoogle($googleUser) {
         $user = new User();
 
