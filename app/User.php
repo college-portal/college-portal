@@ -73,7 +73,7 @@ class User extends Authenticatable
     ];
 
     public function roles() {
-        return $this->belongsToMany(Role::class, UserHasRole::name())->withTimestamps();;
+        return $this->belongsToMany(Role::class, UserHasRole::name())->withTimestamps();
     }
 
     public function schools() {
@@ -87,11 +87,10 @@ class User extends Authenticatable
     public function scopeUsers() {
         /** get users in schools that intersect with the current user's */
         $table_name = UserHasRole::name();
-        return $this->schools()
-                    ->join("$table_name as pivot", 'schools.id', '=', 'pivot.school_id')
-                    ->join('users as others', 'others.id', '=', 'pivot.user_id')
-                    ->where('others.id', '!=', $this->id)
-                    ->select('others.*');
+        $ids = $this->schools()->pluck('schools.id');
+        return $this->whereHas('schools', function ($q) use ($ids) {
+            return $q->whereIn('schools.id', $ids);
+        })->where('users.id', '!=', $this->id)->with('staff');
     }
 
     public function scopeFaculties() {
