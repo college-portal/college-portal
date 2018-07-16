@@ -40,7 +40,7 @@ use App\Http\Controllers\Api\IntentController;
 */
 
 Route::group([
-        'prefix' => '/'
+        'prefix' => '/v1'
     ], function () {
     /**
      * non-auth routes
