@@ -12,7 +12,6 @@ use App\Models\RoleHasPermission;
  * @property int $id
  * @property string $name
  * @property string $display_name
- * @property string $description
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Role whereId($value)
