@@ -18,7 +18,9 @@ class GradeService
         return request()->validate($opts ?? [
             'student_takes_course_id' => [ new AbsentRule() ],
             'score' => 'numeric',
-            'description' => 'string'
+            'description' => 'string',
+            'locked_at' => [ new AbsentRule() ],
+            'is_locked' => 'boolean'
         ]);
     }
 
@@ -49,6 +51,14 @@ class GradeService
                 throw ValidationException::withMessages([
                     'score' => "total score should not exceed 100"
                 ]);
+            }
+        }
+        if (isset($opts['is_locked'])) {
+            if ($opts['is_locked']) {
+                $opts['locked_at'] = Carbon::now();
+            }
+            else {
+                $opts['locked_at'] = null;
             }
         }
         
