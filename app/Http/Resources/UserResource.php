@@ -15,7 +15,7 @@ class UserResource extends Resource
      */
     public function toArray($request)
     {
-        return [
+        return array_merge([
             'id' => $this->id,
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
@@ -23,7 +23,13 @@ class UserResource extends Resource
             'display_name' => $this->display_name,
             'dob' => $this->dob,
             'created_at' => $this->created_at->format('c'),
-            'updated_at' => $this->updated_at->format('c')
-        ];
+            'updated_at' => $this->updated_at->format('c'),
+        ], 
+        ($request->has('with_staff') ? [
+            'staff' => $this->staff
+        ] : []), 
+        ($request->has('with_students') ? [
+            'students' => $this->students
+        ] : []));
     }
 }
