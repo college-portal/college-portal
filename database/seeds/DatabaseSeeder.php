@@ -398,7 +398,7 @@ class DatabaseSeeder extends Seeder
         $opts = [
             'user_id' => $user->id,
             'intent_type_id' => $intentType->id,
-            'extras' => $extras
+            'extras' => json_encode($extras)
         ];
         return Intent::where($opts)->first() ?? Intent::create($opts);
     }
