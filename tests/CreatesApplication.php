@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Artisan;
 
 trait CreatesApplication
 {
+	private $api_version = 'v1';
+
     /**
      * Creates the application.
      *
@@ -26,7 +28,7 @@ trait CreatesApplication
     }
 
     protected function url($path = '') {
-        return "/api/$path";
+        return "/api/{$this->api_version}/{$path}";
     }
 
     protected function setUp()
