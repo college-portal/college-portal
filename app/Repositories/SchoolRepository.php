@@ -31,7 +31,7 @@ class SchoolRepository
     }
 
     public function delete(User $user, $id) {
-        return $user->schools()->where('id', $id)->delete();
+        return $user->schools()->findOrFail($id)->delete();
     }
 
     public function create(User $user, $opts) {

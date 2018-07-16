@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\BaseModel;
 use App\Models\Session;
 use App\Models\School;
+use App\Models\ProgramCredit;
 use App\Traits\ChargeableTrait;
 
 /**
@@ -40,5 +41,17 @@ class Semester extends BaseModel
 
     public function type() {
         return $this->belongsTo(SemesterType::class, 'semester_type_id');
+    }
+
+    public function programCredits() {
+        return $this->hasMany(ProgramCredit::class);
+    }
+
+    public static function boot() {
+        self::deleting(function ($model) {
+            $model->programCredits()->get()->map(function ($programCredit) {
+                $programCredit->delete();
+            });
+        });
     }
 }

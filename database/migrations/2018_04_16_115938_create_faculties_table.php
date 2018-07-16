@@ -20,7 +20,6 @@ class CreateFacultiesTable extends Migration
             $table->integer('dean_id')->unsigned();
             $table->integer('school_id')->unsigned();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

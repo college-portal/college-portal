@@ -53,4 +53,12 @@ class Chargeable extends BaseModel
     public function payables() {
         return $this->hasMany(Payable::class);
     }
+
+    public static function boot() {
+        self::deleting(function ($model) {
+            $model->payables()->get()->map(function ($payable) {
+                $payable->delete();
+            });
+        });
+    }
 }

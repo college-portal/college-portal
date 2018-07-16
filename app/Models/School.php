@@ -11,6 +11,10 @@ use App\Models\UserHasRole;
 use App\Models\SemesterType;
 use App\Models\Level;
 use App\Models\Session;
+use App\Models\Staff;
+use App\Models\GradeType;
+use App\Models\ImageType;
+use App\Models\ChargeableService;
 use Carbon\Carbon;
 
 /**
@@ -20,7 +24,6 @@ use Carbon\Carbon;
  * @property string $name
  * @property string $short_name
  * @property int $owner_id
- * @property boolean $is_active
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\School whereContains($value)
@@ -33,7 +36,7 @@ use Carbon\Carbon;
 class School extends BaseModel
 {
 
-    protected $fillable = [ 'name', 'short_name', 'is_active', 'owner_id' ];
+    protected $fillable = [ 'name', 'short_name', 'owner_id' ];
 
     public function owner() {
         return $this->belongsTo(User::class, 'owner_id');
@@ -45,6 +48,18 @@ class School extends BaseModel
 
     public function faculties() {
         return $this->hasMany(Faculty::class);
+    }
+
+    public function gradeTypes() {
+        return $this->hasMany(GradeType::class);
+    }
+
+    public function chargeableServices() {
+        return $this->hasMany(ChargeableService::class);
+    }
+
+    public function imageTypes() {
+        return $this->hasMany(ImageType::class);
     }
 
     public function scopeDepartments() {
@@ -72,6 +87,10 @@ class School extends BaseModel
         return $this->hasMany(Level::class);
     }
 
+    public function staff() {
+        return $this->hasMany(Staff::class);
+    }
+
     public static function boot() {
         $schoolOwnerRoleCreate = function ($model) {
             /** create school-owner user role */
@@ -87,5 +106,33 @@ class School extends BaseModel
 
         self::created($schoolOwnerRoleCreate);
         self::updated($schoolOwnerRoleCreate);
+
+        self::deleting(function ($model) {
+            $model->users()->detach();
+            $model->faculties()->get()->map(function ($faculty) {
+                $faculty->delete();
+            });
+            $model->staff()->get()->map(function ($staff) {
+                $staff->delete();
+            });
+            $model->levels()->get()->map(function ($level) {
+                $level->delete();
+            });
+            $model->sessions()->get()->map(function ($session) {
+                $session->delete();
+            });
+            $model->semesterTypes()->get()->map(function ($type) {
+                $type->delete();
+            });
+            $model->chargeableServices()->get()->map(function ($service) {
+                $service->delete();
+            });
+            $model->gradeTypes()->get()->map(function ($gradeType) {
+                $gradeType->delete();
+            });
+            $model->imageTypes()->get()->map(function ($imageType) {
+                $imageType->delete();
+            });
+        });
     }
 }

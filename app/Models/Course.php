@@ -56,10 +56,25 @@ class Course extends BaseModel
     }
   
     public function dependencies() {
-        return $this->belongsToMany(self::class, CourseDependency::name(), 'course_id', 'dependency_id')->withTimestamps();
+        return $this->belongsToMany(self::class, CourseDependency::name(), 'course_id', 'dependency_id')
+                    ->withTimestamps();
     }
 
     public function staff() {
         return $this->belongsToMany(Staff::class, StaffTeachCourse::name(), 'course_id', 'staff_id')->withTimestamps();
+    }
+
+    public static function boot() {
+        self::deleting(function ($model) {
+            $model->hasOne(CourseDependency::class)->get()->map(function ($dependency) {
+                $dependency->delete();
+            });
+            $model->hasOne(CourseDependency::class, 'dependency_id')->get()->map(function ($dependency) {
+                $dependency->delete();
+            });
+            $model->hasOne(StaffTeachCourse::class)->get()->map(function ($staffCourse) {
+                $staffCourse->delete();
+            });
+        });
     }
 }
