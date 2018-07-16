@@ -19,6 +19,7 @@ class CreateGradesTable extends Migration
             $table->integer('student_takes_course_id')->unsigned();
             $table->integer('score');
             $table->string('description');
+            $table->timestap('locked_at')->nullable();
             $table->timestamps();
         });
     }
