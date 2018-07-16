@@ -19,7 +19,7 @@ class CreateSemestersTable extends Migration
             $table->increments('id');
             $table->integer('semester_type_id')->unsigned();
             $table->integer('session_id')->unsigned();
-            $table->timestamp('start_date')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('start_date')->default(0);
             $table->timestamp('end_date')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamps();
         });
