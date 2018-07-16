@@ -19,8 +19,8 @@ class CreateSchoolsTable extends Migration
             $table->string('name', 1000);
             $table->string('short_name', 50)->nullable();
             $table->integer('owner_id')->unsigned();
-            $table->boolean('is_active')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

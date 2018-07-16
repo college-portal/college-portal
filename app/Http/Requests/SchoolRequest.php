@@ -26,11 +26,7 @@ class SchoolRequest extends FormRequest
     {
         return [
             'name'=> 'required|string',
-            'short_name' => 'required|string',
-            'is_active' => [
-                            'numeric',
-                            Rule::in([1, 0])
-                        ]
+            'short_name' => 'required|string'
         ];
     }
 }
