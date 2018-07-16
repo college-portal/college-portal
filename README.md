@@ -37,7 +37,7 @@ The documentation exists [here](./public/docs/source/index.md).
 
 ## Contribution Guide
 
-See our [guide](./CONTRIBUTION.md) for contributors.
+See our [guide](CONTRIBUTING.md) for contributors.
 
 ## A Peek (ER Diagram)
 
