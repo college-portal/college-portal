@@ -19,8 +19,8 @@ class CreateSessionsTable extends Migration
             $table->increments('id');
             $table->integer('school_id')->unsigned();
             $table->string('name');
-            $table->timestamp('start_date')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('end_date')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('start_date')->nullable();
+            $table->timestamp('end_date')->nullable();
             $table->timestamps();
         });
     }
