@@ -23,6 +23,7 @@ An open source Rest API for a modern online portal for tertiary institutions inc
   - Create a cloudinary account
   - Fill the CLOUDINARY_* fields in .env
 - Create a MySQL, PostgreSQL or SQLite DB and connect it via the .env file
+- To migrate your DB, run `php artisan migrate`
 - To seed your DB with test data, run `php artisan db:seed`
 - To serve the application, run `php artisan serve`
 
