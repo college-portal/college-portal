@@ -21,8 +21,8 @@ class CreateEventsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('url', 1500);
             $table->string('description', 2000);
-            $table->timestamp('start_date')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('end_date')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('start_date')->nullable();
+            $table->timestamp('end_date')->nullable();
             $table->timestamps();
         });
     }
