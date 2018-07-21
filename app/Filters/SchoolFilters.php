@@ -21,16 +21,8 @@ class SchoolFilters extends BaseFilters
         return $this->builder->with('faculties');
     }
 
-    public function only_active():Builder
-	{ /** unless include_inactive is specified */
-        return $this->builder->where('is_active', true);
-    }
-
     public function global():array
 	{
-        if (!$this->request->has('include_inactive')) {
-            $this->only_active();
-        }
         return [];
     }
 }

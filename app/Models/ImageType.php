@@ -32,4 +32,12 @@ class ImageType extends BaseModel
     public function scopeOwner($query, $owner_id) {
         return app($this->type)->where('id', $owner_id);
     }
+
+    public static function boot() {
+        self::deleting(function ($model) {
+            $model->images()->get()->map(function ($image) {
+                $image->delete();
+            });
+        });
+    }
 }

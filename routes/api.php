@@ -25,6 +25,8 @@ use App\Http\Controllers\Api\GradeTypeController;
 use App\Http\Controllers\Api\GradeController;
 use App\Http\Controllers\Api\ImageTypeController;
 use App\Http\Controllers\Api\ImageController;
+use App\Http\Controllers\Api\IntentTypeController;
+use App\Http\Controllers\Api\IntentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +40,7 @@ use App\Http\Controllers\Api\ImageController;
 */
 
 Route::group([
-        'prefix' => '/'
+        'prefix' => '/v1'
     ], function () {
     /**
      * non-auth routes
@@ -110,6 +112,10 @@ Route::group([
         Route::resource('/images', ImageController::class(), $excepts);
         
         Route::post('/images/{id}', ImageController::method('update'), $excepts);
+        
+        Route::resource('/intent-types', IntentTypeController::class(), $excepts);
+        
+        Route::resource('/intents', IntentController::class(), $excepts);
     });
 
     /**

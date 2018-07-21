@@ -5,6 +5,8 @@ namespace App\Models;
 use App\Models\BaseModel;
 use App\Models\Role;
 use App\Models\Department;
+use App\Models\StudentTakesCourse;
+use App\Models\Course;
 use App\User;
 
 /**
@@ -34,6 +36,10 @@ class Student extends BaseModel
 
     public function program() {
         return $this->belongsTo(Program::class);
+    }
+
+    public function courses() {
+        return $this->hasManyThrough(Course::class, StudentTakesCourse::class, 'id', 'course_id');
     }
 
     public function scopeDepartment() {

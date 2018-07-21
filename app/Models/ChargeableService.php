@@ -38,4 +38,12 @@ class ChargeableService extends BaseModel
     public function scopeOwner($query, $owner_id) {
         return app($this->type)->where('id', $owner_id);
     }
+
+    public static function boot() {
+        self::deleting(function ($model) {
+            $model->chargeables()->get()->map(function ($chargeable) {
+                $chargeable->delete();
+            });
+        });
+    }
 }

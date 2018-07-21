@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
-use App\Models\Permission;
-use App\Models\RoleHasPermission;
 
 /**
  * App\Models\Role
@@ -12,7 +10,6 @@ use App\Models\RoleHasPermission;
  * @property int $id
  * @property string $name
  * @property string $display_name
- * @property string $description
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Role whereId($value)
@@ -29,8 +26,4 @@ class Role extends BaseModel
     public const SCHOOL_OWNER = 'school-owner';
     public const HOD = 'hod';
     public const DEAN = 'dean';
-
-    public function permissions() {
-        return $this->hasMany(Permission::class, RoleHasPermission::name());
-    }
 }

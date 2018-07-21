@@ -3,11 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\Role;
-use App\Models\Permission;
-use App\Models\RoleHasPermission;
+use App\Models\IntentType;
 
-class CreateRoleHasPermissionTable extends Migration
+class CreateIntentTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,9 +14,9 @@ class CreateRoleHasPermissionTable extends Migration
      */
     public function up()
     {
-        Schema::create(RoleHasPermission::name(), function (Blueprint $table) {
-            $table->integer('role_id')->unsigned();
-            $table->integer('permission_id')->unsigned();
+        Schema::create(IntentType::name(), function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name')->unique();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateRoleHasPermissionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(RoleHasPermission::name());
+        Schema::dropIfExists(IntentType::name());
     }
 }

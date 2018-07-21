@@ -31,17 +31,15 @@ class SchoolRepository
     }
 
     public function delete(User $user, $id) {
-        return $user->schools()->where('id', $id)->update([
-            'is_active' => false
-        ]);
+        return $user->schools()->findOrFail($id)->delete();
     }
 
     public function create(User $user, $opts) {
-        return $this->model()->create(array_merge([ 'is_active' => 1 ], $opts, [ 'owner_id' => $user->id ]));
+        return $this->model()->create(array_merge($opts, [ 'owner_id' => $user->id ]));
     }
 
     public function update(User $user, $id, $opts = []) {
-        $this->model()->where('id', $id)->update(array_merge([ 'is_active' => 1 ], $opts));
+        $this->model()->where('id', $id)->update($opts);
         return $this->school($user, $id);
     }
 

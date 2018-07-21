@@ -37,4 +37,9 @@ class AbsentRule implements Rule
     {
         return 'The :attribute must not exist';
     }
+    
+    public function __toString()
+    {
+      return 'absent';
+    }
 }

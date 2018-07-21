@@ -9,6 +9,7 @@ use App\Models\SemesterType;
 use App\Models\Staff;
 use App\Models\Student;
 use App\Models\School;
+use App\Models\Grade;
 
 /**
  * App\Models\StudentTakesCourse
@@ -43,6 +44,10 @@ class StudentTakesCourse extends BaseModel
         return $this->belongsTo(Semester::class);
     }
 
+    public function grades() {
+        return $this->hasMany(Grade::class);
+    }
+
     public function staff() {
         return $this->staffCourses()
                     ->join(Staff::name(), 'staff.id', '=', 'staff_teach_courses.staff_id')
@@ -60,5 +65,13 @@ class StudentTakesCourse extends BaseModel
                     ->join(SemesterType::name(), 'semester_types.id', '=', 'semesters.semester_type_id')
                     ->join(School::name(), 'schools.id', '=', 'semester_types.school_id')
                     ->select('schools.*');
+    }
+
+    public static function boot() {
+        self::deleting(function ($model) {
+            $model->grades()->get()->map(function ($grade) {
+                $grade->delete();
+            });
+        });
     }
 }

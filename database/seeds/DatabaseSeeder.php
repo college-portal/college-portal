@@ -23,6 +23,8 @@ use App\Models\GradeType;
 use App\Models\Grade;
 use App\Models\ImageType;
 use App\Models\Image;
+use App\Models\IntentType;
+use App\Models\Intent;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -32,7 +34,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(RolesTableSeeder::class);
-        $this->call(PermissionsTableSeeder::class);
         $owner = $this->createSchoolOwner();
     }
 
@@ -72,6 +73,7 @@ class DatabaseSeeder extends Seeder
         $studentCourses = new Collection();
         $grades = new Collection();
         $images = new Collection();
+        $intentTypes = new Collection();
 
         $this->createGradeType($school, 'A', 5, 70, 100);
         $this->createGradeType($school, 'B', 4, 60, 70);
@@ -80,6 +82,9 @@ class DatabaseSeeder extends Seeder
         $this->createGradeType($school, 'E', 1, 40, 45);
 
         $imageType = $this->createImageType($school);
+
+        $intentTypes->push($this->createIntentType(Intent::CHANGE_PASSWORD));
+        $this->createIntent($user, $intentTypes->first());
 
         $studentUsers = factory(User::class, 3)->create()->map(function ($user) use ($program, $students) {
             $student = $this->createStudent($user, $program);
@@ -192,8 +197,7 @@ class DatabaseSeeder extends Seeder
 
     public function createSchool(User $user) {
         $opts = [
-            'owner_id' => $user->id,
-            'is_active' => true
+            'owner_id' => $user->id
         ];
         return School::where($opts)->first() ?? factory(School::class, 1)->create($opts)->first();
     }
@@ -379,5 +383,21 @@ class DatabaseSeeder extends Seeder
             'image_type_id' => $imageType->id
         ];
         return Image::where($opts)->first() ?? Image::create($opts);
+    }
+
+    public function createIntentType(string $name) {
+        $opts = [
+            'name' => $name
+        ];
+        return IntentType::where($opts)->first() ?? IntentType::create($opts);
+    }
+
+    public function createIntent(User $user, IntentType $intentType, $extras = []) {
+        $opts = [
+            'user_id' => $user->id,
+            'intent_type_id' => $intentType->id,
+            'extras' => json_encode($extras)
+        ];
+        return Intent::where($opts)->first() ?? Intent::create($opts);
     }
 }

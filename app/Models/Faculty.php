@@ -11,7 +11,6 @@ use App\Models\Program;
 use App\Models\Department;
 use App\User;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * App\Models\Faculty
@@ -32,7 +31,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Faculty extends BaseModel
 {
-    use SoftDeletes;
 
     protected $dates = ['deleted_at'];
 
@@ -132,5 +130,11 @@ class Faculty extends BaseModel
 
         self::created($schoolHasUsersUpdate);
         self::updated($schoolHasUsersUpdate);
+
+        self::deleting(function ($model) {
+            $model->departments()->get()->map(function ($department) {
+                $department->delete();
+            });
+        });
     }
 }

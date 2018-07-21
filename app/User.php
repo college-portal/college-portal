@@ -25,11 +25,14 @@ use App\Models\Chargeable;
 use App\Models\ProgramCredit;
 use App\Models\Payable;
 use App\Models\CourseDependency;
+use App\Models\IntentType;
+use App\Models\Intent;
 
 /**
  * App\User
  *
  * @property int $id
+ * @property string $google_id
  * @property string $first_name
  * @property string $last_name
  * @property string $other_names
@@ -66,25 +69,28 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'google_id', 'password', 'remember_token',
     ];
 
     public function roles() {
-        return $this->belongsToMany(Role::class, UserHasRole::name())->withTimestamps();;
+        return $this->belongsToMany(Role::class, UserHasRole::name())->withTimestamps();
     }
 
     public function schools() {
         return $this->belongsToMany(School::class, UserHasRole::name())->withTimestamps();
     }
 
+    public function intents() {
+        return $this->belongsToMany(IntentType::class, Intent::name())->withTimestamps();
+    }
+
     public function scopeUsers() {
         /** get users in schools that intersect with the current user's */
         $table_name = UserHasRole::name();
-        return $this->schools()
-                    ->join("$table_name as pivot", 'schools.id', '=', 'pivot.school_id')
-                    ->join('users as others', 'others.id', '=', 'pivot.user_id')
-                    ->where('others.id', '!=', $this->id)
-                    ->select('others.*');
+        $ids = $this->schools()->pluck('schools.id');
+        return $this->whereHas('schools', function ($q) use ($ids) {
+            return $q->whereIn('schools.id', $ids);
+        })->where('users.id', '!=', $this->id)->with('staff');
     }
 
     public function scopeFaculties() {

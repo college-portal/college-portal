@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\BaseModel;
 use App\Models\Staff;
 use App\Models\Course;
+use App\Models\StudentTakesCourse;
 use App\User;
 
 /**
@@ -34,8 +35,20 @@ class StaffTeachCourse extends BaseModel
         return $this->belongsTo(Staff::class);
     }
 
+    public function studentTakesCourse() {
+        return $this->hasMany(StudentTakesCourse::class, 'staff_teach_course_id');
+    }
+
     public function scopeSchool() {
         $ids = $this->staff()->pluck('school_id');
         return School::whereIn('id', $ids);
+    }
+
+    public static function boot() {
+        self::deleting(function ($model) {
+            $model->studentTakesCourse()->get()->map(function ($studentCourse) {
+                $studentCourse->delete();
+            });
+        });
     }
 }

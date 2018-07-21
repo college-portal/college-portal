@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\BaseModel;
 use App\Models\Department;
 use App\Models\Student;
+use App\Models\ProgramCredit;
 
 /**
  * App\Models\Program
@@ -31,5 +32,20 @@ class Program extends BaseModel
 
     public function students() {
         return $this->hasMany(Student::class);
+    }
+
+    public function credits() {
+        return $this->hasMany(ProgramCredit::class);
+    }
+
+    public static function boot() {
+        self::deleting(function ($model) {
+            $model->students()->get()->map(function ($student) {
+                $student->delete();
+            });
+            $model->credits()->get()->map(function ($credit) {
+                $credit->delete();
+            });
+        });
     }
 }

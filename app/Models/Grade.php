@@ -19,6 +19,7 @@ use App\Models\StudentTakesCourse;
  * @property int $student_takes_course_id
  * @property float $score
  * @property string $description
+ * @property \Carbon\Carbon $locked_at
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Grade whereContains($value)
@@ -30,7 +31,7 @@ use App\Models\StudentTakesCourse;
  */
 class Grade extends BaseModel
 {
-    protected $fillable = [ 'student_takes_course_id', 'score', 'description' ];
+    protected $fillable = [ 'student_takes_course_id', 'score', 'description', 'locked_at' ];
 
     function studentTakesCourse() {
         return $this->belongsTo(StudentTakesCourse::class);

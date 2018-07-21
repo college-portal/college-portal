@@ -34,4 +34,12 @@ class Session extends BaseModel
     public function semesters() {
         return $this->hasMany(Semester::class);
     }
+
+    public static function boot() {
+        self::deleting(function ($model) {
+            $model->semesters()->get()->map(function ($semester) {
+                $semester->delete();
+            });
+        });
+    }
 }

@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\Permission;
+use App\Models\AssetType;
 
-class CreatePermissionsTable extends Migration
+class CreateAssetTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,12 @@ class CreatePermissionsTable extends Migration
      */
     public function up()
     {
-        Schema::create(Permission::name(), function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create(AssetType::name(), function (Blueprint $table) {
+            $table->increments('id');         
+            $table->integer('school_id')->unsigned();
+            $table->string('type');
             $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +30,6 @@ class CreatePermissionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(Permission::name());
+        Schema::dropIfExists(AssetType::name());
     }
 }

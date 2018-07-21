@@ -36,4 +36,12 @@ class Level extends BaseModel
     public function programCredits() {
         return $this->hasMany(ProgramCredit::class);
     }
+
+    public static function boot() {
+        self::deleting(function ($model) {
+            $model->programCredits()->get()->map(function ($programCredit) {
+                $programCredit->delete();
+            });
+        });
+    }
 }

@@ -48,7 +48,7 @@ class UserController extends ApiController
      */
     public function index(Request $request, UserFilters $filters) {
         $users = $this->service()->repo()->users($request->user(), $filters);
-        return UserResource::collection($users);
+        return $users;
     }
 
     /**

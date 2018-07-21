@@ -7,6 +7,7 @@ use App\Models\Faculty;
 use App\Models\Staff;
 use App\Models\Student;
 use App\Models\Program;
+use App\Models\Course;
 use App\User;
 
 /**
@@ -51,6 +52,10 @@ class Department extends BaseModel
 
     public function students() {
         return $this->hasManyThrough(Student::class, Program::class);
+    }
+
+    public function courses() {
+        return $this->hasMany(Course::class);
     }
 
     public function users() {
@@ -103,5 +108,14 @@ class Department extends BaseModel
 
         self::created($schoolHasUsersUpdate);
         self::updated($schoolHasUsersUpdate);
+
+        self::deleting(function ($model) {
+            $model->courses()->get()->map(function ($course) {
+                $course->delete();
+            });
+            $model->programs()->get()->map(function ($program) {
+                $program->delete();
+            });
+        });
     }
 }

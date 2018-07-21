@@ -31,7 +31,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Payable extends BaseModel
 {
-    use SoftDeletes;
 
     protected $fillable = [ 'user_id', 'chargeable_id' ];
 
