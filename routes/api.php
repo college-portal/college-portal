@@ -27,6 +27,7 @@ use App\Http\Controllers\Api\ImageTypeController;
 use App\Http\Controllers\Api\ImageController;
 use App\Http\Controllers\Api\IntentTypeController;
 use App\Http\Controllers\Api\IntentController;
+use App\Http\Controllers\Api\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -116,6 +117,8 @@ Route::group([
         Route::resource('/intent-types', IntentTypeController::class(), $excepts);
         
         Route::resource('/intents', IntentController::class(), $excepts);
+        
+        Route::resource('/roles', RoleController::class(), $excepts);
     });
 
     /**

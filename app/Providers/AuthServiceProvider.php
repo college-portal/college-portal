@@ -38,6 +38,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\Models\Image' => 'App\Policies\ImagePolicy',
         'App\Models\IntentType' => 'App\Policies\IntentTypePolicy',
         'App\Models\Intent' => 'App\Policies\IntentPolicy',
+        'App\Models\Role' => 'App\Policies\RolePolicy',
     ];
 
     /**
