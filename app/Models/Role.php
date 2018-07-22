@@ -26,4 +26,6 @@ class Role extends BaseModel
     public const SCHOOL_OWNER = 'school-owner';
     public const HOD = 'hod';
     public const DEAN = 'dean';
+
+    protected $fillable = [ 'name', 'display_name' ];
 }
