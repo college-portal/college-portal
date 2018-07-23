@@ -12,6 +12,7 @@ use App\Models\School;
  * @property int $id
  * @property string $type
  * @property string $name
+ * @property string $display_name
  * @property int school_id
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ContentType whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ContentType whereName($value)
@@ -20,7 +21,7 @@ use App\Models\School;
 
 class ContentType extends BaseModel
 {
-    protected $fillable = ['type', 'name', 'school_id'];
+    protected $fillable = [ 'type', 'name', 'display_name', 'school_id' ];
 
     public function contents()
     {
