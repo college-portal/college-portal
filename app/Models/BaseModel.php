@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Traits\FilterableTrait;
+use App\Traits\ContentableTrait;
+use App\Traits\AssetableTrait;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -12,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class BaseModel extends Model
 {
-    use FilterableTrait;
+    use FilterableTrait, ContentableTrait, AssetableTrait;
   
     /**
      * Returns the table name for the Model

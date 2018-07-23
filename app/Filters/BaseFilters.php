@@ -46,6 +46,7 @@ class BaseFilters
 
     protected function defer($function) {
         $this->functions->push($function);
+        return $this;
     }
 
     public function transform($model) {
@@ -53,5 +54,25 @@ class BaseFilters
             $model = $function($model);
         });
         return $model;
+    }
+
+    /**
+     * A query-filter handler, enabling retrieving extra content belonging to a model
+     */
+    protected function with_contents() {
+        return $this->defer(function ($model) {
+            $model->contents = $model->contents()->get();
+            return $model;
+        });
+    }
+
+    /**
+     * A query-filter handler, enabling retrieving assets belonging to a model
+     */
+    protected function with_assets() {
+        return $this->defer(function ($model) {
+            $model->assets = $model->assets()->get();
+            return $model;
+        });
     }
 }
