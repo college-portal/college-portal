@@ -9,6 +9,7 @@ use App\Repositories\SessionRepository;
 use App\Models\Session;
 use Carbon\Carbon;
 use Exception;
+use Illuminate\Validation\ValidationException;
 
 class SemesterService extends BaseService
 {
@@ -37,7 +38,10 @@ class SemesterService extends BaseService
     public function validateSemesterDates(Session $session, Carbon $start_date, Carbon $end_date) {
         if (!(($start_date < $end_date) &&
             ($start_date >= $session->start_date && $end_date <= $session->end_date))) {
-            throw new Exception("Invalid Semester Interval Dates. Input dates ($start_date and $end_date) should be within ($session->start_date and $session->end_date)");
+            throw ValidationException::withMessages([
+                'start_date' => "Input dates ($start_date and $end_date) should be within ($session->start_date and $session->end_date)",
+                'end_date' => "Input dates ($start_date and $end_date) should be within ($session->start_date and $session->end_date)"
+            ]);
         }
     }
 
