@@ -20,7 +20,6 @@ class ContentRequest extends FormRequest
         $user = auth()->user()->first();
         $type = ContentType::findOrFail($this->input('content_type_id'));
         $owner = $type->owner($this->owner_id)->first();
-
         return $user->can('view', $type) && $user->can('update', $owner);
     }
 

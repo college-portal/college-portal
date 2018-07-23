@@ -85,6 +85,7 @@ class DatabaseSeeder extends Seeder
 
         $imageType = $this->createImageType($school);
         $contentType = $this->createContentType($school);
+        $this->createContent($contentType);
 
         $intentTypes->push($this->createIntentType(Intent::CHANGE_PASSWORD));
         $this->createIntent($user, $intentTypes->first());
@@ -409,5 +410,14 @@ class DatabaseSeeder extends Seeder
             'school_id' => $school->id
         ];
         return ContentType::where($opts)->first() ?? factory(ContentType::class)->create($opts)->first();
+    }
+
+    public function createContent(ContentType $contentType) {
+        $opts = [
+            'content_type_id' => $contentType->id,
+            'owner_id' => 5,
+            'value' => 'Value 1'
+        ];
+        return Content::where($opts)->first() ?? Content::create($opts)->first();
     }
 }

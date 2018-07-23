@@ -22,7 +22,7 @@ class ContentTypePolicy
     }
 
     public function view(User $user, ContentType $contentType) {
-        return $user->schools()->where('schools.id', $contentType->school_id)->exists();
+        return $user->hasRole(Role::ADMIN) || $user->schools()->where('schools.id', $contentType->school_id)->exists();
     }
 
     public function delete(User $user, ContentType $contentType) {
