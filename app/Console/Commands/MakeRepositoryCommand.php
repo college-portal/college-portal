@@ -77,7 +77,7 @@ class MakeRepositoryCommand extends Command
                 if (\$filters) {
                     \$q = \$q->filter(\$filters);
                 }
-                return \$q->findOrFail(\$id);
+                return \$filters ? \$filters->transform(\$q->findOrFail(\$id)) : \$q->findOrFail(\$id);;
             }
         
             public function delete(\$id) {
