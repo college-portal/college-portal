@@ -37,4 +37,12 @@ class ContentType extends BaseModel
     {
         return app($this->type)->where('id', $owner_id);
     }
+
+    public function parent() {
+        return $this->belongsTo(self::class, 'related_to');
+    }
+
+    public function children() {
+        return $this->hasMany(self::class, 'related_to');
+    }
 }
