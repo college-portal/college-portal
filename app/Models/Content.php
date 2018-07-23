@@ -12,7 +12,7 @@ use App\Models\School;
  * @property int $id
  * @property int $owner_id
  * @property int $content_type_id
- * @property string $location
+ * @property string $value
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Content whereId($value)
@@ -23,7 +23,7 @@ use App\Models\School;
  */
 class Content extends BaseModel
 {
-    protected $fillable = ['owner_id', 'content_type_id'];
+    protected $fillable = [ 'owner_id', 'content_type_id', 'value' ];
 
     public function type()
     {
