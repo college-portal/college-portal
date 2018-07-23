@@ -40,6 +40,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\Models\Intent' => 'App\Policies\IntentPolicy',
         'App\Models\Role' => 'App\Policies\RolePolicy',
         'App\Models\UserHasRole' => 'App\Policies\UserHasRolePolicy',
+        'App\Models\ContentType' => 'App\Policies\ContentTypePolicy',
     ];
 
     /**

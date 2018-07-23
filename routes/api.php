@@ -29,6 +29,7 @@ use App\Http\Controllers\Api\IntentTypeController;
 use App\Http\Controllers\Api\IntentController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\UserHasRoleController;
+use App\Http\Controllers\Api\ContentTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -122,6 +123,8 @@ Route::group([
         Route::resource('/roles', RoleController::class(), $excepts);
         
         Route::resource('/user-roles', UserHasRoleController::class(), $excepts);
+        
+        Route::resource('/schools/{school_id}/content-types', ContentTypeController::class(), $excepts);
     });
 
     /**
