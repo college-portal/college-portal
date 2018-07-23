@@ -7,14 +7,14 @@ Hello, thanks for wanting to contribute. Here are a few things you should know .
 - Checkout `edge` branch
 - Look through the existing issues to be sure a similar issues does not exist
 - Create an [issue](./issues)
-- Make a [PR](./pulls) with a clear description that references the issue you created
+- Make a [PR](./pulls) to the `edge` branch with a clear description that references the issue you created
 
 ## For enhancements
 
 - Checkout `edge` branch
 - Create an [issue](./issues)
   - We'll discuss its importance
-- Make a [PR](./pulls)
+- Make a [PR](./pulls) to the `edge` branch
 
 ## Generating API Documentation
 
