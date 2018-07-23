@@ -16,8 +16,8 @@ class RelAssetsTable extends Migration
     public function up()
     {
         Schema::table(Asset::name(), function (Blueprint $table) {
-            $table->foreign('asset_types_id')->references('id')->on(AssetType::name());
-            $table->unique([ 'owner_id', 'asset_types_id', 'location' ]);
+            $table->foreign('asset_type_id')->references('id')->on(AssetType::name());
+            $table->unique([ 'owner_id', 'asset_type_id', 'location' ]);
         });
     }
 
@@ -29,8 +29,8 @@ class RelAssetsTable extends Migration
     public function down()
     {
         Schema::table(Asset::name(), function (Blueprint $table) {
-            $table->dropForeign([ 'asset_types_id' ]);
-            $table->dropUnique([ 'owner_id', 'asset_types_id', 'location' ]);
+            $table->dropForeign([ 'asset_type_id' ]);
+            $table->dropUnique([ 'owner_id', 'asset_type_id', 'location' ]);
         });
     }
 }
