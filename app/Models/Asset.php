@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\Models\AssetType;
 
 /**
  * App\Models\Asset
@@ -23,4 +24,20 @@ use App\Models\BaseModel;
 class Asset extends BaseModel
 {
     protected $fillable = ['owner_id', 'asset_type_id', 'location', 'mime', 'size'];  
+
+    public function type()
+    {
+        return $this->belongsTo(AssetType::class, 'asset_type_id');
+    }
+
+    public function scopeOwner()
+    {
+        return app($this->type()->first()->type)->where('id', $this->owner_id);
+    }
+
+    public function scopeSchool()
+    {
+        $ids = $this->type()->pluck('school_id');
+        return School::whereIn('id', $ids);
+    }
 }

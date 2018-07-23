@@ -27,4 +27,14 @@ class AssetType extends BaseModel
     public function assets() {
         return $this->hasMany(Asset::class, 'asset_type_id');
     }
+
+    public function school()
+    {
+        return $this->belongsTo(School::class);
+    }
+
+    public function scopeOwner($query, $owner_id)
+    {
+        return app($this->type)->where('id', $owner_id);
+    }
 }
