@@ -232,6 +232,21 @@ class User extends Authenticatable
         }
         else return $this->payables();
     }
+
+    public function scopeViewableUserRoles() {
+        $q = app(UserHasRole::class);
+        if ($this->hasRole(Role::ADMIN)) {
+            return $q;
+        }
+        else if ($this->hasRole(Role::SCHOOL_OWNER)) {
+            $ids = $this->schools()->union($this->managedSchools())->pluck('schools.id');
+            return $q->whereIn('school_id', $ids);
+        }
+        else {
+            $ids = $this->schools()->pluck('schools.id');
+            return $q->whereIn('school_id', $ids);
+        }
+    }
   
     public function students() {
         return $this->hasMany(Student::class);

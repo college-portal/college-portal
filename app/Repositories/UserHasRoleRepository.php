@@ -15,7 +15,7 @@ class UserHasRoleRepository
     }
 
     public function list(User $user, UserHasRoleFilters $filters) {
-        return $this->model()->filter($filters)->paginate();
+        return $user->viewableUserRoles()->filter($filters)->paginate();
     }
 
     public function single($id, UserHasRoleFilters $filters = null) {
