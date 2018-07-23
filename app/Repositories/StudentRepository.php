@@ -31,7 +31,8 @@ class StudentRepository
     }
 
     public function delete($id) {
-        return $this->model()->where('id', $id)->delete();
+        $single = $this->model()->where('id', $id)->first();
+        return $single->delete();
     }
 
     public function create($opts) {

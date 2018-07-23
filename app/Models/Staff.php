@@ -66,5 +66,17 @@ class Staff extends BaseModel
                 ]);
             }
         });
+
+        self::deleting(function ($model) {
+            $school = $model->school()->first();
+            $role = Role::where('name', Role::STAFF)->first();
+
+            if (optional($school)->id) {
+                $model->user->roles()
+                    ->wherePivot('school_id', $school->id)
+                    ->wherePivot('role_id', $role->id)
+                    ->detach();
+            }
+        });
     }
 }

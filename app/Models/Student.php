@@ -78,5 +78,16 @@ class Student extends BaseModel
 
         self::created($studentRoleCreate);
         self::updated($studentRoleCreate);
+
+        self::deleting(function ($model) {
+            $school = $model->program()->first()->department()->first()
+                                        ->faculty()->first()->school()->first();
+            $role = Role::where('name', Role::STUDENT)->first();
+            $user = $model->user()->first();
+            
+            $user->roles()
+                ->wherePivot('school_id', $school->id)
+                ->wherePivot('role_id', $role->id)->detach($role->id);
+        });
     }
 }
