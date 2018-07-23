@@ -25,6 +25,8 @@ use App\Models\ImageType;
 use App\Models\Image;
 use App\Models\IntentType;
 use App\Models\Intent;
+use App\Models\ContentType;
+use App\Models\Content;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -82,6 +84,7 @@ class DatabaseSeeder extends Seeder
         $this->createGradeType($school, 'E', 1, 40, 45);
 
         $imageType = $this->createImageType($school);
+        $contentType = $this->createContentType($school);
 
         $intentTypes->push($this->createIntentType(Intent::CHANGE_PASSWORD));
         $this->createIntent($user, $intentTypes->first());
@@ -399,5 +402,12 @@ class DatabaseSeeder extends Seeder
             'extras' => json_encode($extras)
         ];
         return Intent::where($opts)->first() ?? Intent::create($opts);
+    }
+
+    public function createContentType(School $school) {
+        $opts = [
+            'school_id' => $school->id
+        ];
+        return ContentType::where($opts)->first() ?? factory(ContentType::class)->create($opts)->first();
     }
 }
