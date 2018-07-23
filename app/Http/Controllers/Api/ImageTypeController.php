@@ -69,7 +69,7 @@ class ImageTypeController extends ApiController
      * Supply Image Type information to create a new one
      * - Rules of Access
      *  - User is an ADMIN or
-     *  - User owns school the Image belongs to
+     *  - User owns school the Image Type belongs to
      */
     public function store(ImageTypeRequest $request, int $school_id) {
         $this->authorize('update', School::findOrFail($school_id));
