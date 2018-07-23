@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Carbon\Carbon;
 use Tests\TestCase;
 use App\Models\Role;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -68,12 +69,15 @@ class SemesterTest extends TestCase
      */
     public function testCreateSemester()
     {
+        $start_date = Carbon::now()->addDays(365)->toDateString();
+        $end_date = Carbon::now()->addDays(365 + 180)->toDateString();
+
         $response = $this->loginAsRole(Role::ADMIN)
                         ->post($this->url('semesters'), [
                             'semester_type_id' => 1,
                             'session_id' => 2,
-                            'start_date' => '2019-07-24',
-                            'end_date' => '2019-12-20'
+                            'start_date' => $start_date,
+                            'end_date' => $end_date
                         ]);
 
         $response->assertStatus(201);
@@ -86,8 +90,8 @@ class SemesterTest extends TestCase
         ]);
 
         $response->assertJson([
-            'start_date' => '2019-07-24',
-            'end_date' => '2019-12-20'
+            'start_date' => $start_date,
+            'end_date' => $end_date
         ]);
     }
     
@@ -100,10 +104,13 @@ class SemesterTest extends TestCase
      */
     public function testUpdateSemester()
     {
+        $start_date = Carbon::now()->addDays(1)->toDateString();
+        $end_date = Carbon::now()->addDays(1 + 180)->toDateString();
+
         $response = $this->loginAsRole(Role::ADMIN)
                         ->put($this->url('semesters/1'), [
-                            'start_date' => '2018-07-22',
-                            'end_date' => '2018-12-18'
+                            'start_date' => $start_date,
+                            'end_date' => $end_date
                         ]);
 
         $response->assertStatus(200);
@@ -116,8 +123,8 @@ class SemesterTest extends TestCase
         ]);
 
         $response->assertJson([
-            'start_date' => '2018-07-22',
-            'end_date' => '2018-12-18'
+            'start_date' => $start_date,
+            'end_date' => $end_date
         ]);
     }
     
