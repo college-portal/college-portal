@@ -16,8 +16,9 @@ class RelContentTypes extends Migration
     public function up()
     {
         Schema::table(ContentType::name(), function (Blueprint $table) {
-            $table->foreign('related_to')->references('id')->on(School::name());
-            $table->unique(['school_id', 'type', 'name']);
+            $table->foreign('school_id')->references('id')->on(School::name());
+            $table->foreign('related_to')->references('id')->on(ContentType::name());
+            $table->unique([ 'school_id', 'type', 'name' ]);
         });
 
     }
@@ -30,9 +31,9 @@ class RelContentTypes extends Migration
     public function down()
     {
         Schema::table(ContentType::name(), function (Blueprint $table) {
-            $table->dropForeign(['related_to']);
-            $table->dropUnique(['school_id', 'type', 'name']);
+            $table->dropForeign([ 'school_id' ]);
+            $table->dropForeign([ 'related_to' ]);
+            $table->dropUnique([ 'school_id', 'type', 'name' ]);
         });
-
     }
 }

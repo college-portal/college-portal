@@ -17,7 +17,7 @@ class RelContents extends Migration
     {
         Schema::table(Content::name(), function (Blueprint $table) {
             $table->foreign('content_type_id')->references('id')->on(ContentType::name());
-            $table->unique(['owner_id', 'content_type_id']);
+            $table->unique([ 'owner_id', 'content_type_id' ]);
         });
 
     }
@@ -30,8 +30,8 @@ class RelContents extends Migration
     public function down()
     {
         Schema::table(Content::name(), function (Blueprint $table) {
-            $table->dropForeign(['content_type_id']);
-            $table->dropUnique(['owner_id', 'content_type_id']);
+            $table->dropForeign([ 'content_type_id' ]);
+            $table->dropUnique([ 'owner_id', 'content_type_id' ]);
         });
 
     }

@@ -20,10 +20,8 @@ class CreateContentTypesTable extends Migration
             $table->integer('school_id')->unsigned();
             $table->string('type');
             $table->string('name');
-            $table->integer('related_to')->unsigned();;
+            $table->integer('related_to')->unsigned()->nullable();
             $table->timestamps();
-          
-
         });
     }
 
