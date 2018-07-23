@@ -15,6 +15,7 @@ An open source Rest API for a modern online portal for tertiary institutions inc
 ## Setup
 
 - Clone this repository
+- Checkout the edge branch. `git checkout edge`
 - Be sure to have Laravel Development Environment [setup on your system](https://laravel.com/docs/5.6/installation)
 - Copy the [.env.example](./.env.example) file to a .env file and update its values
 - Create an App Key with `php artisan key:generate`
