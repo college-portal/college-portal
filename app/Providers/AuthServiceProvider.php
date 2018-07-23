@@ -41,6 +41,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\Models\Role' => 'App\Policies\RolePolicy',
         'App\Models\UserHasRole' => 'App\Policies\UserHasRolePolicy',
         'App\Models\ContentType' => 'App\Policies\ContentTypePolicy',
+        'App\Models\Content' => 'App\Policies\ContentPolicy',
     ];
 
     /**
