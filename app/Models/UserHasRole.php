@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\BaseModel;
 use App\User;
 use App\Models\Role;
+use App\Models\Staff;
 
 /**
  * App\Models\UserHasRole
@@ -23,6 +24,7 @@ use App\Models\Role;
  */
 class UserHasRole extends BaseModel
 {
+    protected $fillable = [ 'user_id', 'role_id', 'school_id' ];
     protected $table = 'user_has_roles';
 
     public function user() {
@@ -35,5 +37,9 @@ class UserHasRole extends BaseModel
 
     public function school() {
         return $this->belongsTo(School::class);
+    }
+
+    public static function boot() {
+        
     }
 }

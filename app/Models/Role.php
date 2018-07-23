@@ -28,4 +28,8 @@ class Role extends BaseModel
     public const DEAN = 'dean';
 
     protected $fillable = [ 'name', 'display_name' ];
+
+    public function isAdmin() {
+        return $this->name == self::ADMIN;
+    }
 }
