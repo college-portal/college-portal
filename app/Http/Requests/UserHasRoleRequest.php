@@ -34,9 +34,7 @@ class UserHasRoleRequest extends FormRequest
         return [
             'user_id' => 'required|numeric|exists:users,id',
             'role_id' => 'required|numeric|exists:roles,id',
-            'school_id' => 'numeric|exists:schools,id',
-            'created_at' => [ new AbsentRule() ],
-            'updated_at' => [ new AbsentRule() ]
+            'school_id' => 'numeric|exists:schools,id'
         ];
     }
 }

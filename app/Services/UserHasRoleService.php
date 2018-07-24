@@ -17,9 +17,7 @@ class UserHasRoleService
         request()->validate([
             'user_id' => 'numeric|exists:users,id',
             'role_id' => 'numeric|exists:roles,id',
-            'school_id' => 'numeric|exists:schools,id',
-            'created_at' => [ new AbsentRule() ],
-            'updated_at' => [ new AbsentRule() ]
+            'school_id' => 'numeric|exists:schools,id'
         ]);
 
         return $this->repo()->update($id, $opts);

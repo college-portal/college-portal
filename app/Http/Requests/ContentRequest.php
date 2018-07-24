@@ -33,9 +33,7 @@ class ContentRequest extends FormRequest
         return [
             'owner_id' => 'required|numeric',
             'content_type_id' => 'required|numeric|exists:content_types,id',
-            'value' => 'required|string',
-            'created_at' => [ new AbsentRule() ],
-            'updated_at' => [ new AbsentRule() ]
+            'value' => 'required|string'
         ];
     }
 }

@@ -17,9 +17,7 @@ class ContentService
         request()->validate([
             'value' => 'string',
             'owner_id' => [ new AbsentRule() ],
-            'content_type_id' => [ new AbsentRule() ],
-            'created_at' => [ new AbsentRule() ],
-            'updated_at' => [ new AbsentRule() ]
+            'content_type_id' => [ new AbsentRule() ]
         ]);
 
         return $this->repo()->update($id, $opts);

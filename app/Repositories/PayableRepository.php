@@ -39,7 +39,7 @@ class PayableRepository
     }
 
     public function update($id, $opts = []) {
-        $payable = $this->model()->where('id', $id)->first();
+        $payable = $this->model()->findOrFail($id);
         if (isset($opts['is_paid'])) $payable->is_paid = $opts['is_paid'];
         $payable->save();
         return $payable;
