@@ -17,9 +17,7 @@ class RoleService
     public function update($id, $opts = []) {
         request()->validate([
             'name' => 'string',
-            'display_name' => 'string',
-            'created_at' => [ new AbsentRule() ],
-            'updated_at' => [ new AbsentRule() ]
+            'display_name' => 'string'
         ]);
 
         return $this->repo()->update($id, $opts);

@@ -18,9 +18,7 @@ class ContentTypeService
             'name' => 'string', 
             'display_name' => 'string',
             'type' => [ new AbsentRule() ],
-            'school_id' => [ new AbsentRule() ],
-            'created_at' => [ new AbsentRule() ],
-            'updated_at' => [ new AbsentRule() ]
+            'school_id' => [ new AbsentRule() ]
         ]);
 
         return $this->repo()->update($id, $opts);
