@@ -39,8 +39,10 @@ class LevelRepository
     }
 
     public function update($id, $opts = []) {
-        $this->model()->where('id', $id)->update($opts);
-        return $this->level($id);
+        $item = $this->model()->findOrFail($id);
+        $item->fill($opts);
+        $item->save();
+        return $item;
     }
 
     public function count(LevelFilters $filters)

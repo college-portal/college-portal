@@ -39,8 +39,10 @@ class SchoolRepository
     }
 
     public function update(User $user, $id, $opts = []) {
-        $this->model()->where('id', $id)->update($opts);
-        return $this->school($user, $id);
+        $item = $this->model()->findOrFail($id);
+        $item->fill($opts);
+        $item->save();
+        return $item;
     }
 
     public function count()

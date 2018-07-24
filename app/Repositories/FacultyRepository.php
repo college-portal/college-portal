@@ -39,8 +39,10 @@ class FacultyRepository
     }
 
     public function update($id, $opts = []) {
-        $this->model()->where('id', $id)->update($opts);
-        return $this->faculty($id);
+        $item = $this->model()->findOrFail($id);
+        $item->fill($opts);
+        $item->save();
+        return $item;
     }
 
     public function count()
