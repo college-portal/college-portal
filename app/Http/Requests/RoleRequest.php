@@ -28,9 +28,7 @@ class RoleRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'display_name' => 'required|string',
-            'created_at' => [ new AbsentRule() ],
-            'updated_at' => [ new AbsentRule() ]
+            'display_name' => 'required|string'
         ];
     }
 }

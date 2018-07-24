@@ -34,9 +34,7 @@ class ContentTypeRequest extends FormRequest
             'type' => 'required|string',
             'name' => 'required|string',
             'display_name' => 'required|string',
-            'school_id' => [ new AbsentRule() ],
-            'created_at' => [ new AbsentRule() ],
-            'updated_at' => [ new AbsentRule() ]
+            'school_id' => [ new AbsentRule() ]
         ];
     }
 }
