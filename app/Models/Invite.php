@@ -13,7 +13,6 @@ use App\Models\InviteRole;
  * @property int $school_id
  * @property int $email
  * @property string $message
- * @property \Carbon\Carbon $accepted_at
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Invite whereId($value)
