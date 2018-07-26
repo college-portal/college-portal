@@ -31,6 +31,7 @@ use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\UserHasRoleController;
 use App\Http\Controllers\Api\ContentTypeController;
 use App\Http\Controllers\Api\ContentController;
+use App\Http\Controllers\Api\InviteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -128,6 +129,8 @@ Route::group([
         Route::resource('/schools/{school_id}/content-types', ContentTypeController::class(), $excepts);
         
         Route::resource('/contents', ContentController::class(), $excepts);
+        
+        Route::resource('/invites', InviteController::class(), $excepts);
     });
 
     /**
