@@ -18,7 +18,7 @@ class CreateInvitesTable extends Migration
             $table->increments('id');
             $table->integer('creator_id')->unsigned();
             $table->integer('school_id')->unsigned()->nullable();
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('message');
             $table->timestamps();
         });
