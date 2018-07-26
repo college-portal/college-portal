@@ -27,6 +27,7 @@ use App\Models\IntentType;
 use App\Models\Intent;
 use App\Models\ContentType;
 use App\Models\Content;
+use App\Models\Invite;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -89,6 +90,8 @@ class DatabaseSeeder extends Seeder
 
         $intentTypes->push($this->createIntentType(Intent::CHANGE_PASSWORD));
         $this->createIntent($user, $intentTypes->first());
+
+        $this->createInvite($school, $user, 'invited.user@mailinator.com');
 
         $studentUsers = factory(User::class, 3)->create()->map(function ($user) use ($program, $students) {
             $student = $this->createStudent($user, $program);
@@ -419,5 +422,15 @@ class DatabaseSeeder extends Seeder
             'value' => 'Value 1'
         ];
         return Content::where($opts)->first() ?? Content::create($opts)->first();
+    }
+
+    public function createInvite(School $school, User $user, string $email) {
+        $opts = [
+            'school_id' => $school->id,
+            'creator_id' => $user->id,
+            'email' => $email,
+            'message' => 'Please come to my school as a student'
+        ];
+        return Invite::where($opts)->first() ?? Invite::create($opts)->first();
     }
 }
