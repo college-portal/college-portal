@@ -4,7 +4,9 @@ namespace App\Models;
 
 use App\Models\BaseModel;
 use App\Models\Department;
+use App\Models\Faculty;
 use App\Models\Student;
+use App\Models\School;
 use App\Models\ProgramCredit;
 
 /**
@@ -36,6 +38,16 @@ class Program extends BaseModel
 
     public function credits() {
         return $this->hasMany(ProgramCredit::class);
+    }
+
+    public function scopeFaculty() {
+        $ids = $this->department()->pluck('faculty_id');
+        return Faculty::whereIn('id', $ids);
+    }
+
+    public function scopeSchool() {
+        $ids = $this->faculty()->pluck('school_id');
+        return School::whereIn('id', $ids);
     }
 
     public static function boot() {
