@@ -34,7 +34,7 @@ use App\Models\BaseModel;
  */
 class Prospect extends BaseModel
 {
-    protected $fillable = [ 'user_id', 'school_id', 'program_id', 'session_id' ];
+    protected $fillable = [ 'user_id', 'school_id', 'program_id', 'session_id', 'locked_at' ];
 
     public function user() {
         return $this->belongsTo(User::class);
