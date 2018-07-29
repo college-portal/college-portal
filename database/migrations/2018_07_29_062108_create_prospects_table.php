@@ -20,7 +20,9 @@ class CreateProspectsTable extends Migration
             $table->integer('school_id')->unsigned();
             $table->integer('program_id')->unsigned();
             $table->integer('session_id')->unsigned();
+            $table->integer('student_id')->unsigned()->nullable();
             $table->timestamp('locked_at')->nullable();
+            $table->timestamp('accepted_at')->nullable();
             $table->timestamps();
         });
     }

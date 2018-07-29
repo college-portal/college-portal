@@ -8,6 +8,7 @@ use App\Models\Prospect;
 use App\Models\Program;
 use App\Models\School;
 use App\Models\Session;
+use App\Models\Student;
 
 class RelProspects extends Migration
 {
@@ -23,6 +24,7 @@ class RelProspects extends Migration
             $table->foreign('school_id')->references('id')->on(School::name());
             $table->foreign('program_id')->references('id')->on(Program::name());
             $table->foreign('session_id')->references('id')->on(Session::name());
+            $table->foreign('student_id')->references('id')->on(Student::name());
             $table->unique([ 'user_id', 'school_id', 'session_id' ]);
         });
     }
@@ -39,6 +41,7 @@ class RelProspects extends Migration
             $table->dropForeign([ 'school_id' ]);
             $table->dropForeign([ 'program_id' ]);
             $table->dropForeign([ 'session_id' ]);
+            $table->dropForeign([ 'student_id' ]);
             $table->dropUnique([ 'user_id', 'school_id', 'session_id' ]);
         });
     }
