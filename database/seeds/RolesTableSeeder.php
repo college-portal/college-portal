@@ -29,7 +29,8 @@ class RolesTableSeeder extends Seeder
             'staff' => 'Staff',
             'student' => 'Student',
             'hod' => 'Head of Department',
-            'dean' => 'Dean of Faculty'
+            'dean' => 'Dean of Faculty',
+            'prospect' => 'Student Admission Candidate'
         ];
     }
 }
