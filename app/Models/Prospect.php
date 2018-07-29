@@ -22,7 +22,9 @@ use App\Models\BaseModel;
  * @property int $school_id
  * @property int $program_id
  * @property int $session_id
+ * @property int $student_id
  * @property \Carbon\Carbon $locked_at
+ * @property \Carbon\Carbon $accepted_at
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Prospect whereId($value)
@@ -34,7 +36,7 @@ use App\Models\BaseModel;
  */
 class Prospect extends BaseModel
 {
-    protected $fillable = [ 'user_id', 'school_id', 'program_id', 'session_id', 'locked_at' ];
+    protected $fillable = [ 'user_id', 'school_id', 'program_id', 'session_id', 'locked_at', 'accepted_at' ];
 
     public function user() {
         return $this->belongsTo(User::class);
@@ -53,6 +55,33 @@ class Prospect extends BaseModel
     }
 
     public static function boot() {
-        
+        $createProspectRole = function ($model) {
+            $school = $model->school()->first();
+            $role = Role::where('name', Role::PROSPECT)->first();
+            $user = $model->user()->first();
+            if (!$user->roles()
+                        ->wherePivot('school_id', $school->id)
+                        ->wherePivot('role_id', $role->id)
+                        ->exists()) {
+                $user->roles()->attach([
+                    $role->id => [
+                        'school_id' => $school->id
+                    ]
+                ]);
+            }
+        };
+
+        self::created($createProspectRole);
+        self::updated($createProspectRole);
+
+        self::deleting(function ($model) {
+            $school = $model->school()->first();
+            $role = Role::where('name', Role::STUDENT)->first();
+            $user = $model->user()->first();
+            
+            $user->roles()
+                ->wherePivot('school_id', $school->id)
+                ->wherePivot('role_id', $role->id)->detach($role->id);
+        });
     }
 }
