@@ -27,6 +27,7 @@ use App\Models\IntentType;
 use App\Models\Intent;
 use App\Models\ContentType;
 use App\Models\Content;
+use App\Models\Prospect;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -108,6 +109,8 @@ class DatabaseSeeder extends Seeder
 
         $sessions->push($this->createSession($school, Carbon::now(), Carbon::now()->addDays(365)));
         $sessions->push($this->createSession($school, Carbon::now()->addDays(365), Carbon::now()->addDays(730)));
+
+        $this->createProspect($this->createUser(), $program, $sessions->first());
 
         $types = [
             '1st Semester',
@@ -419,5 +422,15 @@ class DatabaseSeeder extends Seeder
             'value' => 'Value 1'
         ];
         return Content::where($opts)->first() ?? Content::create($opts)->first();
+    }
+
+    public function createProspect(User $user, Program $program, Session $session) {
+        $opts = [
+            'user_id' => $user->id,
+            'school_id' => $program->school()->first()->id,
+            'program_id' => $program->id,
+            'session_id' => $session->id
+        ];
+        return Prospect::where($opts)->first() ?? Prospect::create($opts)->first();
     }
 }
