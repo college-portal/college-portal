@@ -158,7 +158,7 @@ class InviteService
         //create jwt with aud to prevent interferance with authentication
         $payload = JWTFactory::sub($id)->aud('invite')->make();
         $token = JWTAuth::encode($payload);
-        $link = url("/api/v1/invites/{$token}");
+        $link = url("/invites/{$token}");
 
         return Mail::to($email)->send(new InviteMail(['message' => $message, 'link' => $link]));
     }
