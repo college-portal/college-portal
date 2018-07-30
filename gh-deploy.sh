@@ -3,9 +3,6 @@
 # This code is used to push the public/docs folder in the edge branch, to the gh-pages branch on GitHub
 
 git checkout edge
-php artisan migrate
-php artisan db:seed
-php artisan db:seed
 rm -rf public/docs
 read -s -p "Enter Password: " ADMIN_PASSWORD
 php artisan generate:docs --password=$ADMIN_PASSWORD
