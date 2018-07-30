@@ -17,19 +17,21 @@ use App\Repositories\StaffRepository;
 use Tymon\JWTAuth\Facades\JWTFactory;
 use App\Repositories\InviteRepository;
 use App\Repositories\StudentRepository;
+use App\Repositories\DepartmentRepository;
 use Illuminate\Validation\ValidationException;
 
 
 class InviteService
 {
 
-    private $staffRepository, $roleRepository, $studentRepository;
+    private $staffRepository, $roleRepository, $studentRepository, $departmentRepository;
 
-    public function __construct(RoleRepository $roleRepository, StaffRepository $staffRepository, StudentRepository $studentRepository)
+    public function __construct(RoleRepository $roleRepository, StaffRepository $staffRepository, StudentRepository $studentRepository, DepartmentRepository $departmentRepository)
     {
         $this->roleRepository = $roleRepository;
         $this->staffRepository = $staffRepository;
         $this->studentRepository = $studentRepository;
+        $this->departmentRepository = $departmentRepository;
     }
 
     public function repo()
@@ -79,30 +81,37 @@ class InviteService
 
             if ($role->name == Role::ADMIN) {
                 $admin = $user->roles()->attach([
-                    $role->id => [
-                        'school_id' => $school_id,
-                    ],
+                    $role->id => [],
                 ]);
-                return $admin;
             }
 
             if ($role->name == Role::SCHOOL_OWNER) {
-                $staff = Role::whereName(Role::STAFF)->first();
+                $staffRole = Role::whereName(Role::STAFF)->first();
 
                 $user->roles()->attach([
                     $role->id => [
                         'school_id' => $school_id,
                     ],
-                    $staff->id => [ //create staff role
+                    $staffRole->id => [ //create staff role
                         'school_id' => $school_id,
                     ],
                 ]);
 
                 //add as staff
                 $department_id = $extras ? $extras->department_id : null;
-                $opts = ['user_id' => $user->id, 'school_id' => $school_id, 'title' => '', 'department_id' => $department_id];
+                $opts = ['user_id' => $user->id, 'school_id' => $school_id, 'title' => ''];
                 $staff = $this->staffRepository->create($opts);
-                return $staff;
+                
+                
+                if ($department_id) {
+                    $department = $this->departmentRepository->department($department_id);
+                    if ($department->school()->first()->id == $school_id) {
+                        $opts = ['department_id' => $department_id];
+                        $staff = $this->staffRepository->update($staff->id, $opts);
+                    }
+                }
+
+                $user['staff'] = $staff;
             }
 
             if ($role->name == Role::STAFF) {
@@ -118,10 +127,13 @@ class InviteService
                 $staff = $this->staffRepository->create($opts);
 
                 if ($department_id) {
-                    $opts = ['department_id' => $department_id];
-                    $staff = $this->staffRepository->update($staff->id, $opts);
+                    $department = $this->departmentRepository->department($department_id);
+                    if ($department->school()->first()->id == $school_id) {
+                        $opts = ['department_id' => $department_id];
+                        $staff = $this->staffRepository->update($staff->id, $opts);
+                    }
                 }
-                return $staff;
+                $user['staff'] = $staff;
 
             }
 
@@ -138,17 +150,21 @@ class InviteService
                 $opts = ['user_id' => $user->id, 'matric_no' => $matric_no, 'program_id' => $program_id];
                 $student = $this->studentRepository->create($opts);
 
-                return $student;
+                $user['student'] = $student;
             }
 
         }
 
+        $invite->roles()->delete();
+        $invite->delete();
+        return $user;
+
     }
 
     /*
-    *sends new invite mail
-    * 
-    */
+     *sends new invite mail
+     *
+     */
     public function sendMail($invite)
     {
         $id = $invite['id'];
