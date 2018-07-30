@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
     }
 
     public function createSchoolOwner() {
-        $user = $this->createUser([
+        $user = User::where('email', 'owner.orlando@mailinator.com')->exists() ? $this->createUser() : $this->createUser([
             'first_name' => 'Owner',
             'last_name' => 'Orlando',
             'email' => 'owner.orlando@mailinator.com'
@@ -191,7 +191,7 @@ class DatabaseSeeder extends Seeder
     }
 
     public function createUser($opts = null) {
-        return User::where($opts ?? [])->first() ?? factory(User::class, 1)->create($opts ?? [])->first();
+        return $opts ? (User::where($opts)->first() ?? factory(User::class, 1)->create($opts ?? [])->first()) : factory(User::class, 1)->create($opts ?? [])->first();
     }
 
     public function addRole(User $user, $roleName) {
