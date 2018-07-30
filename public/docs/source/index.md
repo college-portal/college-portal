@@ -17,7 +17,6 @@ toc_footers:
 
 Welcome to the generated API reference.
 [Get Postman Collection](http://localhost:8000/docs/collection.json)
-
 <!-- END_INFO -->
 
 #general
@@ -94,9 +93,9 @@ $.ajax(settings).done(function (response) {
     "last_name": "Orlando",
     "other_names": null,
     "display_name": "Owner Orlando",
-    "dob": "1961-10-20",
-    "created_at": "2018-07-16 10:55:46",
-    "updated_at": "2018-07-17 08:22:57"
+    "dob": "1942-10-12",
+    "created_at": "2018-07-30 09:01:23",
+    "updated_at": "2018-07-30 09:01:23"
 }
 ```
 
@@ -867,7 +866,7 @@ curl -X POST "http://localhost:8000/api/v1/users" \
     -d "last_name"="eligendi" \
     -d "email"="lenore05@example.org" \
     -d "password"="eligendi" \
-    -d "dob"="2003-09-08" \
+    -d "dob"="2003-09-17" \
 
 ```
 
@@ -882,7 +881,7 @@ var settings = {
         "last_name": "eligendi",
         "email": "lenore05@example.org",
         "password": "eligendi",
-        "dob": "2003-09-08"
+        "dob": "2003-09-17"
 },
     "headers": {
         "accept": "application/json"
@@ -3042,44 +3041,96 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\Program] 1",
-    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
-    "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-    "line": 199,
+    "message": "Call to a member function faculty() on null",
+    "exception": "Symfony\\Component\\Debug\\Exception\\FatalThrowableError",
+    "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Policies\/ProgramPolicy.php",
+    "line": 25,
     "trace": [
         {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-            "line": 175,
-            "function": "prepareException",
-            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Auth\/Access\/Gate.php",
+            "line": 481,
+            "function": "view",
+            "class": "App\\Policies\\ProgramPolicy",
             "type": "->"
         },
         {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Exceptions\/Handler.php",
-            "line": 49,
-            "function": "render",
-            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Auth\/Access\/Gate.php",
+            "line": 338,
+            "function": "Illuminate\\Auth\\Access\\{closure}",
+            "class": "Illuminate\\Auth\\Access\\Gate",
             "type": "->"
         },
         {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/nunomaduro\/collision\/src\/Adapters\/Laravel\/ExceptionHandler.php",
-            "line": 68,
-            "function": "render",
-            "class": "App\\Exceptions\\Handler",
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Auth\/Access\/Gate.php",
+            "line": 313,
+            "function": "callAuthCallback",
+            "class": "Illuminate\\Auth\\Access\\Gate",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Auth\/Access\/Gate.php",
+            "line": 281,
+            "function": "raw",
+            "class": "Illuminate\\Auth\\Access\\Gate",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Auth\/Access\/AuthorizesRequests.php",
+            "line": 23,
+            "function": "authorize",
+            "class": "Illuminate\\Auth\\Access\\Gate",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Http\/Controllers\/Api\/ProgramController.php",
+            "line": 33,
+            "function": "authorize",
+            "class": "App\\Http\\Controllers\\Api\\ApiController",
+            "type": "->"
+        },
+        {
+            "function": "show",
+            "class": "App\\Http\\Controllers\\Api\\ProgramController",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Controller.php",
+            "line": 54,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/ControllerDispatcher.php",
+            "line": 45,
+            "function": "callAction",
+            "class": "Illuminate\\Routing\\Controller",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php",
+            "line": 212,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\ControllerDispatcher",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php",
+            "line": 169,
+            "function": "runController",
+            "class": "Illuminate\\Routing\\Route",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 665,
+            "function": "run",
+            "class": "Illuminate\\Routing\\Route",
             "type": "->"
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 83,
-            "function": "render",
-            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
-            "type": "->"
-        },
-        {
-            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 32,
-            "function": "handleException",
-            "class": "Illuminate\\Routing\\Pipeline",
+            "line": 30,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
@@ -3622,10 +3673,10 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\School] 1",
-    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "message": "This action is unauthorized.",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\AccessDeniedHttpException",
     "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-    "line": 199,
+    "line": 201,
     "trace": [
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
@@ -6162,10 +6213,10 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\School] 1",
-    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "message": "This action is unauthorized.",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\AccessDeniedHttpException",
     "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-    "line": 199,
+    "line": 201,
     "trace": [
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
@@ -7395,10 +7446,10 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\Staff] 1",
-    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "message": "This action is unauthorized.",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\AccessDeniedHttpException",
     "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-    "line": 199,
+    "line": 201,
     "trace": [
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
@@ -8012,8 +8063,8 @@ curl -X POST "http://localhost:8000/api/v1/sessions" \
 -H "Accept: application/json" \
     -d "school_id"="9" \
     -d "name"="ipsa" \
-    -d "start_date"="1971-12-31" \
-    -d "end_date"="1971-12-31" \
+    -d "start_date"="1972-01-01" \
+    -d "end_date"="1972-01-01" \
 
 ```
 
@@ -8026,8 +8077,8 @@ var settings = {
     "data": {
         "school_id": 9,
         "name": "ipsa",
-        "start_date": "1971-12-31",
-        "end_date": "1971-12-31"
+        "start_date": "1972-01-01",
+        "end_date": "1972-01-01"
 },
     "headers": {
         "accept": "application/json"
@@ -8088,10 +8139,10 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\Session] 1",
-    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "message": "This action is unauthorized.",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\AccessDeniedHttpException",
     "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-    "line": 199,
+    "line": 201,
     "trace": [
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
@@ -8704,8 +8755,8 @@ curl -X POST "http://localhost:8000/api/v1/semesters" \
 -H "Accept: application/json" \
     -d "session_id"="851794023" \
     -d "semester_type_id"="851794023" \
-    -d "start_date"="2018-02-27" \
-    -d "end_date"="2018-02-27" \
+    -d "start_date"="2018-03-12" \
+    -d "end_date"="2018-03-12" \
 
 ```
 
@@ -8718,8 +8769,8 @@ var settings = {
     "data": {
         "session_id": 851794023,
         "semester_type_id": 851794023,
-        "start_date": "2018-02-27",
-        "end_date": "2018-02-27"
+        "start_date": "2018-03-12",
+        "end_date": "2018-03-12"
 },
     "headers": {
         "accept": "application/json"
@@ -9484,10 +9535,10 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\ChargeableService] 1",
-    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "message": "This action is unauthorized.",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\AccessDeniedHttpException",
     "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-    "line": 199,
+    "line": 201,
     "trace": [
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
@@ -10187,10 +10238,10 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\Chargeable] 1",
-    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "message": "This action is unauthorized.",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\AccessDeniedHttpException",
     "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-    "line": 199,
+    "line": 201,
     "trace": [
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
@@ -11460,17 +11511,36 @@ $.ajax(settings).done(function (response) {
 ```json
 {
     "current_page": 1,
-    "data": [],
+    "data": [
+        {
+            "id": 2,
+            "user_id": 1,
+            "chargeable_id": 2,
+            "paid_at": null,
+            "created_at": "2018-07-30 09:01:23",
+            "updated_at": "2018-07-30 09:01:23",
+            "deleted_at": null
+        },
+        {
+            "id": 3,
+            "user_id": 1,
+            "chargeable_id": 3,
+            "paid_at": null,
+            "created_at": "2018-07-30 09:01:23",
+            "updated_at": "2018-07-30 09:01:23",
+            "deleted_at": null
+        }
+    ],
     "first_page_url": "http:\/\/localhost\/api\/v1\/payables?page=1",
-    "from": null,
+    "from": 1,
     "last_page": 1,
     "last_page_url": "http:\/\/localhost\/api\/v1\/payables?page=1",
     "next_page_url": null,
     "path": "http:\/\/localhost\/api\/v1\/payables",
     "per_page": 15,
     "prev_page_url": null,
-    "to": null,
-    "total": 0
+    "to": 2,
+    "total": 2
 }
 ```
 
@@ -14234,10 +14304,10 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\School] 1",
-    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "message": "This action is unauthorized.",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\AccessDeniedHttpException",
     "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-    "line": 199,
+    "line": 201,
     "trace": [
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
@@ -16075,10 +16145,10 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\School] 1",
-    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "message": "This action is unauthorized.",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\AccessDeniedHttpException",
     "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-    "line": 199,
+    "line": 201,
     "trace": [
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
@@ -16545,7 +16615,7 @@ $.ajax(settings).done(function (response) {
 Supply Image Type information to create a new one
 - Rules of Access
  - User is an ADMIN or
- - User owns school the Image belongs to
+ - User owns school the Image Type belongs to
 
 > Example request:
 
@@ -17926,8 +17996,8 @@ $.ajax(settings).done(function (response) {
         {
             "id": 1,
             "name": "change-password",
-            "created_at": "2018-07-16 10:55:46",
-            "updated_at": "2018-07-17 08:23:08"
+            "created_at": "2018-07-30 09:01:23",
+            "updated_at": "2018-07-30 09:01:23"
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/v1\/intent-types?page=1",
@@ -18026,8 +18096,8 @@ $.ajax(settings).done(function (response) {
 {
     "id": 1,
     "name": "change-password",
-    "created_at": "2018-07-16 10:55:46",
-    "updated_at": "2018-07-17 08:23:08"
+    "created_at": "2018-07-30 09:01:23",
+    "updated_at": "2018-07-30 09:01:23"
 }
 ```
 
@@ -18770,4 +18840,3472 @@ $.ajax(settings).done(function (response) {
 
 
 <!-- END_37fc401684429329c105769e39adee88 -->
+
+<!-- START_d97fba8dbd0d0033960fdc6a25fca8d9 -->
+## Get Roles
+
+Responds with a list of Roles
+- Rules of Access
+  - Anyone
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost:8000/api/v1/roles" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/roles",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "name": "admin",
+            "display_name": "Administrator",
+            "created_at": "2018-07-30 09:01:23",
+            "updated_at": "2018-07-30 09:01:23"
+        },
+        {
+            "id": 2,
+            "name": "school-owner",
+            "display_name": "School Owner",
+            "created_at": "2018-07-30 09:01:23",
+            "updated_at": "2018-07-30 09:01:23"
+        },
+        {
+            "id": 3,
+            "name": "staff",
+            "display_name": "Staff",
+            "created_at": "2018-07-30 09:01:23",
+            "updated_at": "2018-07-30 09:01:23"
+        },
+        {
+            "id": 4,
+            "name": "student",
+            "display_name": "Student",
+            "created_at": "2018-07-30 09:01:23",
+            "updated_at": "2018-07-30 09:01:23"
+        },
+        {
+            "id": 5,
+            "name": "hod",
+            "display_name": "Head of Department",
+            "created_at": "2018-07-30 09:01:23",
+            "updated_at": "2018-07-30 09:01:23"
+        },
+        {
+            "id": 6,
+            "name": "dean",
+            "display_name": "Dean of Faculty",
+            "created_at": "2018-07-30 09:01:23",
+            "updated_at": "2018-07-30 09:01:23"
+        },
+        {
+            "id": 7,
+            "name": "prospect",
+            "display_name": "Student Admission Candidate",
+            "created_at": "2018-07-30 09:01:23",
+            "updated_at": "2018-07-30 09:01:23"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/roles?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/roles?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/roles",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 7,
+    "total": 7
+}
+```
+
+### HTTP Request
+`GET api/v1/roles`
+
+`HEAD api/v1/roles`
+
+
+<!-- END_d97fba8dbd0d0033960fdc6a25fca8d9 -->
+
+<!-- START_5f753b2bffb6b34b6136ddfe1be7bcce -->
+## Create Role
+
+Supply Role Information to create a new one
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost:8000/api/v1/roles" \
+-H "Accept: application/json" \
+    -d "name"="quae" \
+    -d "display_name"="quae" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/roles",
+    "method": "POST",
+    "data": {
+        "name": "quae",
+        "display_name": "quae"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST api/v1/roles`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    name | string |  required  | 
+    display_name | string |  required  | 
+
+<!-- END_5f753b2bffb6b34b6136ddfe1be7bcce -->
+
+<!-- START_f47a034257a009b731160db044157715 -->
+## Get Role by ID
+
+Responds with a specific Role by its ID
+- Rules of Access
+  - Anyone can view
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost:8000/api/v1/roles/{role}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/roles/{role}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "id": 1,
+    "name": "admin",
+    "display_name": "Administrator",
+    "created_at": "2018-07-30 09:01:23",
+    "updated_at": "2018-07-30 09:01:23"
+}
+```
+
+### HTTP Request
+`GET api/v1/roles/{role}`
+
+`HEAD api/v1/roles/{role}`
+
+
+<!-- END_f47a034257a009b731160db044157715 -->
+
+<!-- START_81ac9047f8db2b92092c5a7f13e5d28d -->
+## Update Role
+
+Modify Information about an existing Role
+
+> Example request:
+
+```bash
+curl -X PUT "http://localhost:8000/api/v1/roles/{role}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/roles/{role}",
+    "method": "PUT",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`PUT api/v1/roles/{role}`
+
+`PATCH api/v1/roles/{role}`
+
+
+<!-- END_81ac9047f8db2b92092c5a7f13e5d28d -->
+
+<!-- START_04c524fc2f0ea8c793406426144b4c71 -->
+## Delete Role
+
+Removes a Role from the system
+- Rules of Access
+  - User is an ADMIN or
+  - User is a SCHOOL_OWNER
+
+> Example request:
+
+```bash
+curl -X DELETE "http://localhost:8000/api/v1/roles/{role}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/roles/{role}",
+    "method": "DELETE",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`DELETE api/v1/roles/{role}`
+
+
+<!-- END_04c524fc2f0ea8c793406426144b4c71 -->
+
+<!-- START_b18ab56c779f0dc0850138609eb496b1 -->
+## Get UserHasRoles
+
+Responds with a list of UserHasRole
+- Rules of Access
+  - Current User can view User whose UserHasRole Info is being accessed
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost:8000/api/v1/user-roles" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/user-roles",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "current_page": 1,
+    "data": [],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/user-roles?page=1",
+    "from": null,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/user-roles?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/user-roles",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": null,
+    "total": 0
+}
+```
+
+### HTTP Request
+`GET api/v1/user-roles`
+
+`HEAD api/v1/user-roles`
+
+
+<!-- END_b18ab56c779f0dc0850138609eb496b1 -->
+
+<!-- START_932a8db945a9fbd7b6c7a00de45de757 -->
+## Create UserHasRole
+
+Supply UserHasRole Information to create a new one
+- Rules of Access
+  - User is an ADMIN or
+  - User owns School
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost:8000/api/v1/user-roles" \
+-H "Accept: application/json" \
+    -d "user_id"="5" \
+    -d "role_id"="5" \
+    -d "school_id"="5" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/user-roles",
+    "method": "POST",
+    "data": {
+        "user_id": 5,
+        "role_id": 5,
+        "school_id": 5
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST api/v1/user-roles`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    user_id | numeric |  required  | Valid user id
+    role_id | numeric |  required  | Valid role id
+    school_id | numeric |  optional  | Valid school id
+
+<!-- END_932a8db945a9fbd7b6c7a00de45de757 -->
+
+<!-- START_64478de3206735d03331d1185346b762 -->
+## Get UserHasRole by ID
+
+Responds with a specific UserHasRole by its ID
+- Rules of Access
+  - Current User can view User whose UserHasRole Info is being accessed
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost:8000/api/v1/user-roles/{user_role}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/user-roles/{user_role}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "message": "No query results for model [App\\Models\\UserHasRole] 1",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
+    "line": 199,
+    "trace": [
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
+            "line": 175,
+            "function": "prepareException",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Exceptions\/Handler.php",
+            "line": 49,
+            "function": "render",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/nunomaduro\/collision\/src\/Adapters\/Laravel\/ExceptionHandler.php",
+            "line": 68,
+            "function": "render",
+            "class": "App\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 83,
+            "function": "render",
+            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 32,
+            "function": "handleException",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Http\/Middleware\/AccessTokenSecurity.php",
+            "line": 38,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "App\\Http\\Middleware\\AccessTokenSecurity",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php",
+            "line": 41,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 667,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 642,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 608,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 597,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 176,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 30,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
+            "line": 62,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 151,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 116,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 116,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/AbstractGenerator.php",
+            "line": 98,
+            "function": "callRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 58,
+            "function": "getRouteResponse",
+            "class": "Mpociot\\ApiDoc\\Generators\\AbstractGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 261,
+            "function": "processRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 83,
+            "function": "processLaravelRoutes",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 199,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
+            "line": 57,
+            "function": "call",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "App\\Console\\Commands\\GenerateDocsCommand",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 886,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 262,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 145,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
+            "line": 89,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
+            "line": 122,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "->"
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/v1/user-roles/{user_role}`
+
+`HEAD api/v1/user-roles/{user_role}`
+
+
+<!-- END_64478de3206735d03331d1185346b762 -->
+
+<!-- START_dd0bd964dfa540ba34c3b435cf52a8b4 -->
+## Update UserHasRole (Not Supported)
+
+Modify Information about an existing UserHasRole
+
+> Example request:
+
+```bash
+curl -X PUT "http://localhost:8000/api/v1/user-roles/{user_role}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/user-roles/{user_role}",
+    "method": "PUT",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`PUT api/v1/user-roles/{user_role}`
+
+`PATCH api/v1/user-roles/{user_role}`
+
+
+<!-- END_dd0bd964dfa540ba34c3b435cf52a8b4 -->
+
+<!-- START_771782101f91d08abc0ae3101176909a -->
+## Delete UserHasRole
+
+Removes a particular UserHasRole from the system
+- Rules of Access
+  - User is an ADMIN or
+  - User owns School
+
+> Example request:
+
+```bash
+curl -X DELETE "http://localhost:8000/api/v1/user-roles/{user_role}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/user-roles/{user_role}",
+    "method": "DELETE",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`DELETE api/v1/user-roles/{user_role}`
+
+
+<!-- END_771782101f91d08abc0ae3101176909a -->
+
+<!-- START_3680f3c93117981b79a99939a73d5bbd -->
+## Get Content Types
+
+Responds with a list of Content Types
+- Rules of Access
+  - User is in the same school
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost:8000/api/v1/schools/{school_id}/content-types" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/schools/{school_id}/content-types",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "message": "This action is unauthorized.",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\AccessDeniedHttpException",
+    "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
+    "line": 201,
+    "trace": [
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
+            "line": 175,
+            "function": "prepareException",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Exceptions\/Handler.php",
+            "line": 49,
+            "function": "render",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/nunomaduro\/collision\/src\/Adapters\/Laravel\/ExceptionHandler.php",
+            "line": 68,
+            "function": "render",
+            "class": "App\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 83,
+            "function": "render",
+            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 32,
+            "function": "handleException",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Http\/Middleware\/AccessTokenSecurity.php",
+            "line": 38,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "App\\Http\\Middleware\\AccessTokenSecurity",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php",
+            "line": 41,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 667,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 642,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 608,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 597,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 176,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 30,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
+            "line": 62,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 151,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 116,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 116,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/AbstractGenerator.php",
+            "line": 98,
+            "function": "callRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 58,
+            "function": "getRouteResponse",
+            "class": "Mpociot\\ApiDoc\\Generators\\AbstractGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 261,
+            "function": "processRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 83,
+            "function": "processLaravelRoutes",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 199,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
+            "line": 57,
+            "function": "call",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "App\\Console\\Commands\\GenerateDocsCommand",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 886,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 262,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 145,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
+            "line": 89,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
+            "line": 122,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "->"
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/v1/schools/{school_id}/content-types`
+
+`HEAD api/v1/schools/{school_id}/content-types`
+
+
+<!-- END_3680f3c93117981b79a99939a73d5bbd -->
+
+<!-- START_8c7d45d41d930bd2006dd4eb3b8bf626 -->
+## Create Content Type
+
+Supply Content Type information to create a new one
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Content Type belongs to
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost:8000/api/v1/schools/{school_id}/content-types" \
+-H "Accept: application/json" \
+    -d "type"="illo" \
+    -d "name"="illo" \
+    -d "display_name"="illo" \
+    -d "school_id"="illo" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/schools/{school_id}/content-types",
+    "method": "POST",
+    "data": {
+        "type": "illo",
+        "name": "illo",
+        "display_name": "illo",
+        "school_id": "illo"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST api/v1/schools/{school_id}/content-types`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    type | string |  required  | 
+    name | string |  required  | 
+    display_name | string |  required  | 
+    school_id | string |  optional  | 
+
+<!-- END_8c7d45d41d930bd2006dd4eb3b8bf626 -->
+
+<!-- START_f1f96fdce8cef8f49baf668a036e811a -->
+## Get Content Type by ID
+
+Responds with a specific Content Type by its ID
+- Rules of Access
+  - User is in the same school
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost:8000/api/v1/schools/{school_id}/content-types/{content_type}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/schools/{school_id}/content-types/{content_type}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "message": "No query results for model [App\\Models\\School].",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
+    "line": 199,
+    "trace": [
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
+            "line": 175,
+            "function": "prepareException",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Exceptions\/Handler.php",
+            "line": 49,
+            "function": "render",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/nunomaduro\/collision\/src\/Adapters\/Laravel\/ExceptionHandler.php",
+            "line": 68,
+            "function": "render",
+            "class": "App\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 83,
+            "function": "render",
+            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 32,
+            "function": "handleException",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Http\/Middleware\/AccessTokenSecurity.php",
+            "line": 38,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "App\\Http\\Middleware\\AccessTokenSecurity",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php",
+            "line": 41,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 667,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 642,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 608,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 597,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 176,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 30,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
+            "line": 62,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 151,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 116,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 116,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/AbstractGenerator.php",
+            "line": 98,
+            "function": "callRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 58,
+            "function": "getRouteResponse",
+            "class": "Mpociot\\ApiDoc\\Generators\\AbstractGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 261,
+            "function": "processRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 83,
+            "function": "processLaravelRoutes",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 199,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
+            "line": 57,
+            "function": "call",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "App\\Console\\Commands\\GenerateDocsCommand",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 886,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 262,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 145,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
+            "line": 89,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
+            "line": 122,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "->"
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/v1/schools/{school_id}/content-types/{content_type}`
+
+`HEAD api/v1/schools/{school_id}/content-types/{content_type}`
+
+
+<!-- END_f1f96fdce8cef8f49baf668a036e811a -->
+
+<!-- START_c648599210e1528a9035ae92556e647c -->
+## Update Content Type
+
+Modify information about an existing Content Type by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Content Type belongs to
+
+> Example request:
+
+```bash
+curl -X PUT "http://localhost:8000/api/v1/schools/{school_id}/content-types/{content_type}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/schools/{school_id}/content-types/{content_type}",
+    "method": "PUT",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`PUT api/v1/schools/{school_id}/content-types/{content_type}`
+
+`PATCH api/v1/schools/{school_id}/content-types/{content_type}`
+
+
+<!-- END_c648599210e1528a9035ae92556e647c -->
+
+<!-- START_f3ba6c3272166512747340ba3c534be4 -->
+## Delete Content Type
+
+Removes a Content Type from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the ContentType belongs to
+
+> Example request:
+
+```bash
+curl -X DELETE "http://localhost:8000/api/v1/schools/{school_id}/content-types/{content_type}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/schools/{school_id}/content-types/{content_type}",
+    "method": "DELETE",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`DELETE api/v1/schools/{school_id}/content-types/{content_type}`
+
+
+<!-- END_f3ba6c3272166512747340ba3c534be4 -->
+
+<!-- START_0afa62f6c9788653382aed8c733219a7 -->
+## api/v1/contents
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost:8000/api/v1/contents" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/contents",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "current_page": 1,
+    "data": [],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/contents?page=1",
+    "from": null,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/contents?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/contents",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": null,
+    "total": 0
+}
+```
+
+### HTTP Request
+`GET api/v1/contents`
+
+`HEAD api/v1/contents`
+
+
+<!-- END_0afa62f6c9788653382aed8c733219a7 -->
+
+<!-- START_dcb9fa5d1b0a5999e79951a93df8464d -->
+## api/v1/contents
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost:8000/api/v1/contents" \
+-H "Accept: application/json" \
+    -d "owner_id"="7750997" \
+    -d "content_type_id"="7750997" \
+    -d "value"="nobis" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/contents",
+    "method": "POST",
+    "data": {
+        "owner_id": 7750997,
+        "content_type_id": 7750997,
+        "value": "nobis"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST api/v1/contents`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    owner_id | numeric |  required  | 
+    content_type_id | numeric |  required  | Valid content_type id
+    value | string |  required  | 
+
+<!-- END_dcb9fa5d1b0a5999e79951a93df8464d -->
+
+<!-- START_d09fc6d932cf750b9a20c7469021bd5d -->
+## api/v1/contents/{content}
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost:8000/api/v1/contents/{content}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/contents/{content}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "message": "No query results for model [App\\Models\\Content] 1",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
+    "line": 199,
+    "trace": [
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
+            "line": 175,
+            "function": "prepareException",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Exceptions\/Handler.php",
+            "line": 49,
+            "function": "render",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/nunomaduro\/collision\/src\/Adapters\/Laravel\/ExceptionHandler.php",
+            "line": 68,
+            "function": "render",
+            "class": "App\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 83,
+            "function": "render",
+            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 32,
+            "function": "handleException",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Http\/Middleware\/AccessTokenSecurity.php",
+            "line": 38,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "App\\Http\\Middleware\\AccessTokenSecurity",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php",
+            "line": 41,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 667,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 642,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 608,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 597,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 176,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 30,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
+            "line": 62,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 151,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 116,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 116,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/AbstractGenerator.php",
+            "line": 98,
+            "function": "callRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 58,
+            "function": "getRouteResponse",
+            "class": "Mpociot\\ApiDoc\\Generators\\AbstractGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 261,
+            "function": "processRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 83,
+            "function": "processLaravelRoutes",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 199,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
+            "line": 57,
+            "function": "call",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "App\\Console\\Commands\\GenerateDocsCommand",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 886,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 262,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 145,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
+            "line": 89,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
+            "line": 122,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "->"
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/v1/contents/{content}`
+
+`HEAD api/v1/contents/{content}`
+
+
+<!-- END_d09fc6d932cf750b9a20c7469021bd5d -->
+
+<!-- START_d61a72d71a537feaa033af00f3c30314 -->
+## api/v1/contents/{content}
+
+> Example request:
+
+```bash
+curl -X PUT "http://localhost:8000/api/v1/contents/{content}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/contents/{content}",
+    "method": "PUT",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`PUT api/v1/contents/{content}`
+
+`PATCH api/v1/contents/{content}`
+
+
+<!-- END_d61a72d71a537feaa033af00f3c30314 -->
+
+<!-- START_396745607b4e979b38bededf979728aa -->
+## api/v1/contents/{content}
+
+> Example request:
+
+```bash
+curl -X DELETE "http://localhost:8000/api/v1/contents/{content}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/contents/{content}",
+    "method": "DELETE",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`DELETE api/v1/contents/{content}`
+
+
+<!-- END_396745607b4e979b38bededf979728aa -->
+
+<!-- START_b6bbc2cf05b33e585d5053cc29ff36e3 -->
+## Get Prospects
+
+Responds with a list of Prospects
+- Rules of Access
+  - User is same school as prospect
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost:8000/api/v1/prospects" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/prospects",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "user_id": 1,
+            "school_id": 1,
+            "program_id": 1,
+            "session_id": 1,
+            "student_id": null,
+            "locked_at": null,
+            "accepted_at": null,
+            "created_at": "2018-07-30 09:01:23",
+            "updated_at": "2018-07-30 09:01:23"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/prospects?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/prospects?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/prospects",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1
+}
+```
+
+### HTTP Request
+`GET api/v1/prospects`
+
+`HEAD api/v1/prospects`
+
+
+<!-- END_b6bbc2cf05b33e585d5053cc29ff36e3 -->
+
+<!-- START_bc853266f71199facace19e300e78784 -->
+## Create Prospect
+
+Supply Prospect information to create a new one
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Program belongs to
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost:8000/api/v1/prospects" \
+-H "Accept: application/json" \
+    -d "user_id"="provident" \
+    -d "school_id"="85191" \
+    -d "program_id"="85191" \
+    -d "session_id"="85191" \
+    -d "locked_at"="provident" \
+    -d "accepted_at"="provident" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/prospects",
+    "method": "POST",
+    "data": {
+        "user_id": "provident",
+        "school_id": 85191,
+        "program_id": 85191,
+        "session_id": 85191,
+        "locked_at": "provident",
+        "accepted_at": "provident"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST api/v1/prospects`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    user_id | string |  optional  | 
+    school_id | numeric |  required  | Valid school id
+    program_id | numeric |  required  | Valid program id
+    session_id | numeric |  required  | Valid session id
+    locked_at | string |  optional  | 
+    accepted_at | string |  optional  | 
+
+<!-- END_bc853266f71199facace19e300e78784 -->
+
+<!-- START_d4095a1dedb7e0a30fbf61655e3c6fc5 -->
+## Get Prospect by ID
+
+Responds with a specific Prospect by its ID
+- Rules of Access
+  - User is an ADMIN or SCHOOL_OWNER of prospect's school
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost:8000/api/v1/prospects/{prospect}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/prospects/{prospect}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "message": "This action is unauthorized.",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\AccessDeniedHttpException",
+    "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
+    "line": 201,
+    "trace": [
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
+            "line": 175,
+            "function": "prepareException",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Exceptions\/Handler.php",
+            "line": 49,
+            "function": "render",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/nunomaduro\/collision\/src\/Adapters\/Laravel\/ExceptionHandler.php",
+            "line": 68,
+            "function": "render",
+            "class": "App\\Exceptions\\Handler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 83,
+            "function": "render",
+            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 32,
+            "function": "handleException",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Http\/Middleware\/AccessTokenSecurity.php",
+            "line": 38,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "App\\Http\\Middleware\\AccessTokenSecurity",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php",
+            "line": 41,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 667,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 642,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 608,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 597,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 176,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 30,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
+            "line": 62,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 151,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 116,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 116,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/AbstractGenerator.php",
+            "line": 98,
+            "function": "callRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 58,
+            "function": "getRouteResponse",
+            "class": "Mpociot\\ApiDoc\\Generators\\AbstractGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 261,
+            "function": "processRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 83,
+            "function": "processLaravelRoutes",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 199,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
+            "line": 57,
+            "function": "call",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "App\\Console\\Commands\\GenerateDocsCommand",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 886,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 262,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/symfony\/console\/Application.php",
+            "line": 145,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
+            "line": 89,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
+            "line": 122,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "->"
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/v1/prospects/{prospect}`
+
+`HEAD api/v1/prospects/{prospect}`
+
+
+<!-- END_d4095a1dedb7e0a30fbf61655e3c6fc5 -->
+
+<!-- START_5ee12da09530128e4ac035e927d919dc -->
+## Update Prospect
+
+Modify information about an existing Program by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Program belongs to
+
+> Example request:
+
+```bash
+curl -X PUT "http://localhost:8000/api/v1/prospects/{prospect}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/prospects/{prospect}",
+    "method": "PUT",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`PUT api/v1/prospects/{prospect}`
+
+`PATCH api/v1/prospects/{prospect}`
+
+
+<!-- END_5ee12da09530128e4ac035e927d919dc -->
+
+<!-- START_34f4c59b094674c5f6e0da77c06b769b -->
+## Delete Prospect
+
+Removes a Prospect from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Prospect belongs to
+
+> Example request:
+
+```bash
+curl -X DELETE "http://localhost:8000/api/v1/prospects/{prospect}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/prospects/{prospect}",
+    "method": "DELETE",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`DELETE api/v1/prospects/{prospect}`
+
+
+<!-- END_34f4c59b094674c5f6e0da77c06b769b -->
 
