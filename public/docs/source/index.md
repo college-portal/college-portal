@@ -17,6 +17,7 @@ toc_footers:
 
 Welcome to the generated API reference.
 [Get Postman Collection](http://localhost:8000/docs/collection.json)
+
 <!-- END_INFO -->
 
 #general
@@ -603,7 +604,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -1299,7 +1300,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -1998,7 +1999,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -2700,7 +2701,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -3446,7 +3447,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -4026,7 +4027,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -4572,7 +4573,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -5271,7 +5272,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -5990,7 +5991,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -6566,7 +6567,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -7108,7 +7109,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -7799,7 +7800,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -8492,7 +8493,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -9187,7 +9188,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -9888,7 +9889,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -10591,7 +10592,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -11282,7 +11283,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -11991,7 +11992,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -12683,7 +12684,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -13372,7 +13373,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -14078,7 +14079,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -14657,7 +14658,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -15210,7 +15211,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -15916,7 +15917,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -16498,7 +16499,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -17047,7 +17048,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -17734,7 +17735,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -18662,7 +18663,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -19619,7 +19620,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -20192,7 +20193,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -20747,7 +20748,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -21421,7 +21422,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -22120,7 +22121,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/zaportal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 57,
+            "line": 58,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
