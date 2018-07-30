@@ -2,11 +2,18 @@
 
 namespace App\Services;
 
-use App\Models\InviteRole;
-use App\Repositories\InviteRepository;
+
 use Carbon\Carbon;
-use Illuminate\Validation\ValidationException;
+use App\Mail\InviteMail;
+use App\Models\InviteRole;
+
 use Illuminate\Support\Collection;
+use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Support\Facades\Mail;
+use Tymon\JWTAuth\Facades\JWTFactory;
+use App\Repositories\InviteRepository;
+use Illuminate\Validation\ValidationException;
+
 
 class InviteService
 {
@@ -40,6 +47,23 @@ class InviteService
             ]);
         }
         $invite->load('roles');
+        $this->sendMail($invite);
         return $invite;
+    }
+
+
+    //sends new invite mail
+    function sendMail($invite) {
+       
+        $id = $invite['id'];
+        $email = $invite['email'];
+        $message = $invite['message'];
+
+        //create jwt with aud to prevent interferance with authentication
+        $payload = JWTFactory::sub($id)->aud('invite')->make();
+        $token = JWTAuth::encode($payload);
+        $link =  url("/api/v1/invites/{$token}");
+        
+        return Mail::to($email)->send(new InviteMail(['message' => $message,'link'=>$link]));
     }
 }
