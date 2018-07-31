@@ -79,6 +79,7 @@ class DatabaseSeeder extends Seeder
         $grades = new Collection();
         $images = new Collection();
         $intentTypes = new Collection();
+        $contentTypes = new Collection();
 
         $this->createGradeType($school, 'A', 5, 70, 100);
         $this->createGradeType($school, 'B', 4, 60, 70);
@@ -87,8 +88,23 @@ class DatabaseSeeder extends Seeder
         $this->createGradeType($school, 'E', 1, 40, 45);
 
         $imageType = $this->createImageType($school);
-        $contentType = $this->createContentType($school);
-        $this->createContent($contentType);
+        $formats = new Collection(ContentType::formats());
+        $formats->each(function ($format) use ($contentTypes, $school) {
+            $contentType = $this->createContentType($school, $format);
+            $contentTypes->push($contentType);
+
+            $contents = new Collection();
+            $contents->push($this->createContent($contentType));
+
+            if ($contentType->format == ContentType::ARRAY) {
+                $contents->push($this->createContent($contentType, 'array-value-2'));
+                $contents->push($this->createContent($contentType, 'array-value-3'));
+            }
+            else if ($contentType->format == ContentType::OBJECT) {
+                $this->createContentType($school, ContentType::STRING, $contentType->id);
+                $this->createContentType($school, ContentType::NUMBER, $contentType->id);
+            }
+        });
 
         $intentTypes->push($this->createIntentType(Intent::CHANGE_PASSWORD));
         $this->createIntent($user, $intentTypes->first());
@@ -413,18 +429,39 @@ class DatabaseSeeder extends Seeder
         return Intent::where($opts)->first() ?? Intent::create($opts);
     }
 
-    public function createContentType(School $school) {
-        $opts = [
-            'school_id' => $school->id
-        ];
-        return ContentType::where($opts)->first() ?? factory(ContentType::class)->create($opts)->first();
+    public function createContentType(School $school, string $format = null, int $related_to = null) {
+        $opts = array_merge([
+            'school_id' => $school->id,
+            'related_to' => $related_to
+        ], $format ? [ 'format' => $format ] : []);
+        return ContentType::where($opts)->first() ?? factory(ContentType::class)->create($opts);
     }
 
-    public function createContent(ContentType $contentType) {
+    public function createContent(ContentType $contentType, $value = null) {
+        switch ($contentType->format) {
+            case ContentType::STRING:
+                $value = $value ?? 'Value 1';
+                break;
+            case ContentType::DATETIME:
+                $value = Carbon::now()->toDateString();
+                break;
+            case ContentType::BOOLEAN:
+                $value = true;
+                break;
+            case ContentType::NUMBER:
+                $value = 123;
+                break;
+            case ContentType::OBJECT:
+                $value = new \stdClass();
+                break;
+            case ContentType::ARRAY:
+                $value = $value ?? 'array-value-1';
+                break;
+        }
         $opts = [
             'content_type_id' => $contentType->id,
             'owner_id' => 5,
-            'value' => 'Value 1'
+            'value' => !is_string($value) ? json_encode($value) : $value
         ];
         return Content::where($opts)->first() ?? Content::create($opts)->first();
     }
