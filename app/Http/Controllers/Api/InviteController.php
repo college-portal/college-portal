@@ -43,6 +43,7 @@ class InviteController extends ApiController
     }
 
     public function update(Request $request, $id) {
-        return $this->json([ 'message' => 'This action is to be handled by the System' ], 501);
+        $invite = $this->service()->resolve($id);
+        return $this->json($invite);
     }
 }
