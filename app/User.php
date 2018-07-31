@@ -86,88 +86,127 @@ class User extends Authenticatable
     }
 
     public function scopeUsers() {
-        /** get users in schools that intersect with the current user's */
-        $table_name = UserHasRole::name();
-        $ids = $this->schools()->pluck('schools.id');
-        return $this->whereHas('schools', function ($q) use ($ids) {
-            return $q->whereIn('schools.id', $ids);
-        })->where('users.id', '!=', $this->id)->with('staff');
+        if ($this->hasRole(Role::ADMIN)) return self::query();
+        else {
+            /** get users in schools that intersect with the current user's */
+            $table_name = UserHasRole::name();
+            $ids = $this->schools()->pluck('schools.id');
+            return $this->whereHas('schools', function ($q) use ($ids) {
+                return $q->whereIn('schools.id', $ids);
+            })->where('users.id', '!=', $this->id)->with('staff');
+        }
     }
 
     public function scopeFaculties() {
-        /** get faculties in schools that intersect with the current user's */
-        $ids = $this->schools()->pluck('schools.id');
-        return Faculty::whereIn('school_id', $ids);
+        if ($this->hasRole(Role::ADMIN)) return Faculty::query();
+        else {
+            /** get faculties in schools that intersect with the current user's */
+            $ids = $this->schools()->pluck('schools.id');
+            return Faculty::whereIn('school_id', $ids);
+        }
     }
 
     public function scopeDepartments() {
-        /** get departments in faculties in schools that intersect with the current user's */
-        $ids = $this->faculties()->pluck('faculties.id');
-        return Department::whereIn('faculty_id', $ids);
+        if ($this->hasRole(Role::ADMIN)) return Department::query();
+        else {
+            /** get departments in faculties in schools that intersect with the current user's */
+            $ids = $this->faculties()->pluck('faculties.id');
+            return Department::whereIn('faculty_id', $ids);
+        }
     }
 
     public function scopePrograms() {
-        /** get programs in departments in faculties in schools that intersect with the current user's */
-        $ids = $this->departments()->pluck('departments.id');
-        return Program::whereIn('department_id', $ids);
+        if ($this->hasRole(Role::ADMIN)) return Program::query();
+        else {
+            /** get programs in departments in faculties in schools that intersect with the current user's */
+            $ids = $this->departments()->pluck('departments.id');
+            return Program::whereIn('department_id', $ids);
+        }
     }
 
     public function scopeProgramCredits() {
-        /** get programs in departments in faculties in schools that intersect with the current user's */
-        $ids = $this->programs()->pluck('programs.id');
-        return ProgramCredit::whereIn('program_id', $ids);
+        if ($this->hasRole(Role::ADMIN)) return ProgramCredit::query();
+        else {
+            /** get programs in departments in faculties in schools that intersect with the current user's */
+            $ids = $this->programs()->pluck('programs.id');
+            return ProgramCredit::whereIn('program_id', $ids);
+        }
     }
 
     public function scopeCourses() {
-        /** get courses in departments in faculties in schools that intersect with the current user's */
-        $ids = $this->departments()->pluck('departments.id');
-        return Course::whereIn('department_id', $ids);
+        if ($this->hasRole(Role::ADMIN)) return Course::query();
+        else {
+            /** get courses in departments in faculties in schools that intersect with the current user's */
+            $ids = $this->departments()->pluck('departments.id');
+            return Course::whereIn('department_id', $ids);
+        }
     }
 
     public function scopeCourseDependencies() {
-        /** get courses in departments in faculties in schools that intersect with the current user's */
-        $ids = $this->courses()->pluck('courses.id');
-        return CourseDependency::whereIn('course_id', $ids);
+        if ($this->hasRole(Role::ADMIN)) return CourseDependency::query();
+        else {
+            /** get courses in departments in faculties in schools that intersect with the current user's */
+            $ids = $this->courses()->pluck('courses.id');
+            return CourseDependency::whereIn('course_id', $ids);
+        }
     }
 
     public function scopeViewableStudents() {
-        $ids = $this->schools()->pluck('schools.id');
-        return Student::whereHas('user', function ($q) use ($ids) {
-            return $q->whereHas('schools', function ($q) use ($ids) {
-                return $q->whereIn('schools.id', $ids);
+        if ($this->hasRole(Role::ADMIN)) return Student::query();
+        else {
+            $ids = $this->schools()->pluck('schools.id');
+            return Student::whereHas('user', function ($q) use ($ids) {
+                return $q->whereHas('schools', function ($q) use ($ids) {
+                    return $q->whereIn('schools.id', $ids);
+                });
             });
-        });
+        }
     }
 
     public function scopeViewableStaff() {
-        $ids = $this->schools()->pluck('schools.id');
-        return Staff::whereHas('user', function ($q) use ($ids) {
-            return $q->whereHas('schools', function ($q) use ($ids) {
-                return $q->whereIn('schools.id', $ids);
+        if ($this->hasRole(Role::ADMIN)) return Staff::query();
+        else {
+            $ids = $this->schools()->pluck('schools.id');
+            return Staff::whereHas('user', function ($q) use ($ids) {
+                return $q->whereHas('schools', function ($q) use ($ids) {
+                    return $q->whereIn('schools.id', $ids);
+                });
             });
-        });
+        }
     }
 
     public function scopeSessions() {
-        $ids = $this->schools()->pluck('schools.id');
-        return Session::whereIn('school_id', $ids);
+        if ($this->hasRole(Role::ADMIN)) return Session::query();
+        else {
+            $ids = $this->schools()->pluck('schools.id');
+            return Session::whereIn('school_id', $ids);
+        }
     }
 
     public function scopeSemesters() {
-        $ids = $this->schools()->pluck('schools.id');
-        return Semester::whereHas('type', function ($q) use ($ids) {
-            return $q->whereIn('school_id', $ids);
+        if ($this->hasRole(Role::ADMIN)) return Semester::query();
+        else {
+            $ids = $this->schools()->pluck('schools.id');
+            return Semester::whereHas('type', function ($q) use ($ids) {
+                return $q->whereIn('school_id', $ids);
         });
+        }
     }
 
     public function scopeChargeableServices() {
-        $ids = $this->schools()->pluck('schools.id');
-        return ChargeableService::whereIn('school_id', $ids);
+        if ($this->hasRole(Role::ADMIN)) return ChargeableService::query();
+        else {
+            $ids = $this->schools()->pluck('schools.id');
+            return ChargeableService::whereIn('school_id', $ids);
+        }
     }
 
     public function scopeChargeables() {
-        $ids = $this->chargeableServices()->pluck('chargeable_services.id');
-        return Chargeable::whereIn('chargeable_service_id', $ids);
+        if ($this->hasRole(Role::ADMIN)) return Chargeable::query();
+        else {
+            $ids = $this->chargeableServices()->pluck('chargeable_services.id');
+            return Chargeable::whereIn('chargeable_service_id', $ids);
+        }
     }
 
     public function scopeManagedSchools($query, User $user = null) {
@@ -271,10 +310,13 @@ class User extends Authenticatable
     }
 
     public function scopeIntersectsSchoolsWith($query, $user) {
-        $ids = $user->schools()->pluck('schools.id');
-        return $query->whereHas('schools', function ($q) use ($ids) {
-            return $q->whereIn('schools.id', $ids);
-        });
+        if ($user->hasRole(Role::ADMIN)) return self::query();
+        else {
+            $ids = $user->schools()->pluck('schools.id');
+            return $query->whereHas('schools', function ($q) use ($ids) {
+                return $q->whereIn('schools.id', $ids);
+            });
+        }
     }
 
     public static function boot() {
