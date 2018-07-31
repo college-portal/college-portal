@@ -75,12 +75,14 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class, UserHasRole::name())->withTimestamps();
     }
 
-    public function schools() {
-        return $this->belongsToMany(School::class, UserHasRole::name())->withTimestamps();
-    }
-
     public function intents() {
         return $this->belongsToMany(IntentType::class, Intent::name())->withTimestamps();
+    }
+
+    public function scopeSchools() {
+        return $this->hasRole(Role::ADMIN) ? 
+                School::query() :
+                $this->belongsToMany(School::class, UserHasRole::name())->withTimestamps();
     }
 
     public function scopeUsers() {
