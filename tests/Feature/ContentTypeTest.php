@@ -64,7 +64,7 @@ class ContentTypeTest extends TestCase
      *
      * @return void
      */
-    public function testCreateContentType()
+    public function testCreateContentTypeWithNoFormat()
     {
         $response = $this->loginAsRole(Role::ADMIN)
                         ->post($this->url('schools/1/content-types'), [
@@ -73,16 +73,161 @@ class ContentTypeTest extends TestCase
                             'type' => 'App\\Models\\Schools'
                         ]);
 
+        $response->assertStatus(422);
+    }
+    
+    /**
+     * /api/content-types POST
+     * 
+     * should create a new ContentType
+     *
+     * @return void
+     */
+    public function testCreateContentTypeWithNumberFormat()
+    {
+        $response = $this->loginAsRole(Role::ADMIN)
+                        ->post($this->url('schools/1/content-types'), [
+                            'name' => 'no_of_parks',
+                            'display_name' => 'No. of Parks',
+                            'type' => 'App\\Models\\Schools',
+                            'format' => 'number'
+                        ]);
+
         $response->assertStatus(201);
 
         $response->assertJsonStructure([
             'school_id',
             'name',
-            'type'
+            'type',
+            'format'
+        ]);
+
+        $response->assertJson([
+            'name' => 'no_of_parks'
+        ]);
+    }
+    
+    /**
+     * /api/content-types POST
+     * 
+     * should create a new ContentType
+     *
+     * @return void
+     */
+    public function testCreateContentTypeWithStringFormat()
+    {
+        $response = $this->loginAsRole(Role::ADMIN)
+                        ->post($this->url('schools/1/content-types'), [
+                            'name' => 'logo',
+                            'display_name' => 'Logo',
+                            'type' => 'App\\Models\\Schools',
+                            'format' => 'string'
+                        ]);
+
+        $response->assertStatus(201);
+
+        $response->assertJsonStructure([
+            'school_id',
+            'name',
+            'type',
+            'format'
         ]);
 
         $response->assertJson([
             'name' => 'logo'
+        ]);
+    }
+    
+    /**
+     * /api/content-types POST
+     * 
+     * should create a new ContentType
+     *
+     * @return void
+     */
+    public function testCreateContentTypeWithBooleanFormat()
+    {
+        $response = $this->loginAsRole(Role::ADMIN)
+                        ->post($this->url('schools/1/content-types'), [
+                            'name' => 'has_parks',
+                            'display_name' => 'Has Parks',
+                            'type' => 'App\\Models\\Schools',
+                            'format' => 'boolean'
+                        ]);
+
+        $response->assertStatus(201);
+
+        $response->assertJsonStructure([
+            'school_id',
+            'name',
+            'type',
+            'format'
+        ]);
+
+        $response->assertJson([
+            'name' => 'has_parks'
+        ]);
+    }
+    
+    /**
+     * /api/content-types POST
+     * 
+     * should create a new ContentType
+     *
+     * @return void
+     */
+    public function testCreateContentTypeWithObjectFormat()
+    {
+        $response = $this->loginAsRole(Role::ADMIN)
+                        ->post($this->url('schools/1/content-types'), [
+                            'name' => 'settings',
+                            'display_name' => 'Settings',
+                            'type' => 'App\\Models\\Schools',
+                            'format' => 'number'
+                        ]);
+
+        $response->assertStatus(201);
+
+        $response->assertJsonStructure([
+            'school_id',
+            'name',
+            'type',
+            'format'
+        ]);
+
+        $response->assertJson([
+            'name' => 'settings'
+        ]);
+    }
+    
+    /**
+     * /api/content-types POST
+     * 
+     * should create a new ContentType
+     *
+     * @return void
+     */
+    public function testCreateContentTypeWithArrayFormat()
+    {
+        $response = $this->loginAsRole(Role::ADMIN)
+                        ->post($this->url('schools/1/content-types'), [
+                            'name' => 'phones',
+                            'display_name' => 'Phones',
+                            'type' => 'App\\Models\\Schools',
+                            'format' => 'array'
+                        ]);
+
+        $response->assertStatus(201);
+
+        $response->assertJsonStructure([
+            'school_id',
+            'name',
+            'type',
+            'format'
+        ]);
+
+        $response->assertJson([
+            'name' => 'phones'
         ]);
     }
     

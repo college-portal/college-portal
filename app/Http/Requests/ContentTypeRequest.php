@@ -4,7 +4,9 @@ namespace App\Http\Requests;
 
 use App\Models\Role;
 use App\Models\School;
+use App\Models\ContentType;
 use App\Rules\AbsentRule;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ContentTypeRequest extends FormRequest
@@ -34,7 +36,11 @@ class ContentTypeRequest extends FormRequest
             'type' => 'required|string',
             'name' => 'required|string',
             'display_name' => 'required|string',
-            'school_id' => [ new AbsentRule() ]
+            'school_id' => [ new AbsentRule() ],
+            'format' => [
+                'required',
+                Rule::in(ContentType::formats())
+            ]
         ];
     }
 }
