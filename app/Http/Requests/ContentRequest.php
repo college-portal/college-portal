@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use App\Models\Role;
 use App\Models\ContentType;
 use App\Rules\AbsentRule;
+use Illuminate\Validation\ValidationException;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ContentRequest extends FormRequest
@@ -20,6 +21,11 @@ class ContentRequest extends FormRequest
         $user = auth()->user()->first();
         $type = ContentType::findOrFail($this->input('content_type_id'));
         $owner = $type->owner($this->owner_id)->first();
+        if (!$owner) {
+            throw ValidationException::withMessages([
+                'owner_id' => "No $type->type with id $this->owner_id found"
+            ]);
+        }
         return $user->can('view', $type) && $user->can('update', $owner);
     }
 
