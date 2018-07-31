@@ -30,6 +30,12 @@ class Content extends BaseModel
         return $this->belongsTo(ContentType::class, 'content_type_id');
     }
 
+    public function scopeChildren($query) {
+        return $query->whereHas('type', function ($q) {
+            return $q->where('related_to', $this->content_type_id);
+        });
+    }
+
     public function scopeOwner()
     {
         return app($this->type()->first()->type)->where('id', $this->owner_id);

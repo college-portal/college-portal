@@ -103,8 +103,14 @@ class DatabaseSeeder extends Seeder
                 $contents->push($this->createContent($contentType, 'array-value-3', $owner_id));
             }
             else if ($contentType->format == ContentType::OBJECT) {
-                $this->createContentType($school, ContentType::STRING, $contentType->id);
-                $this->createContentType($school, ContentType::NUMBER, $contentType->id);
+                $this->createContent(
+                    $this->createContentType($school, ContentType::STRING, $contentType->id),
+                    'object-value-1', $owner_id
+                );
+                $this->createContent(
+                    $this->createContentType($school, ContentType::NUMBER, $contentType->id),
+                    123, $owner_id
+                );
             }
         });
 

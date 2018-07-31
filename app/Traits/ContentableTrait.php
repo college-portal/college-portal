@@ -8,7 +8,7 @@ trait ContentableTrait
 {
     public function contents() {
         return $this->hasMany(Content::class, 'owner_id')->whereHas('type', function ($q) {
-            return $q->where('type', static::class);
+            return $q->where('type', static::class)->whereNull('related_to');
         });
     }
 }
