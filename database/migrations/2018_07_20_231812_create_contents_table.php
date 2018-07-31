@@ -18,7 +18,7 @@ class CreateContentsTable extends Migration
             $table->increments('id');
             $table->integer('owner_id')->unsigned();
             $table->integer('content_type_id')->unsigned();
-            $table->string('value');
+            $table->string('value')->index();
             $table->timestamps();
         });
 

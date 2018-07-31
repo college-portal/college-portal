@@ -1,6 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\Models\ContentType;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,25 +15,26 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(App\Models\ContentType::class, function (Faker $faker) {
+    $name = $faker->unique()->randomElement([
+        'type-1',
+        'type-2',
+        'type-3',
+        'type-4',
+        'type-5',
+        'type-6',
+        'type-7',
+        'type-8',
+        'type-9',
+        'type-10'
+    ]);
     return [
         'type' => $faker->randomElement([
             'App\\Models\\Staff',
             'App\\User',
             'App\\Models\\Department'
         ]),
-        'name' => $faker->unique()->randomElement([
-            'type-1',
-            'type-2',
-            'type-3',
-            'type-4',
-            'type-5'
-        ]),
-        'display_name' => $faker->unique()->randomElement([
-            'Type 1',
-            'Type 2',
-            'Type 3',
-            'Type 4',
-            'Type 5',
-        ])
+        'name' => $name,
+        'display_name' => ucwords(str_replace('-', ' ', $name)),
+        'format' => $faker->randomElement(ContentType::formats())
     ];
 });

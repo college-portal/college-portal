@@ -5,6 +5,8 @@ namespace App\Filters;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use App\Models\ContentType;
+use Carbon\Carbon;
 
 class BaseFilters
 {
@@ -50,18 +52,51 @@ class BaseFilters
     }
 
     public function transform($model) {
-        $this->functions->each(function ($function) use ($model) {
-            $model = $function($model);
-        });
-        return $model;
+        return $this->functions->reduce(function ($model, $function) {
+            return $function($model);
+        }, $model);
+    }
+
+    public function reduceContentToObject ($carry, $content) {
+        $type = $content->type;
+        $type_key = $content->type->name;
+        if (!isset($carry[$type_key])) {
+            $carry[$type_key] = $type;
+        }
+        if ($type->format == ContentType::ARRAY) {
+            if (!isset($type->values)) {
+                $type->values = new Collection();
+            }
+            $type->values->push($content->value);
+        }
+        else if ($type->format == ContentType::BOOLEAN) {
+            $type->value = (bool)$content->value;
+        }
+        else if ($type->format == ContentType::NUMBER) {
+            $type->value = (double)$content->value;
+        }
+        else if ($type->format == ContentType::DATETIME) {
+            $type->value = Carbon::parse($content->value);
+        }
+        else if ($type->format == ContentType::OBJECT) {
+            $children = $content->children()->with('type')->get();
+            $type->children = $children->reduce([ $this, 'reduceContentToObject' ], []);
+        }
+        else {
+            $type->value = $content->value;
+        }
+        return $carry;
     }
 
     /**
      * A query-filter handler, enabling retrieving extra content belonging to a model
      */
-    protected function with_contents() {
+    protected function with_content() {
+        $this->builder->with('contents.type');
+        
         return $this->defer(function ($model) {
-            $model->contents = $model->contents()->get();
+            $model['content'] = $model->contents->reduce([ $this, 'reduceContentToObject' ], []);
+            unset($model->contents);
             return $model;
         });
     }

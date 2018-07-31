@@ -38,7 +38,7 @@ class ContentController extends ApiController
     }
 
     public function store(ContentRequest $request) {
-        $content = $this->service()->repo()->create($request->all());
+        $content = $this->service()->create($request->all());
         return $this->created($content);
     }
 

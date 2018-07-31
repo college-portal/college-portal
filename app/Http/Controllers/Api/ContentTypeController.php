@@ -73,7 +73,7 @@ class ContentTypeController extends ApiController
      */
     public function store(ContentTypeRequest $request, int $school_id) {
         $this->authorize('update', School::findOrFail($school_id));
-        $contentType = $this->service()->repo()->create(array_merge($request->all(), [ 'school_id' => $school_id ]));
+        $contentType = $this->service()->create(array_merge($request->all(), [ 'school_id' => $school_id ]));
         return $this->created($contentType);
     }
 

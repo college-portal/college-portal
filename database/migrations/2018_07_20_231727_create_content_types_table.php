@@ -18,9 +18,10 @@ class CreateContentTypesTable extends Migration
         Schema::create(ContentType::name(), function (Blueprint $table) {
             $table->increments('id');
             $table->integer('school_id')->unsigned();
-            $table->string('type');
-            $table->string('name');
+            $table->string('type')->index();
+            $table->string('name')->index();
             $table->string('display_name');
+            $table->string('format')->index();
             $table->integer('related_to')->unsigned()->nullable();
             $table->timestamps();
         });

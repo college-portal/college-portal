@@ -30,6 +30,12 @@ class Content extends BaseModel
         return $this->belongsTo(ContentType::class, 'content_type_id');
     }
 
+    public function scopeChildren($query) {
+        return $query->whereHas('type', function ($q) {
+            return $q->where('related_to', $this->content_type_id);
+        });
+    }
+
     public function scopeOwner()
     {
         return app($this->type()->first()->type)->where('id', $this->owner_id);
@@ -39,5 +45,29 @@ class Content extends BaseModel
     {
         $ids = $this->type()->pluck('school_id');
         return School::whereIn('id', $ids);
+    }
+
+    public function setValueAttribute($value) {
+        if (!is_string($value)) {
+            $this->attributes['value'] = json_encode($value);
+        }
+        else {
+            $this->attributes['value'] = $value;
+        }
+    }
+
+    public static function boot() {
+        self::creating(function ($model) {
+            $type = $model->type()->first();
+            if (($type->format($model->value) != $type->format) && ($type->format != ContentType::ARRAY)) {
+                throw new \Exception("content type for $model->value should be $type->format");
+            }
+            if (self::where('content_type_id', $model->content_type_id)->exists() && ($type->format != ContentType::ARRAY)) {
+                throw new \Exception("only content_type with 'array' format can have multiple values");
+            }
+            if (!$model->owner()->exists()) {
+                throw new \Exception("no $type->type with id $model->owner_id exists");
+            }
+        });
     }
 }
