@@ -28,6 +28,7 @@ use App\Models\Intent;
 use App\Models\ContentType;
 use App\Models\Content;
 use App\Models\Invite;
+use App\Models\Prospect;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -41,7 +42,7 @@ class DatabaseSeeder extends Seeder
     }
 
     public function createSchoolOwner() {
-        $user = $this->createUser([
+        $user = User::where('email', 'owner.orlando@mailinator.com')->exists() ? $this->createUser() : $this->createUser([
             'first_name' => 'Owner',
             'last_name' => 'Orlando',
             'email' => 'owner.orlando@mailinator.com'
@@ -111,6 +112,8 @@ class DatabaseSeeder extends Seeder
 
         $sessions->push($this->createSession($school, Carbon::now(), Carbon::now()->addDays(365)));
         $sessions->push($this->createSession($school, Carbon::now()->addDays(365), Carbon::now()->addDays(730)));
+
+        $this->createProspect($this->createUser(), $program, $sessions->first());
 
         $types = [
             '1st Semester',
@@ -191,7 +194,7 @@ class DatabaseSeeder extends Seeder
     }
 
     public function createUser($opts = null) {
-        return User::where($opts ?? [])->first() ?? factory(User::class, 1)->create($opts ?? [])->first();
+        return $opts ? (User::where($opts)->first() ?? factory(User::class, 1)->create($opts ?? [])->first()) : factory(User::class, 1)->create($opts ?? [])->first();
     }
 
     public function addRole(User $user, $roleName) {
@@ -423,7 +426,6 @@ class DatabaseSeeder extends Seeder
         ];
         return Content::where($opts)->first() ?? Content::create($opts)->first();
     }
-
     public function createInvite(School $school, User $user, string $email) {
         $opts = [
             'school_id' => $school->id,
@@ -432,5 +434,14 @@ class DatabaseSeeder extends Seeder
             'message' => 'Please come to my school as a student'
         ];
         return Invite::where($opts)->first() ?? Invite::create($opts)->first();
+    }
+    public function createProspect(User $user, Program $program, Session $session) {
+        $opts = [
+            'user_id' => $user->id,
+            'school_id' => $program->school()->first()->id,
+            'program_id' => $program->id,
+            'session_id' => $session->id
+        ];
+        return Prospect::where($opts)->first() ?? Prospect::create($opts)->first();
     }
 }

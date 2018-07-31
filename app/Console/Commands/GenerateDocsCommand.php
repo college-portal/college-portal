@@ -48,12 +48,13 @@ class GenerateDocsCommand extends Command
         $password = ($this->option('password') == 'false') ? $this->getPassword() : $this->option('password');
         echo "\n";
 
-        try {
-            $token = \JWTAuth::attempt([ 'email' => $email, 'password' => $password ]);
+        $token = \JWTAuth::attempt([ 'email' => $email, 'password' => $password ]);
 
+        try {
             if ($token) {
+                ini_set('memory_limit', -1);
                 $this->call('api:generate', [
-                    '--routePrefix' => 'api/*',
+                    '--routePrefix' => 'api/v1/*',
                     '--header' => "Authorization: Bearer $token"
                 ]);
             }

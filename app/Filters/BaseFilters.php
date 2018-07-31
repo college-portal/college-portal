@@ -75,4 +75,14 @@ class BaseFilters
             return $model;
         });
     }
+
+    /**
+     * A query-filter handler, enabling retrieving images belonging to a model
+     */
+    protected function with_images() {
+        return $this->defer(function ($model) {
+            $model->images = $model->images()->get();
+            return $model;
+        });
+    }
 }

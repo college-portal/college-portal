@@ -15,6 +15,12 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Models\Faculty::class, function (Faker $faker) {
     return [
-        'name' => 'Science and Technology'
+        'name' => $faker->unique()->randomElement([
+            'Science and Technology',
+            'Arts and Culture',
+            'Physical Sciences',
+            'Communication',
+            'Law'
+        ])
     ];
 });

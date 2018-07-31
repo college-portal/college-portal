@@ -27,6 +27,7 @@ class Role extends BaseModel
     public const HOD = 'hod';
     public const DEAN = 'dean';
     public const INVITE_CREATOR = 'invite-creator';
+    public const PROSPECT = 'prospect';
 
     protected $fillable = [ 'name', 'display_name' ];
 

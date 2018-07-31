@@ -5,7 +5,6 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Traits\ModelTableNameTrait;
-use App\Traits\ImageableTrait;
 use App\Traits\FullNameTrait;
 use App\Traits\FilterableTrait;
 use App\Traits\AuthorizableTrait;
@@ -52,7 +51,7 @@ use App\Models\Intent;
  */
 class User extends Authenticatable
 {
-    use Notifiable, ModelTableNameTrait, ImageableTrait, FullNameTrait, FilterableTrait, AuthorizableTrait;
+    use Notifiable, ModelTableNameTrait, FullNameTrait, FilterableTrait, AuthorizableTrait;
 
     /**
      * The attributes that are mass assignable.
