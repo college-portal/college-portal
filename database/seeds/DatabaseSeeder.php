@@ -89,16 +89,18 @@ class DatabaseSeeder extends Seeder
 
         $imageType = $this->createImageType($school);
         $formats = new Collection(ContentType::formats());
-        $formats->each(function ($format) use ($contentTypes, $school) {
+        $formats->each(function ($format) use ($contentTypes, $school, $user, $department, $staff) {
             $contentType = $this->createContentType($school, $format);
             $contentTypes->push($contentType);
 
+            $owner_id = $this->getContentOwner($contentType, $user, $department, $staff);
+
             $contents = new Collection();
-            $contents->push($this->createContent($contentType));
+            $contents->push($this->createContent($contentType, null, $owner_id));
 
             if ($contentType->format == ContentType::ARRAY) {
-                $contents->push($this->createContent($contentType, 'array-value-2'));
-                $contents->push($this->createContent($contentType, 'array-value-3'));
+                $contents->push($this->createContent($contentType, 'array-value-2', $owner_id));
+                $contents->push($this->createContent($contentType, 'array-value-3', $owner_id));
             }
             else if ($contentType->format == ContentType::OBJECT) {
                 $this->createContentType($school, ContentType::STRING, $contentType->id);
@@ -437,7 +439,12 @@ class DatabaseSeeder extends Seeder
         return ContentType::where($opts)->first() ?? factory(ContentType::class)->create($opts);
     }
 
-    public function createContent(ContentType $contentType, $value = null) {
+    function getContentOwner(ContentType $contentType, User $user, Department $department, Staff $staff) {
+        return ($contentType->type == Department::class) ? $department->id :
+                            ($contentType->type == Staff::class) ? $staff->id : $user->id;
+    }
+
+    public function createContent(ContentType $contentType, $value = null, $owner_id = null) {
         switch ($contentType->format) {
             case ContentType::STRING:
                 $value = $value ?? 'Value 1';
@@ -460,7 +467,7 @@ class DatabaseSeeder extends Seeder
         }
         $opts = [
             'content_type_id' => $contentType->id,
-            'owner_id' => 5,
+            'owner_id' => $owner_id,
             'value' => !is_string($value) ? json_encode($value) : $value
         ];
         return Content::where($opts)->first() ?? Content::create($opts)->first();

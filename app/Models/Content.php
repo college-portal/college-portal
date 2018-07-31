@@ -59,6 +59,9 @@ class Content extends BaseModel
             if (self::where('content_type_id', $model->content_type_id)->exists() && ($type->format != ContentType::ARRAY)) {
                 throw new \Exception("only content_type with 'array' format can have multiple values");
             }
+            if (!$model->owner()->exists()) {
+                throw new \Exception("no $type->type with id $model->owner_id exists");
+            }
         });
     }
 }
