@@ -20,7 +20,7 @@ class RelInvites extends Migration
         Schema::table(Invite::name(), function (Blueprint $table) {
             $table->foreign('creator_id')->references('id')->on(User::name());
             $table->foreign('school_id')->references('id')->on(School::name());
-            $table->unique([ 'creator_id', 'school_id', 'email' ]);
+            $table->unique([ 'school_id', 'email' ]);
         });
     }
 
@@ -34,7 +34,7 @@ class RelInvites extends Migration
         Schema::table(Invite::name(), function (Blueprint $table) {
             $table->dropForeign([ 'creator_id' ]);
             $table->dropForeign([ 'school_id' ]);
-            $table->dropUnique([ 'creator_id', 'school_id', 'email' ]);
+            $table->dropUnique([ 'school_id', 'email' ]);
         });
     }
 }
