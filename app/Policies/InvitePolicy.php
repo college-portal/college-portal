@@ -34,6 +34,6 @@ class InvitePolicy
     }
 
     public function update(User $user, Invite $invite) {
-        return false;
+        return $user->email == $invite->email;
     }
 }
