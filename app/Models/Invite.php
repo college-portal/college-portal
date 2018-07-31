@@ -32,4 +32,12 @@ class Invite extends BaseModel
     public function school() {
         return $this->belongsTo(School::class);
     }
+
+    public static function boot() {
+        self::deleting(function ($model) {
+            $model->roles()->get()->map(function ($role) {
+                $role->delete();
+            });
+        });
+    }
 }

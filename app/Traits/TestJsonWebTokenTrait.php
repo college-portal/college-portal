@@ -28,4 +28,8 @@ trait TestJsonWebTokenTrait
             else return $q->whereIn('roles.name', $role_names);
         })->first();
     }
+
+    public function createUser($opts = null) {
+        return $opts ? (User::where($opts)->first() ?? factory(User::class, 1)->create($opts ?? [])->first()) : factory(User::class, 1)->create($opts ?? [])->first();
+    }
 }

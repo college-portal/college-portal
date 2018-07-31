@@ -27,6 +27,8 @@ use App\Models\IntentType;
 use App\Models\Intent;
 use App\Models\ContentType;
 use App\Models\Content;
+use App\Models\Invite;
+use App\Models\InviteRole;
 use App\Models\Prospect;
 use App\User;
 use Carbon\Carbon;
@@ -90,6 +92,9 @@ class DatabaseSeeder extends Seeder
 
         $intentTypes->push($this->createIntentType(Intent::CHANGE_PASSWORD));
         $this->createIntent($user, $intentTypes->first());
+
+        $invite = $this->createInvite($school, $user, 'invited.user@mailinator.com');
+        $this->createInviteRole($invite, Role::whereName(Role::STAFF)->first()->id);
 
         $studentUsers = factory(User::class, 3)->create()->map(function ($user) use ($program, $students) {
             $student = $this->createStudent($user, $program);
@@ -423,7 +428,23 @@ class DatabaseSeeder extends Seeder
         ];
         return Content::where($opts)->first() ?? Content::create($opts)->first();
     }
-
+    public function createInvite(School $school, User $user, string $email) {
+        $opts = [
+            'school_id' => $school->id,
+            'creator_id' => $user->id,
+            'email' => $email,
+            'message' => 'Please come to my school as a student'
+        ];
+        return Invite::where($opts)->first() ?? Invite::create($opts)->first();
+    }
+    public function createInviteRole(Invite $invite, int $role_id) {
+        $opts = [
+            'invite_id' => $invite->id,
+            'role_id' => $role_id,
+            'extras' => '{}'
+        ];
+        return InviteRole::where($opts)->first() ?? InviteRole::create($opts)->first();
+    }
     public function createProspect(User $user, Program $program, Session $session) {
         $opts = [
             'user_id' => $user->id,

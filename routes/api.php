@@ -31,6 +31,7 @@ use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\UserHasRoleController;
 use App\Http\Controllers\Api\ContentTypeController;
 use App\Http\Controllers\Api\ContentController;
+use App\Http\Controllers\Api\InviteController;
 use App\Http\Controllers\Api\ProspectController;
 
 /*
@@ -130,6 +131,8 @@ Route::group([
         
         Route::resource('/contents', ContentController::class(), $excepts);
         
+        Route::resource('/invites', InviteController::class(), $excepts);
+      
         Route::resource('/prospects', ProspectController::class(), $excepts);
     });
 
