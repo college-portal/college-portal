@@ -43,6 +43,8 @@ class InviteController extends ApiController
     }
 
     public function update(Request $request, $id) {
+        $invite = $this->service()->repo()->single($id);
+        $this->authorize('update', $invite);
         $invite = $this->service()->resolve($id);
         return $this->json($invite);
     }
