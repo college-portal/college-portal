@@ -139,7 +139,7 @@ class InviteTest extends TestCase
     /**
      * /api/invites/1 PUT
      * 
-     * should modify the Invite's name
+     * should respond with unauthorized
      *
      * @return void
      */
@@ -150,7 +150,25 @@ class InviteTest extends TestCase
                             'message' => 'Okay, do not come anymore'
                         ]);
 
-        $response->assertStatus(501);
+        $response->assertStatus(403);
+    }
+    
+    /**
+     * /api/invites/1 PUT
+     * 
+     * should modify the invite
+     *
+     * @return void
+     */
+    public function testUpdateInviteWithCreatedUser()
+    {
+
+        $response = $this->loginAs($this->createUser([ 'email' => 'invited.user@mailinator.com' ]))
+                        ->put($this->url('invites/1'), [
+                            'message' => 'Okay, do not come anymore'
+                        ]);
+
+        $response->assertStatus(200);
     }
     
     /**

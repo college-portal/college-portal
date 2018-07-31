@@ -13,6 +13,7 @@ use App\Repositories\StaffRepository;
 use App\Repositories\InviteRepository;
 use App\Repositories\StudentRepository;
 use App\Repositories\DepartmentRepository;
+use App\Repositories\ProgramRepository;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Mail;
@@ -23,15 +24,16 @@ use Illuminate\Validation\ValidationException;
 class InviteService
 {
 
-    private $staffRepository, $roleRepository, $studentRepository, $departmentRepository;
+    private $staffRepository, $roleRepository, $studentRepository, $departmentRepository, $programRepository;
 
     public function __construct(RoleRepository $roleRepository, StaffRepository $staffRepository, 
-        StudentRepository $studentRepository, DepartmentRepository $departmentRepository)
+        StudentRepository $studentRepository, DepartmentRepository $departmentRepository, ProgramRepository $programRepository)
     {
         $this->roleRepository = $roleRepository;
         $this->staffRepository = $staffRepository;
         $this->studentRepository = $studentRepository;
         $this->departmentRepository = $departmentRepository;
+        $this->programRepository = $programRepository;
     }
 
     public function repo()
@@ -98,7 +100,7 @@ class InviteService
                 ]);
 
                 //add as staff
-                $department_id = $extras ? $extras->department_id : null;
+                $department_id = isset($extras->department_id) ? $extras->department_id : null;
                 $opts = ['user_id' => $user->id, 'school_id' => $school_id, 'title' => ''];
                 $staff = $this->staffRepository->create($opts);
                 
@@ -122,7 +124,7 @@ class InviteService
                 ]);
 
                 //create staff record
-                $department_id = $extras ? $extras->department_id : null;
+                $department_id = isset($extras->department_id) ? $extras->department_id : null;
                 $opts = ['user_id' => $user->id, 'school_id' => $school_id, 'title' => ''];
                 $staff = $this->staffRepository->create($opts);
 
