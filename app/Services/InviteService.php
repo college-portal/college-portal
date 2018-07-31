@@ -7,17 +7,16 @@ use Carbon\Carbon;
 use App\Models\Role;
 use App\Mail\InviteMail;
 use App\Models\InviteRole;
-
-use Illuminate\Support\Collection;
-use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
-use Illuminate\Support\Facades\Mail;
 use App\Repositories\StaffRepository;
-use Tymon\JWTAuth\Facades\JWTFactory;
 use App\Repositories\InviteRepository;
 use App\Repositories\StudentRepository;
 use App\Repositories\DepartmentRepository;
+use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Mail;
+use Tymon\JWTAuth\Facades\JWTFactory;
 use Illuminate\Validation\ValidationException;
 
 
@@ -26,7 +25,8 @@ class InviteService
 
     private $staffRepository, $roleRepository, $studentRepository, $departmentRepository;
 
-    public function __construct(RoleRepository $roleRepository, StaffRepository $staffRepository, StudentRepository $studentRepository, DepartmentRepository $departmentRepository)
+    public function __construct(RoleRepository $roleRepository, StaffRepository $staffRepository, 
+        StudentRepository $studentRepository, DepartmentRepository $departmentRepository)
     {
         $this->roleRepository = $roleRepository;
         $this->staffRepository = $staffRepository;
@@ -155,10 +155,9 @@ class InviteService
 
         }
 
-        $invite->roles()->delete();
         $invite->delete();
-        return $user;
 
+        return $user;
     }
 
     /*
