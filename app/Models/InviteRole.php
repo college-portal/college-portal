@@ -38,7 +38,7 @@ class InviteRole extends BaseModel
             $this->attributes['extras'] = json_encode($value);
         }
         else {
-            $this->attributes['extras'] = $value;
+            $this->attributes['extras'] = $value ?? '{}';
         }
     }
 }
