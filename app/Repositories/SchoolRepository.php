@@ -22,23 +22,23 @@ class SchoolRepository
         return $items;
     }
 
-    public function school(User $user, $id, SchoolFilters $filters = null) {
-        $q = $user->schools();
+    public function school($id, SchoolFilters $filters = null) {
+        $q = $this->model();
         if ($filters) {
             $q = $q->filter($filters);
         }
         return $filters ? $filters->transform($q->findOrFail($id)) : $q->findOrFail($id);
     }
 
-    public function delete(User $user, $id) {
-        return $user->schools()->findOrFail($id)->delete();
+    public function delete($id) {
+        return $this->model()->findOrFail($id)->delete();
     }
 
-    public function create(User $user, $opts) {
-        return $this->model()->create(array_merge($opts, [ 'owner_id' => $user->id ]));
+    public function create($opts) {
+        return $this->model()->create($opts);
     }
 
-    public function update(User $user, $id, $opts = []) {
+    public function update($id, $opts = []) {
         $item = $this->model()->findOrFail($id);
         $item->fill($opts);
         $item->save();

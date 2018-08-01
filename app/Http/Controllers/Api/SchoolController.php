@@ -29,7 +29,7 @@ class SchoolController extends ApiController
      *   - ?with_schools
      */
     public function show(Request $request, SchoolFilters $filters, int $id) {
-        $school = $this->service()->repo()->school($request->user(), $id, $filters);
+        $school = $this->service()->repo()->school($id, $filters);
         $this->authorize('view', $school); /** ensure the current user has view rights */
         return $school;
     }
@@ -56,9 +56,9 @@ class SchoolController extends ApiController
      *  - User owns the School
      */
     public function destroy(Request $request, int $id) {
-        $school = $this->service()->repo()->school($request->user(), $id);
+        $school = $this->service()->repo()->school($id);
         $this->authorize('delete', $school); /** ensure the current user has delete rights */
-        $this->service()->repo()->delete($request->user(), $id);
+        $this->service()->repo()->delete($id);
         return $this->ok();
     }
 
@@ -68,7 +68,8 @@ class SchoolController extends ApiController
      * Supply School information to create a new one
      */
     public function store(SchoolRequest $request) {
-        $school = $this->service()->repo()->create($request->user(), $request->all());
+        $user = auth()->user()->first();
+        $school = $this->service()->repo()->create(array_merge($request->all(), [ 'owner_id' => $user->id ]));
         return $this->created($school);
     }
 
@@ -81,9 +82,10 @@ class SchoolController extends ApiController
      *  - User owns the School
      */
     public function update(Request $request, int $id) {
-        $school = $this->service()->repo()->school($request->user(), $id);
+        $school = $this->service()->repo()->school($id);
+        $user = auth()->user()->first();
         $this->authorize('update', $school);
-        $school = $this->service()->repo()->update($request->user(), $id, $request->all());
+        $school = $this->service()->repo()->update($id, array_merge($request->all(), [ 'owner_id' => $user->id ]));
         return $this->json($school);
     }
 }
