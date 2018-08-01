@@ -40,7 +40,9 @@ class StudentTakesCourse extends BaseModel
     }
 
     public function semester() {
-        return $this->belongsTo(Semester::class);
+        return $this->staffCourses()
+                    ->join(Semester::name(), 'semester.id', '=', 'staff_teach_courses.semester_id')
+                    ->select('semester.*');
     }
 
     public function grades() {

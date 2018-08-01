@@ -36,6 +36,10 @@ class StaffTeachCourse extends BaseModel
         return $this->belongsTo(Staff::class);
     }
 
+    public function semester() {
+        return $this->belongsTo(Semester::class);
+    }
+
     public function studentTakesCourse() {
         return $this->hasMany(StudentTakesCourse::class, 'staff_teach_course_id');
     }

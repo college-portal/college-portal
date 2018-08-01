@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use App\Models\Course;
 use App\Models\Staff;
 use App\Models\Role;
+use App\Models\Semester;
 
 class StaffTeachCourseRequest extends FormRequest
 {
@@ -20,6 +21,7 @@ class StaffTeachCourseRequest extends FormRequest
         $user = auth()->user()->first();
         $staff = Staff::findOrFail($this->input('staff_id'));
         $course = Course::findOrFail($this->input('course_id'));
+        $semester = Semester::findOrFail($this->input('semester_id'));
 
         $school = $staff->school()->first();
 
@@ -42,7 +44,8 @@ class StaffTeachCourseRequest extends FormRequest
     {
         return [
             'staff_id' => 'required|numeric|exists:staff,id',
-            'course_id' => 'required|numeric|exists:courses,id'
+            'course_id' => 'required|numeric|exists:courses,id', 
+            'semester_id' => 'required|numeric|exists:semesters,id'
         ];
     }
 }

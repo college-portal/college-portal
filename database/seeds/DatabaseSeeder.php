@@ -191,13 +191,13 @@ class DatabaseSeeder extends Seeder
             $payables->push($payable);
         });
 
-        $courses->slice(0, 1)->each(function ($course) use ($staff, $staffCourses) {
-            $staffCourse = $this->createStaffTeachCourse($staff, $course);
+        $courses->slice(0, 1)->each(function ($course) use ($staff, $staffCourses, $semesters) {
+            $staffCourse = $this->createStaffTeachCourse($staff, $course, $semesters->first());
             $staffCourses->push($staffCourse);
         });
 
-        $students->slice(0, 1)->each(function ($student) use ($staffCourses, $semesters, $studentCourses) {
-            $studentCourse = $this->createStudentTakesCourse($student, $staffCourses->first(), $semesters->first());
+        $students->slice(0, 1)->each(function ($student) use ($staffCourses, $studentCourses) {
+            $studentCourse = $this->createStudentTakesCourse($student, $staffCourses->first());
             $studentCourses->push($studentCourse);
         });
 
@@ -371,19 +371,19 @@ class DatabaseSeeder extends Seeder
         return Payable::where($opts)->first() ?? Payable::create($opts);
     }
 
-    public function createStaffTeachCourse(Staff $staff, Course $course) {
+    public function createStaffTeachCourse(Staff $staff, Course $course, Semester $semester) {
         $opts = [
             'staff_id' => $staff->id,
-            'course_id' => $course->id
+            'course_id' => $course->id,
+            'semester_id' => $semester->id
         ];
         return StaffTeachCourse::where($opts)->first() ?? StaffTeachCourse::create($opts);
     }
 
-    public function createStudentTakesCourse(Student $student, StaffTeachCourse $staffCourse, Semester $semester) {
+    public function createStudentTakesCourse(Student $student, StaffTeachCourse $staffCourse) {
         $opts = [
             'student_id' => $student->id,
-            'staff_teach_course_id' => $staffCourse->id,
-            'semester_id' => $semester->id
+            'staff_teach_course_id' => $staffCourse->id
         ];
         return StudentTakesCourse::where($opts)->first() ?? StudentTakesCourse::create($opts);
     }

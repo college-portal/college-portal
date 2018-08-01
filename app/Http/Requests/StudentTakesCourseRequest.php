@@ -21,9 +21,8 @@ class StudentTakesCourseRequest extends FormRequest
         $user = auth()->user()->first();
         $student = Student::findOrFail($this->input('student_id'));
         $staffCourse = StaffTeachCourse::findOrFail($this->input('staff_teach_course_id'));
-        $semester = Semester::findOrFail($this->input('semester_id'));
 
-        $school = $semester->school()->first();
+        $school = $staffCourse->school()->first();
 
         return  (
                     ($student->school()->first()->id == $school->id) &&
@@ -50,8 +49,7 @@ class StudentTakesCourseRequest extends FormRequest
     {
         return [
             'student_id' => 'required|numeric|exists:students,id', 
-            'staff_teach_course_id' => 'required|numeric|exists:staff_teach_courses,id', 
-            'semester_id' => 'required|numeric|exists:semesters,id'
+            'staff_teach_course_id' => 'required|numeric|exists:staff_teach_courses,id'
         ];
     }
 }

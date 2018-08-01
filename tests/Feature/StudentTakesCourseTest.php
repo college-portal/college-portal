@@ -29,8 +29,7 @@ class StudentTakesCourseTest extends TestCase
             'data' => [
                 [
                     'student_id',
-                    'staff_teach_course_id',
-                    'semester_id'
+                    'staff_teach_course_id'
                 ]
             ]
         ]);
@@ -52,8 +51,7 @@ class StudentTakesCourseTest extends TestCase
 
         $response->assertJsonStructure([
             'student_id',
-            'staff_teach_course_id',
-            'semester_id'
+            'staff_teach_course_id'
         ]);
     }
     
@@ -69,22 +67,19 @@ class StudentTakesCourseTest extends TestCase
         $response = $this->loginAsRole(Role::ADMIN)
                         ->post($this->url('student-courses'), [
                             'student_id' => 2,
-                            'staff_teach_course_id' => 1,
-                            'semester_id' => 1
+                            'staff_teach_course_id' => 1
                         ]);
                         
         $response->assertStatus(201);
 
         $response->assertJsonStructure([
             'student_id',
-            'staff_teach_course_id',
-            'semester_id'
+            'staff_teach_course_id'
         ]);
 
         $response->assertJson([
             'student_id' => 2,
-            'staff_teach_course_id' => 1,
-            'semester_id' => 1
+            'staff_teach_course_id' => 1
         ]);
     }
     
@@ -106,8 +101,7 @@ class StudentTakesCourseTest extends TestCase
 
         $response->assertJsonStructure([
             'student_id',
-            'staff_teach_course_id',
-            'semester_id'
+            'staff_teach_course_id'
         ]);
 
         $response->assertJson([

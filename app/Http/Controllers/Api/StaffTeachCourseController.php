@@ -71,7 +71,7 @@ class StaffTeachCourseController extends ApiController
      *  - User can update course
      */
     public function store(StaffTeachCourseRequest $request) {
-        $staffTeachCourse = $this->service()->repo()->create($request->all());
+        $staffTeachCourse = $this->service()->create($request->all());
         return $this->created($staffTeachCourse);
     }
 
