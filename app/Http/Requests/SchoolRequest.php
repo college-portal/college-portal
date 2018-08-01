@@ -26,7 +26,8 @@ class SchoolRequest extends FormRequest
     {
         return [
             'name'=> 'required|string',
-            'short_name' => 'required|string'
+            'short_name' => 'required|string',
+            'staff_title' => 'string'
         ];
     }
 }
