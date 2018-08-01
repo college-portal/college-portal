@@ -14,6 +14,7 @@ use App\User;
  * @property int $id
  * @property int $staff_id
  * @property int $course_id
+ * @property int $semester_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\StaffTeachCourse whereContains($value)
@@ -25,7 +26,7 @@ use App\User;
  */
 class StaffTeachCourse extends BaseModel
 {
-    protected $fillable = [ 'staff_id', 'course_id' ];
+    protected $fillable = [ 'staff_id', 'course_id', 'semester_id' ];
 
     public function course() {
         return $this->belongsTo(Course::class);

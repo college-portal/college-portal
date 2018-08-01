@@ -18,6 +18,7 @@ class CreateStaffTeachCoursesTable extends Migration
             $table->increments('id');
             $table->integer('staff_id')->unsigned();
             $table->integer('course_id')->unsigned();
+            $table->integer('semester_id')->unsigned();
             $table->timestamps();
         });
     }

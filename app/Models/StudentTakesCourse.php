@@ -17,7 +17,6 @@ use App\Models\Grade;
  * @property int $id
  * @property int $student_id
  * @property int $staff_teach_course_id
- * @property int $semester_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\StudentTakesCourse whereId($value)
@@ -28,7 +27,7 @@ use App\Models\Grade;
  */
 class StudentTakesCourse extends BaseModel
 {
-    protected $fillable = [ 'student_id', 'staff_teach_course_id', 'semester_id' ];
+    protected $fillable = [ 'student_id', 'staff_teach_course_id' ];
 
     protected $table = 'student_takes_courses';
 
@@ -61,9 +60,8 @@ class StudentTakesCourse extends BaseModel
     }
 
     public function scopeSchool() {
-        return $this->belongsToMany(Semester::class, self::name(), 'id', 'semester_id')
-                    ->join(SemesterType::name(), 'semester_types.id', '=', 'semesters.semester_type_id')
-                    ->join(School::name(), 'schools.id', '=', 'semester_types.school_id')
+        return $this->staff()
+                    ->join(School::name(), 'schools.id', '=', 'staff.school_id')
                     ->select('schools.*');
     }
 

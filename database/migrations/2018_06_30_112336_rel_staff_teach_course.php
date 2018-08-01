@@ -5,6 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use App\Models\Staff;
 use App\Models\Course;
+use App\Models\Semester;
 use App\Models\StaffTeachCourse;
 
 class RelStaffTeachCourse extends Migration
@@ -19,7 +20,8 @@ class RelStaffTeachCourse extends Migration
         Schema::table(StaffTeachCourse::name(), function (Blueprint $table) {
             $table->foreign('staff_id')->references('id')->on(Staff::name());
             $table->foreign('course_id')->references('id')->on(Course::name());
-            $table->unique([ 'staff_id', 'course_id' ]);
+            $table->foreign('semester_id')->references('id')->on(Semester::name());
+            $table->unique([ 'staff_id', 'course_id', 'semester_id' ]);
         });
     }
 
@@ -33,7 +35,7 @@ class RelStaffTeachCourse extends Migration
         Schema::table(StaffTeachCourse::name(), function (Blueprint $table) {
             $table->dropForeign([ 'staff_id' ]);
             $table->dropForeign([ 'course_id' ]);
-            $table->dropUnique([ 'staff_id', 'course_id' ]);
+            $table->dropUnique([ 'staff_id', 'course_id', 'semester_id' ]);
         });
     }
 }

@@ -18,7 +18,6 @@ class CreateStudentRegCoursesTable extends Migration
             $table->increments('id');
             $table->integer('student_id')->unsigned();
             $table->integer('staff_teach_course_id')->unsigned();
-            $table->integer('semester_id')->unsigned();
             $table->timestamps();
         });
     }
