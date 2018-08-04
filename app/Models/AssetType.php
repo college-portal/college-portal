@@ -6,6 +6,10 @@ use App\Models\BaseModel;
 
 /**
  * App\Models\AssetType
+ * 
+ * An AssetType represents file types belongs to a model, 
+ *  denoted by the $type property.
+ * E.g. the Prospect model having waec-result as an AssetType
  *
  * @property int $id
  * @property int $school_id

@@ -14,6 +14,9 @@ use App\Models\StaffTeachCourse;
 
 /**
  * App\Models\Course
+ * 
+ * A Course represents a subject, managed by a department, 
+ *  that students can subscribe to, learn and receive Grades for having learnt.
  *
  * @property int $id
  * @property int $department_id

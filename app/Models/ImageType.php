@@ -8,6 +8,9 @@ use App\Models\BaseModel;
 
 /**
  * App\Models\ImageType
+ * 
+ * An Image Type represents images belonging to a model, 
+ *  denoted by the $type property.
  *
  * @property int $id
  * @property string $type

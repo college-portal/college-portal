@@ -6,6 +6,8 @@ use App\Models\BaseModel;
 
 /**
  * App\Models\Role
+ * 
+ * A Role is a part or function a user a system plays within this system. See role names below:
  *
  * @property int $id
  * @property string $name

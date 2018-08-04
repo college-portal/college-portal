@@ -7,6 +7,9 @@ use App\Models\IntentType;
 
 /**
  * App\Models\Intent
+ * 
+ * An Intent represents an intention of a user to perform some action 
+ *  in the future, such as "change-password". Each belongs to a particular Intent Type.
  *
  * @property int $id
  * @property int $user_id

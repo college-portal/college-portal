@@ -8,6 +8,9 @@ use App\Models\School;
 
 /**
  * App\Models\Content
+ * 
+ * A Content represents a value property for a particular model, 
+ *  belonging to a content-type.
  *
  * @property int $id
  * @property int $owner_id

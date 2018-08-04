@@ -19,6 +19,8 @@ use Carbon\Carbon;
 
 /**
  * App\Models\School
+ * 
+ * A School represents a tertiary institution.
  *
  * @property int $id
  * @property string $name

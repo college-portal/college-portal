@@ -13,6 +13,8 @@ use App\User;
 
 /**
  * App\Models\Staff
+ * 
+ * A staff represents a User having a "staff" role within a School
  *
  * @property int $id
  * @property int $user_id

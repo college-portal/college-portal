@@ -11,10 +11,10 @@ use App\Models\BaseModel;
 /**
  * App\Models\Prospect
  * 
- * A prospect is a user who is an admission candidate to a particular school,
- *  in a particular program and targeting a particular session.
+ * A Prospect is a User who is an admission candidate to a particular School,
+ *  in a particular Program and targeting a particular Session.
  * 
- * A prospect can be locked for editing by a school-owner, similar to closing the 
+ * A Prospect can be locked for editing by a school-owner, similar to closing the 
  *  admission process.
  *
  * @property int $id

@@ -10,6 +10,8 @@ use App\Models\SemesterType;
 
 /**
  * App\Models\ProgramCredit
+ * 
+ * A Program Credit represents the maximum number of credits a Student within a Level can take in a Semester.
  *
  * @property int $id
  * @property int $program_id

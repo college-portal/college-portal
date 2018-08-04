@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\DB;
 
 /**
  * App\Models\Faculty
+ * 
+ * A Faculty is a division within a School comprising one or more departments.
  *
  * @property int $id
  * @property string $name

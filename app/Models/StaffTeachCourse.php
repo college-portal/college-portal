@@ -10,6 +10,8 @@ use App\User;
 
 /**
  * App\Models\StaffTeachCourse
+ * 
+ * A StaffTeachCourse model represents the fact that a Staff teaches a particular Course.
  *
  * @property int $id
  * @property int $staff_id

@@ -11,6 +11,8 @@ use App\User;
 
 /**
  * App\Models\Student
+ * 
+ * A Student represents a user with a "student" role within a School
  *
  * @property int $id
  * @property int $user_id

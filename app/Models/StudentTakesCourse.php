@@ -13,6 +13,9 @@ use App\Models\Grade;
 
 /**
  * App\Models\StudentTakesCourse
+ * 
+ * A StudentTakesCourse models represents the fact that a Student, 
+ *  takes a Course taught by a particular Staff.
  *
  * @property int $id
  * @property int $student_id

@@ -14,6 +14,9 @@ use App\Models\StudentTakesCourse;
 
 /**
  * App\Models\Grade
+ * 
+ * A Grade is a partial or total score a lecturer assigns to a student who 
+ *  takes a course he/she is in charge of.
  *
  * @property int $id
  * @property int $student_takes_course_id

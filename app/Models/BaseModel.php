@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * App\Models\BaseModel
+ * 
+ * The base class for all other models
  *
  * @mixin \Eloquent
  */

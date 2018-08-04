@@ -9,6 +9,8 @@ use App\Models\BaseModel;
 
 /**
  * App\Models\Level
+ * 
+ * A Level represents a year within the school system.
  *
  * @property int $id
  * @property string $name

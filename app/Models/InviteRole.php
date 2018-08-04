@@ -7,6 +7,8 @@ use App\Models\Invite;
 
 /**
  * App\Models\InviteRole
+ * 
+ * An Invite Role represents the role an invited potential is supposed to assume in the system.
  *
  * @property int $id
  * @property int $invite_id

@@ -8,6 +8,10 @@ use App\Models\School;
 
 /**
  * App\Models\SemesterType
+ * 
+ * A Semester Type represents a group of Semesters, and 
+ *  belonging to a School. 
+ * E.g. 1st Semester
  *
  * @property int $id
  * @property int $name

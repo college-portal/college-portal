@@ -7,6 +7,8 @@ use App\Models\Intent;
 
 /**
  * App\Models\IntentType
+ * 
+ * An IntentType represents a group of intents.
  *
  * @property int $id
  * @property int $name

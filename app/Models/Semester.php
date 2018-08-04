@@ -10,6 +10,9 @@ use App\Traits\ChargeableTrait;
 
 /**
  * App\Models\Semester
+ * 
+ * A Semester represents a time period, marked by start and end dates, 
+ *  within a Session, and belonging to a Semester Type.
  *
  * @property int $id
  * @property int $semester_type_id

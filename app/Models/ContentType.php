@@ -9,6 +9,25 @@ use App\Traits\ModelContentTypeTrait;
 
 /**
  * App\Models\ContentType
+ * 
+ * Description:
+ *  Content Types are a way to extend the properties of any model, 
+ *    without needed to write a migration.
+ *  A Content Type represents an extension of a model, 
+ *   denoted by the $type property. 
+ * 
+ * E.g. A User model can have a content-type called "phone" which has an "string" format.
+ * 
+ * ContentType Formats:
+ * 
+ * A Content Type can take one of many formats, including:
+ * 
+ * - string: its content value must be a string
+ * - number: its content value must be a number
+ * - boolean: its content value must resolve to true/false
+ * - datetime: its content value must resolve to a datetime
+ * - array: can have multiple contents
+ * - object: can have child content-types
  *
  * @property int $id
  * @property string $type

@@ -7,6 +7,8 @@ use App\Models\ImageType;
 
 /**
  * App\Models\Image
+ * 
+ * An Image represents a particular jpeg/png/etc resource belonging to an Image Type
  *
  * @property int $id
  * @property int $owner_id

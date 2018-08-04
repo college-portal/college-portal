@@ -11,6 +11,8 @@ use App\Models\ProgramCredit;
 
 /**
  * App\Models\Program
+ * 
+ * A Program represents a study-path a Student within a Department can take.
  *
  * @property int $id
  * @property string $name

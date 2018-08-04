@@ -7,6 +7,10 @@ use App\Models\Course;
 
 /**
  * App\Models\CourseDependency
+ * 
+ * Course Dependencies point to courses a students needs to have passed 
+ *  before he/she can subscribe to a course.
+ * E.g. You must pass MATH 101 to subscribe to MATH 201
  *
  * @property int $id
  * @property int $course_id

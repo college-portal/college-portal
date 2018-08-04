@@ -12,6 +12,8 @@ use App\User;
 
 /**
  * App\Models\Department
+ * 
+ * A Department is a division within a Faculty comprising one or more study programs.
  *
  * @property int $id
  * @property string $name

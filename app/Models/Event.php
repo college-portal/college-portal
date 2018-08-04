@@ -7,6 +7,8 @@ use App\User;
 
 /**
  * App\Models\Event
+ * 
+ * Not Implemented Yet
  *
  * @property int $id
  * @property string $name

@@ -9,6 +9,8 @@ use App\Traits\ChargeableTrait;
 
 /**
  * App\Models\Session
+ * 
+ * A Session represents an academic year. It could contain one or more semesters.
  *
  * @property int $id
  * @property int $school_id

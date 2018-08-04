@@ -7,6 +7,8 @@ use App\Models\AssetType;
 
 /**
  * App\Models\Asset
+ * 
+ * An Asset represents a particular file that belongs to an AssetType
  *
  * @property int $id
  * @property int $owner_id

@@ -7,6 +7,8 @@ use App\Models\School;
 
 /**
  * App\Models\GradeType
+ * 
+ * A GradeType is a classification for grade scores. E.g. a score between 70 and 100 is an A.
  *
  * @property int $id
  * @property string $name

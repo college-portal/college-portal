@@ -9,6 +9,9 @@ use App\Models\Staff;
 
 /**
  * App\Models\UserHasRole
+ * 
+ * A UserHasRole model represents the fact that a User, 
+ *  acts a particular Role, sometimes within a School.
  *
  * @property int $id
  * @property int $user_id

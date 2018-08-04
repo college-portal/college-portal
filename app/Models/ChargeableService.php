@@ -8,6 +8,9 @@ use App\Models\Chargeable;
 
 /**
  * App\Models\ChargeableService
+ * 
+ * A Chargeable Service represents the charges assigned to a model, 
+ *  denoted by the $type property.
  *
  * @property int $id
  * @property string $type

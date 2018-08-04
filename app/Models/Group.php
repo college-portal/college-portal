@@ -7,6 +7,8 @@ use App\User;
 
 /**
  * App\Models\Group
+ * 
+ * Not Implemented Yet!
  *
  * @property int $id
  * @property int $name

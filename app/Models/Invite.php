@@ -7,6 +7,11 @@ use App\Models\InviteRole;
 
 /**
  * App\Models\Invite
+ * 
+ * An Invite represents an invitation given by an administrator, or school-owner
+ *  to a potential user, denoted by $email.
+ * It may contain one or more roles.
+ * 
  *
  * @property int $id
  * @property int $creator_id

@@ -11,6 +11,8 @@ use App\Models\School;
 
 /**
  * App\Models\Chargeable
+ * 
+ * A Chargeable represents a particular cost/charge for a chargeable service.
  *
  * @property int $id
  * @property int $chargeable_service_id
