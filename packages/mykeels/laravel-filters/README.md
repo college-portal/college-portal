@@ -12,7 +12,13 @@ automatically knew to filter the DB query by responding with users that have the
 - age as `21`
 - company name containing `rick-and-morty`
 
-and order the records by age in descending order, all without you having to write boilerplate code.
+and order the records by age in descending order, all without you having to write boilerplate code 😱.
+
+Or that you could automatically include a relationship for a model by adding a `?with_relationship` to the URL 😍, like:
+
+![laravel-filters](https://user-images.githubusercontent.com/11996508/43687436-08f61c1c-98cd-11e8-962b-cd32c2d3bfb3.gif)
+
+Hold your horses 😜, I'm about to show you how.
 
 ## Setup
 
@@ -106,5 +112,7 @@ class UserController extends Controller {
   }
 }
 ```
+
+That's all! 💃
 
 Now, you can execute your app, and use variations of the query strings that your filters allow for. 🔥🔥🔥
