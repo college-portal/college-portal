@@ -1,6 +1,10 @@
 # Laravel Filters
 
-Imagine that this URL:
+Imagine that ...
+
+## Filter with Query String
+
+This URL:
 
 ```text
 /users?name=myk&age=21&company=rick-and-morty&sort_age=desc
@@ -14,13 +18,15 @@ automatically knew to filter the DB query by responding with users that have the
 
 and order the records by age in descending order, all without you having to write boilerplate code 😱.
 
+## Load Relationships
+
 Or that you could automatically include a relationship for a model by adding a `?with_relationship` to the URL 😍, like:
 
 ![laravel-filters](https://user-images.githubusercontent.com/11996508/43687436-08f61c1c-98cd-11e8-962b-cd32c2d3bfb3.gif)
 
 Hold your horses 😜, I'm about to show you how.
 
-## Setup
+# Setup
 
 - Add repositories to your composer.json file:
 
@@ -43,7 +49,7 @@ Hold your horses 😜, I'm about to show you how.
 
 - Run `composer update` in your terminal to pull the package in.
 
-## Usage
+# Usage
 
 - In the Model class, you wish to make filterable, use the `FilterableTrait` like:
 
