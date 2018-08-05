@@ -8,6 +8,13 @@
         {
             "type": "vcs",
             "url": "https://github.com/mykeels/WhatsChanged"
+        },
+        {
+            "type": "path",
+            "url": "packages/mykeels/filters",
+            "options": {
+                "symlink": true
+            }
         }
     ],
     "require": {
@@ -19,7 +26,8 @@
         "laravel/socialite": "^3.0",
         "laravel/tinker": "^1.0",
         "mpociot/laravel-apidoc-generator": "^2.0",
-        "tymon/jwt-auth": "0.5.*"
+        "tymon/jwt-auth": "0.5.*",
+        "mykeels/filters": "dev-feat/package/filters"
     },
     "require-dev": {
         "filp/whoops": "^2.0",
@@ -36,7 +44,8 @@
             "database/factories"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Mykeels\\Filters\\": "packages/mykeels/filters/"
         }
     },
     "autoload-dev": {

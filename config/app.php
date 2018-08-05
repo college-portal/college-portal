@@ -150,6 +150,7 @@ return [
         Mpociot\ApiDoc\ApiDocGeneratorServiceProvider::class,
         JD\Cloudder\CloudderServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Mykeels\Filters\FilterServiceProvider::class,
 
         /*
          * Package Service Providers...
