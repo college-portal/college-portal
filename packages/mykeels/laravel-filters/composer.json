@@ -1,6 +1,6 @@
 {
-    "name": "mykeels/filters",
-    "description": "Helps manage request query strings",
+    "name": "mykeels/laravel-filters",
+    "description": "Provides a composable interface for data filtering with query strings",
     "license": "MIT",
     "authors": [
         {
