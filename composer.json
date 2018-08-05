@@ -44,8 +44,7 @@
             "database/factories"
         ],
         "psr-4": {
-            "App\\": "app/",
-            "Mykeels\\Filters\\": "packages/mykeels/laravel-filters/"
+            "App\\": "app/"
         }
     },
     "autoload-dev": {

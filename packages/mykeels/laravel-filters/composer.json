@@ -15,5 +15,10 @@
                 "Mykeels\\Filters\\FilterServiceProvider"
             ]
         }
+    },
+    "autoload": {
+        "psr-4": {
+            "Mykeels\\Filters\\": "packages/mykeels/laravel-filters/"
+        }
     }
 }
