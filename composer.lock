@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c5289ff27c9b5abac2a3a522ce862b3",
+    "content-hash": "cfad1f3f0ce276151136162937ed1741",
     "packages": [
         {
             "name": "cloudinary/cloudinary_php",
@@ -1749,12 +1749,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mykeels/laravel-filters.git",
-                "reference": "c505d3a7eece396046f6e9e7773b079e5fa30574"
+                "reference": "655fc67cb199663b5a061347a982131a8ac138c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mykeels/laravel-filters/zipball/c505d3a7eece396046f6e9e7773b079e5fa30574",
-                "reference": "c505d3a7eece396046f6e9e7773b079e5fa30574",
+                "url": "https://api.github.com/repos/mykeels/laravel-filters/zipball/655fc67cb199663b5a061347a982131a8ac138c3",
+                "reference": "655fc67cb199663b5a061347a982131a8ac138c3",
                 "shasum": ""
             },
             "type": "library",
@@ -1767,9 +1767,10 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Mykeels\\Filters\\": "vendor/mykeels/laravel-filters/"
+                    "Mykeels\\Filters\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1780,11 +1781,7 @@
                 }
             ],
             "description": "Provides a composable interface for data filtering with query strings",
-            "support": {
-                "source": "https://github.com/mykeels/laravel-filters/tree/master",
-                "issues": "https://github.com/mykeels/laravel-filters/issues"
-            },
-            "time": "2018-08-05T17:30:08+00:00"
+            "time": "2018-08-05T18:27:09+00:00"
         },
         {
             "name": "namshi/jose",
