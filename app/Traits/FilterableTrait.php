@@ -4,16 +4,9 @@ namespace App\Traits;
 
 use App\Filters\BaseFilters;
 use Illuminate\Database\Eloquent\Builder;
+use Mykeels\Filters\Traits\FilterableTrait as Filterable;
 
 trait FilterableTrait
 {
-    /**
-     * Applies filters to the scoped query
-     *
-     * @return Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeFilter($query, BaseFilters $filters)
-    {
-        return $filters->apply($query);
-    }
+    use Filterable;
 }
