@@ -1,0 +1,19 @@
+{
+    "name": "mykeels/filters",
+    "description": "Helps manage request query strings",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ikechi Michael",
+            "email": "mykehell123@gmail.com"
+        }
+    ],
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mykeels\\Filters\\FilterServiceProvider"
+            ]
+        }
+    }
+}
