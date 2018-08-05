@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b6355d57e94d8be4b4b7eb20079a48d",
+    "content-hash": "5c5289ff27c9b5abac2a3a522ce862b3",
     "packages": [
         {
             "name": "cloudinary/cloudinary_php",
@@ -1744,13 +1744,18 @@
             "time": "2016-06-20T20:53:12+00:00"
         },
         {
-            "name": "mykeels/filters",
-            "version": "dev-feat/package/filters",
+            "name": "mykeels/laravel-filters",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mykeels/laravel-filters.git",
+                "reference": "c505d3a7eece396046f6e9e7773b079e5fa30574"
+            },
             "dist": {
-                "type": "path",
-                "url": "packages/mykeels/filters",
-                "reference": "83ac41c3af86fe2d9c15fb988b049a772736f2f0",
-                "shasum": null
+                "type": "zip",
+                "url": "https://api.github.com/repos/mykeels/laravel-filters/zipball/c505d3a7eece396046f6e9e7773b079e5fa30574",
+                "reference": "c505d3a7eece396046f6e9e7773b079e5fa30574",
+                "shasum": ""
             },
             "type": "library",
             "extra": {
@@ -1758,6 +1763,11 @@
                     "providers": [
                         "Mykeels\\Filters\\FilterServiceProvider"
                     ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mykeels\\Filters\\": "vendor/mykeels/laravel-filters/"
                 }
             },
             "license": [
@@ -1769,10 +1779,12 @@
                     "email": "mykehell123@gmail.com"
                 }
             ],
-            "description": "Helps manage request query strings",
-            "transport-options": {
-                "symlink": true
-            }
+            "description": "Provides a composable interface for data filtering with query strings",
+            "support": {
+                "source": "https://github.com/mykeels/laravel-filters/tree/master",
+                "issues": "https://github.com/mykeels/laravel-filters/issues"
+            },
+            "time": "2018-08-05T17:30:08+00:00"
         },
         {
             "name": "namshi/jose",
@@ -5895,7 +5907,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "mykeels/filters": 20,
+        "mykeels/laravel-filters": 20,
         "icyapril/whats-changed": 20
     },
     "prefer-stable": true,

@@ -10,11 +10,8 @@
             "url": "https://github.com/mykeels/WhatsChanged"
         },
         {
-            "type": "path",
-            "url": "packages/mykeels/laravel-filters",
-            "options": {
-                "symlink": true
-            }
+            "type": "vcs",
+            "url": "https://github.com/mykeels/laravel-filters"
         }
     ],
     "require": {
@@ -27,7 +24,7 @@
         "laravel/tinker": "^1.0",
         "mpociot/laravel-apidoc-generator": "^2.0",
         "tymon/jwt-auth": "0.5.*",
-        "mykeels/filters": "dev-feat/package/filters"
+        "mykeels/laravel-filters": "dev-master"
     },
     "require-dev": {
         "filp/whoops": "^2.0",
@@ -49,7 +46,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "Mykeels\\Filters\\": "vendor/mykeels/laravel-filters/"
         }
     },
     "extra": {
