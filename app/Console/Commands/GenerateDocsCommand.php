@@ -55,7 +55,10 @@ class GenerateDocsCommand extends Command
                 ini_set('memory_limit', -1);
                 $this->call('api:generate', [
                     '--routePrefix' => 'api/v1/*',
-                    '--header' => "Authorization: Bearer $token"
+                    '--header' => [
+                        "Authorization: Bearer $token",
+                        "db: transaction"
+                    ]
                 ]);
             }
             else {
