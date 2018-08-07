@@ -85,5 +85,13 @@ class ContentType extends BaseModel
                 $model->type = $parent->type;
             }
         });
+        self::deleting(function ($model) {
+            $model->children()->get()->map(function ($contentType) {
+                $contentType->delete();
+            });
+            $model->contents()->get()->map(function ($content) {
+                $content->delete();
+            });
+        });
     }
 }

@@ -7,6 +7,7 @@ use App\Models\Department;
 use App\Models\Faculty;
 use App\Models\Student;
 use App\Models\School;
+use App\Models\Prospect;
 use App\Models\ProgramCredit;
 
 /**
@@ -42,6 +43,10 @@ class Program extends BaseModel
         return $this->hasMany(ProgramCredit::class);
     }
 
+    public function prospects() {
+        return $this->hasMany(Prospect::class);
+    }
+
     public function scopeFaculty() {
         $ids = $this->department()->pluck('faculty_id');
         return Faculty::whereIn('id', $ids);
@@ -56,6 +61,9 @@ class Program extends BaseModel
         self::deleting(function ($model) {
             $model->students()->get()->map(function ($student) {
                 $student->delete();
+            });
+            $model->prospects()->get()->map(function ($prospect) {
+                $prospect->delete();
             });
             $model->credits()->get()->map(function ($credit) {
                 $credit->delete();

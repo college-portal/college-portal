@@ -14,6 +14,8 @@ use App\Models\Session;
 use App\Models\Staff;
 use App\Models\GradeType;
 use App\Models\ImageType;
+use App\Models\ContentType;
+use App\Models\Invite;
 use App\Models\ChargeableService;
 use Carbon\Carbon;
 
@@ -62,6 +64,14 @@ class School extends BaseModel
 
     public function imageTypes() {
         return $this->hasMany(ImageType::class);
+    }
+
+    public function contentTypes() {
+        return $this->hasMany(ContentType::class);
+    }
+
+    public function invites() {
+        return $this->hasMany(Invite::class);
     }
 
     public function scopeDepartments() {
@@ -134,6 +144,12 @@ class School extends BaseModel
             });
             $model->imageTypes()->get()->map(function ($imageType) {
                 $imageType->delete();
+            });
+            $model->contentTypes()->get()->map(function ($contentType) {
+                $contentType->delete();
+            });
+            $model->invites()->get()->map(function ($invite) {
+                $invite->delete();
             });
         });
     }
