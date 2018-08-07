@@ -91,6 +91,7 @@ class Department extends BaseModel
     }
 
     public static function boot() {
+        parent::boot();
         $schoolHasUsersUpdate = function ($model) {
             $staff = Staff::with('user')->find($model->hod_id);
             $role = Role::where('name', Role::HOD)->first();

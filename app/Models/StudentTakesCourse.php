@@ -71,6 +71,7 @@ class StudentTakesCourse extends BaseModel
     }
 
     public static function boot() {
+        parent::boot();
         self::deleting(function ($model) {
             $model->grades()->get()->map(function ($grade) {
                 $grade->delete();

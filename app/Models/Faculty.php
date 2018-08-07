@@ -101,6 +101,7 @@ class Faculty extends BaseModel
     }
 
     public static function boot() {
+        parent::boot();
         $schoolHasUsersUpdate = function ($model) {
             $role = Role::where('name', Role::DEAN)->first();
             $staff = $model->dean()->first();

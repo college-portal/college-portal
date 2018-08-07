@@ -57,6 +57,7 @@ class Chargeable extends BaseModel
     }
 
     public static function boot() {
+        parent::boot();
         self::deleting(function ($model) {
             $model->payables()->get()->map(function ($payable) {
                 $payable->delete();

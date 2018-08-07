@@ -41,8 +41,4 @@ class UserHasRole extends BaseModel
     public function school() {
         return $this->belongsTo(School::class);
     }
-
-    public static function boot() {
-        
-    }
 }

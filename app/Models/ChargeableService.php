@@ -43,6 +43,7 @@ class ChargeableService extends BaseModel
     }
 
     public static function boot() {
+        parent::boot();
         self::deleting(function ($model) {
             $model->chargeables()->get()->map(function ($chargeable) {
                 $chargeable->delete();

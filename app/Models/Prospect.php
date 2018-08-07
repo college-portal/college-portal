@@ -55,6 +55,7 @@ class Prospect extends BaseModel
     }
 
     public static function boot() {
+        parent::boot();
         $createProspectRole = function ($model) {
             $school = $model->school()->first();
             $role = Role::where('name', Role::PROSPECT)->first();

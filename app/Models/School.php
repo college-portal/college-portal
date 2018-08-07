@@ -104,6 +104,7 @@ class School extends BaseModel
     }
 
     public static function boot() {
+        parent::boot();
         $schoolOwnerRoleCreate = function ($model) {
             /** create school-owner user role */
             if ($model->owner_id) {

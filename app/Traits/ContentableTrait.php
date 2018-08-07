@@ -11,4 +11,12 @@ trait ContentableTrait
             return $q->where('type', static::class)->whereNull('related_to');
         });
     }
+
+    public static function boot() {
+        static::deleting(function ($model) {
+            $model->contents()->get()->map(function ($content) {
+                $content->delete();
+            });
+        });
+    }
 }

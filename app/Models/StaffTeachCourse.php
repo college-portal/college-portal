@@ -52,6 +52,7 @@ class StaffTeachCourse extends BaseModel
     }
 
     public static function boot() {
+        parent::boot();
         self::deleting(function ($model) {
             $model->studentTakesCourse()->get()->map(function ($studentCourse) {
                 $studentCourse->delete();

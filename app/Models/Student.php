@@ -61,6 +61,7 @@ class Student extends BaseModel
 
 
     public static function boot() {
+        parent::boot();
         $studentRoleCreate = function ($model) {
             $school = $model->program()->first()->department()->first()
                                         ->faculty()->first()->school()->first();

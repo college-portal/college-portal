@@ -51,6 +51,7 @@ class Semester extends BaseModel
     }
 
     public static function boot() {
+        parent::boot();
         self::deleting(function ($model) {
             $model->programCredits()->get()->map(function ($programCredit) {
                 $programCredit->delete();

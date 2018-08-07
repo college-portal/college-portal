@@ -60,6 +60,7 @@ class Content extends BaseModel
     }
 
     public static function boot() {
+        parent::boot();
         self::creating(function ($model) {
             $type = $model->type()->first();
             if (($type->format($model->value) != $type->format) && ($type->format != ContentType::ARRAY)) {

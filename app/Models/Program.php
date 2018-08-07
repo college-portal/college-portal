@@ -58,6 +58,7 @@ class Program extends BaseModel
     }
 
     public static function boot() {
+        parent::boot();
         self::deleting(function ($model) {
             $model->students()->get()->map(function ($student) {
                 $student->delete();

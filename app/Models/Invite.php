@@ -39,6 +39,7 @@ class Invite extends BaseModel
     }
 
     public static function boot() {
+        parent::boot();
         self::deleting(function ($model) {
             $model->roles()->get()->map(function ($role) {
                 $role->delete();

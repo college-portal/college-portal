@@ -38,6 +38,7 @@ class Session extends BaseModel
     }
 
     public static function boot() {
+        parent::boot();
         self::deleting(function ($model) {
             $model->semesters()->get()->map(function ($semester) {
                 $semester->delete();

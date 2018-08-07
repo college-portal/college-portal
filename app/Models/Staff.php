@@ -56,6 +56,7 @@ class Staff extends BaseModel
     }
 
     public static function boot() {
+        parent::boot();
         self::created(function ($model) {
             $school = $model->school()->first();
             $role = Role::where('name', Role::STAFF)->first();
