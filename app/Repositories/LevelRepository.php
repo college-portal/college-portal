@@ -31,7 +31,7 @@ class LevelRepository
     }
 
     public function delete($id) {
-        return $this->model()->where('id', $id)->delete();
+        return $this->model()->findOrFail($id)->delete();
     }
 
     public function create($opts) {
