@@ -19,3 +19,9 @@ git commit -m "chore: generate gh-pages"
 git push -d origin gh-pages
 git subtree push --prefix public/docs origin gh-pages
 git checkout edge
+
+# re-generate public/docs folder
+rm -rf public/docs
+php artisan generate:docs --password=$ADMIN_PASSWORD
+git add .
+git commit -m "chore: generate docs"
