@@ -6502,7 +6502,9 @@ $.ajax(settings).done(function (response) {
 <!-- END_7c944fd89c1d252d20aba8764359030f -->
 
 <!-- START_150955de7955df0ac566df3e477f9f7b -->
-## api/v1/intent-types
+## Get Intent Types
+
+Responds with a list of Intent Types
 
 > Example request:
 
@@ -6562,7 +6564,11 @@ $.ajax(settings).done(function (response) {
 <!-- END_150955de7955df0ac566df3e477f9f7b -->
 
 <!-- START_421515d53b59d5debb5e38cad694f3ca -->
-## api/v1/intent-types
+## Create Intent Type
+
+Supply Intent Type information to create a new one
+- Rules of Access
+ - User is an ADMIN
 
 > Example request:
 
@@ -6605,7 +6611,9 @@ Parameter | Type | Status | Description
 <!-- END_421515d53b59d5debb5e38cad694f3ca -->
 
 <!-- START_138e71cf17e682c2c68f7b3a7e571bad -->
-## api/v1/intent-types/{intent_type}
+## Get Intent Type by ID
+
+Responds with a specific Intent Type by its ID
 
 > Example request:
 
@@ -6650,7 +6658,11 @@ $.ajax(settings).done(function (response) {
 <!-- END_138e71cf17e682c2c68f7b3a7e571bad -->
 
 <!-- START_f1c74e25f71625287aeb40fb7a84ccd5 -->
-## api/v1/intent-types/{intent_type}
+## Update Intent Type
+
+Modifies information on an existing Intent Type
+- Rules of Access
+ - User is an ADMIN
 
 > Example request:
 
@@ -6685,7 +6697,11 @@ $.ajax(settings).done(function (response) {
 <!-- END_f1c74e25f71625287aeb40fb7a84ccd5 -->
 
 <!-- START_58192ebda2324a3b3f4530241f733266 -->
-## api/v1/intent-types/{intent_type}
+## Delete Intent Type
+
+Removes an Intent Type from the System by ID
+- Rules of Access
+ - User is an ADMIN
 
 > Example request:
 
@@ -6718,7 +6734,11 @@ $.ajax(settings).done(function (response) {
 <!-- END_58192ebda2324a3b3f4530241f733266 -->
 
 <!-- START_53bcee8d8bf3a88c049d76399a9a8cbf -->
-## api/v1/intents
+## Get Intent by ID
+
+Responds with a list of Intents
+- Rules of Access
+  - User owns Intents
 
 > Example request:
 
@@ -6781,7 +6801,9 @@ $.ajax(settings).done(function (response) {
 <!-- END_53bcee8d8bf3a88c049d76399a9a8cbf -->
 
 <!-- START_bb0317557044f43c90e71870bbf03402 -->
-## api/v1/intents
+## Create Intent
+
+Supply Intent information to create a new one
 
 > Example request:
 
@@ -6830,7 +6852,11 @@ Parameter | Type | Status | Description
 <!-- END_bb0317557044f43c90e71870bbf03402 -->
 
 <!-- START_30fd2985b276f3e0ea21d3f67792b186 -->
-## api/v1/intents/{intent}
+## Get Intent by ID
+
+Responds with a specific Intent by its ID
+- Rules of Access
+  - User owns Intent
 
 > Example request:
 
@@ -6878,7 +6904,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_30fd2985b276f3e0ea21d3f67792b186 -->
 
 <!-- START_d0171497bcfd16407f39be8ad6c88b6e -->
-## api/v1/intents/{intent}
+## Update Intent (Not Supported)
 
 > Example request:
 
@@ -6913,7 +6939,11 @@ $.ajax(settings).done(function (response) {
 <!-- END_d0171497bcfd16407f39be8ad6c88b6e -->
 
 <!-- START_37fc401684429329c105769e39adee88 -->
-## api/v1/intents/{intent}
+## Delete Intent
+
+Removes an Intent from the System by ID
+- Rules of Access
+ - User owns Intent
 
 > Example request:
 
