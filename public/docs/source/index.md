@@ -17,7 +17,6 @@ toc_footers:
 
 Welcome to the generated API reference.
 [Get Postman Collection](http://localhost:8000/docs/collection.json)
-
 <!-- END_INFO -->
 
 #general
@@ -7872,7 +7871,9 @@ $.ajax(settings).done(function (response) {
 <!-- END_f3ba6c3272166512747340ba3c534be4 -->
 
 <!-- START_0afa62f6c9788653382aed8c733219a7 -->
-## api/v1/contents
+## Get Contents
+
+Responds with a list of Content
 
 > Example request:
 
@@ -8006,7 +8007,11 @@ $.ajax(settings).done(function (response) {
 <!-- END_0afa62f6c9788653382aed8c733219a7 -->
 
 <!-- START_dcb9fa5d1b0a5999e79951a93df8464d -->
-## api/v1/contents
+## Create Content
+
+Supply Content information to create a new one
+- Rules of Access
+ - User can update the model the Content belongs to
 
 > Example request:
 
@@ -8055,7 +8060,11 @@ Parameter | Type | Status | Description
 <!-- END_dcb9fa5d1b0a5999e79951a93df8464d -->
 
 <!-- START_d09fc6d932cf750b9a20c7469021bd5d -->
-## api/v1/contents/{content}
+## Get Content by ID
+
+Responds with a specific Content by its ID
+- Rules of Access
+  - User is in the same school as the user who owns the content
 
 > Example request:
 
@@ -8102,7 +8111,11 @@ $.ajax(settings).done(function (response) {
 <!-- END_d09fc6d932cf750b9a20c7469021bd5d -->
 
 <!-- START_d61a72d71a537feaa033af00f3c30314 -->
-## api/v1/contents/{content}
+## Update Content
+
+Modify information about an existing Content by ID
+- Rules of Access
+ - User can update the model the Content belongs to
 
 > Example request:
 
@@ -8137,7 +8150,11 @@ $.ajax(settings).done(function (response) {
 <!-- END_d61a72d71a537feaa033af00f3c30314 -->
 
 <!-- START_396745607b4e979b38bededf979728aa -->
-## api/v1/contents/{content}
+## Delete Content
+
+Removes a Content from the System by ID
+- Rules of Access
+ - User can update the model the Content belongs to
 
 > Example request:
 
@@ -8170,7 +8187,14 @@ $.ajax(settings).done(function (response) {
 <!-- END_396745607b4e979b38bededf979728aa -->
 
 <!-- START_48b5c65c0afbafb50790e88c6afe4ec6 -->
-## api/v1/invites
+## Get Invites
+
+Responds with a list of Invites the user has access to view
+- Rules of Access
+  - User is an ADMIN
+  - User owns school where Invite is made to
+  - User has role of INVITE_CREATOR in school where Invite is made to
+  - User created the Invite
 
 > Example request:
 
@@ -8233,7 +8257,13 @@ $.ajax(settings).done(function (response) {
 <!-- END_48b5c65c0afbafb50790e88c6afe4ec6 -->
 
 <!-- START_e32d9e0ee4c2d9fc8b3ad6cf6eb21b8a -->
-## api/v1/invites
+## Create Invite
+
+Supply Invite information to create a new one
+- Rules of Access
+ - User can invite an ADMIN only if User is an ADMIN
+ - User can invite a SCHOOL_OWNER if User is an ADMIN or SCHOOL_OWNER in same school
+ - User can invite anyone else to a school if User is ADMIN / SCHOOL_OWNER / INVITE_CREATOR
 
 > Example request:
 
@@ -8288,7 +8318,14 @@ Parameter | Type | Status | Description
 <!-- END_e32d9e0ee4c2d9fc8b3ad6cf6eb21b8a -->
 
 <!-- START_93ab13d4129d8f052fa7a3f19acda848 -->
-## api/v1/invites/{invite}
+## Get Invite by ID
+
+Responds with a specific Invite by its ID
+- Rules of Access
+  - User is an ADMIN
+  - User owns school where Invite is made to
+  - User has role of INVITE_CREATOR in school where Invite is made to
+  - User created the Invite
 
 > Example request:
 
@@ -8336,7 +8373,11 @@ $.ajax(settings).done(function (response) {
 <!-- END_93ab13d4129d8f052fa7a3f19acda848 -->
 
 <!-- START_5baecaa00070ce371d45f975ca8a32ff -->
-## api/v1/invites/{invite}
+## Update Invite
+
+Modify information about an existing Invite by ID
+- Rules of Access
+ - Invite was made to User's email address
 
 > Example request:
 
@@ -8371,7 +8412,14 @@ $.ajax(settings).done(function (response) {
 <!-- END_5baecaa00070ce371d45f975ca8a32ff -->
 
 <!-- START_3a4c286ef3a0c4ae0e3e8cb0f1e95352 -->
-## api/v1/invites/{invite}
+## Delete Invite
+
+Removes a Invite from the System by ID
+- Rules of Access
+  - User is an ADMIN
+  - User owns school where Invite is made to
+  - User has role of INVITE_CREATOR in school where Invite is made to
+  - User created the Invite
 
 > Example request:
 
