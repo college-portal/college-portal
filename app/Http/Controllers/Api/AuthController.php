@@ -30,7 +30,29 @@ class AuthController extends ApiController
         }
         catch (\Exception $ex) {
             // authorization error
-            return $this->error('could_not_create_token', $ex);
+            return $this->error('could not create token', $ex);
+        }
+    }
+
+    /**
+     * Refresh Access Token
+     * 
+     * Uses basic authentication and returns a Json Web Token
+     */
+    public function refresh(Request $request) {
+        try {
+            if ($request->header('Authorization')) {
+                $token = explode(' ', $request->header('Authorization'))[1];
+                $refreshed_token = JWTAuth::refresh($token);
+                return $this->json([
+                    'token' => $refreshed_token
+                ]);
+            }
+            return $this->badRequest('invalid "Authorization" header');
+        }
+        catch (\Exception $ex) {
+            // authorization error
+            return $this->error('could not refresh token', $ex);
         }
     }
 

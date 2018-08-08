@@ -58,6 +58,7 @@ Route::group([
     });
 
     Route::post('auth', AuthController::method('login'));
+    Route::post('auth/refresh', AuthController::method('refresh'));
 
     /**
      * auth routes
