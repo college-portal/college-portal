@@ -18,7 +18,6 @@ use App\User;
  * @property int $user_id
  * @property int $program_id
  * @property string $matric_no
- * @property bool $is_active
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Student whereContains($value)
@@ -30,7 +29,7 @@ use App\User;
  */
 class Student extends BaseModel
 {
-    protected $fillable = [ 'user_id', 'program_id', 'matric_no', 'is_active' ];
+    protected $fillable = [ 'user_id', 'program_id', 'matric_no' ];
 
     public function user() {
         return $this->belongsTo(User::class);

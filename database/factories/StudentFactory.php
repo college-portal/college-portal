@@ -15,7 +15,6 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Models\Student::class, function (Faker $faker) {
     return [
-        'matric_no' => 'UNI' . $faker->unique()->numberBetween(101, 999),
-        'is_active' => true
+        'matric_no' => 'UNI' . $faker->unique()->numberBetween(101, 999)
     ];
 });
