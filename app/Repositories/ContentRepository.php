@@ -6,6 +6,7 @@ use App\User;
 use App\Models\Content;
 use App\Filters\ContentFilters;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class ContentRepository
 {
@@ -27,18 +28,24 @@ class ContentRepository
     }
 
     public function delete($id) {
-        return $this->model()->findOrFail($id)->delete();
+        return DB::transaction(function () use ($id) {
+            return $this->model()->findOrFail($id)->delete();
+        });
     }
 
     public function create($opts) {
-        return $this->model()->create($opts);
+        return DB::transaction(function () use ($opts) {
+            return $this->model()->create($opts);
+        });
     }
 
     public function update($id, $opts = []) {
-        $item = $this->model()->findOrFail($id);
-        $item->fill($opts);
-        $item->save();
-        return $item;
+        return DB::transaction(function () use ($id, $opts) {
+            $item = $this->model()->findOrFail($id);
+            $item->fill($opts);
+            $item->save();
+            return $item;
+        });
     }
 
     public function count(ContentFilters $filters)

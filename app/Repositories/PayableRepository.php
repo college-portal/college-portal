@@ -6,6 +6,7 @@ use App\User;
 use App\Models\Payable;
 use App\Filters\PayableFilters;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class PayableRepository
 {
@@ -31,18 +32,24 @@ class PayableRepository
     }
 
     public function delete($id) {
-        return $this->model()->findOrFail($id)->delete();
+        return DB::transaction(function () use ($id) {
+            return $this->model()->findOrFail($id)->delete();
+        });
     }
 
     public function create($opts) {
-        return $this->model()->create($opts);
+        return DB::transaction(function () use ($opts) {
+            return $this->model()->create($opts);
+        });
     }
 
     public function update($id, $opts = []) {
-        $payable = $this->model()->findOrFail($id);
-        if (isset($opts['is_paid'])) $payable->is_paid = $opts['is_paid'];
-        $payable->save();
-        return $payable;
+        return DB::transaction(function () use ($id, $opts) {
+            $item = $this->model()->findOrFail($id);
+            $item->fill($opts);
+            $item->save();
+            return $item;
+        });
     }
 
     public function count(PayableFilters $filters)

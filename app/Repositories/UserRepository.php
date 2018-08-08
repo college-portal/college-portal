@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\User;
 use App\Filters\UserFilters;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class UserRepository
 {
@@ -34,19 +35,24 @@ class UserRepository
     }
 
     public function delete($id) {
-        return $this->model()->findOrFail($id)->delete();
+        return DB::transaction(function () use ($id) {
+            return $this->model()->findOrFail($id)->delete();
+        });
     }
 
-    public function create(array $opts):User
-	{
-        return $this->model()->create($opts);
+    public function create($opts) {
+        return DB::transaction(function () use ($opts) {
+            return $this->model()->create($opts);
+        });
     }
 
     public function update($id, $opts = []) {
-        $item = $this->model()->findOrFail($id);
-        $item->fill($opts);
-        $item->save();
-        return $item;
+        return DB::transaction(function () use ($id, $opts) {
+            $item = $this->model()->findOrFail($id);
+            $item->fill($opts);
+            $item->save();
+            return $item;
+        });
     }
 
     public function count(UserFilters $filters)
