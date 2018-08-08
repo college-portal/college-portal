@@ -22,7 +22,7 @@ class AuthController extends ApiController
 
         try {
             // attempt authorization
-            if (! $token = JWTAuth::attempt($credentials)) {
+            if (! $token = JWTAuth::attempt($credentials, [ 'aud' => 'access' ])) {
                 // authorization failed
                 return $this->json(['message' => 'invalid credentials'], 400);
             }

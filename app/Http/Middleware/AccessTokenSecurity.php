@@ -28,12 +28,21 @@ class AccessTokenSecurity
     public function handle(Request $request, Closure $next) {
         if ($request->header('Authorization')) {
             try {
+                $payload = null;
                 if ($this->auth->user()) { // when request is made via test
                     $token = explode(' ', $request->header('Authorization'))[1];
-                    \JWTAuth::setToken($token)->authenticate($token);
+                    $jwt_auth = \JWTAuth::setToken($token);
+                    $payload = $jwt_auth->getPayload();
+                    $jwt_auth->authenticate($token);
                 }
                 else {
-                    \JWTAuth::parseToken()->authenticate();
+                    $jwt_auth = \JWTAuth::parseToken();
+                    $payload = $jwt_auth->getPayload();
+                    $jwt_auth->authenticate();
+                    // make sure the token's aud is "access"
+                    if ($payload->get('aud') !== 'access') {
+                        throw new TokenInvalidException();
+                    }
                 }
                 return $next($request);
             } catch (TokenExpiredException $e) {
