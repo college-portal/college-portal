@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Chargeable;
-use App\Models\ChargeableService;
+use CollegePortal\Models\Chargeable;
+use CollegePortal\Models\ChargeableService;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 

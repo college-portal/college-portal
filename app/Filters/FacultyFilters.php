@@ -2,8 +2,8 @@
 
 namespace App\Filters;
 
-use App\User;
-use App\Models\Faculty;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Faculty;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Carbon\Carbon;

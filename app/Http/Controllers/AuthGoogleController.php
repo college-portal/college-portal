@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Services\UserService;
-use App\User;
+use CollegePortal\Models\User;
 use Auth;
 use Socialite;
 

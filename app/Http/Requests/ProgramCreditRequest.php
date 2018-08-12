@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Program;
-use App\Models\Semester;
-use App\Models\Level;
+use CollegePortal\Models\Program;
+use CollegePortal\Models\Semester;
+use CollegePortal\Models\Level;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProgramCreditRequest extends FormRequest

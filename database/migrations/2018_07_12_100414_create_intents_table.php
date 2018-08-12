@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\Intent;
+use CollegePortal\Models\Intent;
 
 class CreateIntentsTable extends Migration
 {

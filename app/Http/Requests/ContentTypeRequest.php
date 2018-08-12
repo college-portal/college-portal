@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Role;
-use App\Models\School;
-use App\Models\ContentType;
+use CollegePortal\Models\Role;
+use CollegePortal\Models\School;
+use CollegePortal\Models\ContentType;
 use App\Rules\AbsentRule;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;

@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\User;
-use App\Models\Role;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Role;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class UserPolicy

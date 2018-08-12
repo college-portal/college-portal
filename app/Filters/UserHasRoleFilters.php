@@ -2,8 +2,8 @@
 
 namespace App\Filters;
 
-use App\User;
-use App\Models\UserHasRole;
+use CollegePortal\Models\User;
+use CollegePortal\Models\UserHasRole;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 

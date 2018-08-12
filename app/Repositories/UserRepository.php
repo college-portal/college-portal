@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\User;
+use CollegePortal\Models\User;
 use App\Filters\UserFilters;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;

@@ -2,8 +2,8 @@
 
 namespace App\Filters;
 
-use App\User;
-use App\Models\GradeType;
+use CollegePortal\Models\User;
+use CollegePortal\Models\GradeType;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 

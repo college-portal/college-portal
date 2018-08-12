@@ -2,8 +2,8 @@
 
 namespace App\Filters;
 
-use App\User;
-use App\Models\ChargeableService;
+use CollegePortal\Models\User;
+use CollegePortal\Models\ChargeableService;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 

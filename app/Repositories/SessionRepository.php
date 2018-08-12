@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\User;
-use App\Models\Session;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Session;
 use App\Filters\SessionFilters;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;

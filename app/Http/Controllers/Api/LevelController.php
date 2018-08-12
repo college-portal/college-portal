@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Services\LevelService;
 use App\Filters\LevelFilters;
-use App\Models\School;
+use CollegePortal\Models\School;
 use App\Http\Requests\LevelRequest;
 
 class LevelController extends ApiController

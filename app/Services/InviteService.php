@@ -4,9 +4,9 @@ namespace App\Services;
 
 use Carbon\Carbon;
 
-use App\Models\Role;
+use CollegePortal\Models\Role;
 use App\Mail\InviteMail;
-use App\Models\InviteRole;
+use CollegePortal\Models\InviteRole;
 use App\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
 use App\Repositories\StaffRepository;

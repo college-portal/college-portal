@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
-use App\User;
-use App\Models\Role;
-use App\Models\ImageType;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Role;
+use CollegePortal\Models\ImageType;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ImageTypePolicy

@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\Student;
-use App\Models\Program;
-use App\User;
+use CollegePortal\Models\Student;
+use CollegePortal\Models\Program;
+use CollegePortal\Models\User;
 
 class RelStudentUserProgram extends Migration
 {

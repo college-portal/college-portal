@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\User;
-use App\Models\ImageType;
+use CollegePortal\Models\User;
+use CollegePortal\Models\ImageType;
 use App\Filters\ImageTypeFilters;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;

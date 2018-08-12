@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\User;
-use App\Models\Payable;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Payable;
 use App\Filters\PayableFilters;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;

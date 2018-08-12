@@ -56,8 +56,8 @@ class MakeRepositoryCommand extends Command
 
         namespace App\Repositories;
         
-        use App\User;
-        use App\Models\\$name;
+        use CollegePortal\Models\User;
+        use CollegePortal\Models\\$name;
         use App\Filters\\${name}Filters;
         use Carbon\Carbon;
         

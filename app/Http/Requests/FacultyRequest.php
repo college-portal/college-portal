@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
-use App\Models\School;
-use App\Models\Role;
+use CollegePortal\Models\School;
+use CollegePortal\Models\Role;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FacultyRequest extends FormRequest

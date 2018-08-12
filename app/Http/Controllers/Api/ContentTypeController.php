@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Models\School;
+use CollegePortal\Models\School;
 use App\Services\ContentTypeService;
 use App\Filters\ContentTypeFilters;
 use App\Http\Requests\ContentTypeRequest;

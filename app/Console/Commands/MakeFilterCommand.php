@@ -56,8 +56,8 @@ class MakeFilterCommand extends Command
 
         namespace App\Filters;
 
-        use App\User;
-        use App\Models\\$name;
+        use CollegePortal\Models\User;
+        use CollegePortal\Models\\$name;
         use Illuminate\Http\Request;
         use Carbon\Carbon;
 

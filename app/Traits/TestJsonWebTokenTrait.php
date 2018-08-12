@@ -2,8 +2,8 @@
 
 namespace App\Traits;
 
-use App\User;
-use App\Models\Role;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Role;
 
 trait TestJsonWebTokenTrait
 {

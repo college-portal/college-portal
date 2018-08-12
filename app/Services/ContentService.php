@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\ContentType;
+use CollegePortal\Models\ContentType;
 use App\Repositories\ContentRepository;
 use App\Repositories\ContentTypeRepository;
 use Illuminate\Validation\ValidationException;

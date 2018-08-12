@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\User;
-use App\Models\StaffTeachCourse;
+use CollegePortal\Models\User;
+use CollegePortal\Models\StaffTeachCourse;
 use App\Filters\StaffTeachCourseFilters;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;

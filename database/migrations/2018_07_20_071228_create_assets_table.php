@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\Asset;
+use CollegePortal\Models\Asset;
 
 class CreateAssetsTable extends Migration
 {

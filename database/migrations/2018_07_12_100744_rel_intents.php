@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\User;
-use App\Models\IntentType;
-use App\Models\Intent;
+use CollegePortal\Models\User;
+use CollegePortal\Models\IntentType;
+use CollegePortal\Models\Intent;
 
 class RelIntents extends Migration
 {

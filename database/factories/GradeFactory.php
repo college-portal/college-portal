@@ -13,7 +13,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Models\Grade::class, function (Faker $faker) {
+$factory->define(CollegePortal\Models\Grade::class, function (Faker $faker) {
     return [
         'score' => $faker->numberBetween(20, 40),
         'description' => $faker->unique()->randomElement([

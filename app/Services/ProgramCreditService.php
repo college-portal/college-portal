@@ -37,7 +37,7 @@ class ProgramCreditService extends BaseService
      * @param integer $opts->semester_id
      * @param float $opts->level_id
      * 
-     * @return \App\Models\ProgramCredit
+     * @return \CollegePortal\Models\ProgramCredit
      *
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */

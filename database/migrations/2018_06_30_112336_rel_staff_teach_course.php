@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\Staff;
-use App\Models\Course;
-use App\Models\Semester;
-use App\Models\StaffTeachCourse;
+use CollegePortal\Models\Staff;
+use CollegePortal\Models\Course;
+use CollegePortal\Models\Semester;
+use CollegePortal\Models\StaffTeachCourse;
 
 class RelStaffTeachCourse extends Migration
 {

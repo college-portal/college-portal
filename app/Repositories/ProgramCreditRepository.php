@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\User;
-use App\Models\ProgramCredit;
+use CollegePortal\Models\User;
+use CollegePortal\Models\ProgramCredit;
 use App\Filters\ProgramCreditFilters;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;

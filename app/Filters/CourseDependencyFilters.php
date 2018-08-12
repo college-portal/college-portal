@@ -2,8 +2,8 @@
 
 namespace App\Filters;
 
-use App\User;
-use App\Models\CourseDependency;
+use CollegePortal\Models\User;
+use CollegePortal\Models\CourseDependency;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 

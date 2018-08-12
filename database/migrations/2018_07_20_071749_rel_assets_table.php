@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\Asset;
-use App\Models\AssetType;
+use CollegePortal\Models\Asset;
+use CollegePortal\Models\AssetType;
 
 class RelAssetsTable extends Migration
 {

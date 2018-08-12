@@ -2,9 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Models\Faculty;
+use CollegePortal\Models\Faculty;
 use App\Filters\FacultyFilters;
-use App\User;
+use CollegePortal\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 

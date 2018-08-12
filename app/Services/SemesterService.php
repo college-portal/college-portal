@@ -2,11 +2,11 @@
 
 namespace App\Services;
 
-use App\Models\Semester;
+use CollegePortal\Models\Semester;
 use App\Repositories\SemesterTypeRepository;
 use App\Repositories\SemesterRepository;
 use App\Repositories\SessionRepository;
-use App\Models\Session;
+use CollegePortal\Models\Session;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Validation\ValidationException;
@@ -54,7 +54,7 @@ class SemesterService extends BaseService
      * @param Carbon $opts->start_date
      * @param Carbon $opts->end_date
      * 
-     * @return \App\Models\Semester
+     * @return \CollegePortal\Models\Semester
      *
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
@@ -96,7 +96,7 @@ class SemesterService extends BaseService
      * @param Carbon $opts->start_date
      * @param Carbon $opts->end_date
      * 
-     * @return \App\Models\Semester
+     * @return \CollegePortal\Models\Semester
      *
      * @throws Exception
      * @throws \Illuminate\Auth\Access\AuthorizationException

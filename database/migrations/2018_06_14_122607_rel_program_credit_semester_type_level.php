@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\ProgramCredit;
-use App\Models\Semester;
-use App\Models\Program;
-use App\Models\Level;
+use CollegePortal\Models\ProgramCredit;
+use CollegePortal\Models\Semester;
+use CollegePortal\Models\Program;
+use CollegePortal\Models\Level;
 
 class RelProgramCreditSemesterTypeLevel extends Migration
 {

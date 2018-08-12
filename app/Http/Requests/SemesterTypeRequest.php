@@ -3,8 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\School;
-use App\Models\Role;
+use CollegePortal\Models\School;
+use CollegePortal\Models\Role;
 use App\Rules\AbsentRule;
 
 class SemesterTypeRequest extends FormRequest

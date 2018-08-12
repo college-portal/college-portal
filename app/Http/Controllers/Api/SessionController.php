@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Services\SessionService;
 use App\Filters\SessionFilters;
-use App\Models\School;
+use CollegePortal\Models\School;
 use App\Http\Requests\SessionRequest;
 
 class SessionController extends ApiController

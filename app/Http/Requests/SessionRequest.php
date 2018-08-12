@@ -3,8 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\School;
-use App\Models\Role;
+use CollegePortal\Models\School;
+use CollegePortal\Models\Role;
 
 class SessionRequest extends FormRequest
 {

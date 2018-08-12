@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\User;
-use App\Models\UserHasRole;
+use CollegePortal\Models\User;
+use CollegePortal\Models\UserHasRole;
 use App\Filters\UserHasRoleFilters;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;

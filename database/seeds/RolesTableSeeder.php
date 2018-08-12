@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\Role;
+use CollegePortal\Models\Role;
 use Illuminate\Support\Collection;
 
 class RolesTableSeeder extends Seeder

@@ -1,6 +1,6 @@
 <?php namespace App\Http\Middleware;
 
-use App\User;
+use CollegePortal\Models\User;
 use Auth;
 use Closure;
 use Illuminate\Http\Request;

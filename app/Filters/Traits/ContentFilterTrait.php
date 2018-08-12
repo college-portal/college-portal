@@ -2,7 +2,7 @@
 
 namespace App\Filters\Traits;
 
-use App\Models\ContentType;
+use CollegePortal\Models\ContentType;
 use Illuminate\Support\Collection;
 
 trait ContentFilterTrait

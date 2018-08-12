@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\ChargeableService;
+use CollegePortal\Models\ChargeableService;
 
 class CreateChargeableServicesTable extends Migration
 {

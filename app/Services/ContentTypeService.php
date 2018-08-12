@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Rules\AbsentRule;
-use App\Models\ContentType;
+use CollegePortal\Models\ContentType;
 use App\Repositories\ContentTypeRepository;
 use Illuminate\Validation\ValidationException;
 use Carbon\Carbon;

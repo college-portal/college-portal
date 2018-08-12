@@ -7,7 +7,7 @@ use App\Services\ImageService;
 use App\Filters\ImageFilters;
 use App\Http\Requests\ImageRequest;
 use JD\Cloudder\Facades\Cloudder;
-use App\Models\Image;
+use CollegePortal\Models\Image;
 
 class ImageController extends ApiController
 {
