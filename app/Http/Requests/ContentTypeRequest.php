@@ -32,7 +32,11 @@ class ContentTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            'type' => 'required|string',
+            'type' => [
+                'required',
+                'string',
+                Rule::in(ContentType::models())
+            ],
             'name' => 'required|string',
             'display_name' => 'required|string',
             'school_id' => 'required|numeric|exists:schools,id',
