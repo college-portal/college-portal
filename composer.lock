@@ -64,12 +64,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/college-portal/api-models.git",
-                "reference": "4319b3ffeda7b9ff337fa6d51106b61081325adc"
+                "reference": "f81a72198fdc4c763166f2e9d65650c5efdd67cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/college-portal/api-models/zipball/4319b3ffeda7b9ff337fa6d51106b61081325adc",
-                "reference": "4319b3ffeda7b9ff337fa6d51106b61081325adc",
+                "url": "https://api.github.com/repos/college-portal/api-models/zipball/f81a72198fdc4c763166f2e9d65650c5efdd67cc",
+                "reference": "f81a72198fdc4c763166f2e9d65650c5efdd67cc",
                 "shasum": ""
             },
             "require": {
@@ -102,7 +102,7 @@
                 }
             ],
             "description": "Models for Database Tables and Views for the College-Portal project",
-            "time": "2018-08-12T16:31:59+00:00"
+            "time": "2018-08-13T08:18:35+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
