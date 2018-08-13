@@ -39,8 +39,7 @@
             "database/factories"
         ],
         "psr-4": {
-            "App\\": "app/",
-            "CollegePortal\\Models\\": "vendor/bin/college-portal/api-models/"
+            "App\\": "app/"
         }
     },
     "autoload-dev": {
