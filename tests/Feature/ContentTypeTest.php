@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use CollegePortal\Models\Role;
+use CollegePortal\Models\School;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
@@ -21,7 +22,7 @@ class ContentTypeTest extends TestCase
     public function testGetContentTypeList()
     {
         $response = $this->loginAsRole(Role::ADMIN)
-                        ->get($this->url('schools/1/content-types'));
+                        ->get($this->url('content-types'));
 
         $response->assertStatus(200);
 
@@ -46,7 +47,7 @@ class ContentTypeTest extends TestCase
     public function testGetContentType()
     {
         $response = $this->loginAsRole(Role::ADMIN)
-                        ->get($this->url('schools/1/content-types/1'));
+                        ->get($this->url('content-types/1'));
 
         $response->assertStatus(200);
 
@@ -67,10 +68,11 @@ class ContentTypeTest extends TestCase
     public function testCreateContentTypeWithNoFormat()
     {
         $response = $this->loginAsRole(Role::ADMIN)
-                        ->post($this->url('schools/1/content-types'), [
+                        ->post($this->url('content-types'), [
                             'name' => 'logo',
                             'display_name' => 'Logo',
-                            'type' => 'App\\Models\\Schools'
+                            'type' => School::class,
+                            'school_id' => 1
                         ]);
 
         $response->assertStatus(422);
@@ -86,11 +88,12 @@ class ContentTypeTest extends TestCase
     public function testCreateContentTypeWithNumberFormat()
     {
         $response = $this->loginAsRole(Role::ADMIN)
-                        ->post($this->url('schools/1/content-types'), [
+                        ->post($this->url('content-types'), [
                             'name' => 'no_of_parks',
                             'display_name' => 'No. of Parks',
-                            'type' => 'App\\Models\\Schools',
-                            'format' => 'number'
+                            'type' => School::class,
+                            'format' => 'number',
+                            'school_id' => 1
                         ]);
 
         $response->assertStatus(201);
@@ -117,11 +120,12 @@ class ContentTypeTest extends TestCase
     public function testCreateContentTypeWithStringFormat()
     {
         $response = $this->loginAsRole(Role::ADMIN)
-                        ->post($this->url('schools/1/content-types'), [
+                        ->post($this->url('content-types'), [
                             'name' => 'logo',
                             'display_name' => 'Logo',
-                            'type' => 'App\\Models\\Schools',
-                            'format' => 'string'
+                            'type' => School::class,
+                            'format' => 'string',
+                            'school_id' => 1
                         ]);
 
         $response->assertStatus(201);
@@ -148,11 +152,12 @@ class ContentTypeTest extends TestCase
     public function testCreateContentTypeWithBooleanFormat()
     {
         $response = $this->loginAsRole(Role::ADMIN)
-                        ->post($this->url('schools/1/content-types'), [
+                        ->post($this->url('content-types'), [
                             'name' => 'has_parks',
                             'display_name' => 'Has Parks',
-                            'type' => 'App\\Models\\Schools',
-                            'format' => 'boolean'
+                            'type' => School::class,
+                            'format' => 'boolean',
+                            'school_id' => 1
                         ]);
 
         $response->assertStatus(201);
@@ -179,11 +184,12 @@ class ContentTypeTest extends TestCase
     public function testCreateContentTypeWithObjectFormat()
     {
         $response = $this->loginAsRole(Role::ADMIN)
-                        ->post($this->url('schools/1/content-types'), [
+                        ->post($this->url('content-types'), [
                             'name' => 'settings',
                             'display_name' => 'Settings',
-                            'type' => 'App\\Models\\Schools',
-                            'format' => 'number'
+                            'type' => School::class,
+                            'format' => 'number',
+                            'school_id' => 1
                         ]);
 
         $response->assertStatus(201);
@@ -210,11 +216,12 @@ class ContentTypeTest extends TestCase
     public function testCreateContentTypeWithArrayFormat()
     {
         $response = $this->loginAsRole(Role::ADMIN)
-                        ->post($this->url('schools/1/content-types'), [
+                        ->post($this->url('content-types'), [
                             'name' => 'phones',
                             'display_name' => 'Phones',
-                            'type' => 'App\\Models\\Schools',
-                            'format' => 'array'
+                            'type' => School::class,
+                            'format' => 'array',
+                            'school_id' => 1
                         ]);
 
         $response->assertStatus(201);
@@ -241,7 +248,7 @@ class ContentTypeTest extends TestCase
     public function testUpdateContentType()
     {
         $response = $this->loginAsRole(Role::ADMIN)
-                        ->put($this->url('schools/1/content-types/1'), [
+                        ->put($this->url('content-types/1'), [
                             'name' => 'logo 2',
                             'display_name' => 'Logo II'
                         ]);
@@ -270,7 +277,7 @@ class ContentTypeTest extends TestCase
     public function testDeleteContentType()
     {
         $response = $this->loginAsRole(Role::ADMIN)
-                        ->delete($this->url('schools/1/content-types/1'));
+                        ->delete($this->url('content-types/1'));
 
         $response->assertStatus(200);
 

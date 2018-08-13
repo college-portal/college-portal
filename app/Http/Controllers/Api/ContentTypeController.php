@@ -27,8 +27,7 @@ class ContentTypeController extends ApiController
      * - Rules of Access
      *   - User is in the same school
      */
-    public function show(Request $request, ContentTypeFilters $filters, int $school_id, $id) {
-        $this->authorize('view', School::findOrFail($school_id));
+    public function show(Request $request, ContentTypeFilters $filters, $id) {
         $contentType = $this->service()->repo()->single($id, $filters);
         $this->authorize('view', $contentType);
         return $contentType;
@@ -41,8 +40,7 @@ class ContentTypeController extends ApiController
      * - Rules of Access
      *   - User is in the same school
      */
-    public function index(Request $request, ContentTypeFilters $filters, int $school_id) {
-        $this->authorize('view', School::findOrFail($school_id));
+    public function index(Request $request, ContentTypeFilters $filters) {
         $contentTypes = $this->service()->repo()->list($request->user(), $filters);
         return $contentTypes;
     }
@@ -55,8 +53,7 @@ class ContentTypeController extends ApiController
      *  - User is an ADMIN or
      *  - User owns school the ContentType belongs to
      */
-    public function destroy(Request $request, int $school_id, $id) {
-        $this->authorize('update', School::findOrFail($school_id));
+    public function destroy(Request $request, $id) {
         $contentType = $this->service()->repo()->single($id);
         $this->authorize('delete', $contentType); /** ensure the current user has delete rights */
         $this->service()->repo()->delete($id);
@@ -71,9 +68,8 @@ class ContentTypeController extends ApiController
      *  - User is an ADMIN or
      *  - User owns school the Content Type belongs to
      */
-    public function store(ContentTypeRequest $request, int $school_id) {
-        $this->authorize('update', School::findOrFail($school_id));
-        $contentType = $this->service()->create(array_merge($request->all(), [ 'school_id' => $school_id ]));
+    public function store(ContentTypeRequest $request) {
+        $contentType = $this->service()->create($request->all());
         return $this->created($contentType);
     }
 
@@ -85,8 +81,7 @@ class ContentTypeController extends ApiController
      *  - User is an ADMIN or
      *  - User owns school the Content Type belongs to
      */
-    public function update(Request $request, int $school_id, $id) {
-        $this->authorize('update', School::findOrFail($school_id));
+    public function update(Request $request, $id) {
         $contentType = $this->service()->repo()->single($id);
         $this->authorize('update', $contentType);
         $contentType = $this->service()->update($id, $request->all());

@@ -128,7 +128,7 @@ Route::group([
         
         Route::resource('/user-roles', UserHasRoleController::class(), $excepts);
         
-        Route::resource('/schools/{school_id}/content-types', ContentTypeController::class(), $excepts);
+        Route::resource('/content-types', ContentTypeController::class(), $excepts);
         
         Route::resource('/contents', ContentController::class(), $excepts);
         
