@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
-use App\User;
-use App\Models\Role;
-use App\Models\IntentType;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Role;
+use CollegePortal\Models\IntentType;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class IntentTypePolicy

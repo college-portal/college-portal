@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\User;
-use App\Models\Chargeable;
-use App\Models\Payable;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Chargeable;
+use CollegePortal\Models\Payable;
 
 class RelPayables extends Migration
 {

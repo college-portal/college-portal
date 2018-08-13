@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Grade;
-use App\Models\Role;
-use App\Models\StudentTakesCourse;
+use CollegePortal\Models\Grade;
+use CollegePortal\Models\Role;
+use CollegePortal\Models\StudentTakesCourse;
 use Illuminate\Foundation\Http\FormRequest;
 
 class GradeRequest extends FormRequest

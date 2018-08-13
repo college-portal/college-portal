@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\Session;
-use App\Models\Semester;
-use App\Models\SemesterType;
+use CollegePortal\Models\Session;
+use CollegePortal\Models\Semester;
+use CollegePortal\Models\SemesterType;
 
 class RelSemester extends Migration
 {

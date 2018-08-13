@@ -14,7 +14,7 @@ use Illuminate\Support\Collection;
 |
 */
 
-$factory->define(App\Models\School::class, function (Faker $faker) {
+$factory->define(CollegePortal\Models\School::class, function (Faker $faker) {
     $schools = array(
         'UI' => 'University of Ibadan',
         'UNILORIN' => 'University of Ilorin',

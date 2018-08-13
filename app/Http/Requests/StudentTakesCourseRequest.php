@@ -3,10 +3,10 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Student;
-use App\Models\StaffTeachCourse;
-use App\Models\Semester;
-use App\Models\Role;
+use CollegePortal\Models\Student;
+use CollegePortal\Models\StaffTeachCourse;
+use CollegePortal\Models\Semester;
+use CollegePortal\Models\Role;
 
 class StudentTakesCourseRequest extends FormRequest
 {

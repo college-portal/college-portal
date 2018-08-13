@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Role;
-use App\Models\School;
-use App\Models\Session;
-use App\Models\Program;
+use CollegePortal\Models\Role;
+use CollegePortal\Models\School;
+use CollegePortal\Models\Session;
+use CollegePortal\Models\Program;
 use App\Rules\AbsentRule;
 use Illuminate\Foundation\Http\FormRequest;
 

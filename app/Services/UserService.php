@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
-use App\User;
-use App\Models\Intent;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Intent;
 use App\Repositories\UserRepository;
 use Carbon\Carbon;
 

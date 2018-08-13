@@ -1,7 +1,10 @@
 <?php
 
 use Faker\Generator as Faker;
-use App\Models\ContentType;
+use CollegePortal\Models\Staff;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Department;
+use CollegePortal\Models\ContentType;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +17,7 @@ use App\Models\ContentType;
 |
 */
 
-$factory->define(App\Models\ContentType::class, function (Faker $faker) {
+$factory->define(CollegePortal\Models\ContentType::class, function (Faker $faker) {
     $name = $faker->unique()->randomElement([
         'type-1',
         'type-2',
@@ -29,9 +32,9 @@ $factory->define(App\Models\ContentType::class, function (Faker $faker) {
     ]);
     return [
         'type' => $faker->randomElement([
-            'App\\Models\\Staff',
-            'App\\User',
-            'App\\Models\\Department'
+            Staff::class,
+            User::class,
+            Department::class
         ]),
         'name' => $name,
         'display_name' => ucwords(str_replace('-', ' ', $name)),

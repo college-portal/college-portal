@@ -3,8 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Course;
-use App\Models\CourseDependency;
+use CollegePortal\Models\Course;
+use CollegePortal\Models\CourseDependency;
 
 class CourseDependencyRequest extends FormRequest
 {

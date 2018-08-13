@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
-use App\User;
-use App\Models\Role;
-use App\Models\Content;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Role;
+use CollegePortal\Models\Content;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ContentPolicy

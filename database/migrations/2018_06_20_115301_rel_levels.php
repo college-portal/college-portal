@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\Level;
-use App\Models\School;
+use CollegePortal\Models\Level;
+use CollegePortal\Models\School;
 
 class RelLevels extends Migration
 {

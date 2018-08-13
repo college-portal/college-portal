@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
-use App\User;
-use App\Models\Faculty;
-use App\Models\Role;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Faculty;
+use CollegePortal\Models\Role;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class FacultyPolicy

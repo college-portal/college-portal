@@ -3,12 +3,12 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\User;
-use App\Models\Prospect;
-use App\Models\Program;
-use App\Models\School;
-use App\Models\Session;
-use App\Models\Student;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Prospect;
+use CollegePortal\Models\Program;
+use CollegePortal\Models\School;
+use CollegePortal\Models\Session;
+use CollegePortal\Models\Student;
 
 class RelProspects extends Migration
 {

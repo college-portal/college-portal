@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Role;
+use CollegePortal\Models\Role;
 use App\Rules\AbsentRule;
 use Illuminate\Foundation\Http\FormRequest;
 

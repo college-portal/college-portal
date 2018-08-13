@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\Course;
-use App\Models\CourseDependency;
+use CollegePortal\Models\Course;
+use CollegePortal\Models\CourseDependency;
 
 class RelCourseDependency extends Migration
 {

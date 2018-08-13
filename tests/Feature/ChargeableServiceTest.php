@@ -3,7 +3,8 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use App\Models\Role;
+use CollegePortal\Models\Role;
+use CollegePortal\Models\Session;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
@@ -70,7 +71,7 @@ class ChargeableServiceTest extends TestCase
     {
         $response = $this->loginAsRole(Role::ADMIN)
                         ->post($this->url('chargeable-services'), [
-                            'type' => 'App\\Models\\Session',
+                            'type' => Session::class,
                             'name' => 'session-fees',
                             'amount' => 500,
                             'description' => 'The fees for a session',
@@ -87,7 +88,7 @@ class ChargeableServiceTest extends TestCase
         ]);
 
         $response->assertJson([
-            'type' => 'App\\Models\\Session',
+            'type' => Session::class,
             'name' => 'session-fees',
             'amount' => 500
         ]);

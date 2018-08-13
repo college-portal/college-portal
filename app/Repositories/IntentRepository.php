@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\User;
-use App\Models\Intent;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Intent;
 use App\Filters\IntentFilters;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;

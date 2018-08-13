@@ -3,7 +3,7 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use App\Models\Role;
+use CollegePortal\Models\Role;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
@@ -72,7 +72,7 @@ class ContentTest extends TestCase
                         ->post($this->url('contents'), [
                             'owner_id' => 1,
                             'value' => "Male",
-                            'content_type_id' => 1
+                            'content_type_id' => 3
                         ]);
                         
         $response->assertStatus(201);

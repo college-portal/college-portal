@@ -3,8 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Chargeable;
-use App\User;
+use CollegePortal\Models\Chargeable;
+use CollegePortal\Models\User;
 
 class PayableRequest extends FormRequest
 {

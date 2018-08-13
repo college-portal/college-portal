@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
-use App\User;
-use App\Models\Role;
-use App\Models\Prospect;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Role;
+use CollegePortal\Models\Prospect;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ProspectPolicy

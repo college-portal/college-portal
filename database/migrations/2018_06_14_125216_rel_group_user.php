@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\Group;
-use App\User;
+use CollegePortal\Models\Group;
+use CollegePortal\Models\User;
 
 class RelGroupUser extends Migration
 {

@@ -14,7 +14,7 @@ use Illuminate\Support\Collection;
 |
 */
 
-$factory->define(App\Models\Staff::class, function (Faker $faker) {
+$factory->define(CollegePortal\Models\Staff::class, function (Faker $faker) {
     $titles = array(
         'Mr.',
         'Mrs.',

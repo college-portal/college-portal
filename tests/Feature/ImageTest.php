@@ -3,8 +3,8 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use App\Models\Role;
-use App\Models\Image;
+use CollegePortal\Models\Role;
+use CollegePortal\Models\Image;
 use JD\Cloudder\Facades\Cloudder;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;

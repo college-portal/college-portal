@@ -3524,7 +3524,7 @@ Supply chargeable service information to create a new one
 curl -X POST "http://localhost:8000/api/v1/chargeable-services" \
 -H "Accept: application/json" \
     -d "school_id"="4352" \
-    -d "type"="App\Models\Semester" \
+    -d "type"="CollegePortal\Models\Semester" \
     -d "name"="dignissimos" \
     -d "description"="dignissimos" \
     -d "amount"="948870890" \
@@ -3563,7 +3563,7 @@ $.ajax(settings).done(function (response) {
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     school_id | numeric |  required  | Valid school id
-    type | string |  required  | `App\Models\Semester` or `App\Models\Session`
+    type | string |  required  | `CollegePortal\Models\Semester` or `CollegePortal\Models\Session`
     name | string |  required  | 
     description | string |  optional  | 
     amount | numeric |  required  | Minimum: `0`

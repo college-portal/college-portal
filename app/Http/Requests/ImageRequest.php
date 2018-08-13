@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Image;
-use App\Models\ImageType;
+use CollegePortal\Models\Image;
+use CollegePortal\Models\ImageType;
 use App\Rules\AbsentRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\ValidationException;

@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\SemesterType;
-use App\Models\School;
+use CollegePortal\Models\SemesterType;
+use CollegePortal\Models\School;
 
 class RelSemesterType extends Migration
 {

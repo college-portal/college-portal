@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\Grade;
-use App\Models\StudentTakesCourse;
+use CollegePortal\Models\Grade;
+use CollegePortal\Models\StudentTakesCourse;
 
 class RelGrades extends Migration
 {

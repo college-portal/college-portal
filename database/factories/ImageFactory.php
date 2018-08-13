@@ -13,7 +13,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Models\Image::class, function (Faker $faker) {
+$factory->define(CollegePortal\Models\Image::class, function (Faker $faker) {
     return [
         'location' => $faker->swiftBicNumber()
     ];

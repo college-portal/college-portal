@@ -2,8 +2,8 @@
 
 namespace App\Filters;
 
-use App\User;
-use App\Models\Payable;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Payable;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 

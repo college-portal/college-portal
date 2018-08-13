@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\Session;
-use App\Models\School;
+use CollegePortal\Models\Session;
+use CollegePortal\Models\School;
 
 class RelSessions extends Migration
 {

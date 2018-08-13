@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-use App\Models\Role;
+use CollegePortal\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Support\Facades\Artisan;

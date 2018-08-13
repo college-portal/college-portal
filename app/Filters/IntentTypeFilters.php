@@ -2,8 +2,8 @@
 
 namespace App\Filters;
 
-use App\User;
-use App\Models\IntentType;
+use CollegePortal\Models\User;
+use CollegePortal\Models\IntentType;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 

@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
-use App\User;
-use App\Models\Role;
-use App\Models\Session;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Role;
+use CollegePortal\Models\Session;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class SessionPolicy

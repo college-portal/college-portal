@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
-use App\User;
-use App\Models\Role;
-use App\Models\SemesterType;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Role;
+use CollegePortal\Models\SemesterType;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class SemesterTypePolicy

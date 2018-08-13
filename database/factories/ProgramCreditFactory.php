@@ -13,7 +13,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Models\ProgramCredit::class, function (Faker $faker) {
+$factory->define(CollegePortal\Models\ProgramCredit::class, function (Faker $faker) {
     return [
         'credit' => $faker->numberBetween(17, 23)
     ];

@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\Faculty;
-use App\Models\School;
-use App\Models\Staff;
+use CollegePortal\Models\Faculty;
+use CollegePortal\Models\School;
+use CollegePortal\Models\Staff;
 
 class RelFacultySchool extends Migration
 {

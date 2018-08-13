@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\User;
-use App\Models\ChargeableService;
+use CollegePortal\Models\User;
+use CollegePortal\Models\ChargeableService;
 use App\Filters\ChargeableServiceFilters;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;

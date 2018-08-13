@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\User;
-use App\Models\Invite;
-use App\Models\InviteRole;
-use App\Models\School;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Invite;
+use CollegePortal\Models\InviteRole;
+use CollegePortal\Models\School;
 
 class RelInvites extends Migration
 {

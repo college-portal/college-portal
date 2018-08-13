@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Models\School;
+use CollegePortal\Models\School;
 use App\Services\ImageTypeService;
 use App\Filters\ImageTypeFilters;
 use App\Http\Requests\ImageTypeRequest;

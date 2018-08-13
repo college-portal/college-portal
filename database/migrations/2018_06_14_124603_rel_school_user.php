@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\School;
-use App\User;
+use CollegePortal\Models\School;
+use CollegePortal\Models\User;
 
 class RelSchoolUser extends Migration
 {

@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\User;
-use App\Models\Invite;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Invite;
 use App\Filters\InviteFilters;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;

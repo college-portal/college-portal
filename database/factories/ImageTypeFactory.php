@@ -1,6 +1,9 @@
 <?php
 
 use Faker\Generator as Faker;
+use CollegePortal\Models\Staff;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Department;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +16,12 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Models\ImageType::class, function (Faker $faker) {
+$factory->define(CollegePortal\Models\ImageType::class, function (Faker $faker) {
     return [
         'type' => $faker->randomElement([
-            'App\\Models\\Staff',
-            'App\\User',
-            'App\\Models\\Department'
+            Staff::class,
+            User::class,
+            Department::class
         ]),
         'name' => $faker->unique()->randomElement([
             'Type 1',

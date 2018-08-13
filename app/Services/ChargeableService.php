@@ -27,7 +27,7 @@ class ChargeableService extends BaseService
      * @param integer $opts->chargeable_service_id
      * @param float $opts->amount
      * 
-     * @return \App\Models\Chargeable
+     * @return \CollegePortal\Models\Chargeable
      *
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
@@ -53,7 +53,7 @@ class ChargeableService extends BaseService
      * @param integer $opts->owner_id
      * @param float $opts->amount
      * 
-     * @return \App\Models\Chargeable
+     * @return \CollegePortal\Models\Chargeable
      *
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */

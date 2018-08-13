@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\User;
-use App\Models\GradeType;
+use CollegePortal\Models\User;
+use CollegePortal\Models\GradeType;
 use App\Filters\GradeTypeFilters;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;

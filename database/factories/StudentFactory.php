@@ -13,7 +13,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Models\Student::class, function (Faker $faker) {
+$factory->define(CollegePortal\Models\Student::class, function (Faker $faker) {
     return [
         'matric_no' => 'UNI' . $faker->unique()->numberBetween(101, 999)
     ];

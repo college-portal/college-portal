@@ -2,8 +2,8 @@
 
 namespace App\Filters;
 
-use App\User;
-use App\Models\Invite;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Invite;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 

@@ -1,36 +1,36 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\School;
-use App\Models\Student;
-use App\Models\Faculty;
-use App\Models\Department;
-use App\Models\Program;
-use App\Models\Staff;
-use App\Models\Role;
-use App\Models\Level;
-use App\Models\Course;
-use App\Models\SemesterType;
-use App\Models\Session;
-use App\Models\Semester;
-use App\Models\Chargeable;
-use App\Models\ChargeableService;
-use App\Models\ProgramCredit;
-use App\Models\Payable;
-use App\Models\StaffTeachCourse;
-use App\Models\StudentTakesCourse;
-use App\Models\GradeType;
-use App\Models\Grade;
-use App\Models\ImageType;
-use App\Models\Image;
-use App\Models\IntentType;
-use App\Models\Intent;
-use App\Models\ContentType;
-use App\Models\Content;
-use App\Models\Invite;
-use App\Models\InviteRole;
-use App\Models\Prospect;
-use App\User;
+use CollegePortal\Models\School;
+use CollegePortal\Models\Student;
+use CollegePortal\Models\Faculty;
+use CollegePortal\Models\Department;
+use CollegePortal\Models\Program;
+use CollegePortal\Models\Staff;
+use CollegePortal\Models\Role;
+use CollegePortal\Models\Level;
+use CollegePortal\Models\Course;
+use CollegePortal\Models\SemesterType;
+use CollegePortal\Models\Session;
+use CollegePortal\Models\Semester;
+use CollegePortal\Models\Chargeable;
+use CollegePortal\Models\ChargeableService;
+use CollegePortal\Models\ProgramCredit;
+use CollegePortal\Models\Payable;
+use CollegePortal\Models\StaffTeachCourse;
+use CollegePortal\Models\StudentTakesCourse;
+use CollegePortal\Models\GradeType;
+use CollegePortal\Models\Grade;
+use CollegePortal\Models\ImageType;
+use CollegePortal\Models\Image;
+use CollegePortal\Models\IntentType;
+use CollegePortal\Models\Intent;
+use CollegePortal\Models\ContentType;
+use CollegePortal\Models\Content;
+use CollegePortal\Models\Invite;
+use CollegePortal\Models\InviteRole;
+use CollegePortal\Models\Prospect;
+use CollegePortal\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(RolesTableSeeder::class);
+        $this->call(ContentTypesTableSeeder::class);
         $owner = $this->createSchoolOwner();
     }
 

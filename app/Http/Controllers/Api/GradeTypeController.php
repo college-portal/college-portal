@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Services\GradeTypeService;
 use App\Filters\GradeTypeFilters;
-use App\Models\School;
+use CollegePortal\Models\School;
 use App\Http\Requests\GradeTypeRequest;
 
 class GradeTypeController extends ApiController

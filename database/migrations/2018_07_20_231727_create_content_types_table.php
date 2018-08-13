@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\ContentType;
+use CollegePortal\Models\ContentType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,7 +17,7 @@ class CreateContentTypesTable extends Migration
     {
         Schema::create(ContentType::name(), function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('school_id')->unsigned();
+            $table->integer('school_id')->unsigned()->nullable();
             $table->string('type')->index();
             $table->string('name')->index();
             $table->string('display_name');

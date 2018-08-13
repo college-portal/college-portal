@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\User;
-use App\Models\Role;
-use App\Models\School;
-use App\Models\UserHasRole;
+use CollegePortal\Models\User;
+use CollegePortal\Models\Role;
+use CollegePortal\Models\School;
+use CollegePortal\Models\UserHasRole;
 
 class RelUserHasRole extends Migration
 {

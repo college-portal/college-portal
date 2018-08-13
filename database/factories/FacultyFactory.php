@@ -13,7 +13,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Models\Faculty::class, function (Faker $faker) {
+$factory->define(CollegePortal\Models\Faculty::class, function (Faker $faker) {
     return [
         'name' => $faker->unique()->randomElement([
             'Science and Technology',

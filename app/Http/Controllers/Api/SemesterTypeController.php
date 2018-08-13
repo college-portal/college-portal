@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Services\SemesterTypeService;
 use App\Filters\SemesterTypeFilters;
-use App\Models\School;
+use CollegePortal\Models\School;
 use App\Http\Requests\SemesterTypeRequest;
 
 class SemesterTypeController extends ApiController

@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\Chargeable;
-use App\Models\ChargeableService;
+use CollegePortal\Models\Chargeable;
+use CollegePortal\Models\ChargeableService;
 
 class RelChargeables extends Migration
 {
