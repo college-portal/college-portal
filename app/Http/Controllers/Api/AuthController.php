@@ -5,16 +5,27 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use App\Services\UserService;
+use App\Filters\UserFilters;
 
 class AuthController extends ApiController
 {
+    protected $service;
+
+    public function __construct(UserService $service) {
+        $this->service = $service;
+    }
+
+    public function service() {
+        return $this->service;
+    }
 
     /**
      * Authenticate User
      * 
      * Uses basic authentication and returns a Json Web Token
      */
-    public function login(Request $request) {
+    public function login(Request $request, UserFilters $filters) {
         $credentials = $request->only('email', 'password');
 
         // set the identifier for wp_users
@@ -25,6 +36,10 @@ class AuthController extends ApiController
             if (! $token = JWTAuth::attempt($credentials, [ 'aud' => 'access' ])) {
                 // authorization failed
                 return $this->json(['message' => 'invalid credentials'], 400);
+            }
+            $user = $this->service()->repo()->userByEmail($credentials['email'], $filters->add('email_verified'));
+            if (!$user) {
+                return $this->json([ 'message' => 'user email not verified' ], 403);
             }
             return $this->json(compact('token'));
         }
