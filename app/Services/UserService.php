@@ -5,6 +5,10 @@ namespace App\Services;
 use CollegePortal\Models\User;
 use CollegePortal\Models\Intent;
 use App\Repositories\UserRepository;
+use App\Mail\UserVerificationMail;
+use Illuminate\Support\Facades\Mail;
+use Tymon\JWTAuth\Facades\JWTFactory;
+use Tymon\JWTAuth\Facades\JWTAuth;
 use Carbon\Carbon;
 
 class UserService extends BaseService
@@ -43,5 +47,19 @@ class UserService extends BaseService
         $this->intentService->register($user, Intent::CHANGE_PASSWORD);
 
         return $user;
+    }
+
+    public function create($opts) {
+        $user = $this->repo()->create($opts);
+        $this->sendVerificationMail($user);
+        return $user;
+    }
+
+    public function sendVerificationMail(User $user) {
+        //create jwt with aud to prevent interferance with authentication
+        $payload = JWTFactory::sub($user->id)->aud('verification')->ttl(null)->make();
+        $token = JWTAuth::encode($payload)->get();
+        $link = url("/auth/verify?t={$token}");
+        Mail::to($user->email)->send(new UserVerificationMail(['name' => $user->display_name, 'link' => $link]));
     }
 }

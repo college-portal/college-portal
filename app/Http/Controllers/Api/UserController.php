@@ -72,7 +72,7 @@ class UserController extends ApiController
      * Supply User information to create a new one
      */
     public function store(UserRequest $request) {
-        $user = $this->service()->repo()->create($request->all());
+        $user = $this->service()->create($request->all());
         return $this->created($user);
     }
 

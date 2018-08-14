@@ -74,7 +74,9 @@ Route::group([
         
         Route::resource('/schools', SchoolController::class(), $excepts);
         
-        Route::resource('/users', UserController::class(), $excepts);
+        Route::resource('/users', UserController::class(), array_merge($excepts, [ 'store' ]));
+
+        Route::post('/users', AuthController::method('store'))->middleware('throttle:10');  
         
         Route::resource('/faculties', FacultyController::class(), $excepts);
         
