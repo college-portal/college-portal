@@ -1795,12 +1795,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mykeels/laravel-filters.git",
-                "reference": "a90bc9b89c293ea7747650ff617159eaae37de4c"
+                "reference": "844c9c7eee2dae70bb12901506f6f8ffbf953509"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mykeels/laravel-filters/zipball/a90bc9b89c293ea7747650ff617159eaae37de4c",
-                "reference": "a90bc9b89c293ea7747650ff617159eaae37de4c",
+                "url": "https://api.github.com/repos/mykeels/laravel-filters/zipball/844c9c7eee2dae70bb12901506f6f8ffbf953509",
+                "reference": "844c9c7eee2dae70bb12901506f6f8ffbf953509",
                 "shasum": ""
             },
             "require": {
@@ -1809,6 +1809,7 @@
                 "illuminate/support": "^5.6"
             },
             "require-dev": {
+                "phpstan/phpstan": "^0.10.3",
                 "squizlabs/php_codesniffer": "^3.3"
             },
             "type": "library",
@@ -1833,7 +1834,7 @@
                 }
             ],
             "description": "Provides a composable interface for data filtering with query strings",
-            "time": "2018-08-06T23:24:58+00:00"
+            "time": "2018-08-14T19:37:12+00:00"
         },
         {
             "name": "namshi/jose",
