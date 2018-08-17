@@ -13,4 +13,8 @@ class StaffFilters extends BaseFilters
         $this->request = $request;
         parent::__construct($request);
     }
+
+    public function department($id) {
+        return $this->builder->where('department_id', $id);
+    }
 }
