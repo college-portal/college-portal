@@ -33,14 +33,17 @@ use CollegePortal\Models\Prospect;
 use CollegePortal\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        $this->call(RolesTableSeeder::class);
-        $this->call(ContentTypesTableSeeder::class);
-        $owner = $this->createSchoolOwner();
+        DB::transaction(function () {
+            $this->call(RolesTableSeeder::class);
+            $this->call(ContentTypesTableSeeder::class);
+            $owner = $this->createSchoolOwner();
+        });
     }
 
     public function createSchoolOwner() {
@@ -124,6 +127,11 @@ class DatabaseSeeder extends Seeder
         $studentUsers = factory(User::class, 3)->create()->map(function ($user) use ($program, $students) {
             $student = $this->createStudent($user, $program);
             $students->push($student);
+            return $user;
+        });
+
+        $staffUsers = factory(User::class, 3)->create()->map(function ($user) use ($school, $department) {
+            $staff = $this->createStaff($user, $school, $department);
             return $user;
         });
 
