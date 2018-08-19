@@ -18,8 +18,8 @@ An open source Rest API for a modern online portal for tertiary institutions inc
 - Checkout the edge branch. `git checkout edge`
 - Be sure to have Laravel Development Environment [setup on your system](https://laravel.com/docs/5.6/installation)
 - Copy the [.env.example](./.env.example) file to a .env file and update its values
+- Run `composer install` to install dependencies
 - Create an App Key with `php artisan key:generate`
-- Run `composer update` to install dependencies
 - To use the image upload feature
   - Create a cloudinary account
   - Fill the CLOUDINARY_* fields in .env
