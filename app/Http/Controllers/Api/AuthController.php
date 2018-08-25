@@ -104,13 +104,7 @@ class AuthController extends ApiController
         if ($payload->get('aud') !== UserService::AUD_VERIFICATION) {
             throw new TokenInvalidException();
         }
-        $content_type_id = ContentType::where('name', 'email_verified')->first()->id;
-        if (!$user->contents()->where('content_type_id', $content_type_id)->exists()) {
-            $user->contents()->create([
-                'content_type_id' => $content_type_id,
-                'value' => true
-            ]);
-        }
+        $user->createContent('email_verified', true);
         return redirect('/');
     }
 
