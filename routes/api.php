@@ -56,6 +56,7 @@ Route::group([
             'message' => 'college-portal'
         ];
     });
+    
 
     Route::post('auth', AuthController::method('login'));
     Route::post('auth/refresh', AuthController::method('refresh'));
@@ -77,8 +78,6 @@ Route::group([
         Route::resource('/schools', SchoolController::class(), $excepts);
         
         Route::resource('/users', UserController::class(), array_merge($excepts, [ 'store' ]));
-
-        Route::post('/users', AuthController::method('store'))->middleware('throttle:10');  
         
         Route::resource('/faculties', FacultyController::class(), $excepts);
         
@@ -144,6 +143,5 @@ Route::group([
     /**
      * non-auth routes
      */
-    
-    Route::post('/users', UserController::method('store'));
+    Route::post('/users', UserController::method('store'))->middleware('throttle:10');
 });
