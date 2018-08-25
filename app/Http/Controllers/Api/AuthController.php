@@ -100,11 +100,16 @@ class AuthController extends ApiController
         $jwt_auth = \JWTAuth::setToken($token);
         $payload = $jwt_auth->getPayload();
         $user = $jwt_auth->authenticate($token);
-        // make sure the token's aud is "verification"
-        if ($payload->get('aud') !== UserService::AUD_VERIFICATION) {
-            throw new TokenInvalidException();
+        if ($user) {
+            // make sure the token's aud is "verification"
+            if ($payload->get('aud') !== UserService::AUD_VERIFICATION) {
+                throw new TokenInvalidException();
+            }
+            $user->createContent('email_verified', true);
         }
-        $user->createContent('email_verified', true);
+        else {
+            return $this->json(['message' => 'invalid credentials'], 400);
+        }
         return redirect('/');
     }
 
