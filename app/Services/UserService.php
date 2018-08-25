@@ -13,6 +13,10 @@ use Carbon\Carbon;
 
 class UserService extends BaseService
 {
+    public const AUD_RESEND_VERIFICATION = "resend-verification";
+    public const AUD_VERIFICATION = "verification";
+    public const AUD_ACCESS = "access";
+
     protected $intentService;
 
     public function __construct(IntentService $intentService) {
@@ -57,9 +61,9 @@ class UserService extends BaseService
 
     public function sendVerificationMail(User $user) {
         //create jwt with aud to prevent interferance with authentication
-        $payload = JWTFactory::sub($user->id)->aud('verification')->ttl(null)->make();
+        $payload = JWTFactory::sub($user->id)->aud(self::AUD_VERIFICATION)->ttl(null)->make();
         $token = JWTAuth::encode($payload)->get();
-        $link = url("/auth/verify?t={$token}");
+        $link = url("/api/v1/auth/verify?t={$token}");
         Mail::to($user->email)->send(new UserVerificationMail(['name' => $user->display_name, 'link' => $link]));
     }
 }

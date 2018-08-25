@@ -8,6 +8,8 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Facades\JWTFactory;
 use App\Services\UserService;
 use App\Filters\UserFilters;
+use CollegePortal\Models\Content;
+use CollegePortal\Models\ContentType;
 
 class AuthController extends ApiController
 {
@@ -34,7 +36,7 @@ class AuthController extends ApiController
 
         try {
             // attempt authorization
-            if (! $token = JWTAuth::attempt($credentials, [ 'aud' => 'access' ])) {
+            if (! $token = JWTAuth::attempt($credentials, [ 'aud' => UserService::AUD_ACCESS ])) {
                 // authorization failed
                 return $this->json(['message' => 'invalid credentials'], 400);
             }
@@ -42,7 +44,7 @@ class AuthController extends ApiController
             $user = $this->service()->repo()->userByEmail($credentials['email'], $filters->add('email_verified'));
             if (!$user) {
                 $user = $this->service()->repo()->userByEmail($credentials['email']);
-                $payload = JWTFactory::sub($user->id)->aud('email-verification')->make();
+                $payload = JWTFactory::sub($user->id)->aud(UserService::AUD_RESEND_VERIFICATION)->make();
                 return $this->json([
                     'message' => 'user email not verified',
                     'token' => JWTAuth::encode($payload)->get()
@@ -65,6 +67,7 @@ class AuthController extends ApiController
         try {
             if ($request->header('Authorization')) {
                 $token = explode(' ', $request->header('Authorization'))[1];
+                
                 $refreshed_token = JWTAuth::refresh($token);
                 return $this->json([
                     'token' => $refreshed_token
@@ -88,6 +91,30 @@ class AuthController extends ApiController
     }
 
     /**
+     * Verify User's Email Address
+     * 
+     * Retrieve Token Information from the Request and Verify a User's Email with it
+     */
+    public function verify(Request $request) {
+        $token = $request->input('t');
+        $jwt_auth = \JWTAuth::setToken($token);
+        $payload = $jwt_auth->getPayload();
+        $user = $jwt_auth->authenticate($token);
+        // make sure the token's aud is "verification"
+        if ($payload->get('aud') !== UserService::AUD_VERIFICATION) {
+            throw new TokenInvalidException();
+        }
+        $content_type_id = ContentType::where('name', 'email_verified')->first()->id;
+        if (!$user->contents()->where('content_type_id', $content_type_id)->exists()) {
+            $user->contents()->create([
+                'content_type_id' => $content_type_id,
+                'value' => true
+            ]);
+        }
+        return redirect('/');
+    }
+
+    /**
      * Resent Verification Mail
      * 
      * Accept email-verification token and resend mail if valid
@@ -107,8 +134,8 @@ class AuthController extends ApiController
                     $jwt_auth = \JWTAuth::parseToken();
                     $payload = $jwt_auth->getPayload();
                     $user = $jwt_auth->authenticate();
-                    // make sure the token's aud is "email-verification"
-                    if ($payload->get('aud') !== 'email-verification') {
+                    // make sure the token's aud is "resend-verification"
+                    if ($payload->get('aud') !== UserService::AUD_RESEND_VERIFICATION) {
                         throw new TokenInvalidException();
                     }
                 }

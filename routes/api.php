@@ -59,6 +59,7 @@ Route::group([
 
     Route::post('auth', AuthController::method('login'));
     Route::post('auth/refresh', AuthController::method('refresh'));
+    Route::get('auth/verify', AuthController::method('verify'));
     Route::post('auth/resend', AuthController::method('resendVerificationMail'));
 
     /**

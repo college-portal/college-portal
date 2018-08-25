@@ -3,6 +3,7 @@
 use CollegePortal\Models\User;
 use Auth;
 use Closure;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\Guard;
 use Tymon\JWTAuth\JWTAuth;
@@ -40,7 +41,7 @@ class AccessTokenSecurity
                     $payload = $jwt_auth->getPayload();
                     $jwt_auth->authenticate();
                     // make sure the token's aud is "access"
-                    if ($payload->get('aud') !== 'access') {
+                    if ($payload->get('aud') !== UserService::AUD_ACCESS) {
                         throw new TokenInvalidException();
                     }
                 }

@@ -46,10 +46,10 @@ class DatabaseSeeder extends Seeder
     }
 
     public function createSchoolOwner() {
-        $user = User::where('email', EMAIL)->exists() ? $this->createUser() : $this->createUser([
+        $user = User::where('email', self::EMAIL)->exists() ? $this->createUser() : $this->createUser([
             'first_name' => 'Owner',
             'last_name' => 'Orlando',
-            'email' => EMAIL
+            'email' => self::EMAIL
         ]);
 
         $this->addRole($user, 'admin');
