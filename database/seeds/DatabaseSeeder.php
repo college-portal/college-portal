@@ -36,6 +36,8 @@ use Illuminate\Support\Collection;
 
 class DatabaseSeeder extends Seeder
 {
+    const EMAIL = 'mykeels@mailinator.com';
+
     public function run()
     {
         $this->call(RolesTableSeeder::class);
@@ -44,10 +46,10 @@ class DatabaseSeeder extends Seeder
     }
 
     public function createSchoolOwner() {
-        $user = User::where('email', 'owner.orlando@mailinator.com')->exists() ? $this->createUser() : $this->createUser([
+        $user = User::where('email', EMAIL)->exists() ? $this->createUser() : $this->createUser([
             'first_name' => 'Owner',
             'last_name' => 'Orlando',
-            'email' => 'owner.orlando@mailinator.com'
+            'email' => EMAIL
         ]);
 
         $this->addRole($user, 'admin');

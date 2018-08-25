@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Tymon\JWTAuth\Facades\JWTFactory;
 use App\Services\UserService;
 use App\Filters\UserFilters;
 
@@ -37,9 +38,15 @@ class AuthController extends ApiController
                 // authorization failed
                 return $this->json(['message' => 'invalid credentials'], 400);
             }
+            // make sure the user's email is verified
             $user = $this->service()->repo()->userByEmail($credentials['email'], $filters->add('email_verified'));
             if (!$user) {
-                return $this->json([ 'message' => 'user email not verified' ], 403);
+                $user = $this->service()->repo()->userByEmail($credentials['email']);
+                $payload = JWTFactory::sub($user->id)->aud('email-verification')->make();
+                return $this->json([
+                    'message' => 'user email not verified',
+                    'token' => JWTAuth::encode($payload)->get()
+                ], 403);
             }
             return $this->json(compact('token'));
         }
@@ -78,5 +85,47 @@ class AuthController extends ApiController
      */
     public function current(Request $request) {
         return $request->user();
+    }
+
+    /**
+     * Resent Verification Mail
+     * 
+     * Accept email-verification token and resend mail if valid
+     */
+    public function resendVerificationMail(Request $request) {
+        if ($request->header('Authorization')) {
+            try {
+                $payload = null;
+                $user = null;
+                if (auth()->user()) { // when request is made via test
+                    $token = explode(' ', $request->header('Authorization'))[1];
+                    $jwt_auth = \JWTAuth::setToken($token);
+                    $payload = $jwt_auth->getPayload();
+                    $user = $jwt_auth->authenticate($token);
+                }
+                else {
+                    $jwt_auth = \JWTAuth::parseToken();
+                    $payload = $jwt_auth->getPayload();
+                    $user = $jwt_auth->authenticate();
+                    // make sure the token's aud is "email-verification"
+                    if ($payload->get('aud') !== 'email-verification') {
+                        throw new TokenInvalidException();
+                    }
+                }
+                $this->service->sendVerificationMail($user);
+                return response()->json([
+                    'message' => 'verification mail sent'
+                ]);
+            } catch (TokenExpiredException $e) {
+                return response()->json([ 'message' => 'token expired' ], $e->getStatusCode());
+            } catch (TokenInvalidException $e) {
+                return response()->json([ 'message' => 'token invalid' ], $e->getStatusCode());
+            } catch (JWTException $e) {
+                return response()->json([ 'message' => 'token absent' ], $e->getStatusCode());
+            }
+        }
+        return response()->json([
+            'message' => 'no "Authorization" header found'
+        ], 400);
     }
 }
