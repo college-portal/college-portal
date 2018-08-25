@@ -50,10 +50,24 @@ class AuthTest extends TestCase
             'password' => $password
         ]);
 
-        $response->assertStatus(200);
+        // should FAIL because email is not verified
+        $response->assertStatus(403);
 
         $response->assertJsonStructure([
             'token'
+        ]);
+        
+        // attempt email verification
+        $token = $response->baseResponse->original['token'];
+
+        $response = $this->post($this->url('auth/resend'), [], [
+            'HTTP_Authorization' => "Bearer $token"
+        ]);
+
+        $response->assertStatus(200);
+
+        $response->assertJson([
+            'message' => 'verification mail sent'
         ]);
     }
 
