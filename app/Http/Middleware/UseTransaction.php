@@ -5,15 +5,11 @@ use Auth;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\Guard;
-use Tymon\JWTAuth\JWTAuth;
-use Tymon\JWTAuth\Exceptions\JWTException;
-use Tymon\JWTAuth\Exceptions\TokenInvalidException;
-use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Illuminate\Support\Facades\DB;
 
 /**
- * makes sure the "db:level" header is present
- * and that it contains "transaction"
+ * makes sure the "db" header is present, and 
+ * that it contains "transaction" as its value
  */
 
 class UseTransaction

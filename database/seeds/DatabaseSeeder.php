@@ -37,6 +37,8 @@ use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
+    const EMAIL = 'mykeels@mailinator.com';
+
     public function run()
     {
         DB::transaction(function () {
@@ -47,10 +49,10 @@ class DatabaseSeeder extends Seeder
     }
 
     public function createSchoolOwner() {
-        $user = User::where('email', 'owner.orlando@mailinator.com')->exists() ? $this->createUser() : $this->createUser([
+        $user = User::where('email', self::EMAIL)->exists() ? $this->createUser() : $this->createUser([
             'first_name' => 'Owner',
             'last_name' => 'Orlando',
-            'email' => 'owner.orlando@mailinator.com'
+            'email' => self::EMAIL
         ]);
 
         $this->addRole($user, 'admin');

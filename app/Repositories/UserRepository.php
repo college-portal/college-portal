@@ -30,8 +30,13 @@ class UserRepository
         return $filters ? $filters->transform($q->findOrFail($id)) : $q->findOrFail($id);
     }
 
-    public function userByEmail(string $email) {
-        return $this->model()->where('email', $email)->first();
+    public function userByEmail(string $email, UserFilters $filters = null) {
+        $q = $this->model();
+        if ($filters) {
+            $q = $q->filter($filters);
+        }
+        $user = $q->where('email', $email)->first();
+        return $filters ? $filters->transform($user) : $user;
     }
 
     public function delete($id) {

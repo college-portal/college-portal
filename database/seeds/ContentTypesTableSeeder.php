@@ -40,8 +40,8 @@ class ContentTypesTableSeeder extends Seeder
                 'format' => ContentType::OBJECT,
                 'children' => new Collection([
                     [
-                        'name' => 'email_validated',
-                        'display_name' => 'Email Validated',
+                        'name' => 'email_verified',
+                        'display_name' => 'Email Verified',
                         'type' => User::class,
                         'format' => ContentType::BOOLEAN
                     ]

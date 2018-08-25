@@ -25,8 +25,12 @@ class UserFilters extends BaseFilters
         return $this->builder->with('students');
     }
 
-    public function global():array
-	{
-        return [];
+    public function email_verified():Builder 
+    {
+        return $this->builder->whereHas('contents', function ($q) {
+            return $q->whereHas('type', function ($q) {
+                return $q->where('name', 'email_verified')->where('contents.value', 'true');
+            });
+        });
     }
 }
