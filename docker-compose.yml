@@ -16,15 +16,12 @@ services:
     volumes:
       - ./:/var/www/html
 
-    environment:
-      DB_HOST: database
-      DB_DATABASE: college_portal
-      DB_USERNAME: college_portal_user
-      DB_PASSWORD: password
-      REDIS_HOST: redis
-      SESSION_DRIVER: redis
-      CACHE_DRIVER: redis
+    depends_on:
+      - database
+      - redis
 
+    env_file:
+      - .env
 
   database:
     image: mysql:5.7
@@ -33,11 +30,8 @@ services:
       - 33064:3306
     volumes:
       - ./volume:/var/lib/mysql
-    environment:
-      MYSQL_DATABASE: college_portal
-      MYSQL_USER: college_portal_user
-      MYSQL_PASSWORD: password
-      MYSQL_ROOT_PASSWORD: password
+    env_file:
+      - .envs/.local/.credentials
 
   redis:
     image: redis:latest

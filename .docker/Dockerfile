@@ -22,3 +22,4 @@ RUN chown -R www-data:www-data /var/www/html && a2enmod rewrite
 RUN cp .env.example .env
 RUN php artisan key:generate
 RUN php artisan config:cache
+#RUN php artisan migrate:fresh --seed
