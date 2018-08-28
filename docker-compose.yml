@@ -21,7 +21,7 @@ services:
       - redis
 
     env_file:
-      - .env
+      - ./.env
 
   database:
     image: mysql:5.7
@@ -31,7 +31,7 @@ services:
     volumes:
       - ./volume:/var/lib/mysql
     env_file:
-      - .envs/.local/.credentials
+      - ./.envs/.local/.credentials
 
   redis:
     image: redis:latest
