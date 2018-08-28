@@ -21,6 +21,7 @@
         "laravel/tinker": "^1.0",
         "mpociot/laravel-apidoc-generator": "^2.0",
         "mykeels/laravel-filters": "dev-master",
+        "predis/predis": "^1.1",
         "tymon/jwt-auth": "0.5.*"
     },
     "require-dev": {

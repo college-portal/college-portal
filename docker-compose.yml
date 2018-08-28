@@ -1,0 +1,46 @@
+version: "3"
+services:
+  app:
+    image: college-portal/college-portal
+    container_name: "college-portal"
+    build:
+      context: ./
+      dockerfile: ./.docker/Dockerfile
+    ports:
+      - 9900:80
+
+    links:
+      - database
+      - redis
+
+    volumes:
+      - ./:/var/www/html
+
+    environment:
+      DB_HOST: database
+      DB_DATABASE: college_portal
+      DB_USERNAME: college_portal_user
+      DB_PASSWORD: password
+      REDIS_HOST: redis
+      SESSION_DRIVER: redis
+      CACHE_DRIVER: redis
+
+
+  database:
+    image: mysql:5.7
+    container_name: "college_portal_database"
+    ports:
+      - 33064:3306
+    volumes:
+      - ./volume:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: college_portal
+      MYSQL_USER: college_portal_user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+
+  redis:
+    image: redis:latest
+    container_name: "college_portal_redis"
+    ports:
+      - 26379:6379
