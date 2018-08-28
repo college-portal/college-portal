@@ -21,4 +21,4 @@ public/docs/source/*
 !public/docs/source/index.md
 !public/docs/collection.json
 .phpunit.result.cache
-/volume/*.*
+/volume/
