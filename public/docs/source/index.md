@@ -17,6 +17,7 @@ toc_footers:
 
 Welcome to the generated API reference.
 [Get Postman Collection](http://localhost:8000/docs/collection.json)
+
 <!-- END_INFO -->
 
 #Authentication
@@ -7987,3 +7988,4 @@ $.ajax(settings).done(function (response) {
 
 
 <!-- END_22354fc95c42d81a744eece68f5b9b9a -->
+
