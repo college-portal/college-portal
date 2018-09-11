@@ -59,6 +59,12 @@ class DatabaseSeeder extends Seeder
         
         $school = $this->createSchool($user);
 
+        $this->createContent(
+            ContentType::where('name', 'email_verified')->whereNull('school_id')->firstOrFail(),
+            true,
+            $user->id
+        );
+
         $deanUser = $this->createDean($school);
 
         $staff = $this->createStaff($deanUser, $school);
