@@ -523,7 +523,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/app\/Console\/Commands\/GenerateDocsCommand.php",
-            "line": 60,
+            "line": 62,
             "function": "call",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
@@ -701,7 +701,15 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "email": "mykeels@mailinator.com",
+    "first_name": "Owner",
+    "last_name": "Orlando",
+    "other_names": null,
+    "display_name": "Owner Orlando",
+    "dob": "1959-06-06",
+    "created_at": "2018-09-11 01:17:38",
+    "updated_at": "2018-09-11 01:17:38"
 }
 ```
 
@@ -754,7 +762,49 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "type": "CollegePortal\\Models\\Semester",
+            "name": "1st Semester Fees",
+            "description": null,
+            "amount": "500.00",
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 2,
+            "type": "CollegePortal\\Models\\Semester",
+            "name": "2nd Semester Fees",
+            "description": null,
+            "amount": "500.00",
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 3,
+            "type": "CollegePortal\\Models\\Session",
+            "name": "2018\/2019 Fees",
+            "description": null,
+            "amount": "1000.00",
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/chargeable-services?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/chargeable-services?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/chargeable-services",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 3,
+    "total": 3
 }
 ```
 
@@ -864,7 +914,14 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "type": "CollegePortal\\Models\\Semester",
+    "name": "1st Semester Fees",
+    "description": null,
+    "amount": "500.00",
+    "school_id": 1,
+    "created_at": "2018-09-11 01:17:39",
+    "updated_at": "2018-09-11 01:17:39"
 }
 ```
 
@@ -999,7 +1056,43 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "chargeable_service_id": 1,
+            "owner_id": 1,
+            "amount": "500.00",
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 2,
+            "chargeable_service_id": 2,
+            "owner_id": 2,
+            "amount": "500.00",
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 3,
+            "chargeable_service_id": 3,
+            "owner_id": 1,
+            "amount": "1000.00",
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/chargeables?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/chargeables?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/chargeables",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 3,
+    "total": 3
 }
 ```
 
@@ -1107,7 +1200,12 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "chargeable_service_id": 1,
+    "owner_id": 1,
+    "amount": "500.00",
+    "created_at": "2018-09-11 01:17:39",
+    "updated_at": "2018-09-11 01:17:39"
 }
 ```
 
@@ -1235,7 +1333,129 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "school_id": null,
+            "type": "CollegePortal\\Models\\User",
+            "name": "profile",
+            "display_name": "User Profile",
+            "format": "object",
+            "related_to": null,
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 2,
+            "school_id": null,
+            "type": "CollegePortal\\Models\\User",
+            "name": "email_verified",
+            "display_name": "Email Verified",
+            "format": "boolean",
+            "related_to": null,
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 3,
+            "school_id": 1,
+            "type": "CollegePortal\\Models\\Staff",
+            "name": "type-9",
+            "display_name": "Type 9",
+            "format": "array",
+            "related_to": null,
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 4,
+            "school_id": 1,
+            "type": "CollegePortal\\Models\\User",
+            "name": "type-1",
+            "display_name": "Type 1",
+            "format": "datetime",
+            "related_to": null,
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 5,
+            "school_id": 1,
+            "type": "CollegePortal\\Models\\Department",
+            "name": "type-4",
+            "display_name": "Type 4",
+            "format": "number",
+            "related_to": null,
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 6,
+            "school_id": 1,
+            "type": "CollegePortal\\Models\\Department",
+            "name": "type-2",
+            "display_name": "Type 2",
+            "format": "string",
+            "related_to": null,
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 7,
+            "school_id": 1,
+            "type": "CollegePortal\\Models\\Staff",
+            "name": "type-7",
+            "display_name": "Type 7",
+            "format": "boolean",
+            "related_to": null,
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 8,
+            "school_id": 1,
+            "type": "CollegePortal\\Models\\Staff",
+            "name": "type-5",
+            "display_name": "Type 5",
+            "format": "object",
+            "related_to": null,
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 9,
+            "school_id": 1,
+            "type": "CollegePortal\\Models\\Staff",
+            "name": "type-8",
+            "display_name": "Type 8",
+            "format": "string",
+            "related_to": 8,
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 10,
+            "school_id": 1,
+            "type": "CollegePortal\\Models\\Staff",
+            "name": "type-3",
+            "display_name": "Type 3",
+            "format": "number",
+            "related_to": 8,
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/content-types?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/content-types?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/content-types",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 10,
+    "total": 10
 }
 ```
 
@@ -1341,7 +1561,15 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "school_id": null,
+    "type": "CollegePortal\\Models\\User",
+    "name": "profile",
+    "display_name": "User Profile",
+    "format": "object",
+    "related_to": null,
+    "created_at": "2018-09-11 01:17:38",
+    "updated_at": "2018-09-11 01:17:38"
 }
 ```
 
@@ -1467,7 +1695,107 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "owner_id": 1,
+            "content_type_id": 2,
+            "value": "true",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 2,
+            "owner_id": 1,
+            "content_type_id": 3,
+            "value": "array-value-1",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 3,
+            "owner_id": 1,
+            "content_type_id": 3,
+            "value": "array-value-2",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 4,
+            "owner_id": 1,
+            "content_type_id": 3,
+            "value": "array-value-3",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 5,
+            "owner_id": 1,
+            "content_type_id": 4,
+            "value": "2018-09-11",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 6,
+            "owner_id": 1,
+            "content_type_id": 5,
+            "value": "123",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 7,
+            "owner_id": 1,
+            "content_type_id": 6,
+            "value": "Value 1",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 8,
+            "owner_id": 1,
+            "content_type_id": 7,
+            "value": "true",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 9,
+            "owner_id": 1,
+            "content_type_id": 8,
+            "value": "{}",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 10,
+            "owner_id": 1,
+            "content_type_id": 9,
+            "value": "object-value-1",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 11,
+            "owner_id": 1,
+            "content_type_id": 10,
+            "value": "123",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/contents?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/contents?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/contents",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 11,
+    "total": 11
 }
 ```
 
@@ -1566,7 +1894,12 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "owner_id": 1,
+    "content_type_id": 2,
+    "value": "true",
+    "created_at": "2018-09-11 01:17:38",
+    "updated_at": "2018-09-11 01:17:38"
 }
 ```
 
@@ -1697,7 +2030,124 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "course_id": 5,
+            "dependency_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 2,
+            "course_id": 5,
+            "dependency_id": 2,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 3,
+            "course_id": 5,
+            "dependency_id": 3,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 4,
+            "course_id": 5,
+            "dependency_id": 4,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 5,
+            "course_id": 6,
+            "dependency_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 6,
+            "course_id": 6,
+            "dependency_id": 2,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 7,
+            "course_id": 6,
+            "dependency_id": 3,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 8,
+            "course_id": 6,
+            "dependency_id": 4,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 9,
+            "course_id": 7,
+            "dependency_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 10,
+            "course_id": 7,
+            "dependency_id": 2,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 11,
+            "course_id": 7,
+            "dependency_id": 3,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 12,
+            "course_id": 7,
+            "dependency_id": 4,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 13,
+            "course_id": 8,
+            "dependency_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 14,
+            "course_id": 8,
+            "dependency_id": 2,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 15,
+            "course_id": 8,
+            "dependency_id": 3,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/course-dependencies?page=1",
+    "from": 1,
+    "last_page": 2,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/course-dependencies?page=2",
+    "next_page_url": "http:\/\/localhost\/api\/v1\/course-dependencies?page=2",
+    "path": "http:\/\/localhost\/api\/v1\/course-dependencies",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 15,
+    "total": 16
 }
 ```
 
@@ -1797,7 +2247,11 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "course_id": 5,
+    "dependency_id": 1,
+    "created_at": "2018-09-11 01:17:39",
+    "updated_at": "2018-09-11 01:17:39"
 }
 ```
 
@@ -1937,7 +2391,107 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "department_id": 1,
+            "semester_type_id": 1,
+            "level_id": 1,
+            "code": "NIO118",
+            "title": "Oscillatory Motion",
+            "credit": 2,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 2,
+            "department_id": 1,
+            "semester_type_id": 1,
+            "level_id": 2,
+            "code": "SYP125",
+            "title": "Algorithms and Data Structures",
+            "credit": 4,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 3,
+            "department_id": 1,
+            "semester_type_id": 1,
+            "level_id": 3,
+            "code": "JMD123",
+            "title": "Signal Analysis",
+            "credit": 6,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 4,
+            "department_id": 1,
+            "semester_type_id": 1,
+            "level_id": 4,
+            "code": "SOS106",
+            "title": "Discrete Mathematics",
+            "credit": 2,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 5,
+            "department_id": 1,
+            "semester_type_id": 2,
+            "level_id": 1,
+            "code": "TWD149",
+            "title": "Discrete Mathematics",
+            "credit": 4,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 6,
+            "department_id": 1,
+            "semester_type_id": 2,
+            "level_id": 2,
+            "code": "UGX161",
+            "title": "Algorithms and Data Structures",
+            "credit": 2,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 7,
+            "department_id": 1,
+            "semester_type_id": 2,
+            "level_id": 3,
+            "code": "JPY113",
+            "title": "Oscillatory Motion",
+            "credit": 2,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 8,
+            "department_id": 1,
+            "semester_type_id": 2,
+            "level_id": 4,
+            "code": "ZMW183",
+            "title": "Oscillatory Motion",
+            "credit": 5,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/courses?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/courses?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/courses",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 8,
+    "total": 8
 }
 ```
 
@@ -2057,7 +2611,15 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "department_id": 1,
+    "semester_type_id": 1,
+    "level_id": 1,
+    "code": "NIO118",
+    "title": "Oscillatory Motion",
+    "credit": 2,
+    "created_at": "2018-09-11 01:17:39",
+    "updated_at": "2018-09-11 01:17:39"
 }
 ```
 
@@ -2193,7 +2755,27 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "name": "Mathematics",
+            "hod_id": 1,
+            "faculty_id": 1,
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/departments?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/departments?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/departments",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1
 }
 ```
 
@@ -2300,7 +2882,12 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "name": "Mathematics",
+    "hod_id": 1,
+    "faculty_id": 1,
+    "created_at": "2018-09-11 01:17:38",
+    "updated_at": "2018-09-11 01:17:38"
 }
 ```
 
@@ -2438,7 +3025,27 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "name": "Physical Sciences",
+            "dean_id": 1,
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/faculties?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/faculties?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/faculties",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1
 }
 ```
 
@@ -2544,7 +3151,12 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "name": "Physical Sciences",
+    "dean_id": 1,
+    "school_id": 1,
+    "created_at": "2018-09-11 01:17:38",
+    "updated_at": "2018-09-11 01:17:38"
 }
 ```
 
@@ -2672,7 +3284,69 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "name": "A",
+            "value": 5,
+            "school_id": 1,
+            "minimum": "70.00",
+            "maximum": "100.00",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 2,
+            "name": "B",
+            "value": 4,
+            "school_id": 1,
+            "minimum": "60.00",
+            "maximum": "70.00",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 3,
+            "name": "C",
+            "value": 3,
+            "school_id": 1,
+            "minimum": "50.00",
+            "maximum": "60.00",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 4,
+            "name": "D",
+            "value": 2,
+            "school_id": 1,
+            "minimum": "45.00",
+            "maximum": "50.00",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 5,
+            "name": "E",
+            "value": 1,
+            "school_id": 1,
+            "minimum": "40.00",
+            "maximum": "45.00",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/schools\/1\/grade-types?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/schools\/1\/grade-types?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/schools\/1\/grade-types",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 5,
+    "total": 5
 }
 ```
 
@@ -2773,7 +3447,12 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "name": "University of Ibadan",
+    "short_name": "UI",
+    "owner_id": 1,
+    "created_at": "2018-09-11 01:17:38",
+    "updated_at": "2018-09-11 01:17:38"
 }
 ```
 
@@ -2909,7 +3588,28 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "student_takes_course_id": 1,
+            "score": 27,
+            "description": "Test 3",
+            "locked_at": null,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/grades?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/grades?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/grades",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1
 }
 ```
 
@@ -3020,7 +3720,13 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "student_takes_course_id": 1,
+    "score": 27,
+    "description": "Test 3",
+    "locked_at": null,
+    "created_at": "2018-09-11 01:17:39",
+    "updated_at": "2018-09-11 01:17:39"
 }
 ```
 
@@ -3154,7 +3860,27 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "school_id": 1,
+            "type": "CollegePortal\\Models\\Department",
+            "name": "Type 2",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/schools\/1\/image-types?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/schools\/1\/image-types?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/schools\/1\/image-types",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1
 }
 ```
 
@@ -3251,7 +3977,12 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "name": "University of Ibadan",
+    "short_name": "UI",
+    "owner_id": 1,
+    "created_at": "2018-09-11 01:17:38",
+    "updated_at": "2018-09-11 01:17:38"
 }
 ```
 
@@ -3379,7 +4110,27 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "owner_id": 3,
+            "image_type_id": 1,
+            "location": null,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/images?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/images?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/images",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1
 }
 ```
 
@@ -3479,7 +4230,12 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "owner_id": 3,
+    "image_type_id": 1,
+    "location": null,
+    "created_at": "2018-09-11 01:17:39",
+    "updated_at": "2018-09-11 01:17:39"
 }
 ```
 
@@ -3642,7 +4398,25 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "name": "change-password",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/intent-types?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/intent-types?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/intent-types",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1
 }
 ```
 
@@ -3733,7 +4507,10 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "name": "change-password",
+    "created_at": "2018-09-11 01:17:38",
+    "updated_at": "2018-09-11 01:17:38"
 }
 ```
 
@@ -3859,7 +4636,28 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "user_id": 1,
+            "intent_type_id": 1,
+            "extras": "[]",
+            "resolved_at": null,
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/intents?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/intents?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/intents",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1
 }
 ```
 
@@ -3956,7 +4754,13 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "user_id": 1,
+    "intent_type_id": 1,
+    "extras": "[]",
+    "resolved_at": null,
+    "created_at": "2018-09-11 01:17:38",
+    "updated_at": "2018-09-11 01:17:38"
 }
 ```
 
@@ -4081,7 +4885,28 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "creator_id": 1,
+            "school_id": 1,
+            "email": "invited.user@mailinator.com",
+            "message": "Please come to my school as a student",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/invites?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/invites?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/invites",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1
 }
 ```
 
@@ -4191,7 +5016,13 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "creator_id": 1,
+    "school_id": 1,
+    "email": "invited.user@mailinator.com",
+    "message": "Please come to my school as a student",
+    "created_at": "2018-09-11 01:17:38",
+    "updated_at": "2018-09-11 01:17:38"
 }
 ```
 
@@ -4319,7 +5150,47 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "name": "100L",
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 2,
+            "name": "200L",
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 3,
+            "name": "300L",
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 4,
+            "name": "400L",
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/schools\/1\/levels?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/schools\/1\/levels?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/schools\/1\/levels",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 4,
+    "total": 4
 }
 ```
 
@@ -4413,7 +5284,12 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "name": "University of Ibadan",
+    "short_name": "UI",
+    "owner_id": 1,
+    "created_at": "2018-09-11 01:17:38",
+    "updated_at": "2018-09-11 01:17:38"
 }
 ```
 
@@ -4544,7 +5420,46 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "user_id": 1,
+            "chargeable_id": 1,
+            "paid_at": null,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39",
+            "deleted_at": null
+        },
+        {
+            "id": 2,
+            "user_id": 1,
+            "chargeable_id": 2,
+            "paid_at": null,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39",
+            "deleted_at": null
+        },
+        {
+            "id": 3,
+            "user_id": 1,
+            "chargeable_id": 3,
+            "paid_at": null,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39",
+            "deleted_at": null
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/payables?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/payables?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/payables",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 3,
+    "total": 3
 }
 ```
 
@@ -4642,7 +5557,13 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "user_id": 1,
+    "chargeable_id": 1,
+    "paid_at": null,
+    "created_at": "2018-09-11 01:17:39",
+    "updated_at": "2018-09-11 01:17:39",
+    "deleted_at": null
 }
 ```
 
@@ -4770,7 +5691,46 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "program_id": 1,
+            "semester_id": 1,
+            "level_id": 1,
+            "credit": 21,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 2,
+            "program_id": 1,
+            "semester_id": 1,
+            "level_id": 2,
+            "credit": 20,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 3,
+            "program_id": 1,
+            "semester_id": 1,
+            "level_id": 3,
+            "credit": 20,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/program-credits?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/program-credits?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/program-credits",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 3,
+    "total": 3
 }
 ```
 
@@ -4874,7 +5834,13 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "program_id": 1,
+    "semester_id": 1,
+    "level_id": 1,
+    "credit": 21,
+    "created_at": "2018-09-11 01:17:39",
+    "updated_at": "2018-09-11 01:17:39"
 }
 ```
 
@@ -5008,7 +5974,26 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "name": "Computer Science",
+            "department_id": 1,
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/programs?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/programs?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/programs",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1
 }
 ```
 
@@ -5109,7 +6094,11 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "name": "Computer Science",
+    "department_id": 1,
+    "created_at": "2018-09-11 01:17:38",
+    "updated_at": "2018-09-11 01:17:38"
 }
 ```
 
@@ -5242,7 +6231,31 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "user_id": 9,
+            "school_id": 1,
+            "program_id": 1,
+            "session_id": 1,
+            "student_id": null,
+            "locked_at": null,
+            "accepted_at": null,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/prospects?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/prospects?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/prospects",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1
 }
 ```
 
@@ -5351,7 +6364,16 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "user_id": 9,
+    "school_id": 1,
+    "program_id": 1,
+    "session_id": 1,
+    "student_id": null,
+    "locked_at": null,
+    "accepted_at": null,
+    "created_at": "2018-09-11 01:17:39",
+    "updated_at": "2018-09-11 01:17:39"
 }
 ```
 
@@ -5478,7 +6500,68 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "name": "admin",
+            "display_name": "Administrator",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 2,
+            "name": "school-owner",
+            "display_name": "School Owner",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 3,
+            "name": "staff",
+            "display_name": "Staff",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 4,
+            "name": "student",
+            "display_name": "Student",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 5,
+            "name": "hod",
+            "display_name": "Head of Department",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 6,
+            "name": "dean",
+            "display_name": "Dean of Faculty",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 7,
+            "name": "prospect",
+            "display_name": "Student Admission Candidate",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/roles?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/roles?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/roles",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 7,
+    "total": 7
 }
 ```
 
@@ -5572,7 +6655,11 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "name": "admin",
+    "display_name": "Administrator",
+    "created_at": "2018-09-11 01:17:38",
+    "updated_at": "2018-09-11 01:17:38"
 }
 ```
 
@@ -5698,7 +6785,33 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "name": "University of Ibadan",
+            "short_name": "UI",
+            "owner_id": 1,
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38",
+            "pivot": {
+                "user_id": 1,
+                "school_id": 1,
+                "created_at": "2018-09-11 01:17:38",
+                "updated_at": "2018-09-11 01:17:38"
+            }
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/schools?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/schools?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/schools",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1
 }
 ```
 
@@ -5797,7 +6910,12 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "name": "University of Ibadan",
+    "short_name": "UI",
+    "owner_id": 1,
+    "created_at": "2018-09-11 01:17:38",
+    "updated_at": "2018-09-11 01:17:38"
 }
 ```
 
@@ -5923,7 +7041,33 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "name": "1st Semester",
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 2,
+            "name": "2nd Semester",
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/schools\/1\/semester-types?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/schools\/1\/semester-types?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/schools\/1\/semester-types",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 2,
+    "total": 2
 }
 ```
 
@@ -6013,7 +7157,12 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "name": "University of Ibadan",
+    "short_name": "UI",
+    "owner_id": 1,
+    "created_at": "2018-09-11 01:17:38",
+    "updated_at": "2018-09-11 01:17:38"
 }
 ```
 
@@ -6145,7 +7294,37 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "semester_type_id": 1,
+            "session_id": 1,
+            "start_date": "2018-09-11 00:00:00",
+            "end_date": "2019-03-10 00:00:00",
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 2,
+            "semester_type_id": 2,
+            "session_id": 1,
+            "start_date": "2019-03-15 00:00:00",
+            "end_date": "2019-09-11 00:00:00",
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/semesters?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/semesters?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/semesters",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 2,
+    "total": 2
 }
 ```
 
@@ -6250,7 +7429,13 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "semester_type_id": 1,
+    "session_id": 1,
+    "start_date": "2018-09-11 00:00:00",
+    "end_date": "2019-03-10 00:00:00",
+    "created_at": "2018-09-11 01:17:39",
+    "updated_at": "2018-09-11 01:17:39"
 }
 ```
 
@@ -6378,7 +7563,37 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "school_id": 1,
+            "name": "2018\/2019",
+            "start_date": "2018-09-11 00:00:00",
+            "end_date": "2019-09-11 00:00:00",
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 2,
+            "school_id": 1,
+            "name": "2019\/2020",
+            "start_date": "2019-09-11 00:00:00",
+            "end_date": "2020-09-10 00:00:00",
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/sessions?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/sessions?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/sessions",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 2,
+    "total": 2
 }
 ```
 
@@ -6480,7 +7695,13 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "school_id": 1,
+    "name": "2018\/2019",
+    "start_date": "2018-09-11 00:00:00",
+    "end_date": "2019-09-11 00:00:00",
+    "created_at": "2018-09-11 01:17:39",
+    "updated_at": "2018-09-11 01:17:39"
 }
 ```
 
@@ -6608,7 +7829,55 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "user_id": 2,
+            "school_id": 1,
+            "department_id": null,
+            "title": "Mrs.",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 2,
+            "user_id": 6,
+            "school_id": 1,
+            "department_id": 1,
+            "title": "Dr.",
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 3,
+            "user_id": 7,
+            "school_id": 1,
+            "department_id": 1,
+            "title": "Ms.",
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 4,
+            "user_id": 8,
+            "school_id": 1,
+            "department_id": 1,
+            "title": "Mrs.",
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/staff?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/staff?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/staff",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 4,
+    "total": 4
 }
 ```
 
@@ -6712,7 +7981,13 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "user_id": 2,
+    "school_id": 1,
+    "department_id": null,
+    "title": "Mrs.",
+    "created_at": "2018-09-11 01:17:38",
+    "updated_at": "2018-09-11 01:17:38"
 }
 ```
 
@@ -6844,7 +8119,27 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "staff_id": 1,
+            "course_id": 1,
+            "semester_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/staff-courses?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/staff-courses?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/staff-courses",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1
 }
 ```
 
@@ -6945,7 +8240,12 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "staff_id": 1,
+    "course_id": 1,
+    "semester_id": 1,
+    "created_at": "2018-09-11 01:17:39",
+    "updated_at": "2018-09-11 01:17:39"
 }
 ```
 
@@ -7084,7 +8384,26 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "student_id": 1,
+            "staff_teach_course_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/student-courses?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/student-courses?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/student-courses",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1
 }
 ```
 
@@ -7189,7 +8508,11 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "student_id": 1,
+    "staff_teach_course_id": 1,
+    "created_at": "2018-09-11 01:17:39",
+    "updated_at": "2018-09-11 01:17:39"
 }
 ```
 
@@ -7327,7 +8650,43 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "user_id": 3,
+            "program_id": 1,
+            "matric_no": "UNI159",
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 2,
+            "user_id": 4,
+            "program_id": 1,
+            "matric_no": "UNI397",
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 3,
+            "user_id": 5,
+            "program_id": 1,
+            "matric_no": "UNI279",
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/students?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/students?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/students",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 3,
+    "total": 3
 }
 ```
 
@@ -7434,7 +8793,12 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "user_id": 3,
+    "program_id": 1,
+    "matric_no": "UNI159",
+    "created_at": "2018-09-11 01:17:39",
+    "updated_at": "2018-09-11 01:17:39"
 }
 ```
 
@@ -7566,7 +8930,115 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "user_id": 1,
+            "role_id": 1,
+            "school_id": null,
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 2,
+            "user_id": 1,
+            "role_id": 2,
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 3,
+            "user_id": 2,
+            "role_id": 3,
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 4,
+            "user_id": 2,
+            "role_id": 6,
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 5,
+            "user_id": 2,
+            "role_id": 5,
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 6,
+            "user_id": 3,
+            "role_id": 4,
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 7,
+            "user_id": 4,
+            "role_id": 4,
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 8,
+            "user_id": 5,
+            "role_id": 4,
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 9,
+            "user_id": 6,
+            "role_id": 3,
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 10,
+            "user_id": 7,
+            "role_id": 3,
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 11,
+            "user_id": 8,
+            "role_id": 3,
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 12,
+            "user_id": 9,
+            "role_id": 7,
+            "school_id": 1,
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/user-roles?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/user-roles?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/user-roles",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 12,
+    "total": 12
 }
 ```
 
@@ -7666,7 +9138,12 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "user_id": 1,
+    "role_id": 1,
+    "school_id": null,
+    "created_at": "2018-09-11 01:17:38",
+    "updated_at": "2018-09-11 01:17:38"
 }
 ```
 
@@ -7793,7 +9270,118 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "email": "mykeels@mailinator.com",
+            "first_name": "Owner",
+            "last_name": "Orlando",
+            "other_names": null,
+            "display_name": "Owner Orlando",
+            "dob": "1959-06-06",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 2,
+            "email": "dean.daniel@mailinator.com",
+            "first_name": "Dean",
+            "last_name": "Daniels",
+            "other_names": null,
+            "display_name": "Dean Daniels",
+            "dob": "1982-03-01",
+            "created_at": "2018-09-11 01:17:38",
+            "updated_at": "2018-09-11 01:17:38"
+        },
+        {
+            "id": 3,
+            "email": "demo.lpurdy@example.com",
+            "first_name": "Henriette",
+            "last_name": "Casper",
+            "other_names": null,
+            "display_name": "Henriette Casper",
+            "dob": "1971-11-13",
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 4,
+            "email": "demo.ukautzer@example.com",
+            "first_name": "Alexa",
+            "last_name": "Dooley",
+            "other_names": null,
+            "display_name": "Alexa Dooley",
+            "dob": "1980-05-30",
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 5,
+            "email": "demo.dubuque.hester@example.org",
+            "first_name": "Dion",
+            "last_name": "Quigley",
+            "other_names": null,
+            "display_name": "Dion Quigley",
+            "dob": "1953-10-17",
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 6,
+            "email": "demo.stehr.freda@example.org",
+            "first_name": "Americo",
+            "last_name": "Shanahan",
+            "other_names": null,
+            "display_name": "Americo Shanahan",
+            "dob": "1959-02-10",
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 7,
+            "email": "demo.strosin.pete@example.com",
+            "first_name": "Savanah",
+            "last_name": "Moore",
+            "other_names": null,
+            "display_name": "Savanah Moore",
+            "dob": "1975-07-09",
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 8,
+            "email": "demo.gcremin@example.com",
+            "first_name": "Edison",
+            "last_name": "Schinner",
+            "other_names": null,
+            "display_name": "Edison Schinner",
+            "dob": "1952-08-14",
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        },
+        {
+            "id": 9,
+            "email": "demo.izaiah35@example.org",
+            "first_name": "Josefa",
+            "last_name": "Harvey",
+            "other_names": null,
+            "display_name": "Josefa Harvey",
+            "dob": "1954-01-16",
+            "created_at": "2018-09-11 01:17:39",
+            "updated_at": "2018-09-11 01:17:39"
+        }
+    ],
+    "first_page_url": "http:\/\/localhost\/api\/v1\/users?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http:\/\/localhost\/api\/v1\/users?page=1",
+    "next_page_url": null,
+    "path": "http:\/\/localhost\/api\/v1\/users",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 9,
+    "total": 9
 }
 ```
 
@@ -7899,7 +9487,15 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "token invalid"
+    "id": 1,
+    "email": "mykeels@mailinator.com",
+    "first_name": "Owner",
+    "last_name": "Orlando",
+    "other_names": null,
+    "display_name": "Owner Orlando",
+    "dob": "1959-06-06",
+    "created_at": "2018-09-11 01:17:38",
+    "updated_at": "2018-09-11 01:17:38"
 }
 ```
 
