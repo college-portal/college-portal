@@ -20,7 +20,9 @@ Welcome to the generated API reference.
 
 <!-- END_INFO -->
 
-#general
+#Authentication
+
+For Endpoints handling User Authentication
 <!-- START_af82433e555a57f31d78233071a5a020 -->
 ## Authenticate User
 
@@ -56,6 +58,617 @@ $.ajax(settings).done(function (response) {
 
 <!-- END_af82433e555a57f31d78233071a5a020 -->
 
+<!-- START_1c1379ad98c1e4337433460cbb47992e -->
+## Refresh Access Token
+
+Uses basic authentication and returns a Json Web Token
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost:8000/api/v1/auth/refresh" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/auth/refresh",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST api/v1/auth/refresh`
+
+
+<!-- END_1c1379ad98c1e4337433460cbb47992e -->
+
+<!-- START_8c7d6c531d2bf5ac76617e30ec33d7c7 -->
+## Verify User&#039;s Email Address
+
+Retrieve Token Information from the Request and Verify a User's Email with it
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost:8000/api/v1/auth/verify" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/auth/verify",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "message": "Wrong number of segments",
+    "exception": "Tymon\\JWTAuth\\Exceptions\\TokenInvalidException",
+    "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/tymon\/jwt-auth\/src\/Validators\/TokenValidator.php",
+    "line": 37,
+    "trace": [
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/tymon\/jwt-auth\/src\/Validators\/TokenValidator.php",
+            "line": 26,
+            "function": "validateStructure",
+            "class": "Tymon\\JWTAuth\\Validators\\TokenValidator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/tymon\/jwt-auth\/src\/Token.php",
+            "line": 30,
+            "function": "check",
+            "class": "Tymon\\JWTAuth\\Validators\\TokenValidator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/tymon\/jwt-auth\/src\/JWTAuth.php",
+            "line": 277,
+            "function": "__construct",
+            "class": "Tymon\\JWTAuth\\Token",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Support\/Facades\/Facade.php",
+            "line": 223,
+            "function": "setToken",
+            "class": "Tymon\\JWTAuth\\JWTAuth",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/app\/Http\/Controllers\/Api\/AuthController.php",
+            "line": 105,
+            "function": "__callStatic",
+            "class": "Illuminate\\Support\\Facades\\Facade",
+            "type": "::"
+        },
+        {
+            "function": "verify",
+            "class": "App\\Http\\Controllers\\Api\\AuthController",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Controller.php",
+            "line": 54,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/ControllerDispatcher.php",
+            "line": 45,
+            "function": "callAction",
+            "class": "Illuminate\\Routing\\Controller",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php",
+            "line": 212,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\ControllerDispatcher",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php",
+            "line": 169,
+            "function": "runController",
+            "class": "Illuminate\\Routing\\Route",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 665,
+            "function": "run",
+            "class": "Illuminate\\Routing\\Route",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 30,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/app\/Http\/Middleware\/UseTransaction.php",
+            "line": 29,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "App\\Http\\Middleware\\UseTransaction",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php",
+            "line": 41,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 667,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 642,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 608,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 597,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 176,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 30,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
+            "line": 62,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 151,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 116,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 116,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/AbstractGenerator.php",
+            "line": 98,
+            "function": "callRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 58,
+            "function": "getRouteResponse",
+            "class": "Mpociot\\ApiDoc\\Generators\\AbstractGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 261,
+            "function": "processRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 83,
+            "function": "processLaravelRoutes",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 179,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 166,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 194,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/app\/Console\/Commands\/GenerateDocsCommand.php",
+            "line": 60,
+            "function": "call",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "App\\Console\\Commands\\GenerateDocsCommand",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 179,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 166,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/symfony\/console\/Application.php",
+            "line": 886,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/symfony\/console\/Application.php",
+            "line": 262,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/symfony\/console\/Application.php",
+            "line": 145,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
+            "line": 89,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
+            "line": 122,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/Users\/seniortechnicalconsultant\/Dev\/websites\/college-portal\/college-portal\/artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "->"
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/v1/auth/verify`
+
+`HEAD api/v1/auth/verify`
+
+
+<!-- END_8c7d6c531d2bf5ac76617e30ec33d7c7 -->
+
+<!-- START_7e87011e64095b0820f3a29b6d68e1f1 -->
+## Resent Verification Mail
+
+Accept email-verification token and resend mail if valid
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost:8000/api/v1/auth/resend" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/auth/resend",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST api/v1/auth/resend`
+
+
+<!-- END_7e87011e64095b0820f3a29b6d68e1f1 -->
+
 <!-- START_b2892eb191cd19c0a6f1aae56ba43db4 -->
 ## Get Current User
 
@@ -88,15 +701,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "email": "owner.orlando@mailinator.com",
-    "first_name": "Owner",
-    "last_name": "Orlando",
-    "other_names": null,
-    "display_name": "Owner Orlando",
-    "dob": "1964-10-30",
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -108,6 +713,250 @@ $.ajax(settings).done(function (response) {
 
 <!-- END_b2892eb191cd19c0a6f1aae56ba43db4 -->
 
+#Chargeables
+
+For Endpoints handling Chargeables, which represent a particular cost/charge for a service.
+<!-- START_bf245505e23dfbbe661326e8dbef8f91 -->
+## Gets Chargeables
+
+Responds with a list of Chargeables
+- Rules of Access
+  - User is in same school as the Chargeable
+- Filters
+ - ?with_service (includes the chargeable service)
+ - ?with_owner (includes the chargeable's owner)
+ - ?with_school (includes the chargeable's school)
+ - ?service={id} (filters by the chargeable service id)
+ - ?owner={id} (filters by the owner id)
+ - ?min_amount={amount} (filters by minimum amount)
+ - ?max_amount={amount} (filters by maximum amount)
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost:8000/api/v1/chargeables" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/chargeables",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "message": "token invalid"
+}
+```
+
+### HTTP Request
+`GET api/v1/chargeables`
+
+`HEAD api/v1/chargeables`
+
+
+<!-- END_bf245505e23dfbbe661326e8dbef8f91 -->
+
+<!-- START_a73d24dd49969540840ddf41de3efc15 -->
+## Create Chargeable
+
+Supply chargeable information to create a new one
+- Rules of Access
+ - User can view Chargeable Service and
+ - User can update the owner of the Chargeable (See Chargeable Model)
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost:8000/api/v1/chargeables" \
+-H "Accept: application/json" \
+    -d "chargeable_service_id"="2" \
+    -d "owner_id"="2" \
+    -d "amount"="2" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/chargeables",
+    "method": "POST",
+    "data": {
+        "chargeable_service_id": 2,
+        "owner_id": 2,
+        "amount": 2
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST api/v1/chargeables`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    chargeable_service_id | numeric |  required  | Valid chargeable_service id
+    owner_id | numeric |  required  | 
+    amount | numeric |  optional  | 
+
+<!-- END_a73d24dd49969540840ddf41de3efc15 -->
+
+<!-- START_cd1cb6c785046b3d60d7457d176bcdf4 -->
+## Get Chargeable by ID
+
+Responds with a specific Chargeable by its ID
+- Rules of Access
+  - User is in same school as the Chargeable
+- Filters
+ - ?with_service (includes the chargeable service)
+ - ?with_owner (includes the chargeable's owner)
+ - ?with_school (includes the chargeable's school)
+ - ?service={id} (filters by the chargeable service id)
+ - ?owner={id} (filters by the owner id)
+ - ?min_amount={amount} (filters by minimum amount)
+ - ?max_amount={amount} (filters by maximum amount)
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost:8000/api/v1/chargeables/{chargeable}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/chargeables/{chargeable}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "message": "token invalid"
+}
+```
+
+### HTTP Request
+`GET api/v1/chargeables/{chargeable}`
+
+`HEAD api/v1/chargeables/{chargeable}`
+
+
+<!-- END_cd1cb6c785046b3d60d7457d176bcdf4 -->
+
+<!-- START_1e0e4d60e9dd43475bbc0cb6a52b99e3 -->
+## Update Chargeable
+
+Modify information about an existing chargeable by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Chargeable belongs to
+
+> Example request:
+
+```bash
+curl -X PUT "http://localhost:8000/api/v1/chargeables/{chargeable}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/chargeables/{chargeable}",
+    "method": "PUT",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`PUT api/v1/chargeables/{chargeable}`
+
+`PATCH api/v1/chargeables/{chargeable}`
+
+
+<!-- END_1e0e4d60e9dd43475bbc0cb6a52b99e3 -->
+
+<!-- START_c0eaf9c0c8270d516defc031afd05455 -->
+## Delete Chargeable
+
+Removes a Chargeable from the System by ID
+- Rules of Access
+ - User is an ADMIN or
+ - User owns school the Chargeable belongs to
+
+> Example request:
+
+```bash
+curl -X DELETE "http://localhost:8000/api/v1/chargeables/{chargeable}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000/api/v1/chargeables/{chargeable}",
+    "method": "DELETE",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`DELETE api/v1/chargeables/{chargeable}`
+
+
+<!-- END_c0eaf9c0c8270d516defc031afd05455 -->
+
+#general
 <!-- START_fa8ba4bb4dd01057546f68a50212b5fc -->
 ## Get Schools
 
@@ -144,27 +993,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "name": "Yaba College of Technology",
-            "short_name": "YABATECH",
-            "owner_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/schools?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/schools?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/schools",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 1,
-    "total": 1
+    "message": "token invalid"
 }
 ```
 
@@ -263,12 +1092,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "name": "Yaba College of Technology",
-    "short_name": "YABATECH",
-    "owner_id": 1,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -395,85 +1219,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "email": "owner.orlando@mailinator.com",
-            "first_name": "Owner",
-            "last_name": "Orlando",
-            "other_names": null,
-            "display_name": "Owner Orlando",
-            "dob": "1964-10-30",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 2,
-            "email": "dean.daniel@mailinator.com",
-            "first_name": "Dean",
-            "last_name": "Daniels",
-            "other_names": null,
-            "display_name": "Dean Daniels",
-            "dob": "1984-02-10",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 3,
-            "email": "demo.denis.okeefe@example.net",
-            "first_name": "Abraham",
-            "last_name": "Mosciski",
-            "other_names": null,
-            "display_name": "Abraham Mosciski",
-            "dob": "1955-01-27",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 4,
-            "email": "demo.sschoen@example.net",
-            "first_name": "Sydnie",
-            "last_name": "Kemmer",
-            "other_names": null,
-            "display_name": "Sydnie Kemmer",
-            "dob": "1975-04-01",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 5,
-            "email": "demo.eriberto.maggio@example.com",
-            "first_name": "Helen",
-            "last_name": "Botsford",
-            "other_names": null,
-            "display_name": "Helen Botsford",
-            "dob": "1953-08-07",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 6,
-            "email": "demo.fernser@example.com",
-            "first_name": "Stan",
-            "last_name": "Lynch",
-            "other_names": null,
-            "display_name": "Stan Lynch",
-            "dob": "1961-11-22",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/users?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/users?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/users",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 6,
-    "total": 6
+    "message": "token invalid"
 }
 ```
 
@@ -499,7 +1245,7 @@ curl -X POST "http://localhost:8000/api/v1/users" \
     -d "last_name"="eligendi" \
     -d "email"="lenore05@example.org" \
     -d "password"="eligendi" \
-    -d "dob"="2003-09-22" \
+    -d "dob"="2003-10-16" \
 
 ```
 
@@ -514,7 +1260,7 @@ var settings = {
         "last_name": "eligendi",
         "email": "lenore05@example.org",
         "password": "eligendi",
-        "dob": "2003-09-22"
+        "dob": "2003-10-16"
 },
     "headers": {
         "accept": "application/json"
@@ -579,15 +1325,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "email": "owner.orlando@mailinator.com",
-    "first_name": "Owner",
-    "last_name": "Orlando",
-    "other_names": null,
-    "display_name": "Owner Orlando",
-    "dob": "1964-10-30",
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -717,27 +1455,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "name": "Law",
-            "dean_id": 1,
-            "school_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/faculties?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/faculties?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/faculties",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 1,
-    "total": 1
+    "message": "token invalid"
 }
 ```
 
@@ -843,12 +1561,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "name": "Law",
-    "dean_id": 1,
-    "school_id": 1,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -980,43 +1693,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "name": "Physics",
-            "hod_id": 1,
-            "faculty_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 2,
-            "name": "Logic and Design",
-            "hod_id": 1,
-            "faculty_id": 1,
-            "created_at": "2018-08-07 07:32:07",
-            "updated_at": "2018-08-07 07:32:07"
-        },
-        {
-            "id": 3,
-            "name": "Logic and Design",
-            "hod_id": 1,
-            "faculty_id": 1,
-            "created_at": "2018-08-07 07:33:15",
-            "updated_at": "2018-08-07 07:33:15"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/departments?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/departments?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/departments",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 3,
-    "total": 3
+    "message": "token invalid"
 }
 ```
 
@@ -1123,12 +1800,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "name": "Physics",
-    "hod_id": 1,
-    "faculty_id": 1,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -1258,26 +1930,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "name": "Library Studies",
-            "department_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/programs?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/programs?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/programs",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 1,
-    "total": 1
+    "message": "token invalid"
 }
 ```
 
@@ -1378,11 +2031,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "name": "Library Studies",
-    "department_id": 1,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -1510,47 +2159,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "name": "100L",
-            "school_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 2,
-            "name": "200L",
-            "school_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 3,
-            "name": "300L",
-            "school_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 4,
-            "name": "400L",
-            "school_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/schools\/1\/levels?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/schools\/1\/levels?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/schools\/1\/levels",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 4,
-    "total": 4
+    "message": "token invalid"
 }
 ```
 
@@ -1644,12 +2253,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "name": "Yaba College of Technology",
-    "short_name": "YABATECH",
-    "owner_id": 1,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -1778,46 +2382,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "user_id": 3,
-            "program_id": 1,
-            "matric_no": "UNI760",
-            "is_active": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 2,
-            "user_id": 4,
-            "program_id": 1,
-            "matric_no": "UNI440",
-            "is_active": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 3,
-            "user_id": 5,
-            "program_id": 1,
-            "matric_no": "UNI554",
-            "is_active": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/students?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/students?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/students",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 3,
-    "total": 3
+    "message": "token invalid"
 }
 ```
 
@@ -1924,13 +2489,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "user_id": 3,
-    "program_id": 1,
-    "matric_no": "UNI760",
-    "is_active": 1,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -2066,107 +2625,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "department_id": 1,
-            "semester_type_id": 1,
-            "level_id": 1,
-            "code": "PHP148",
-            "title": "Physical Sciences",
-            "credit": 4,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 2,
-            "department_id": 1,
-            "semester_type_id": 1,
-            "level_id": 2,
-            "code": "LSL161",
-            "title": "Oscillatory Motion",
-            "credit": 3,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 3,
-            "department_id": 1,
-            "semester_type_id": 1,
-            "level_id": 3,
-            "code": "GIP195",
-            "title": "Signal Analysis",
-            "credit": 3,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 4,
-            "department_id": 1,
-            "semester_type_id": 1,
-            "level_id": 4,
-            "code": "SBD172",
-            "title": "Oscillatory Motion",
-            "credit": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 5,
-            "department_id": 1,
-            "semester_type_id": 2,
-            "level_id": 1,
-            "code": "KYD114",
-            "title": "Kinematics",
-            "credit": 2,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 6,
-            "department_id": 1,
-            "semester_type_id": 2,
-            "level_id": 2,
-            "code": "RSD198",
-            "title": "Algorithms and Data Structures",
-            "credit": 4,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 7,
-            "department_id": 1,
-            "semester_type_id": 2,
-            "level_id": 3,
-            "code": "LRD122",
-            "title": "Signal Analysis",
-            "credit": 5,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 8,
-            "department_id": 1,
-            "semester_type_id": 2,
-            "level_id": 4,
-            "code": "AZN115",
-            "title": "Basic Algebra",
-            "credit": 6,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/courses?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/courses?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/courses",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 8,
-    "total": 8
+    "message": "token invalid"
 }
 ```
 
@@ -2286,15 +2745,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "department_id": 1,
-    "semester_type_id": 1,
-    "level_id": 1,
-    "code": "PHP148",
-    "title": "Physical Sciences",
-    "credit": 4,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -2418,33 +2869,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "name": "1st Semester",
-            "school_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 2,
-            "name": "2nd Semester",
-            "school_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/schools\/1\/semester-types?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/schools\/1\/semester-types?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/schools\/1\/semester-types",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 2,
-    "total": 2
+    "message": "token invalid"
 }
 ```
 
@@ -2534,12 +2959,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "name": "Yaba College of Technology",
-    "short_name": "YABATECH",
-    "owner_id": 1,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -2663,28 +3083,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "user_id": 2,
-            "school_id": 1,
-            "department_id": null,
-            "title": "Prof.",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/staff?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/staff?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/staff",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 1,
-    "total": 1
+    "message": "token invalid"
 }
 ```
 
@@ -2788,13 +3187,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "user_id": 2,
-    "school_id": 1,
-    "department_id": null,
-    "title": "Prof.",
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -2922,37 +3315,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "school_id": 1,
-            "name": "2018\/2019",
-            "start_date": "2018-08-01 00:00:00",
-            "end_date": "2019-08-01 00:00:00",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 2,
-            "school_id": 1,
-            "name": "2019\/2020",
-            "start_date": "2019-08-01 00:00:00",
-            "end_date": "2020-07-31 00:00:00",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/sessions?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/sessions?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/sessions",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 2,
-    "total": 2
+    "message": "token invalid"
 }
 ```
 
@@ -2978,8 +3341,8 @@ curl -X POST "http://localhost:8000/api/v1/sessions" \
 -H "Accept: application/json" \
     -d "school_id"="9" \
     -d "name"="ipsa" \
-    -d "start_date"="1972-01-01" \
-    -d "end_date"="1972-01-01" \
+    -d "start_date"="1972-01-03" \
+    -d "end_date"="1972-01-03" \
 
 ```
 
@@ -2992,8 +3355,8 @@ var settings = {
     "data": {
         "school_id": 9,
         "name": "ipsa",
-        "start_date": "1972-01-01",
-        "end_date": "1972-01-01"
+        "start_date": "1972-01-03",
+        "end_date": "1972-01-03"
 },
     "headers": {
         "accept": "application/json"
@@ -3054,13 +3417,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "school_id": 1,
-    "name": "2018\/2019",
-    "start_date": "2018-08-01 00:00:00",
-    "end_date": "2019-08-01 00:00:00",
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -3187,37 +3544,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "semester_type_id": 1,
-            "session_id": 1,
-            "start_date": "2018-08-01 00:00:00",
-            "end_date": "2019-01-28 00:00:00",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 2,
-            "semester_type_id": 2,
-            "session_id": 1,
-            "start_date": "2019-02-02 00:00:00",
-            "end_date": "2019-08-01 00:00:00",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/semesters?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/semesters?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/semesters",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 2,
-    "total": 2
+    "message": "token invalid"
 }
 ```
 
@@ -3243,8 +3570,8 @@ curl -X POST "http://localhost:8000/api/v1/semesters" \
 -H "Accept: application/json" \
     -d "session_id"="851794023" \
     -d "semester_type_id"="851794023" \
-    -d "start_date"="2018-03-20" \
-    -d "end_date"="2018-03-20" \
+    -d "start_date"="2018-04-23" \
+    -d "end_date"="2018-04-23" \
 
 ```
 
@@ -3257,8 +3584,8 @@ var settings = {
     "data": {
         "session_id": 851794023,
         "semester_type_id": 851794023,
-        "start_date": "2018-03-20",
-        "end_date": "2018-03-20"
+        "start_date": "2018-04-23",
+        "end_date": "2018-04-23"
 },
     "headers": {
         "accept": "application/json"
@@ -3322,13 +3649,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "semester_type_id": 1,
-    "session_id": 1,
-    "start_date": "2018-08-01 00:00:00",
-    "end_date": "2019-01-28 00:00:00",
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -3456,49 +3777,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "type": "App\\Models\\Semester",
-            "name": "1st Semester Fees",
-            "description": null,
-            "amount": "500.00",
-            "school_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 2,
-            "type": "App\\Models\\Semester",
-            "name": "2nd Semester Fees",
-            "description": null,
-            "amount": "500.00",
-            "school_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 3,
-            "type": "App\\Models\\Session",
-            "name": "2018\/2019 Fees",
-            "description": null,
-            "amount": "1000.00",
-            "school_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/chargeable-services?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/chargeable-services?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/chargeable-services",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 3,
-    "total": 3
+    "message": "token invalid"
 }
 ```
 
@@ -3539,7 +3818,7 @@ var settings = {
     "method": "POST",
     "data": {
         "school_id": 4352,
-        "type": "App\\Models\\Semester",
+        "type": "CollegePortal\\Models\\Semester",
         "name": "dignissimos",
         "description": "dignissimos",
         "amount": 948870890
@@ -3608,14 +3887,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "type": "App\\Models\\Semester",
-    "name": "1st Semester Fees",
-    "description": null,
-    "amount": "500.00",
-    "school_id": 1,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -3705,287 +3977,6 @@ $.ajax(settings).done(function (response) {
 
 <!-- END_b2456880f4173a3d42c026eadecdc90a -->
 
-<!-- START_bf245505e23dfbbe661326e8dbef8f91 -->
-## Gets Chargeables
-
-Responds with a list of Chargeables
-- Rules of Access
-  - User is in same school as the Chargeable
-- Filters
- - ?with_service (includes the chargeable service)
- - ?with_owner (includes the chargeable's owner)
- - ?with_school (includes the chargeable's school)
- - ?service={id} (filters by the chargeable service id)
- - ?owner={id} (filters by the owner id)
- - ?min_amount={amount} (filters by minimum amount)
- - ?max_amount={amount} (filters by maximum amount)
-
-> Example request:
-
-```bash
-curl -X GET "http://localhost:8000/api/v1/chargeables" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost:8000/api/v1/chargeables",
-    "method": "GET",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-> Example response:
-
-```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "chargeable_service_id": 1,
-            "owner_id": 1,
-            "amount": "500.00",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 2,
-            "chargeable_service_id": 2,
-            "owner_id": 2,
-            "amount": "500.00",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 3,
-            "chargeable_service_id": 3,
-            "owner_id": 1,
-            "amount": "1000.00",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/chargeables?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/chargeables?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/chargeables",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 3,
-    "total": 3
-}
-```
-
-### HTTP Request
-`GET api/v1/chargeables`
-
-`HEAD api/v1/chargeables`
-
-
-<!-- END_bf245505e23dfbbe661326e8dbef8f91 -->
-
-<!-- START_a73d24dd49969540840ddf41de3efc15 -->
-## Create Chargeable
-
-Supply chargeable information to create a new one
-- Rules of Access
- - User can view Chargeable Service and
- - User can update the owner of the Chargeable (See Chargeable Model)
-
-> Example request:
-
-```bash
-curl -X POST "http://localhost:8000/api/v1/chargeables" \
--H "Accept: application/json" \
-    -d "chargeable_service_id"="2" \
-    -d "owner_id"="2" \
-    -d "amount"="2" \
-
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost:8000/api/v1/chargeables",
-    "method": "POST",
-    "data": {
-        "chargeable_service_id": 2,
-        "owner_id": 2,
-        "amount": 2
-},
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-
-### HTTP Request
-`POST api/v1/chargeables`
-
-#### Parameters
-
-Parameter | Type | Status | Description
---------- | ------- | ------- | ------- | -----------
-    chargeable_service_id | numeric |  required  | Valid chargeable_service id
-    owner_id | numeric |  required  | 
-    amount | numeric |  optional  | 
-
-<!-- END_a73d24dd49969540840ddf41de3efc15 -->
-
-<!-- START_cd1cb6c785046b3d60d7457d176bcdf4 -->
-## Get Chargeable by ID
-
-Responds with a specific Chargeable by its ID
-- Rules of Access
-  - User is in same school as the Chargeable
-- Filters
- - ?with_service (includes the chargeable service)
- - ?with_owner (includes the chargeable's owner)
- - ?with_school (includes the chargeable's school)
- - ?service={id} (filters by the chargeable service id)
- - ?owner={id} (filters by the owner id)
- - ?min_amount={amount} (filters by minimum amount)
- - ?max_amount={amount} (filters by maximum amount)
-
-> Example request:
-
-```bash
-curl -X GET "http://localhost:8000/api/v1/chargeables/{chargeable}" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost:8000/api/v1/chargeables/{chargeable}",
-    "method": "GET",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-> Example response:
-
-```json
-{
-    "id": 1,
-    "chargeable_service_id": 1,
-    "owner_id": 1,
-    "amount": "500.00",
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
-}
-```
-
-### HTTP Request
-`GET api/v1/chargeables/{chargeable}`
-
-`HEAD api/v1/chargeables/{chargeable}`
-
-
-<!-- END_cd1cb6c785046b3d60d7457d176bcdf4 -->
-
-<!-- START_1e0e4d60e9dd43475bbc0cb6a52b99e3 -->
-## Update Chargeable
-
-Modify information about an existing chargeable by ID
-- Rules of Access
- - User is an ADMIN or
- - User owns school the Chargeable belongs to
-
-> Example request:
-
-```bash
-curl -X PUT "http://localhost:8000/api/v1/chargeables/{chargeable}" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost:8000/api/v1/chargeables/{chargeable}",
-    "method": "PUT",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-
-### HTTP Request
-`PUT api/v1/chargeables/{chargeable}`
-
-`PATCH api/v1/chargeables/{chargeable}`
-
-
-<!-- END_1e0e4d60e9dd43475bbc0cb6a52b99e3 -->
-
-<!-- START_c0eaf9c0c8270d516defc031afd05455 -->
-## Delete Chargeable
-
-Removes a Chargeable from the System by ID
-- Rules of Access
- - User is an ADMIN or
- - User owns school the Chargeable belongs to
-
-> Example request:
-
-```bash
-curl -X DELETE "http://localhost:8000/api/v1/chargeables/{chargeable}" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost:8000/api/v1/chargeables/{chargeable}",
-    "method": "DELETE",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-
-### HTTP Request
-`DELETE api/v1/chargeables/{chargeable}`
-
-
-<!-- END_c0eaf9c0c8270d516defc031afd05455 -->
-
 <!-- START_828340f04adade83bc661bbbdcd22025 -->
 ## Get Program Credits
 
@@ -4020,46 +4011,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "program_id": 1,
-            "semester_id": 1,
-            "level_id": 1,
-            "credit": 19,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 2,
-            "program_id": 1,
-            "semester_id": 1,
-            "level_id": 2,
-            "credit": 23,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 3,
-            "program_id": 1,
-            "semester_id": 1,
-            "level_id": 3,
-            "credit": 20,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/program-credits?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/program-credits?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/program-credits",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 3,
-    "total": 3
+    "message": "token invalid"
 }
 ```
 
@@ -4163,13 +4115,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "program_id": 1,
-    "semester_id": 1,
-    "level_id": 1,
-    "credit": 19,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -4298,46 +4244,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "user_id": 1,
-            "chargeable_id": 1,
-            "paid_at": null,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36",
-            "deleted_at": null
-        },
-        {
-            "id": 2,
-            "user_id": 1,
-            "chargeable_id": 2,
-            "paid_at": null,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36",
-            "deleted_at": null
-        },
-        {
-            "id": 3,
-            "user_id": 1,
-            "chargeable_id": 3,
-            "paid_at": null,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36",
-            "deleted_at": null
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/payables?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/payables?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/payables",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 3,
-    "total": 3
+    "message": "token invalid"
 }
 ```
 
@@ -4435,13 +4342,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "user_id": 1,
-    "chargeable_id": 1,
-    "paid_at": null,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36",
-    "deleted_at": null
+    "message": "token invalid"
 }
 ```
 
@@ -4570,124 +4471,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "course_id": 5,
-            "dependency_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 2,
-            "course_id": 5,
-            "dependency_id": 2,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 3,
-            "course_id": 5,
-            "dependency_id": 3,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 4,
-            "course_id": 5,
-            "dependency_id": 4,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 5,
-            "course_id": 6,
-            "dependency_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 6,
-            "course_id": 6,
-            "dependency_id": 2,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 7,
-            "course_id": 6,
-            "dependency_id": 3,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 8,
-            "course_id": 6,
-            "dependency_id": 4,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 9,
-            "course_id": 7,
-            "dependency_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 10,
-            "course_id": 7,
-            "dependency_id": 2,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 11,
-            "course_id": 7,
-            "dependency_id": 3,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 12,
-            "course_id": 7,
-            "dependency_id": 4,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 13,
-            "course_id": 8,
-            "dependency_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 14,
-            "course_id": 8,
-            "dependency_id": 2,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 15,
-            "course_id": 8,
-            "dependency_id": 3,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/course-dependencies?page=1",
-    "from": 1,
-    "last_page": 2,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/course-dependencies?page=2",
-    "next_page_url": "http:\/\/localhost\/api\/v1\/course-dependencies?page=2",
-    "path": "http:\/\/localhost\/api\/v1\/course-dependencies",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 15,
-    "total": 16
+    "message": "token invalid"
 }
 ```
 
@@ -4787,11 +4571,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "course_id": 5,
-    "dependency_id": 1,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -4919,27 +4699,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "staff_id": 1,
-            "course_id": 1,
-            "semester_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/staff-courses?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/staff-courses?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/staff-courses",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 1,
-    "total": 1
+    "message": "token invalid"
 }
 ```
 
@@ -5040,12 +4800,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "staff_id": 1,
-    "course_id": 1,
-    "semester_id": 1,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -5180,26 +4935,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "student_id": 1,
-            "staff_teach_course_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/student-courses?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/student-courses?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/student-courses",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 1,
-    "total": 1
+    "message": "token invalid"
 }
 ```
 
@@ -5304,11 +5040,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "student_id": 1,
-    "staff_teach_course_id": 1,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -5435,69 +5167,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "name": "A",
-            "value": 5,
-            "school_id": 1,
-            "minimum": "70.00",
-            "maximum": "100.00",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 2,
-            "name": "B",
-            "value": 4,
-            "school_id": 1,
-            "minimum": "60.00",
-            "maximum": "70.00",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 3,
-            "name": "C",
-            "value": 3,
-            "school_id": 1,
-            "minimum": "50.00",
-            "maximum": "60.00",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 4,
-            "name": "D",
-            "value": 2,
-            "school_id": 1,
-            "minimum": "45.00",
-            "maximum": "50.00",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 5,
-            "name": "E",
-            "value": 1,
-            "school_id": 1,
-            "minimum": "40.00",
-            "maximum": "45.00",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/schools\/1\/grade-types?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/schools\/1\/grade-types?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/schools\/1\/grade-types",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 5,
-    "total": 5
+    "message": "token invalid"
 }
 ```
 
@@ -5598,12 +5268,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "name": "Yaba College of Technology",
-    "short_name": "YABATECH",
-    "owner_id": 1,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -5735,28 +5400,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "student_takes_course_id": 1,
-            "score": 27,
-            "description": "Test 4",
-            "locked_at": null,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/grades?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/grades?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/grades",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 1,
-    "total": 1
+    "message": "token invalid"
 }
 ```
 
@@ -5867,13 +5511,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "student_takes_course_id": 1,
-    "score": 27,
-    "description": "Test 4",
-    "locked_at": null,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -6003,27 +5641,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "school_id": 1,
-            "type": "App\\User",
-            "name": "Type 1",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/schools\/1\/image-types?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/schools\/1\/image-types?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/schools\/1\/image-types",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 1,
-    "total": 1
+    "message": "token invalid"
 }
 ```
 
@@ -6120,12 +5738,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "name": "Yaba College of Technology",
-    "short_name": "YABATECH",
-    "owner_id": 1,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -6249,27 +5862,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "owner_id": 3,
-            "image_type_id": 1,
-            "location": null,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/images?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/images?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/images",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 1,
-    "total": 1
+    "message": "token invalid"
 }
 ```
 
@@ -6369,12 +5962,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "owner_id": 3,
-    "image_type_id": 1,
-    "location": null,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -6534,25 +6122,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "name": "change-password",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/intent-types?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/intent-types?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/intent-types",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 1,
-    "total": 1
+    "message": "token invalid"
 }
 ```
 
@@ -6643,10 +6213,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "name": "change-password",
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -6768,28 +6335,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "user_id": 1,
-            "intent_type_id": 1,
-            "extras": "[]",
-            "resolved_at": null,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/intents?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/intents?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/intents",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 1,
-    "total": 1
+    "message": "token invalid"
 }
 ```
 
@@ -6886,13 +6432,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "user_id": 1,
-    "intent_type_id": 1,
-    "extras": "[]",
-    "resolved_at": null,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -7010,68 +6550,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "name": "admin",
-            "display_name": "Administrator",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 2,
-            "name": "school-owner",
-            "display_name": "School Owner",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 3,
-            "name": "staff",
-            "display_name": "Staff",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 4,
-            "name": "student",
-            "display_name": "Student",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 5,
-            "name": "hod",
-            "display_name": "Head of Department",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 6,
-            "name": "dean",
-            "display_name": "Dean of Faculty",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 7,
-            "name": "prospect",
-            "display_name": "Student Admission Candidate",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/roles?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/roles?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/roles",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 7,
-    "total": 7
+    "message": "token invalid"
 }
 ```
 
@@ -7165,11 +6644,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "name": "admin",
-    "display_name": "Administrator",
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -7290,91 +6765,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "user_id": 1,
-            "role_id": 1,
-            "school_id": null,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 2,
-            "user_id": 1,
-            "role_id": 2,
-            "school_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 3,
-            "user_id": 2,
-            "role_id": 3,
-            "school_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 4,
-            "user_id": 2,
-            "role_id": 6,
-            "school_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 5,
-            "user_id": 2,
-            "role_id": 5,
-            "school_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 6,
-            "user_id": 3,
-            "role_id": 4,
-            "school_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 7,
-            "user_id": 4,
-            "role_id": 4,
-            "school_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 8,
-            "user_id": 5,
-            "role_id": 4,
-            "school_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 9,
-            "user_id": 6,
-            "role_id": 7,
-            "school_id": 1,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/user-roles?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/user-roles?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/user-roles",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 9,
-    "total": 9
+    "message": "token invalid"
 }
 ```
 
@@ -7474,12 +6865,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "user_id": 1,
-    "role_id": 1,
-    "school_id": null,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -7566,7 +6952,7 @@ $.ajax(settings).done(function (response) {
 
 <!-- END_771782101f91d08abc0ae3101176909a -->
 
-<!-- START_3680f3c93117981b79a99939a73d5bbd -->
+<!-- START_257f8350cd8a1edd53ad745b40005093 -->
 ## Get Content Types
 
 Responds with a list of Content Types
@@ -7576,7 +6962,7 @@ Responds with a list of Content Types
 > Example request:
 
 ```bash
-curl -X GET "http://localhost:8000/api/v1/schools/{school_id}/content-types" \
+curl -X GET "http://localhost:8000/api/v1/content-types" \
 -H "Accept: application/json"
 ```
 
@@ -7584,7 +6970,7 @@ curl -X GET "http://localhost:8000/api/v1/schools/{school_id}/content-types" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000/api/v1/schools/{school_id}/content-types",
+    "url": "http://localhost:8000/api/v1/content-types",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -7600,119 +6986,19 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "school_id": 1,
-            "type": "App\\Models\\Department",
-            "name": "type-1",
-            "display_name": "Type 1",
-            "format": "array",
-            "related_to": null,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 2,
-            "school_id": 1,
-            "type": "App\\Models\\Staff",
-            "name": "type-5",
-            "display_name": "Type 5",
-            "format": "datetime",
-            "related_to": null,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 3,
-            "school_id": 1,
-            "type": "App\\Models\\Staff",
-            "name": "type-10",
-            "display_name": "Type 10",
-            "format": "number",
-            "related_to": null,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 4,
-            "school_id": 1,
-            "type": "App\\Models\\Department",
-            "name": "type-9",
-            "display_name": "Type 9",
-            "format": "string",
-            "related_to": null,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 5,
-            "school_id": 1,
-            "type": "App\\User",
-            "name": "type-3",
-            "display_name": "Type 3",
-            "format": "boolean",
-            "related_to": null,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 6,
-            "school_id": 1,
-            "type": "App\\Models\\Department",
-            "name": "type-6",
-            "display_name": "Type 6",
-            "format": "object",
-            "related_to": null,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 7,
-            "school_id": 1,
-            "type": "App\\Models\\Department",
-            "name": "type-4",
-            "display_name": "Type 4",
-            "format": "string",
-            "related_to": 6,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 8,
-            "school_id": 1,
-            "type": "App\\Models\\Department",
-            "name": "type-8",
-            "display_name": "Type 8",
-            "format": "number",
-            "related_to": 6,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/schools\/1\/content-types?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/schools\/1\/content-types?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/schools\/1\/content-types",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 8,
-    "total": 8
+    "message": "token invalid"
 }
 ```
 
 ### HTTP Request
-`GET api/v1/schools/{school_id}/content-types`
+`GET api/v1/content-types`
 
-`HEAD api/v1/schools/{school_id}/content-types`
+`HEAD api/v1/content-types`
 
 
-<!-- END_3680f3c93117981b79a99939a73d5bbd -->
+<!-- END_257f8350cd8a1edd53ad745b40005093 -->
 
-<!-- START_8c7d45d41d930bd2006dd4eb3b8bf626 -->
+<!-- START_df49ae594cdac72e542e8a7fb9cc5d75 -->
 ## Create Content Type
 
 Supply Content Type information to create a new one
@@ -7723,13 +7009,13 @@ Supply Content Type information to create a new one
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000/api/v1/schools/{school_id}/content-types" \
+curl -X POST "http://localhost:8000/api/v1/content-types" \
 -H "Accept: application/json" \
-    -d "type"="illo" \
-    -d "name"="illo" \
-    -d "display_name"="illo" \
-    -d "school_id"="illo" \
-    -d "format"="array" \
+    -d "type"="CollegePortal\Models\IntentType" \
+    -d "name"="eum" \
+    -d "display_name"="eum" \
+    -d "school_id"="60011966" \
+    -d "format"="boolean" \
 
 ```
 
@@ -7737,14 +7023,14 @@ curl -X POST "http://localhost:8000/api/v1/schools/{school_id}/content-types" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000/api/v1/schools/{school_id}/content-types",
+    "url": "http://localhost:8000/api/v1/content-types",
     "method": "POST",
     "data": {
-        "type": "illo",
-        "name": "illo",
-        "display_name": "illo",
-        "school_id": "illo",
-        "format": "array"
+        "type": "CollegePortal\\Models\\IntentType",
+        "name": "eum",
+        "display_name": "eum",
+        "school_id": 60011966,
+        "format": "boolean"
 },
     "headers": {
         "accept": "application/json"
@@ -7758,21 +7044,21 @@ $.ajax(settings).done(function (response) {
 
 
 ### HTTP Request
-`POST api/v1/schools/{school_id}/content-types`
+`POST api/v1/content-types`
 
 #### Parameters
 
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
-    type | string |  required  | 
+    type | string |  required  | `CollegePortal\Models\User`, `CollegePortal\Models\School`, `CollegePortal\Models\Role`, `CollegePortal\Models\Staff`, `CollegePortal\Models\Student`, `CollegePortal\Models\Faculty`, `CollegePortal\Models\Program`, `CollegePortal\Models\Course`, `CollegePortal\Models\Session`, `CollegePortal\Models\Semester`, `CollegePortal\Models\Department`, `CollegePortal\Models\UserHasRole`, `CollegePortal\Models\ChargeableService`, `CollegePortal\Models\Chargeable`, `CollegePortal\Models\ProgramCredit`, `CollegePortal\Models\Payable`, `CollegePortal\Models\CourseDependency`, `CollegePortal\Models\IntentType`, `CollegePortal\Models\Intent`, `CollegePortal\Models\Image` or `CollegePortal\Models\ImageType`
     name | string |  required  | 
     display_name | string |  required  | 
-    school_id | string |  optional  | 
+    school_id | numeric |  required  | Valid school id
     format | string |  required  | `array`, `datetime`, `number`, `string`, `boolean` or `object`
 
-<!-- END_8c7d45d41d930bd2006dd4eb3b8bf626 -->
+<!-- END_df49ae594cdac72e542e8a7fb9cc5d75 -->
 
-<!-- START_f1f96fdce8cef8f49baf668a036e811a -->
+<!-- START_1b86ae06d54182b88875d35780fe26bc -->
 ## Get Content Type by ID
 
 Responds with a specific Content Type by its ID
@@ -7782,7 +7068,7 @@ Responds with a specific Content Type by its ID
 > Example request:
 
 ```bash
-curl -X GET "http://localhost:8000/api/v1/schools/{school_id}/content-types/{content_type}" \
+curl -X GET "http://localhost:8000/api/v1/content-types/{content_type}" \
 -H "Accept: application/json"
 ```
 
@@ -7790,7 +7076,7 @@ curl -X GET "http://localhost:8000/api/v1/schools/{school_id}/content-types/{con
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000/api/v1/schools/{school_id}/content-types/{content_type}",
+    "url": "http://localhost:8000/api/v1/content-types/{content_type}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -7806,24 +7092,19 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "name": "Yaba College of Technology",
-    "short_name": "YABATECH",
-    "owner_id": 1,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
 ### HTTP Request
-`GET api/v1/schools/{school_id}/content-types/{content_type}`
+`GET api/v1/content-types/{content_type}`
 
-`HEAD api/v1/schools/{school_id}/content-types/{content_type}`
+`HEAD api/v1/content-types/{content_type}`
 
 
-<!-- END_f1f96fdce8cef8f49baf668a036e811a -->
+<!-- END_1b86ae06d54182b88875d35780fe26bc -->
 
-<!-- START_c648599210e1528a9035ae92556e647c -->
+<!-- START_a773d2068cfdd16475a7c778ce32aa93 -->
 ## Update Content Type
 
 Modify information about an existing Content Type by ID
@@ -7834,7 +7115,7 @@ Modify information about an existing Content Type by ID
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost:8000/api/v1/schools/{school_id}/content-types/{content_type}" \
+curl -X PUT "http://localhost:8000/api/v1/content-types/{content_type}" \
 -H "Accept: application/json"
 ```
 
@@ -7842,7 +7123,7 @@ curl -X PUT "http://localhost:8000/api/v1/schools/{school_id}/content-types/{con
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000/api/v1/schools/{school_id}/content-types/{content_type}",
+    "url": "http://localhost:8000/api/v1/content-types/{content_type}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -7856,14 +7137,14 @@ $.ajax(settings).done(function (response) {
 
 
 ### HTTP Request
-`PUT api/v1/schools/{school_id}/content-types/{content_type}`
+`PUT api/v1/content-types/{content_type}`
 
-`PATCH api/v1/schools/{school_id}/content-types/{content_type}`
+`PATCH api/v1/content-types/{content_type}`
 
 
-<!-- END_c648599210e1528a9035ae92556e647c -->
+<!-- END_a773d2068cfdd16475a7c778ce32aa93 -->
 
-<!-- START_f3ba6c3272166512747340ba3c534be4 -->
+<!-- START_cd086a483db3c3985e6d08ad9dceb5dc -->
 ## Delete Content Type
 
 Removes a Content Type from the System by ID
@@ -7874,7 +7155,7 @@ Removes a Content Type from the System by ID
 > Example request:
 
 ```bash
-curl -X DELETE "http://localhost:8000/api/v1/schools/{school_id}/content-types/{content_type}" \
+curl -X DELETE "http://localhost:8000/api/v1/content-types/{content_type}" \
 -H "Accept: application/json"
 ```
 
@@ -7882,7 +7163,7 @@ curl -X DELETE "http://localhost:8000/api/v1/schools/{school_id}/content-types/{
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000/api/v1/schools/{school_id}/content-types/{content_type}",
+    "url": "http://localhost:8000/api/v1/content-types/{content_type}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -7896,10 +7177,10 @@ $.ajax(settings).done(function (response) {
 
 
 ### HTTP Request
-`DELETE api/v1/schools/{school_id}/content-types/{content_type}`
+`DELETE api/v1/content-types/{content_type}`
 
 
-<!-- END_f3ba6c3272166512747340ba3c534be4 -->
+<!-- END_cd086a483db3c3985e6d08ad9dceb5dc -->
 
 <!-- START_0afa62f6c9788653382aed8c733219a7 -->
 ## Get Contents
@@ -7933,99 +7214,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "owner_id": 1,
-            "content_type_id": 1,
-            "value": "array-value-1",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 2,
-            "owner_id": 1,
-            "content_type_id": 1,
-            "value": "array-value-2",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 3,
-            "owner_id": 1,
-            "content_type_id": 1,
-            "value": "array-value-3",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 4,
-            "owner_id": 1,
-            "content_type_id": 2,
-            "value": "2018-08-01",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 5,
-            "owner_id": 1,
-            "content_type_id": 3,
-            "value": "123",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 6,
-            "owner_id": 1,
-            "content_type_id": 4,
-            "value": "Value 1",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 7,
-            "owner_id": 1,
-            "content_type_id": 5,
-            "value": "true",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 8,
-            "owner_id": 1,
-            "content_type_id": 6,
-            "value": "{}",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 9,
-            "owner_id": 1,
-            "content_type_id": 7,
-            "value": "object-value-1",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        },
-        {
-            "id": 10,
-            "owner_id": 1,
-            "content_type_id": 8,
-            "value": "123",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/contents?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/contents?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/contents",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 10,
-    "total": 10
+    "message": "token invalid"
 }
 ```
 
@@ -8124,12 +7313,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "owner_id": 1,
-    "content_type_id": 1,
-    "value": "array-value-1",
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -8254,28 +7438,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "creator_id": 1,
-            "school_id": 1,
-            "email": "invited.user@mailinator.com",
-            "message": "Please come to my school as a student",
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/invites?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/invites?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/invites",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 1,
-    "total": 1
+    "message": "token invalid"
 }
 ```
 
@@ -8385,13 +7548,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "creator_id": 1,
-    "school_id": 1,
-    "email": "invited.user@mailinator.com",
-    "message": "Please come to my school as a student",
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
@@ -8516,31 +7673,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "user_id": 6,
-            "school_id": 1,
-            "program_id": 1,
-            "session_id": 1,
-            "student_id": null,
-            "locked_at": null,
-            "accepted_at": null,
-            "created_at": "2018-08-01 08:23:36",
-            "updated_at": "2018-08-01 08:23:36"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/v1\/prospects?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/v1\/prospects?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/v1\/prospects",
-    "per_page": 15,
-    "prev_page_url": null,
-    "to": 1,
-    "total": 1
+    "message": "token invalid"
 }
 ```
 
@@ -8649,16 +7782,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
-    "user_id": 6,
-    "school_id": 1,
-    "program_id": 1,
-    "session_id": 1,
-    "student_id": null,
-    "locked_at": null,
-    "accepted_at": null,
-    "created_at": "2018-08-01 08:23:36",
-    "updated_at": "2018-08-01 08:23:36"
+    "message": "token invalid"
 }
 ```
 
