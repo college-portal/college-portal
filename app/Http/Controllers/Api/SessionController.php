@@ -8,6 +8,12 @@ use App\Filters\SessionFilters;
 use CollegePortal\Models\School;
 use App\Http\Requests\SessionRequest;
 
+/**
+ * @resource Sessions
+ *
+ * For Endpoints handling Sessions, which represent an academic year. 
+ *  It could contain one or more semesters.
+ */
 class SessionController extends ApiController
 {
     protected $service;

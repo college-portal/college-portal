@@ -7,6 +7,12 @@ use App\Services\IntentService;
 use App\Filters\IntentFilters;
 use App\Http\Requests\IntentRequest;
 
+/**
+ * @resource Intents
+ *
+ * For Endpoints handling Intents, which represent an intention of a user to perform some action
+ *  in the future, such as "change-password". Each belongs to a particular Intent Type.
+ */
 class IntentController extends ApiController
 {
     protected $service;

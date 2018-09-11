@@ -8,6 +8,12 @@ use App\Filters\SemesterTypeFilters;
 use CollegePortal\Models\School;
 use App\Http\Requests\SemesterTypeRequest;
 
+/**
+ * @resource Semester Types
+ *
+ * For Endpoints handling Semester Types, which represent a group 
+ *  of Semesters, and belonging to a School.
+ */
 class SemesterTypeController extends ApiController
 {
     protected $service;

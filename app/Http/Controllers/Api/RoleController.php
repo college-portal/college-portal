@@ -7,6 +7,11 @@ use App\Services\RoleService;
 use App\Filters\RoleFilters;
 use App\Http\Requests\RoleRequest;
 
+/**
+ * @resource Roles
+ *
+ * For Endpoints handling Roles, which is a part or function a user a system plays within this system.
+ */
 class RoleController extends ApiController
 {
     protected $service;

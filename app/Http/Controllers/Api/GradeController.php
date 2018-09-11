@@ -7,6 +7,12 @@ use App\Services\GradeService;
 use App\Filters\GradeFilters;
 use App\Http\Requests\GradeRequest;
 
+/**
+ * @resource Grades
+ *
+ * For Endpoints handling Grades, which is a partial or total score a 
+ *  lecturer assigns to a student who takes a course he/she is in charge of.
+ */
 class GradeController extends ApiController
 {
     protected $service;

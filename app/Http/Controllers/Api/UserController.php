@@ -8,6 +8,11 @@ use App\Filters\UserFilters;
 use App\Http\Requests\UserRequest;
 use App\Http\Resources\UserResource;
 
+/**
+ * @resource Users
+ *
+ * For Endpoints handling Users, which represent a registered user of the system
+ */
 class UserController extends ApiController
 {
     protected $service;

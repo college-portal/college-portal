@@ -7,6 +7,11 @@ use App\Services\ChargeableService;
 use App\Filters\ChargeableFilters;
 use App\Http\Requests\ChargeableRequest;
 
+/**
+ * @resource Chargeables
+ *
+ * For Endpoints handling Chargeables, which represent a particular cost/charge for a service.
+ */
 class ChargeableController extends ApiController
 {
     protected $service;

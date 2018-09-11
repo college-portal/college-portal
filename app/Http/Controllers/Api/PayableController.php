@@ -7,6 +7,14 @@ use App\Services\PayableService;
 use App\Filters\PayableFilters;
 use App\Http\Requests\PayableRequest;
 
+/**
+ * @resource Payables
+ *
+ * For Endpoints handling Payables, which represent the fact that a user has to pay for a chargeable.
+ * - It should be hook for all Models that implement CollegePortal\Models\Traits\ChargeableTrait
+ * - The hook should be executed before POSTs in the service, to check that no pending payable exists
+ * - The POST operation should fail if such a payable exists
+ */
 class PayableController extends ApiController
 {
     protected $service;

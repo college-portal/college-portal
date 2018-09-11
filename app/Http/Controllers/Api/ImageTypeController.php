@@ -8,6 +8,12 @@ use App\Services\ImageTypeService;
 use App\Filters\ImageTypeFilters;
 use App\Http\Requests\ImageTypeRequest;
 
+/**
+ * @resource Image Types
+ *
+ * For Endpoints handling Image Types, which represent images belonging to a model,
+ *  denoted by the $type property.
+ */
 class ImageTypeController extends ApiController
 {
     protected $service;

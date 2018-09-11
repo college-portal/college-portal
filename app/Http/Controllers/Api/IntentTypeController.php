@@ -7,6 +7,11 @@ use App\Services\IntentTypeService;
 use App\Filters\IntentTypeFilters;
 use App\Http\Requests\IntentTypeRequest;
 
+/**
+ * @resource Intent Types
+ *
+ * For Endpoints handling Intent Types, which represent a group of intents
+ */
 class IntentTypeController extends ApiController
 {
     protected $service;

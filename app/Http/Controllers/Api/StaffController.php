@@ -7,6 +7,12 @@ use App\Services\StaffService;
 use App\Filters\StaffFilters;
 use App\Http\Requests\StaffRequest;
 
+/**
+ * @resource Staff
+ *
+ * For Endpoints handling Staff, which represent a User 
+ *  having a "staff" role within a School
+ */
 class StaffController extends ApiController
 {
     protected $service;

@@ -7,6 +7,12 @@ use App\Services\ContentService;
 use App\Filters\ContentFilters;
 use App\Http\Requests\ContentRequest;
 
+/**
+ * @resource Contents
+ *
+ * For Endpoints handling Content, which represent a value property for a particular model,
+ *  belonging to a Content Type
+ */
 class ContentController extends ApiController
 {
     protected $service;

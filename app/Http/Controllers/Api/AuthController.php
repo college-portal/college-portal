@@ -11,6 +11,11 @@ use App\Filters\UserFilters;
 use CollegePortal\Models\Content;
 use CollegePortal\Models\ContentType;
 
+/**
+ * @resource Authentication
+ *
+ * For Endpoints handling User Authentication
+ */
 class AuthController extends ApiController
 {
     protected $service;

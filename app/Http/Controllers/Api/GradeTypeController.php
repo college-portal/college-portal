@@ -8,6 +8,12 @@ use App\Filters\GradeTypeFilters;
 use CollegePortal\Models\School;
 use App\Http\Requests\GradeTypeRequest;
 
+/**
+ * @resource Grade Types
+ *
+ * For Endpoints handling Grade Types, which is a classification for grade scores. 
+ *  E.g. a score between 70 and 100 is an A.
+ */
 class GradeTypeController extends ApiController
 {
     protected $service;

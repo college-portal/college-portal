@@ -8,6 +8,12 @@ use App\Services\ContentTypeService;
 use App\Filters\ContentTypeFilters;
 use App\Http\Requests\ContentTypeRequest;
 
+/**
+ * @resource Content Types
+ *
+ * For Endpoints handling Content Types, which represent an extension of a model,
+ *   denoted by the $type property
+ */
 class ContentTypeController extends ApiController
 {
     protected $service;

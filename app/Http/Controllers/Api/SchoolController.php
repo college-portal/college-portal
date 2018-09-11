@@ -7,6 +7,11 @@ use App\Services\SchoolService;
 use App\Filters\SchoolFilters;
 use App\Http\Requests\SchoolRequest;
 
+/**
+ * @resource Schools
+ *
+ * For Endpoints handling Schools, which represent a tertiary institution.
+ */
 class SchoolController extends ApiController
 {
     protected $service;

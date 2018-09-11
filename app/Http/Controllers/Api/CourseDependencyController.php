@@ -7,6 +7,12 @@ use App\Services\CourseDependencyService;
 use App\Filters\CourseDependencyFilters;
 use App\Http\Requests\CourseDependencyRequest;
 
+/**
+ * @resource Course Dependencies
+ *
+ * For Endpoints handling Course Dependencies, which point to courses a students needs to have passed
+ *  before he/she can subscribe to a course. E.g. You must pass MATH 101 to subscribe to MATH 201
+ */
 class CourseDependencyController extends ApiController
 {
     protected $service;
