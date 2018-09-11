@@ -7,6 +7,13 @@ use App\Services\ProspectService;
 use App\Filters\ProspectFilters;
 use App\Http\Requests\ProspectRequest;
 
+/**
+ * @resource Prospect
+ *
+ * For Endpoints handling Prospects, which is a User who is an 
+ *  admission candidate to a particular School, in a particular Program 
+ *  and targeting a particular Session.
+ */
 class ProspectController extends ApiController
 {
     protected $service;

@@ -7,6 +7,12 @@ use App\Services\StudentService;
 use App\Filters\StudentFilters;
 use App\Http\Requests\StudentRequest;
 
+/**
+ * @resource Students
+ *
+ * For Endpoints handling Students, which represent a user with 
+ *  a "student" role within a School
+ */
 class StudentController extends ApiController
 {
     protected $service;

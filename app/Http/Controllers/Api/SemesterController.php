@@ -7,6 +7,13 @@ use App\Services\SemesterService;
 use App\Filters\SemesterFilters;
 use App\Http\Requests\SemesterRequest;
 
+/**
+ * @resource Semesters
+ *
+ * For Endpoints handling Semesters, which represent a time period, 
+ *  marked by start and end dates, within a Session, and belonging 
+ *  to a Semester Type.
+ */
 class SemesterController extends ApiController
 {
     protected $service;

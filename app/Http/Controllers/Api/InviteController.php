@@ -7,6 +7,12 @@ use App\Services\InviteService;
 use App\Filters\InviteFilters;
 use App\Http\Requests\InviteRequest;
 
+/**
+ * @resource Invites
+ *
+ * For Endpoints handling Invites, which represent an invitation given 
+ *  by an administrator, or school-owner to a potential user, denoted by $email.
+ */
 class InviteController extends ApiController
 {
     protected $service;

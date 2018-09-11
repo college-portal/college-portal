@@ -7,6 +7,12 @@ use App\Services\ProgramCreditService;
 use App\Filters\ProgramCreditFilters;
 use App\Http\Requests\ProgramCreditRequest;
 
+/**
+ * @resource Program Credits
+ *
+ * For Endpoints handling Program Credits, which represents the maximum 
+ *  number of credits a Student within a Level can take in a Semester.
+ */
 class ProgramCreditController extends ApiController
 {
     protected $service;

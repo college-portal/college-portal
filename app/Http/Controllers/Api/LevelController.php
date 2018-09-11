@@ -8,6 +8,11 @@ use App\Filters\LevelFilters;
 use CollegePortal\Models\School;
 use App\Http\Requests\LevelRequest;
 
+/**
+ * @resource Levels
+ *
+ * For Endpoints handling Levels, which represent a year within the school system.
+ */
 class LevelController extends ApiController
 {
     protected $service;

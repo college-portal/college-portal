@@ -7,6 +7,12 @@ use App\Services\StaffTeachCourseService;
 use App\Filters\StaffTeachCourseFilters;
 use App\Http\Requests\StaffTeachCourseRequest;
 
+/**
+ * @resource Staff Teaches Course
+ *
+ * For Endpoints handling Staff-Teach-Course, which represent 
+ *  the fact that a Staff teaches a particular Course
+ */
 class StaffTeachCourseController extends ApiController
 {
     protected $service;

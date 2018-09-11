@@ -7,6 +7,12 @@ use App\Services\StudentTakesCourseService;
 use App\Filters\StudentTakesCourseFilters;
 use App\Http\Requests\StudentTakesCourseRequest;
 
+/**
+ * @resource Student Takes Course
+ *
+ * For Endpoints handling Student-Takes-Course, which represent the fact that a Student,
+ *  takes a Course taught by a particular Staff.
+ */
 class StudentTakesCourseController extends ApiController
 {
     protected $service;

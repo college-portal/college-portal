@@ -7,6 +7,12 @@ use App\Services\CourseService;
 use App\Filters\CourseFilters;
 use App\Http\Requests\CourseRequest;
 
+/**
+ * @resource Courses
+ *
+ * For Endpoints handling Courses, which represent a subject, managed by a department,
+ *  that students can subscribe to, learn and receive Grades for having learnt.
+ */
 class CourseController extends ApiController
 {
     protected $service;

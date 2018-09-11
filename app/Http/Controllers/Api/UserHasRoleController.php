@@ -7,6 +7,12 @@ use App\Services\UserHasRoleService;
 use App\Filters\UserHasRoleFilters;
 use App\Http\Requests\UserHasRoleRequest;
 
+/**
+ * @resource User Has Roles
+ *
+ * For Endpoints handling User Has Roles, which represent the fact that a User,
+ *  acts a particular Role, sometimes within a School.
+ */
 class UserHasRoleController extends ApiController
 {
     protected $service;

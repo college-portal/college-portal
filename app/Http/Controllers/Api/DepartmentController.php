@@ -8,6 +8,12 @@ use App\Services\DepartmentService;
 use App\Services\FacultyService;
 use App\Filters\DepartmentFilters;
 
+/**
+ * @resource Departments
+ *
+ * For Endpoints handling Departments, which is a division within 
+ *  a Faculty comprising one or more study programs.
+ */
 class DepartmentController extends ApiController
 {
     protected $service, $facultyService;

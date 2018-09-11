@@ -7,6 +7,12 @@ use App\Services\ProgramService;
 use App\Filters\ProgramFilters;
 use App\Http\Requests\ProgramRequest;
 
+/**
+ * @resource Programs
+ *
+ * For Endpoints handling Programs, which represent a study-path 
+ *  a Student within a Department can take
+ */
 class ProgramController extends ApiController
 {
     protected $service;

@@ -9,6 +9,12 @@ use App\Filters\FacultyFilters;
 use App\Http\Requests\FacultyRequest;
 use App\Http\Resources\FacultyResource;
 
+/**
+ * @resource Faculties
+ *
+ * For Endpoints handling Faculties, which is a division within a School 
+ *  comprising one or more departments.
+ */
 class FacultyController extends ApiController
 {
     protected $service, $schoolService;

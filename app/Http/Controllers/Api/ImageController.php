@@ -9,6 +9,12 @@ use App\Http\Requests\ImageRequest;
 use JD\Cloudder\Facades\Cloudder;
 use CollegePortal\Models\Image;
 
+/**
+ * @resource Images
+ *
+ * For Endpoints handling Images, which represent a particular 
+ *  jpeg/png/etc resource belonging to an Image Type
+ */
 class ImageController extends ApiController
 {
     protected $service;
