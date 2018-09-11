@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ee524a84a9493b0eae00a9ccdeb7cbc",
+    "content-hash": "ac6bda8f51372793d96f6458f1a5b86a",
     "packages": [
         {
             "name": "cloudinary/cloudinary_php",
@@ -64,12 +64,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/college-portal/api-models.git",
-                "reference": "3790ab15d714e5d9485cdfa5e9d9506cf4012fe1"
+                "reference": "d4797e07dd371dabd53f6a1cfbe73c480a311c66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/college-portal/api-models/zipball/3790ab15d714e5d9485cdfa5e9d9506cf4012fe1",
-                "reference": "3790ab15d714e5d9485cdfa5e9d9506cf4012fe1",
+                "url": "https://api.github.com/repos/college-portal/api-models/zipball/d4797e07dd371dabd53f6a1cfbe73c480a311c66",
+                "reference": "d4797e07dd371dabd53f6a1cfbe73c480a311c66",
                 "shasum": ""
             },
             "require": {
@@ -102,7 +102,7 @@
                 }
             ],
             "description": "Models for Database Tables and Views for the College-Portal project",
-            "time": "2018-08-25T14:54:37+00:00"
+            "time": "2018-08-25T15:24:02+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2092,6 +2092,56 @@
                 "invoker"
             ],
             "time": "2017-03-20T19:28:22+00:00"
+        },
+        {
+            "name": "predis/predis",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nrk/predis.git",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/f0210e38881631afeafb56ab43405a92cafd9fd1",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "suggest": {
+                "ext-curl": "Allows access to Webdis when paired with phpiredis",
+                "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Predis\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniele Alessandri",
+                    "email": "suppakilla@gmail.com",
+                    "homepage": "http://clorophilla.net"
+                }
+            ],
+            "description": "Flexible and feature-complete Redis client for PHP and HHVM",
+            "homepage": "http://github.com/nrk/predis",
+            "keywords": [
+                "nosql",
+                "predis",
+                "redis"
+            ],
+            "time": "2016-06-16T16:22:20+00:00"
         },
         {
             "name": "psr/container",
