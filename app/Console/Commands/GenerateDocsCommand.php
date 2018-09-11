@@ -2,7 +2,9 @@
 
 namespace App\Console\Commands;
 
+use App\Services\UserService;
 use Illuminate\Console\Command;
+use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Artisan;
 
 class GenerateDocsCommand extends Command
@@ -48,8 +50,7 @@ class GenerateDocsCommand extends Command
         $password = ($this->option('password') == 'false') ? $this->getPassword() : $this->option('password');
         echo "\n";
 
-        $token = \JWTAuth::attempt([ 'email' => $email, 'password' => $password ]);
-
+        $token = JWTAuth::attempt([ 'email' => $email, 'password' => $password ], [ 'aud' => UserService::AUD_ACCESS, 'iss' => url('api/v1/auth') ]);
         try {
             if ($token) {
                 ini_set('memory_limit', -1);
